@@ -1,7 +1,12 @@
+import FindProperty from "../../HomeComponents/FindProperty";
+import GoogleMap from "../../HomeComponents/GoogleMap";
+
 const Home = () => {
     return (
         <div>
-            <h1 className="text-5xl text-black">i am from home</h1>
+            {/* TO DO INSERT A MAP WITH FEATURES */}
+            <GoogleMap></GoogleMap>
+            <FindProperty></FindProperty>
         </div>
     );
 };
