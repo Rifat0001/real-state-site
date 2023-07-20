@@ -1,7 +1,7 @@
 import './HomeComponents.css'
 const GetinTouch = () => {
     return (
-        <div className='get-touch my-20 bg-fixed mb-96'>
+        <div className='get-touch my-20 bg-fixed'>
             <div className='py-10 overlay items-center gap-4 flex px-8'>
                 <div className='space-y-8 w-7/12'>
                     <h1 className='text-5xl text-white font-semibold'>We help you buy or sell your property quickly</h1>

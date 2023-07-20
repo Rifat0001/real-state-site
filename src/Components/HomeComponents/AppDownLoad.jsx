@@ -1,0 +1,22 @@
+import play from '../../assets/playstore.png'
+import apple from '../../assets/apple.png'
+import mobile from '../../assets/mobile.png'
+const AppDownLoad = () => {
+    return (
+        <div className="flex">
+            <div className=" w-1/2 space-y-4">
+                <h1 className="text-5xl font-semibold text-primary">Download Our App</h1>
+                <p className="text-black ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui. Excepturi porro adipisci vitae accusamus delectus. Dolores natus accusantium at perferendis totam quidem, minima ullam cumque, nihil, quam rem dicta?</p>
+                <div className='flex gap-8'>
+                    <button><img src={play} className='w-48 h-16' alt="" /></button>
+                    <button><img src={apple} className='w-48' alt="" /></button>
+                </div>
+            </div>
+            <div>
+                <img src={mobile} alt="" />
+            </div>
+        </div>
+    );
+};
+
+export default AppDownLoad;
