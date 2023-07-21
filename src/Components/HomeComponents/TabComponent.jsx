@@ -12,6 +12,13 @@ const TabComponent = () => {
         setPropertyCard(data);
       });
   }, []);
+
+  const handleList = () =>{
+
+  } 
+  const handleGrid = () =>{
+    
+  }
   return (
     <div className=" bg-[#F8F8F8] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       {/* Section Title */}
@@ -68,12 +75,12 @@ const TabComponent = () => {
           </select>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <FaThList />
-          <FaThLarge />
+          <button onClick={handleList}><FaThList /></button>
+          <button onClick={handleGrid}><FaThLarge /></button>
         </div>
       </div>
       {/* show card */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center justify-between gap-x-6 gap-y-6">
+      <div id="SingleCard" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center justify-between gap-x-6 gap-y-6">
         {propertyCard.map((singleCard, index) => (
           <SingleProperty key={index} singleCard={singleCard} />
         ))}
