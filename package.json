@@ -16,13 +16,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
-<<<<<<< HEAD
-    "sort-by": "^1.2.0",
-    "swiper": "^10.0.4"
-=======
     "react-tabs": "^6.0.2",
     "sort-by": "^1.2.0"
->>>>>>> ab9f77b366cb0db80abb10a31f704c60442ed62c
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
