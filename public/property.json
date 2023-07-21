@@ -1,0 +1,94 @@
+[
+    {
+      "id": 5739,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg",
+      "type": "sales",
+      "status": "open house",
+      "price": 35000000,
+      "title": "Beautiful 3 Bedroom House",
+      "description": "Cozy and modern house with a spacious backyard.",
+      "beds": 3,
+      "baths": 2,
+      "sizes": 180,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 8112,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/book9-768x480.jpg",
+      "type": "rentals",
+      "status": "open house",
+      "price": 2200000,
+      "title": "Stylish Apartment in the City Center",
+      "description": "A fully-furnished apartment with stunning city views.",
+      "beds": 2,
+      "baths": 1,
+      "sizes": 90,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 9283,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/home2-525x328.jpg",
+      "type": "sales",
+      "status": "sold",
+      "price": 78000000,
+      "title": "Luxurious Villa with Pool",
+      "description": "Spacious villa with a private pool and garden.",
+      "beds": 5,
+      "baths": 4,
+      "sizes": 400,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 1426,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/featured_property-525x328.jpg",
+      "type": "sales",
+      "status": "sold",
+      "price": 78000000,
+      "title": "Luxurious Villa with Pool",
+      "description": "Spacious villa with a private pool and garden.",
+      "beds": 5,
+      "baths": 4,
+      "sizes": 400,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 6625,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/featured_property-525x328.jpg",
+      "type": "sales",
+      "status": "sold",
+      "price": 78000000,
+      "title": "Luxurious Villa with Pool",
+      "description": "Spacious villa with a private pool and garden.",
+      "beds": 5,
+      "baths": 4,
+      "sizes": 400,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 9138,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/home2-525x328.jpg",
+      "type": "sales",
+      "status": "sold",
+      "price": 78000000,
+      "title": "Luxurious Villa with Pool",
+      "description": "Spacious villa with a private pool and garden.",
+      "beds": 5,
+      "baths": 4,
+      "sizes": 400,
+      "area": "Example City, Country"
+    },
+    {
+      "id": 2147,
+      "image": "https://paris.wpresidence.net/wp-content/uploads/2014/05/book9-768x480.jpg",
+      "type": "sales",
+      "status": "sold",
+      "price": 78000000,
+      "title": "Luxurious Villa with Pool",
+      "description": "Spacious villa with a private pool and garden.",
+      "beds": 5,
+      "baths": 4,
+      "sizes": 400,
+      "area": "Example City, Country"
+    }
+  ]
+  

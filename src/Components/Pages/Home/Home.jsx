@@ -2,7 +2,7 @@ import AppDownLoad from "../../HomeComponents/AppDownLoad";
 import FindProperty from "../../HomeComponents/FindProperty";
 import GetinTouch from "../../HomeComponents/GetinTouch";
 import GoogleMap from "../../HomeComponents/GoogleMap";
-import Tab from "../../HomeComponents/Tab";
+import Tab from "../../HomeComponents/TabComponent";
 
 const Home = () => {
     return (
