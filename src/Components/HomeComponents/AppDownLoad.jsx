@@ -1,6 +1,6 @@
-import play from '../../assets/playstore.png'
-import apple from '../../assets/apple.png'
-import mobile from '../../assets/mobile.png'
+import play from "../../assets/playstore.png";
+import apple from "../../assets/apple.png";
+import mobile from "../../assets/mobile.png";
 const AppDownLoad = () => {
     return (
         <div className="bg-slate-100  p-4 pb-8 rounded-md">

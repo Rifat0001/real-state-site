@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FaThLarge, FaThList } from "react-icons/fa";
-import "react-tabs/style/react-tabs.css";
 import SingleProperty from "./SingleProperty";
 const TabComponent = () => {
   const [propertyCard, setPropertyCard] = useState([]);
