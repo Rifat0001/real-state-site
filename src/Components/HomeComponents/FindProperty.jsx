@@ -4,7 +4,7 @@ const FindProperty = () => {
   return (
     <div className="bg-slate-100 p-4 pb-8 rounded-md">
       <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
-        <h3 className="text-3xl text-center my-4 font-semibold text-primary">
+        <h3 className="text-3xl font-bold text-center text-black mb-4">
           Find Your Property
         </h3>
         <div className="flex">
@@ -32,7 +32,7 @@ const FindProperty = () => {
             <div className="flex items-center gap-4 h-full bg-white rounded-md">
               <FaSearch className="text-2xl ms-2"></FaSearch>
               <input
-                className="search border w-[630px]  rounded-md text-black h-full border-none"
+                className="search border w-[550px]  rounded-md text-black h-full border-none"
                 type="text"
               />
             </div>
