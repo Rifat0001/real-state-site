@@ -1,3 +1,5 @@
+import { FaUserCircle } from "react-icons/fa";
+
 const SingleProperty = ({ singleCard }) => {
   const {
     title,
@@ -21,10 +23,20 @@ const SingleProperty = ({ singleCard }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <h2 className="font-medium text-xl">€ {price} / month</h2>
+        <h2 className="font-bold text-xl">{title}</h2>
+        <p>{description}</p>
+        <div className="flex items-center justify-between pb-3">
+            <p>Beds: {beds}</p>
+            <p>Baths: {baths}</p>
+            <p>Area: {area}</p>
+        </div>
+        <hr />
+        <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start gap-2">
+                <FaUserCircle /> <span className="font-bold">Michael Suttherland</span>
+            </div>
+          <button className=" bg-primary px-2 py-1 rounded-md text-white font-bold">Details</button>
         </div>
       </div>
     </div>

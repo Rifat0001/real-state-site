@@ -6,7 +6,7 @@
       "status": "open house",
       "price": 35000000,
       "title": "Beautiful 3 Bedroom House",
-      "description": "Cozy and modern house with a spacious backyard.",
+      "description": "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
       "beds": 3,
       "baths": 2,
       "sizes": 180,
@@ -19,7 +19,7 @@
       "status": "open house",
       "price": 2200000,
       "title": "Stylish Apartment in the City Center",
-      "description": "A fully-furnished apartment with stunning city views.",
+      "description": "This property is mostly wooded and sits high on a hilltop overlooking the Mohawk River Val ",
       "beds": 2,
       "baths": 1,
       "sizes": 90,
@@ -32,7 +32,7 @@
       "status": "sold",
       "price": 78000000,
       "title": "Luxurious Villa with Pool",
-      "description": "Spacious villa with a private pool and garden.",
+      "description": "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
       "beds": 5,
       "baths": 4,
       "sizes": 400,
@@ -45,11 +45,11 @@
       "status": "sold",
       "price": 78000000,
       "title": "Luxurious Villa with Pool",
-      "description": "Spacious villa with a private pool and garden.",
+      "description": "Mineral Reserves: 2008 core drilling and testing (on just 60 of the 1,100 acres) proved 30",
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Example City, Country"
+      "area": "Notre Dame"
     },
     {
       "id": 6625,
@@ -58,11 +58,11 @@
       "status": "sold",
       "price": 78000000,
       "title": "Luxurious Villa with Pool",
-      "description": "Spacious villa with a private pool and garden.",
+      "description": "Mineral Reserves: 2008 core drilling and testing (on just 60 of the 1,100 acres) proved 30",
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Example City, Country"
+      "area": "Notre Dame"
     },
     {
       "id": 9138,
@@ -71,11 +71,11 @@
       "status": "sold",
       "price": 78000000,
       "title": "Luxurious Villa with Pool",
-      "description": "Spacious villa with a private pool and garden.",
+      "description": "Beautiful, updated, ground level Co-op apartment in the desirable Bay Terrace neighborhood",
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Example City, Country"
+      "area": "Notre Dame"
     },
     {
       "id": 2147,
@@ -84,11 +84,11 @@
       "status": "sold",
       "price": 78000000,
       "title": "Luxurious Villa with Pool",
-      "description": "Spacious villa with a private pool and garden.",
+      "description": "Mineral Reserves: 2008 core drilling and testing (on just 60 of the 1,100 acres) proved 30",
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Example City, Country"
+      "area": "Notre Dame"
     }
   ]
   
