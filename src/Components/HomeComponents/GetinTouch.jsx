@@ -2,7 +2,7 @@ import './HomeComponents.css'
 const GetinTouch = () => {
     return (
         <div className='get-touch my-20 bg-fixed'>
-            <div className='py-10 overlay items-center gap-4 flex px-8'>
+            <div className='py-10 overlay items-center gap-4 flex max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4'>
                 <div className='space-y-8 w-7/12'>
                     <h1 className='text-5xl text-white font-semibold'>We help you buy or sell your property quickly</h1>
                     <p className='text-white'>Engage with our professional real estate agents to sell, buy or rent your home.  Get emails directly to your inbox and manage the lead as you wish.</p>
