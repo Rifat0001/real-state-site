@@ -1,4 +1,5 @@
 import AppDownLoad from "../../HomeComponents/AppDownLoad";
+import BlogSection from "../../HomeComponents/BlogSection";
 import FindProperty from "../../HomeComponents/FindProperty";
 import GetinTouch from "../../HomeComponents/GetinTouch";
 import GoogleMap from "../../HomeComponents/GoogleMap";
@@ -14,6 +15,7 @@ const Home = () => {
             <Tab></Tab>
             <GetinTouch></GetinTouch>
             <AppDownLoad></AppDownLoad>
+            <BlogSection></BlogSection>
         </div>
     );
 };

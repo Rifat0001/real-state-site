@@ -5,7 +5,7 @@ const AppDownLoad = () => {
     return (
         <div className="flex items-center">
             <div className="w-1/2 space-y-4">
-                <h1 className="text-5xl font-semibold text-primary">Download Our App</h1>
+                <h1 className="text-5xl font-semibold text-black">Download <span className='text-primary'>Our App</span></h1>
                 <p className="text-black ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui. Excepturi porro adipisci vitae accusamus delectus. Dolores natus accusantium at perferendis totam quidem, minima ullam cumque, nihil, quam rem dicta?</p>
                 <div className='flex gap-8'>
                     <button><img src={play} className='w-48 h-16' alt="" /></button>
