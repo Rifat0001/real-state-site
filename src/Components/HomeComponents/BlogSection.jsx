@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+// import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/zoom';

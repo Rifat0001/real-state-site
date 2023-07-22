@@ -10,7 +10,10 @@
       "beds": 3,
       "baths": 2,
       "sizes": 180,
-      "area": "Example City, Country"
+      "area": "Saint Germain",
+      "category": "Apartment",
+      "state": "Argentina",
+      "city": "Paris"
     },
     {
       "id": 8112,
@@ -23,7 +26,10 @@
       "beds": 2,
       "baths": 1,
       "sizes": 90,
-      "area": "Example City, Country"
+      "area": "Saint Germain",
+      "category": "Condo",
+      "state": "France",
+      "city": "Paris"
     },
     {
       "id": 9283,
@@ -36,7 +42,10 @@
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Example City, Country"
+      "area": "Saint Germain",
+      "category": "Land",
+      "state": "France",
+      "city": "Paris"
     },
     {
       "id": 1426,
@@ -49,7 +58,10 @@
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Notre Dame"
+      "area": "Notre Dame",
+      "category": "Apartment",
+      "state": "France",
+      "city": "Paris"
     },
     {
       "id": 6625,
@@ -62,7 +74,10 @@
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Notre Dame"
+      "area": "Notre Dame",
+      "category": "Industrial",
+      "state": "France",
+      "city": "Montreuil"
     },
     {
       "id": 9138,
@@ -75,7 +90,10 @@
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Notre Dame"
+      "area": "Notre Dame",
+      "category": "House",
+      "state": "France",
+      "city": "Montreuil"
     },
     {
       "id": 2147,
@@ -88,7 +106,10 @@
       "beds": 5,
       "baths": 4,
       "sizes": 400,
-      "area": "Notre Dame"
+      "area": "Notre Dame",
+      "category": "Apartment",
+      "state": "France",
+      "city": "Montreuil"
     }
   ]
   
