@@ -57,8 +57,8 @@ const TabComponent = () => {
       </div>
       {/* Tabs */}
 
-      <div className="bg-white my-10 flex items-center justify-between px-4 rounded">
-        <div className="flex items-center justify-start gap-3">
+      <div className="bg-white my-10 flex   items-center justify-between px-4 rounded">
+        <div className="flex flex-wrap items-center justify-start gap-2">
           <select
             className="select hover:outline-none hover:border-none focus:ring-0"
             onChange={(e) => setSelectedType(e.target.value)}
@@ -93,7 +93,7 @@ const TabComponent = () => {
             <option value="Saint Germain">Saint Germain</option>
           </select>
         </div>
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-4 sm:pb-3 md:pb-0">
           <button onClick={handleList}>
             <FaThList />
           </button>
