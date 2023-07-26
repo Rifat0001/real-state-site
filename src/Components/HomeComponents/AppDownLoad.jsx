@@ -3,7 +3,7 @@ import apple from "../../assets/apple.png";
 import mobile from "../../assets/mobile.png";
 const AppDownLoad = () => {
     return (
-        <div className="max-w-[2150px] bg-slate-100 py-20 mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
+        <div className="max-w-[2150px] bg-blue-100 py-20 mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
             <div className="    pb-8 rounded-md">
                 <div className="flex  items-center ">
                     <div className="w-1/2 space-y-4">

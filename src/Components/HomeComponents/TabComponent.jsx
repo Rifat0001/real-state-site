@@ -53,10 +53,7 @@ const TabComponent = () => {
           <span>Read About</span>
           <span>Our Properties</span>
         </p>
-        <h2 className="text-3xl font-bold text-center">
-          We sell and buy a wide range of properties to <br /> suit all budgets
-          and tastes
-        </h2>
+        <h1 className="text-5xl font-semibold text-center text-black">Get Your Best<span className='text-primary'> Match</span></h1>
       </div>
       {/* Tabs */}
 

@@ -2,11 +2,11 @@ import { FaSearch } from "react-icons/fa";
 import "./HomeComponents.css";
 const FindProperty = () => {
   return (
-    <div className="bg-slate-100 p-4 pb-8 rounded-md">
+    <div className="bg-blue-100 pt-16 p-4 pb-16 rounded-md">
       <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
-        <h3 className="text-3xl font-bold text-center text-black mb-4">
+        {/* <h3 className="text-3xl font-bold text-center text-black mb-4">
           Find Your Property
-        </h3>
+        </h3> */}
         <div className="flex">
           <div className="ms-4">
             <button className="btn choose  text-black border-none drop-shadow-lg me-2 bg-white">

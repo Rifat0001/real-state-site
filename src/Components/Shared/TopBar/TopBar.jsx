@@ -1,7 +1,7 @@
 import { FaPhoneAlt, FaSearchLocation, FaRegClock } from 'react-icons/fa';
 const TopBar = () => {
     return (
-        <div className="flex justify-between mt-4 ">
+        <div className="md:flex justify-between mt-4 hidden ">
             <div>
                 <h1 className="text-primary font-bold text-4xl italic">Real State</h1>
             </div>
