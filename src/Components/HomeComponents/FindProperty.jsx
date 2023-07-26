@@ -28,11 +28,11 @@ const FindProperty = () => {
               <option value="audi">New Homes</option>
             </select>
           </div>
-          <div className="flex items-center gap-4 drop-shadow-lg ms-0 md:ms-20">
+          <div className="flex items-center gap-2 md:gap-4 drop-shadow-lg ms-0 md:ms-20">
             <div className="flex items-center gap-4 h-full bg-white rounded-md">
               <FaSearch className="text-2xl ms-2"></FaSearch>
               <input
-                className="search border md:w-[550px] w-[217px]  rounded-md text-black h-12 md:h-full border-none"
+                className="search border md:w-[550px] w-[225px]  rounded-md text-black h-12 md:h-full border-none"
                 type="text"
               />
             </div>

@@ -1,5 +1,4 @@
 import AppDownLoad from "../../HomeComponents/AppDownLoad";
-import BlogCarousel from "../../HomeComponents/BlogCarousel";
 import BlogSection from "../../HomeComponents/BlogSection";
 import FindProperty from "../../HomeComponents/FindProperty";
 import GetinTouch from "../../HomeComponents/GetinTouch";

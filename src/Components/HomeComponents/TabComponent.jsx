@@ -53,7 +53,7 @@ const TabComponent = () => {
           <span>Read About</span>
           <span>Our Properties</span>
         </p>
-        <h1 className="text-5xl font-semibold text-center text-black">Get Your Best<span className='text-primary'> Match</span></h1>
+        <h1 className="md:text-5xl text-3xl font-bold md:font-semibold text-center  text-black">Get Your Best<span className='text-primary'> Match</span></h1>
       </div>
       {/* Tabs */}
 
