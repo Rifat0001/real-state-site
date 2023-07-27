@@ -9,10 +9,10 @@ const FindProperty = () => {
         </h3> */}
         <div className="flex md:flex-row flex-col ">
           <div className="md:ms-4 md:mb-0 mb-6 flex ms-0 ">
-            <button className="btn choose md:w-[70px] w-[180px]  text-black border-none drop-shadow-lg me-2 bg-white">
+            <button className="btn choose md:w-[70px] w-[160px]  text-black border-none drop-shadow-lg me-2 bg-white">
               Buy
             </button>
-            <button className="btn choose  md:w-[70px] w-[180px] text-black border-none drop-shadow-lg me-2 bg-white">
+            <button className="btn choose  md:w-[70px] w-[160px] text-black border-none drop-shadow-lg me-2 bg-white">
               Rent
             </button>
           </div>
@@ -32,7 +32,7 @@ const FindProperty = () => {
             <div className="flex items-center gap-4 h-full bg-white rounded-md">
               <FaSearch className="text-2xl ms-2"></FaSearch>
               <input
-                className="search border md:w-[550px] w-[225px]  rounded-md text-black h-12 md:h-full border-none"
+                className="search border md:w-[550px] w-[185px]  rounded-md text-black h-12 md:h-full border-none"
                 type="text"
               />
             </div>
