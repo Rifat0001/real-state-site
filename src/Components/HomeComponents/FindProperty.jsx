@@ -8,18 +8,18 @@ const FindProperty = () => {
           Find Your Property
         </h3> */}
         <div className="flex md:flex-row flex-col ">
-          <div className="md:ms-4 md:mb-0 mb-6 flex ms-0 ">
-            <button className="btn choose md:w-[70px] w-[160px]  text-black border-none drop-shadow-lg me-2 bg-white">
+          <div className="md:ms-4 md:mb-0 mb-6 flex justify-center ms-0 ">
+            <button className="btn choose md:w-[70px] w-[10rem]  text-black border-none drop-shadow-lg me-2 bg-white">
               Buy
             </button>
-            <button className="btn choose  md:w-[70px] w-[160px] text-black border-none drop-shadow-lg me-2 bg-white">
+            <button className="btn choose  md:w-[70px] w-[10rem] text-black border-none drop-shadow-lg me-2 bg-white">
               Rent
             </button>
           </div>
-          <div>
+          <div className="flex justify-center">
             <select
               name="cars"
-              className="text-black md:mb-0 mb-6 border-none drop-shadow-lg md:w-[200px] w-full h-[48px] rounded-md ms-0 md:ms-4 ps-3 font-semibold "
+              className="text-black md:mb-0 mb-6 border-none bg-white drop-shadow-lg md:w-[200px] w-[20.5rem] h-[48px] rounded-md  md:ms-4  p-3 font-semibold "
               id="cars"
             >
               <option value="volvo">Homes</option>
@@ -28,7 +28,7 @@ const FindProperty = () => {
               <option value="audi">New Homes</option>
             </select>
           </div>
-          <div className="flex items-center gap-2 md:gap-4 drop-shadow-lg ms-0 md:ms-20">
+          <div className="flex justify-center items-center gap-2 md:gap-4 drop-shadow-lg ms-0 md:ms-20">
             <div className="flex items-center gap-4 h-full bg-white rounded-md">
               <FaSearch className="text-2xl ms-2"></FaSearch>
               <input
