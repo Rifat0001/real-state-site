@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css/pagination';
+
+// import required modules
+import { Zoom, Navigation, Pagination } from 'swiper/modules';
+import { useEffect, useState } from 'react';
 const BlogCarousel = () => {
-    const scrollLeft = () => {
-        document.getElementById("content").scrollLeft -= 400;
-    }
-    const scrollRight = () => {
-        document.getElementById("content").scrollLeft += 400;
-    }
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
         fetch('blog.json')
@@ -14,22 +15,45 @@ const BlogCarousel = () => {
             .then(data => setBlogs(data))
     })
     return (
-        <div>
-            <div className="relative">
-                <div className="text-center py-4  text-xl font-bold">Carousel</div>
-                <div className="absolute right-0 top-5 ">
-                    <button onClick={scrollLeft} className="p-2 m-2 rounded-full bg-white">
-                        <FiChevronLeft />
-                    </button>
-                    <button onClick={scrollRight} className="p-2 m-2 rounded-full bg-white">
-                        <FiChevronRight />
-                    </button>
-                </div>
-                <div id="content" className="carousel p-4 flex items-center justify-start overflow-x-auto scroll-smooth  scrollbar-hide">
-                    {
-                        blogs.map(blog =>
-                            <div key={blog.date} className="card w-96 p-2 my-14  bg-white  rounded-md drop-shadow-lg mx-8 shadow-xl">
-                                <figure><img src={blog.image_url} className='w-full' alt="Shoes" /></figure>
+        <div className='my-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4'>
+            <div className=''>
+                <h3 className='text-3xl md:text-5xl text-black font-bold md:font-semibold text-center'>Our <span className='text-primary'>Blogs</span></h3>
+                <p className=' text-slate-500 text-center mt-6'>Read the blog and stay update with all the latest real estate news</p>
+            </div>
+            <Swiper
+                style={{
+                    '--swiper-navigation-color': 'blue',
+                    '--swiper-pagination-color': 'blue',
+                }}
+                zoom={true}
+                navigation={true}
+                slidesPerView={1}
+                spaceBetween={10}
+                pagination={{
+                    clickable: true,
+                }}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }}
+                modules={[Zoom, Navigation, Pagination]}
+                className="mySwiper"
+            >
+                {
+                    blogs.map(blog =>
+                        <SwiperSlide key={blog.date}>
+                            <div className="card   w-96 p-2 my-14  bg-white  rounded-md drop-shadow-lg shadow-xl">
+                                <figure><img src={blog.image_url} className='w-full h-[280px]' alt="Shoes" /></figure>
                                 <div className="card-body h-80">
                                     <h2 className="card-title text-black">{blog.blog_name}</h2>
                                     <p className='text-slate-800 font-semibold'>{blog.date}</p>
@@ -38,11 +62,11 @@ const BlogCarousel = () => {
                                         <button className='text-primary'>Read More </button>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    }
-                </div>
-            </div>
+                            </div></SwiperSlide>
+                    )
+                }
+
+            </Swiper>
         </div>
     );
 };
