@@ -15,7 +15,7 @@ const TopBar = () => {
             <div className='flex items-center gap-4'>
                 <FaSearchLocation className='text-primary text-xl'></FaSearchLocation>
                 <div>
-                    <p className='text-black font-medium'>New York City</p>
+                    <p className='text-black font-medium'>New York</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>

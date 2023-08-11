@@ -32,3 +32,9 @@
     position: relative;
     z-index: 1;
 }
+
+.forma input,
+textarea {
+    background-color: #F5F5F5;
+
+}

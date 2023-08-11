@@ -7,15 +7,15 @@ const GetinTouch = () => {
                     <h1 className='md:text-5xl text-3xl text-white font-bold md:font-semibold'>We help you buy or sell your property quickly</h1>
                     <p className='text-gray'>Engage with our professional real estate agents to sell, buy or rent your home.  Get emails directly to your inbox and manage the lead as you wish.</p>
                 </div>
-                <div className='bg-[#F2F3F3] w-full md:mt-0 mt-6 md:w-5/12 rounded-md p-8 space-y-4'>
+                <div className='bg-white w-full md:mt-0 mt-6 md:w-5/12 rounded-md p-8 space-y-4'>
                     <h1 className='text-2xl text-black font-semibold'>Get in touch</h1>
                     <p className='text-slate-500 font-semibold'>Fill out this form and one of our agents will be in touch with you soon.</p>
                     <div>
-                        <form className='space-y-4'>
-                            <input className='border bg-white p-2 rounded-md text-black w-full drop-shadow-sm' type="text" placeholder='Your Name' />
-                            <input className='border bg-white p-2 rounded-md text-black w-full drop-shadow-sm' type="text" placeholder='Your Email' />
-                            <input className='border bg-white p-2 rounded-md text-black w-full drop-shadow-sm' type="text" placeholder='Your Phone Number' />
-                            <textarea className='border bg-white p-2 rounded-md text-black w-full drop-shadow-sm' placeholder='Type your message' name="" id="" cols="10" rows="5"></textarea>
+                        <form className='space-y-4 forma'>
+                            <input className='border  p-2 rounded-md text-black w-full ' type="text" placeholder='Your Name' />
+                            <input className='border  p-2 rounded-md text-black w-full ' type="text" placeholder='Your Email' />
+                            <input className='border  p-2 rounded-md text-black w-full ' type="text" placeholder='Your Phone Number' />
+                            <textarea className='border  p-2 rounded-md text-black w-full ' placeholder='Type your message' name="" id="" cols="10" rows="5"></textarea>
                             <button className='btn btn-primary btn-outline w-full bg-white'>Send Message</button>
                         </form>
                     </div>
