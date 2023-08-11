@@ -2,3 +2,7 @@
     font-size: 16px;
     color: blue;
 }
+
+.menu li a {
+    font-size: 18px;
+}

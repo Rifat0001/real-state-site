@@ -15,7 +15,7 @@ const BlogCarousel = () => {
             .then(data => setBlogs(data))
     })
     return (
-        <div className='my-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4'>
+        <div className='py-20 max-w-[2150px] bg-[#F0F2F5] mx-auto xl:px-40 md:px-10 sm:px-2 px-4'>
             <div className=''>
                 <h3 className='text-3xl md:text-5xl text-black font-bold md:font-semibold text-center'>Our <span className='text-primary'>Blogs</span></h3>
                 <p className=' text-slate-500 text-center mt-6'>Read the blog and stay update with all the latest real estate news</p>

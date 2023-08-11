@@ -3,9 +3,12 @@ import TopBar from "../TopBar/TopBar";
 
 const Header = () => {
     return (
-        <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
+        <div>
             <TopBar></TopBar>
-            <Navbar></Navbar>
+            <div className="max-w-[2150px] bg-white mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
+                <Navbar></Navbar>
+            </div>
+
         </div>
     );
 };

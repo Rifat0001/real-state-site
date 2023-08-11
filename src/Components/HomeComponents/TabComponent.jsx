@@ -46,7 +46,7 @@ const TabComponent = () => {
     setNumColumns(2);
   };
   return (
-    <div className=" bg-[#F8F8F8] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+    <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       {/* Section Title */}
       <div>
         <p className="flex items-center justify-center gap-1">

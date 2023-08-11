@@ -8,7 +8,7 @@ import Tab from "../../HomeComponents/TabComponent";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-[#F0F2F5]">
             {/* TO DO INSERT A MAP WITH FEATURES */}
             <GoogleMap></GoogleMap>
             <FindProperty></FindProperty>
