@@ -1,9 +1,10 @@
 import { FaPhoneAlt, FaSearchLocation, FaRegClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const TopBar = () => {
     return (
         <div className="md:flex justify-between md:px-40 py-4 hidden border-b ">
             <div>
-                <h1 className="text-primary font-bold text-4xl italic">Real State</h1>
+                <Link to='/' className="text-primary font-bold text-4xl italic">Real State</Link>
             </div>
             {/* for call service  */}
             <div className='flex items-center gap-4'>

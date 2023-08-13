@@ -1,5 +1,6 @@
 import { FaUser } from 'react-icons/fa';
 import './NavBar.css'
+import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
@@ -24,7 +25,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-start hidden text-black font-semibold  lg:flex">
                 <ul className="menu ms-[-30px] main menu-horizontal px-1">
-                    <li><a>Home</a></li>
+                    <li><a> <Link to='/'>Home</Link> </a></li>
                     <li><a>About</a></li>
                     <li><a>Service</a></li>
                     <li><a>Contact</a></li>
@@ -34,9 +35,9 @@ const Navbar = () => {
             <div className="navbar-end md:gap-6 gap-2" >
 
                 <a className="btn btn-outline btn-primary btn-xs md:btn-sm text-white">Add Listing</a>
-                <div className='border border-primary  p-2 rounded-full'>
+                <Link to='/login' className='border border-primary  p-2 rounded-full'>
                     <FaUser className='text-primary'></FaUser>
-                </div>
+                </Link>
             </div>
         </div>
     );

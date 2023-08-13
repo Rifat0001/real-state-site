@@ -93,14 +93,7 @@ const TabComponent = () => {
             <option value="Saint Germain">Saint Germain</option>
           </select>
         </div>
-        <div className="flex items-center justify-between gap-4 sm:pb-3 md:pb-0">
-          <button onClick={handleList}>
-            <FaThList />
-          </button>
-          <button onClick={handleGrid}>
-            <FaThLarge />
-          </button>
-        </div>
+
       </div>
       {/* show card */}
       <div
