@@ -1,72 +1,470 @@
 import { useEffect, useState } from "react";
-import { FaBath, FaBed, FaHeart, FaPrint, FaQrcode, FaShareAlt } from "react-icons/fa";
+import DatePicker from "react-datepicker";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import {
+  FaBasketballBall,
+  FaBath,
+  FaBed,
+  FaBolt,
+  FaDesktop,
+  FaDharmachakra,
+  FaDumbbell,
+  FaFan,
+  FaFireAlt,
+  FaGasPump,
+  FaHandHoldingWater,
+  FaHeadSideMask,
+  FaHeart,
+  FaHotjar,
+  FaHouseDamage,
+  FaParking,
+  FaPrint,
+  FaQrcode,
+  FaRegCheckCircle,
+  FaShareAlt,
+  FaSkiing,
+  FaSwimmingPool,
+  FaUtensils,
+  FaVolleyballBall,
+  FaWheelchair,
+  FaWifi,
+} from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router-dom";
 
-
 const ItemInfo = () => {
-    const items = useLoaderData();
-    console.log(items);
+  const items = useLoaderData();
+  console.log(items);
   const { id } = useParams();
-    console.log(id);
-
-    const [item, setItem] = useState({});
+  console.log(id);
+  const [startDate, setStartDate] = useState(new Date());
+  const [item, setItem] = useState({});
   useEffect(() => {
     const itemData = items.find((i) => i.id == id);
     setItem(itemData);
   }, []);
-    return (
-        <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
-            <button className="btn btn-primary mr-2">{item.type}</button><button className="btn btn-accent">{item.status}</button>
-            <div className="flex items-center justify-between py-4">
-                <div>
-                    <h2 className=" text-4xl font-bold">{item.title}</h2>
-                    <p className="font-semibold pt-2">{item.city}, {item.state}</p>
-                </div>
-                <div className=" space-y-2">
-                    <h2 className="text-3xl font-bold text-right">€ {item.price}</h2>
-                    <div className="flex items-center justify-end gap-4">
-                        <button className="btn bg-white border-none hover:bg-white text-black"><FaShareAlt /> Share</button>
-                        <button className="btn bg-white border-none hover:bg-white text-black"><FaHeart /> Favorite</button>
-                        <button className="btn bg-white border-none hover:bg-white text-black"><FaPrint /> Print</button>
-                    </div>
-                </div>
-            </div>
-            <div className="grid grid-cols-3 gap-4 items-center justify-center">
-                <div className=" col-span-2">
-                    <div className="bg-white py-6 px-7 space-y-3">
-                        <h2 className="font-bold text-xl">Overview</h2>
-                        <div className="flex items-center justify-between">
-                            <div>
-                                <h2 className="font-semibold">Updated On:</h2>
-                                <p className="font-bold">February 9, 2023</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center font-bold">
-                                <FaBed />
-                                <p>{item.beds} Bedrooms</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center font-bold">
-                                <FaBath />
-                                <p>{item.baths} Bathrooms</p>
-                            </div>
-                            <div className="flex flex-col items-center justify-center font-bold">
-                                <FaQrcode />
-                                <p>{item.sizes} m<sup>2</sup></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-white py-6 px-7 space-y-3 my-5">
-                        <h2 className="font-bold text-xl">Description</h2>
-                        <p>{item.description}</p>
-                    </div>
-                    <div className="bg-white py-6 px-7 space-y-3 my-5">
-                        <h2 className="font-bold text-xl">Address</h2>
-                        <p>{item.description}</p>
-                    </div>
-                </div>
-                <div>sdf</div>
-            </div>
+  return (
+    <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+      <button className="btn btn-primary mr-2">{item.type}</button>
+      <button className="btn btn-accent">{item.status}</button>
+      <div className="flex items-center justify-between py-4">
+        <div>
+          <h2 className=" text-4xl font-bold">{item.title}</h2>
+          <p className="font-semibold pt-2">
+            {item.city}, {item.state}
+          </p>
         </div>
-    );
+        <div className=" space-y-2">
+          <h2 className="text-3xl font-bold text-right">€ {item.price}</h2>
+          <div className="flex items-center justify-end gap-4">
+            <button className="btn bg-white border-none hover:bg-white text-black">
+              <FaShareAlt /> Share
+            </button>
+            <button className="btn bg-white border-none hover:bg-white text-black">
+              <FaHeart /> Favorite
+            </button>
+            <button className="btn bg-white border-none hover:bg-white text-black">
+              <FaPrint /> Print
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-4 items-start justify-center">
+        <div className=" col-span-2">
+          <div className="bg-white py-6 px-7 space-y-3">
+            <h2 className="font-bold text-xl">Overview</h2>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="font-semibold">Updated On:</h2>
+                <p className="font-bold">February 9, 2023</p>
+              </div>
+              <div className="flex flex-col items-center justify-center font-bold">
+                <FaBed />
+                <p>{item.beds} Bedrooms</p>
+              </div>
+              <div className="flex flex-col items-center justify-center font-bold">
+                <FaBath />
+                <p>{item.baths} Bathrooms</p>
+              </div>
+              <div className="flex flex-col items-center justify-center font-bold">
+                <FaQrcode />
+                <p>
+                  {item.sizes} m<sup>2</sup>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white py-6 px-7 space-y-3 my-5">
+            <h2 className="font-bold text-xl">Description</h2>
+            <p>{item.description}</p>
+          </div>
+          <div className="bg-white py-6 px-7 space-y-3 my-5">
+            <h2 className="font-bold text-xl pb-5">Address</h2>
+            <div className="grid grid-cols-2 items-center justify-between">
+              <div className="space-y-3">
+                <p>
+                  <span className="font-bold">Address:</span> 53 W 88th St
+                </p>
+                <p>
+                  <span className="font-bold">Area:</span> Notre Dame
+                </p>
+                <p>
+                  <span className="font-bold">ZIP:</span> 365448
+                </p>
+              </div>
+              <div className="space-y-3">
+                <p>
+                  <span className="font-bold">City:</span> {item.city}
+                </p>
+                <p>
+                  <span className="font-bold">State/Country:</span> {item.state}
+                </p>
+                <p>
+                  <span className="font-bold">Country:</span> {item.state}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white py-6 px-7 space-y-3 my-5">
+            <h2 className="font-bold text-xl pb-5">Details</h2>
+            <div className="grid grid-cols-2 items-start justify-between">
+              <div className="space-y-3">
+                <p>
+                  <span className="font-bold">Property Id:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Property Size:</span> {item.sizes}{" "}
+                  m<sup>2</sup>
+                </p>
+                <p>
+                  <span className="font-bold">Rooms:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Bathrooms:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Roofing:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Floors No:</span>
+                </p>
+              </div>
+              <div className="space-y-3">
+                <p>
+                  <span className="font-bold">Price:</span> € {item.price}
+                </p>
+                <p>
+                  <span className="font-bold">Property Lot Size:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Bedrooms:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Custom ID:</span>
+                </p>
+                <p>
+                  <span className="font-bold">Structure Type:</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white py-6 px-7 space-y-3 my-5">
+            <h2 className="font-bold text-xl pb-5">Features</h2>
+            <div>
+              <div>
+                <h1 className="font-bold pb-4">Interior Details</h1>
+                <div className="grid grid-cols-2 items-center justify-between ">
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaUtensils size={15} color="blue" /> Equipped Kitchen
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaVolleyballBall size={15} color="blue" /> Laundry
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaDumbbell size={15} color="blue" /> Gym
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaDesktop size={15} color="blue" /> Media Room
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="py-6">
+                <h1 className="font-bold pb-4">Outdoor Details</h1>
+                <div className="grid grid-cols-2 items-start justify-between ">
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaFan size={15} color="blue" /> Back yard
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaHouseDamage size={15} color="blue" /> Front yard
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaRegCheckCircle size={15} color="blue" /> Hot Bath
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaBasketballBall size={15} color="blue" /> Basketball
+                      court
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaParking size={15} color="blue" /> Garage Attached
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaSwimmingPool size={15} color="blue" /> Pool
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="py-6">
+                <h1 className="font-bold pb-4">Utilities</h1>
+                <div className="grid grid-cols-2 items-start justify-between ">
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaRegCheckCircle size={15} color="blue" /> Central Air
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaFireAlt size={15} color="blue" /> Heating
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaHeadSideMask size={15} color="blue" /> Ventilation
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaBolt size={15} color="blue" /> Electricity
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaGasPump size={15} color="blue" /> Natural Gas
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaHandHoldingWater size={15} color="blue" /> Water
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="py-6">
+                <h1 className="font-bold pb-4">Other Features</h1>
+                <div className="grid grid-cols-2 items-start justify-between ">
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaWheelchair size={15} color="blue" /> Chair Accessible
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaHotjar size={15} color="blue" /> Fireplace
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaWifi size={15} color="blue" /> WiFi
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaSkiing size={15} color="blue" /> Elevator
+                    </p>
+                    <p className="flex items-center justify-start gap-2 font-bold">
+                      <FaDharmachakra size={15} color="blue" /> Washer and dryer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white py-6 px-7 space-y-3 my-5">
+            <h2 className="font-bold text-xl">Video</h2>
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                className="w-full"
+                height={315}
+                src="https://www.youtube.com/embed/rzsdHX4xAc4"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white w-full sticky">
+          <Tabs>
+            <TabList className="text-center py-2">
+              <Tab>Request Info</Tab>
+              <Tab>Schedule A Tour</Tab>
+            </TabList>
+
+            <TabPanel>
+              <div>
+                <div className="flex items-center justify-center gap-7 py-3">
+                  <img
+                    className=" w-[130px] rounded-md"
+                    src="https://images.pexels.com/photos/839633/pexels-photo-839633.jpeg"
+                    alt=""
+                  />
+                  <div>
+                    <h2 className="font-bold">Maria Barlow</h2>
+                    <p>Sales Executive</p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <div className="card-body">
+                      <div className="form-control">
+                        <input
+                          type="text"
+                          placeholder="Your Name"
+                          className="input input-bordered shadow"
+                        />
+                      </div>
+                      <div className="form-control">
+                        <input
+                          type="text"
+                          placeholder="Your Email"
+                          className="input input-bordered shadow"
+                        />
+                      </div>
+                      <div className="form-control">
+                        <input
+                          type="phone"
+                          placeholder="Your Phone"
+                          className="input input-bordered shadow"
+                        />
+                      </div>
+                      <div className="form-control">
+                        <textarea
+                          name="message"
+                          cols="10"
+                          rows="20"
+                          className="input input-bordered shadow pt-2"
+                          placeholder="I'm interested in [ Villa On Washington Ave ]"
+                        ></textarea>
+                      </div>
+                      <div className="form-control mt-6">
+                        <label className="label flex items-center justify-start gap-3 cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked="checked"
+                            className="checkbox"
+                          />
+                          <span className="label-text font-bold">
+                            {" "}
+                            I consent to the GDPR Terms
+                          </span>
+                        </label>
+                        <input
+                          type="submit"
+                          value="Send Email"
+                          className="btn btn-primary"
+                        />
+                        <div className="flex items-center justify-center gap-2 py-2">
+                          <input
+                            type="submit"
+                            value="Call"
+                            className="btn btn-primary w-1/2"
+                          />
+                          <input
+                            type="submit"
+                            value="Whatsapp"
+                            className="btn btn-primary w-1/2"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div>
+                <div className="px-[10%] py-4">
+                    <h2 className="text-xl font-bold">Schedule a tour</h2>
+                    <DatePicker className="w-full z-10" selected={startDate} onChange={(date) => setStartDate(date)} />
+                </div>
+                <select className="select select-secondary w-full max-w-xs text-center mx-[10%]">
+                  <option disabled selected>
+                    Please Select The Time
+                  </option>
+                  <option>Java</option>
+                  <option>Go</option>
+                  <option>C</option>
+                  <option>C#</option>
+                  <option>C++</option>
+                  <option>Rust</option>
+                  <option>JavaScript</option>
+                  <option>Python</option>
+                </select>
+                <div className="flex items-center justify-center gap-2 py-2 px-[10%]">
+                  <input
+                    type="submit"
+                    value="In Person"
+                    className="btn btn-primary w-1/2"
+                  />
+                  <input
+                    type="submit"
+                    value="Video Chat"
+                    className="btn btn-primary w-1/2"
+                  />
+                </div>
+                <div>
+                  <div className="card-body">
+                    <div className="form-control">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="input input-bordered shadow"
+                      />
+                    </div>
+                    <div className="form-control">
+                      <input
+                        type="text"
+                        placeholder="Your Email"
+                        className="input input-bordered shadow"
+                      />
+                    </div>
+                    <div className="form-control">
+                      <input
+                        type="phone"
+                        placeholder="Your Phone"
+                        className="input input-bordered shadow"
+                      />
+                    </div>
+                    <div className="form-control">
+                      <textarea
+                        name="message"
+                        cols="10"
+                        rows="20"
+                        className="input input-bordered shadow pt-2"
+                        placeholder="I'm interested in [ Villa On Washington Ave ]"
+                      ></textarea>
+                    </div>
+                    <div className="form-control mt-6">
+                      <label className="label flex items-center justify-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked="checked"
+                          className="checkbox"
+                        />
+                        <span className="label-text font-bold">
+                          {" "}
+                          I consent to the GDPR Terms
+                        </span>
+                      </label>
+                      <input
+                        type="submit"
+                        value="Send Email"
+                        className="btn btn-primary"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </TabPanel>
+          </Tabs>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ItemInfo;
