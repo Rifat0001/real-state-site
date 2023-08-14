@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import HomeLayout from './Components/Layout/HomeLayout.jsx';
 import Home from './Components/Pages/Home/Home.jsx';
+import ItemInfo from './Components/HomeComponents/ItemInfo';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +15,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        // loader: () => fetch("/property.json"),
+      },
+      {
+        path: "items/:id",
+        element: <ItemInfo />,
+        loader: ({params}) => fetch(`/property.json`),
+        
       },
       
     ]

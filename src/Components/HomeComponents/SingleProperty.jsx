@@ -1,4 +1,5 @@
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleProperty = ({ singleCard }) => {
   const {
@@ -36,7 +37,7 @@ const SingleProperty = ({ singleCard }) => {
             <div className="flex items-center justify-start gap-2">
                 <FaUserCircle /> <span className="font-bold">Michael Suttherland</span>
             </div>
-          <button className=" bg-primary px-2 py-1 rounded-md text-white font-bold">Details</button>
+          <Link to={`../items/${id}`}><button className=" bg-primary px-2 py-1 rounded-md text-white font-bold">Details</button></Link>
         </div>
       </div>
     </div>
