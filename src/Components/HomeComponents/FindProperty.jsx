@@ -27,6 +27,7 @@ const FindProperty = () => {
               <option value="opel">Garage</option>
               <option value="audi">New Homes</option>
             </select>
+
           </div>
           <div className="flex justify-center items-center gap-2 md:gap-4 drop-shadow  ms-0 md:ms-20">
             <div className="flex border items-center gap-4 h-full bg-[#F5F5F5] rounded-md">
