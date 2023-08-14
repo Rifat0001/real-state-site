@@ -69,7 +69,7 @@ const ItemInfo = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 items-start justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start justify-center">
         <div className=" col-span-2">
           <div className="bg-white py-6 px-7 space-y-3">
             <h2 className="font-bold text-xl">Overview</h2>
