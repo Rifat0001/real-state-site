@@ -1,15 +1,13 @@
-// Register.js
-import React from "react";
+
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import './Tabs.css'
 const Register = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors, isDirty },
+        formState: { errors },
         watch,
-        reset,
+
     } = useForm();
 
     const password = watch("password");

@@ -7,12 +7,9 @@ import {
 } from "react-router-dom";
 import HomeLayout from './Components/Layout/HomeLayout.jsx';
 import Home from './Components/Pages/Home/Home.jsx';
-<<<<<<< HEAD
 import ItemInfo from './Components/HomeComponents/ItemInfo';
-=======
 import UserLayout from './Components/Pages/Login/UserLayout';
 import Forget from './Components/Pages/Login/Forget';
->>>>>>> 1d16fe41a84190b3bda1d54fa2ce5b767d342b31
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,8 +23,8 @@ const router = createBrowserRouter([
       {
         path: "items/:id",
         element: <ItemInfo />,
-        loader: ({params}) => fetch(`/property.json`),
-        
+        loader: ({ params }) => fetch(`/property.json`),
+
       },
       {
         path: 'login',

@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import './Tabs.css'
-import Forget from "./Forget";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
