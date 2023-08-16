@@ -13,7 +13,8 @@
       "area": "Saint Germain",
       "category": "Apartment",
       "state": "Argentina",
-      "city": "Paris"
+      "city": "Paris",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 8112,
@@ -29,7 +30,8 @@
       "area": "Saint Germain",
       "category": "Condo",
       "state": "France",
-      "city": "Paris"
+      "city": "Paris",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 9283,
@@ -45,7 +47,8 @@
       "area": "Saint Germain",
       "category": "Land",
       "state": "France",
-      "city": "Paris"
+      "city": "Paris",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 1426,
@@ -61,7 +64,8 @@
       "area": "Notre Dame",
       "category": "Apartment",
       "state": "France",
-      "city": "Paris"
+      "city": "Paris",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 6625,
@@ -77,7 +81,8 @@
       "area": "Notre Dame",
       "category": "Industrial",
       "state": "France",
-      "city": "Montreuil"
+      "city": "Montreuil",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 9138,

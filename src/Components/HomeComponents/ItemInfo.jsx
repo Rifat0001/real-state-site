@@ -39,12 +39,98 @@ const ItemInfo = () => {
   console.log(id);
   const [startDate, setStartDate] = useState(new Date());
   const [item, setItem] = useState({});
+
+
   useEffect(() => {
     const itemData = items.find((i) => i.id == id);
     setItem(itemData);
   }, []);
   return (
-    <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+    <div className=" bg-[#F0F2F5] pt-5 pb-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+      <div className="pb-5">
+        {item.slide?.length === 1 && (
+          <img
+            src={item.slide[0]}
+            alt="Property Slide"
+            className="w-full h-auto rounded-md shadow"
+          />
+        )}
+        {item.slide?.length === 2 && (
+          <div className="grid grid-cols-2 gap-2">
+            {item.slide.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`item Slide ${index}`}
+                className="w-full h-auto rounded-md shadow"
+              />
+            ))}
+          </div>
+        )}
+        {item.slide?.length === 3 && (
+          <div className="flex items-start justify-center gap-2 h-full">
+            <img
+              src={item.slide[0]}
+              alt=""
+              className="col-span-2 w-[70%] h-[500px] rounded-md shadow"
+            />
+            <div className="flex flex-col items-center justify-center gap-2">
+              <img
+                src={item.slide[1]}
+                alt=""
+                className="h-[250px] rounded-md shadow"
+              />
+              <img
+                src={item.slide[2]}
+                alt=""
+                className="h-[250px] rounded-md shadow"
+              />
+            </div>
+          </div>
+        )}
+        {item.slide?.length >= 4 && (
+          <div className="flex items-start justify-center gap-2 h-full">
+            <img
+              src={item.slide[0]}
+              alt=""
+              className="col-span-2 w-[70%] h-[615px] "
+            />
+            <div className="flex flex-col items-center justify-center gap-2">
+              <img src={item.slide[1]} alt="" className="h-[200px] " />
+              <img src={item.slide[2]} alt="" className="h-[200px] " />
+              <img src={item.slide[3]} alt="" className="h-[200px] " />
+            </div>
+          </div>
+        )}
+        <button
+          className="btn bg-gray-100 text-black hover:text-white z-30 absolute right-[190px] bottom-[1px]"
+          onClick={() => window.my_modal_4.showModal()} // Open the modal on button click
+        >
+          See More
+        </button>
+        <dialog id="my_modal_4" className="modal">
+          <form method="dialog" className="modal-box bg-white w-11/12 max-w-5xl">
+            <h3 className="font-bold text-lg">Photos</h3>
+            {/* <p className="py-4">Click the button below to close</p> */}
+            <div className="py-4 grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-5">
+      {item.slide?.map((imageNumber, index) => (
+        <img
+          key={index}
+          src={imageNumber}
+          alt={`item Slide ${index}`}
+          className="w-full h-auto rounded-md shadow mb-2"
+          
+        />
+      ))}
+    </div>
+            <div className="modal-action">
+              {/* if there is a button, it will close the modal */}
+              <button className="btn">Close</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
+      
       <button className="btn btn-primary mr-2">{item.type}</button>
       <button className="btn btn-accent">{item.status}</button>
       <div className="flex items-center justify-between py-4">
@@ -378,8 +464,12 @@ const ItemInfo = () => {
             <TabPanel>
               <div>
                 <div className="px-[10%] py-4">
-                    <h2 className="text-xl font-bold">Schedule a tour</h2>
-                    <DatePicker className="w-full z-10" selected={startDate} onChange={(date) => setStartDate(date)} />
+                  <h2 className="text-xl font-bold">Schedule a tour</h2>
+                  <DatePicker
+                    className="w-full z-10"
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                  />
                 </div>
                 <select className="select select-secondary w-full max-w-xs text-center mx-[10%]">
                   <option disabled selected>
