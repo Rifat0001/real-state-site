@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { SingleDatePicker } from 'react-google-flight-datepicker';
+import 'react-google-flight-datepicker/dist/main.css';
 import "react-tabs/style/react-tabs.css";
 import './HomeComponents.css'
+import { useMediaQuery } from "react-responsive";
 import {
   FaBasketballBall,
   FaBath,
@@ -33,6 +36,7 @@ import {
 } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router-dom";
 import Modal from "react-modal"; // Import the modal library
+import MobileImg from "./MobileImg";
 const ItemInfo = () => {
   const items = useLoaderData();
   console.log(items);
@@ -40,6 +44,7 @@ const ItemInfo = () => {
   console.log(id);
   const [startDate, setStartDate] = useState(new Date());
   const [item, setItem] = useState({});
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
 
   useEffect(() => {
@@ -62,7 +67,7 @@ const ItemInfo = () => {
 
 
   return (
-    <div className=" bg-[#F0F2F5] pt-5 pb-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+    <div className=" bg-[#F0F2F5] overflow-hidden pt-5 pb-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       <div className="pb-5">
         <Modal
           isOpen={isModalOpen}
@@ -74,22 +79,15 @@ const ItemInfo = () => {
             <img
               src={selectedImage}
               alt="Selected Slide"
-              className="w-full h-full clicky z-80"
+              className="w-full h-full  z-80"
 
             />
           )}
 
         </Modal>
         {item.slide?.length === 1 && (
-          <img
-            src={item.slide[0]}
-            alt="Property Slide"
-            onClick={() => openImageModal(item.slide[0])}
-            className="w-full h-[600px] rounded-md shadow"
-          />
-        )}
-        {item.slide?.length === 2 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          // Render the grid for larger screens
+          <div className="grid grid-cols-1  gap-2">
             {item.slide.map((image, index) => (
               <img
                 key={index}
@@ -100,51 +98,87 @@ const ItemInfo = () => {
               />
             ))}
           </div>
+
+        )}
+        {item.slide?.length === 2 && (
+          isMobile ? (
+            // Render the slider for mobile screens
+            <MobileImg images={item.slide} />
+          ) : (
+            // Render the grid for larger screens
+            <div className="grid grid-cols-2 gap-2">
+              {item.slide.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`item Slide ${index}`}
+                  onClick={() => openImageModal(image)}
+                  className="w-full h-[600px] rounded-md shadow"
+                />
+              ))}
+            </div>
+          )
         )}
         {item.slide?.length === 3 && (
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-2 h-full">
-            <img
-              src={item.slide[0]}
-              alt=""
-              onClick={() => openImageModal(item.slide[0])}
-              className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
-            />
-            <div className="flex flex-col items-center justify-center gap-2">
+          isMobile ? (
+            // Render the slider for mobile screens
+            <MobileImg images={item.slide} />
+          ) : (
+            // Render the grid for larger screens
+            <div className="flex  items-center md:items-start justify-center gap-2 h-full">
               <img
-                src={item.slide[1]}
+                src={item.slide[0]}
                 alt=""
-                className=" h-auto md:h-[250px]"
-                onClick={() => openImageModal(item.slide[1])}
+                onClick={() => openImageModal(item.slide[0])}
+                className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
               />
-              <img
-                src={item.slide[2]}
-                alt=""
-                className="h-auto md:h-[250px]"
-                onClick={() => openImageModal(item.slide[2])}
-              />
+              <div className="flex flex-col items-center justify-center gap-2">
+                <img
+                  src={item.slide[1]}
+                  alt=""
+                  className=" h-auto md:h-[250px]"
+                  onClick={() => openImageModal(item.slide[1])}
+                />
+                <img
+                  src={item.slide[2]}
+                  alt=""
+                  className="h-auto md:h-[250px]"
+                  onClick={() => openImageModal(item.slide[2])}
+                />
+              </div>
             </div>
-          </div>
+          )
         )}
         {item.slide?.length >= 4 && (
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-2 h-full">
-            <img
-              src={item.slide[0]}
-              alt=""
-              className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
-              onClick={() => openImageModal(item.slide[0])}
-            />
-            <div className="flex flex-col items-center justify-center gap-2">
-              <img src={item.slide[1]}
-                onClick={() => openImageModal(item.slide[1])} alt="" className="h-auto md:h-[200px] " />
-              <img src={item.slide[2]} alt="" onClick={() => openImageModal(item.slide[2])}
-                className="h-auto md:h-[200px] " />
-              <img src={item.slide[3]} alt="" className="h-auto md:h-[200px] "
-                onClick={() => openImageModal(item.slide[3])}
+          isMobile ? (
+            // Render the slider for mobile screens
+            <MobileImg images={item.slide} />
+          ) : (
+            // Render the grid for larger screens
+            <div className="flex  items-center md:items-start justify-center gap-2 h-full">
+              <img
+                src={item.slide[0]}
+                alt=""
+                className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
+                onClick={() => openImageModal(item.slide[0])}
               />
+              <div className="flex flex-col items-center justify-center gap-2">
+                <img src={item.slide[1]}
+                  onClick={() => openImageModal(item.slide[1])} alt="" className="h-auto md:h-[200px] " />
+                <img src={item.slide[2]} alt="" onClick={() => openImageModal(item.slide[2])}
+                  className="h-auto md:h-[200px] " />
+                <img src={item.slide[3]} alt="" className="h-auto md:h-[200px] "
+                  onClick={() => openImageModal(item.slide[3])}
+                />
+              </div>
             </div>
-          </div>
+          )
         )}
-        {item.slide?.length > 3 && (
+
+
+
+
+        {item.slide?.length > 4 && (
           <button
             className="btn bg-gray-100 text-black hover:text-white my-5"
             onClick={() => window.my_modal_4.showModal()} // Open the modal on button click
@@ -177,15 +211,15 @@ const ItemInfo = () => {
 
       <button className="btn btn-primary mr-2">{item.type}</button>
       <button className="btn btn-accent">{item.status}</button>
-      <div className="flex items-center justify-between py-4">
-        <div>
-          <h2 className=" text-4xl font-bold">{item.title}</h2>
-          <p className="font-semibold pt-2">
+      <div className=" py-4">
+        <div className="flex md:flex-row flex-col justify-start md:justify-between items-start md:items-center space-y-2">
+          <h2 className=" md:text-4xl text-2xl font-bold">{item.title}</h2>
+          <h2 className="md:text-3xl text-xl font-bold text-right">€ {item.price}</h2>
+        </div>
+        <div className="flex md:flex-row flex-col md:items-center items-start  justify-between space-y-2">
+          <p className="font-semibold pt-2 md:mb-0 mb-4">
             {item.city}, {item.state}
           </p>
-        </div>
-        <div className=" space-y-2">
-          <h2 className="text-3xl font-bold text-right">€ {item.price}</h2>
           <div className="flex items-center justify-end gap-4">
             <button className="btn bg-white border-none hover:bg-white text-black">
               <FaShareAlt /> Share
@@ -203,7 +237,7 @@ const ItemInfo = () => {
         <div className=" col-span-2">
           <div className="bg-white py-6 px-7 space-y-3">
             <h2 className="font-bold text-xl">Overview</h2>
-            <div className="flex items-center justify-between">
+            <div className="grid md:grid-cols-4 grid-cols-2 md:gap-0 gap-6">
               <div>
                 <h2 className="font-semibold">Updated On:</h2>
                 <p className="font-bold">February 9, 2023</p>
@@ -230,7 +264,7 @@ const ItemInfo = () => {
           </div>
           <div className="bg-white py-6 px-7 space-y-3 my-5">
             <h2 className="font-bold text-xl pb-5">Address</h2>
-            <div className="grid grid-cols-2 items-center justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between">
               <div className="space-y-3">
                 <p>
                   <span className="font-bold">Address:</span> 53 W 88th St
@@ -257,7 +291,7 @@ const ItemInfo = () => {
           </div>
           <div className="bg-white py-6 px-7 space-y-3 my-5">
             <h2 className="font-bold text-xl pb-5">Details</h2>
-            <div className="grid grid-cols-2 items-start justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between">
               <div className="space-y-3">
                 <p>
                   <span className="font-bold">Property Id:</span>
@@ -303,7 +337,7 @@ const ItemInfo = () => {
             <div>
               <div>
                 <h1 className="font-bold pb-4">Interior Details</h1>
-                <div className="grid grid-cols-2 items-center justify-between ">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
                       <FaUtensils size={15} color="blue" /> Equipped Kitchen
@@ -324,7 +358,7 @@ const ItemInfo = () => {
               </div>
               <div className="py-6">
                 <h1 className="font-bold pb-4">Outdoor Details</h1>
-                <div className="grid grid-cols-2 items-start justify-between ">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
                       <FaFan size={15} color="blue" /> Back yard
@@ -352,7 +386,7 @@ const ItemInfo = () => {
               </div>
               <div className="py-6">
                 <h1 className="font-bold pb-4">Utilities</h1>
-                <div className="grid grid-cols-2 items-start justify-between ">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
                       <FaRegCheckCircle size={15} color="blue" /> Central Air
@@ -379,7 +413,7 @@ const ItemInfo = () => {
               </div>
               <div className="py-6">
                 <h1 className="font-bold pb-4">Other Features</h1>
-                <div className="grid grid-cols-2 items-start justify-between ">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
                       <FaWheelchair size={15} color="blue" /> Chair Accessible
@@ -515,6 +549,25 @@ const ItemInfo = () => {
                     onChange={(date) => setStartDate(date)}
                   />
                 </div>
+                {/* npm install react-google-flight-datepicker */}
+
+
+                <SingleDatePicker
+
+                  startDate={new Date()}
+                  onChange={(startDate) => onDateChange(startDate)}
+                  minDate={new Date(1900, 0, 1)}
+                  maxDate={new Date(2100, 0, 1)}
+                  dateFormat="D"
+                  monthFormat="MMM YYYY"
+                  startDatePlaceholder="Date"
+                  disabled={false}
+                  className="my-own-class-name "
+                  startWeekDay="monday"
+                />
+
+
+                {/* end npm install react-google-flight-datepicker */}
                 <select className="select select-secondary w-full max-w-xs text-center mx-[10%]">
                   <option disabled selected>
                     Please Select The Time

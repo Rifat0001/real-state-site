@@ -38,11 +38,3 @@ textarea {
     background-color: #F5F5F5;
 
 }
-
-.clicky {
-    z-index: 2;
-}
-
-.blicky {
-    z-index: 1;
-}
