@@ -474,7 +474,7 @@ const ItemInfo = () => {
                         <label className="label flex items-center justify-start gap-3 cursor-pointer">
                           <input
                             type="checkbox"
-                            checked="checked"
+                            defaultChecked
                             className="checkbox"
                           />
                           <span className="label-text font-bold">
