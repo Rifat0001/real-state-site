@@ -98,7 +98,8 @@
       "area": "Notre Dame",
       "category": "House",
       "state": "France",
-      "city": "Montreuil"
+      "city": "Montreuil",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     },
     {
       "id": 2147,
@@ -114,7 +115,8 @@
       "area": "Notre Dame",
       "category": "Apartment",
       "state": "France",
-      "city": "Montreuil"
+      "city": "Montreuil",
+      "slide": ["https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg", "https://paris.wpresidence.net/wp-content/uploads/2014/05/decor_nice-2-525x328.jpg"]
     }
   ]
   

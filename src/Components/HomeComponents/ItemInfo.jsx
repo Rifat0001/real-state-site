@@ -89,7 +89,7 @@ const ItemInfo = () => {
           />
         )}
         {item.slide?.length === 2 && (
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {item.slide.map((image, index) => (
               <img
                 key={index}
@@ -102,43 +102,43 @@ const ItemInfo = () => {
           </div>
         )}
         {item.slide?.length === 3 && (
-          <div className="flex items-start justify-center gap-2 h-full">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-2 h-full">
             <img
               src={item.slide[0]}
               alt=""
               onClick={() => openImageModal(item.slide[0])}
-              className="col-span-2 w-[70%] h-[500px] rounded-md shadow"
+              className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
             />
             <div className="flex flex-col items-center justify-center gap-2">
               <img
                 src={item.slide[1]}
                 alt=""
-                className="h-[250px] rounded-md shadow"
+                className=" h-auto md:h-[250px]"
                 onClick={() => openImageModal(item.slide[1])}
               />
               <img
                 src={item.slide[2]}
                 alt=""
-                className="h-[250px] rounded-md shadow"
+                className="h-auto md:h-[250px]"
                 onClick={() => openImageModal(item.slide[2])}
               />
             </div>
           </div>
         )}
         {item.slide?.length >= 4 && (
-          <div className="flex items-start justify-center gap-2 h-full">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-2 h-full">
             <img
               src={item.slide[0]}
               alt=""
-              className="col-span-2 w-[70%] h-[615px] "
+              className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
               onClick={() => openImageModal(item.slide[0])}
             />
             <div className="flex flex-col items-center justify-center gap-2">
               <img src={item.slide[1]}
-                onClick={() => openImageModal(item.slide[1])} alt="" className="h-[200px] " />
+                onClick={() => openImageModal(item.slide[1])} alt="" className="h-auto md:h-[200px] " />
               <img src={item.slide[2]} alt="" onClick={() => openImageModal(item.slide[2])}
-                className="h-[200px] " />
-              <img src={item.slide[3]} alt="" className="h-[200px] "
+                className="h-auto md:h-[200px] " />
+              <img src={item.slide[3]} alt="" className="h-auto md:h-[200px] "
                 onClick={() => openImageModal(item.slide[3])}
               />
             </div>
@@ -146,7 +146,7 @@ const ItemInfo = () => {
         )}
         {item.slide?.length > 3 && (
           <button
-            className="btn bg-gray-100 text-black hover:text-white absolute right-[190px] bottom-[-120px]"
+            className="btn bg-gray-100 text-black hover:text-white my-5"
             onClick={() => window.my_modal_4.showModal()} // Open the modal on button click
           >
             More Image
