@@ -21,6 +21,14 @@ const Register = () => {
             <h1 className="text-2xl font-bold text-primary mt-6">Register Here</h1>
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
+                    <label className="label-text text-lg text-start mb-1 text-black font-bold">Role Selection</label>
+                    <select className="w-full role text-black  bg-white border-black h-12 rounded-lg ps-4" {...register("gender")}>
+                        <option value="female">Agent</option>
+                        <option value="male">Organization</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div className="form-control">
                     <label className="label">
                         <span className="label-text text-lg text-black font-bold">Name</span>
                     </label>
@@ -128,14 +136,7 @@ const Register = () => {
                         </span>
                     )}
                 </div>
-                <div className="form-control">
-                    <label className="label-text text-lg text-start mb-1 text-black font-bold">Role Selection</label>
-                    <select className="w-full role text-black  bg-white border-black h-12 rounded-lg ps-4" {...register("gender")}>
-                        <option value="female">Agent</option>
-                        <option value="male">Organization</option>
-                        <option value="other">other</option>
-                    </select>
-                </div>
+
                 <div className="form-control mt-2">
                     <input
                         type="submit"

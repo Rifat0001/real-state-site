@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaEnvelope,
   FaEnvelopeSquare,
@@ -11,11 +12,15 @@ import {
 } from "react-icons/fa";
 
 const AgentProfile = () => {
+  const [value, setValue] = useState(40);
+
   return (
-    <div className="max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black bg-[#F8F8F8]">
+    <div className=" text-black bg-[#F8F8F8]">
       <div>
-        <h2 className="text-5xl font-bold text-black text-center">Map Here</h2>
-        <div className="py-8 grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
+        <div className=" ">
+          <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population mapping</a></iframe>
+        </div>
+        <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
           <div className="bg-white shadow-xl rounded col-span-2 p-5">
             <div className="grid grid-cols-2 items-start justify-between gap-5">
               <div className="flex flex-col items-center">
@@ -177,13 +182,14 @@ const AgentProfile = () => {
                   placeholder="Year Built"
                   className="input input-bordered w-full max-w-xs"
                 />
-                <h2>Price range: € 0 to € 1,500,000</h2>
+                <h2>Price range: € 0 to € {value}</h2>
                 <input
                   type="range"
                   min={0}
-                  max={100}
-                  value="40"
-                  className="range"
+                  max={10000}
+                  value={value}
+                  className="range range-primary"
+                  onChange={(e) => setValue(e.target.value)}
                 />
                 <p>More Search Options</p>
                 <button className="btn w-full">Search</button>
@@ -226,7 +232,7 @@ const AgentProfile = () => {
                     className="input input-bordered w-full max-w-xs"
                   />
                 </div>
-                
+
                 <button className="btn w-full">Calculate</button>
               </div>
             </div>
