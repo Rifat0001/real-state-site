@@ -57,15 +57,15 @@ const Navbar = () => {
         <ul className="menu ms-[-30px] main menu-horizontal px-1">
           <li>
             <a>
-              {" "}
-              <Link to="/">Home</Link>{" "}
+
+              <Link to="/">Home</Link>
             </a>
           </li>
           <li>
             <a>About</a>
           </li>
           <li>
-            <a>Service</a>
+            <Link to="/property-lists">Property List</Link>
           </li>
           <li>
             <a>Contact</a>
@@ -75,8 +75,8 @@ const Navbar = () => {
           </li>
           <li>
             <details>
-              <summary>Agents</summary>
-              <ul className="p-2 bg-base-100">
+              <summary className="text-[18px] hover:text-primary">Agents</summary>
+              <ul className="p-2 bg-white">
                 <Link to='agents'><li>
                   <a>Agents List</a>
                 </li></Link>
