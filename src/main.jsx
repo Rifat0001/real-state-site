@@ -10,6 +10,7 @@ import Home from './Components/Pages/Home/Home.jsx';
 import ItemInfo from './Components/HomeComponents/ItemInfo';
 import UserLayout from './Components/Pages/Login/UserLayout';
 import Forget from './Components/Pages/Login/Forget';
+import AgentList from './Components/Pages/Agent/AgentList';
 
 
 const router = createBrowserRouter([
@@ -35,9 +36,13 @@ const router = createBrowserRouter([
       {
         path: 'forget',
         element: <Forget></Forget>
+      },
+      {
+        path: 'agents',
+        element: <AgentList></AgentList>
       }
     ]
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
