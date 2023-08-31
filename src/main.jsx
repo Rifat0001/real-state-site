@@ -14,6 +14,7 @@ import AgentList from './Components/Pages/Agent/AgentList';
 import AgentProfile from './Components/Pages/Agent/AgentProfile';
 import PropertyList from './Components/Pages/PropertyList/PropertyList';
 import Contact from './Components/Pages/Contact/Contact';
+import About from './Components/Pages/About/About';
 
 
 const router = createBrowserRouter([
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact></Contact>
+      },
+      {
+        path: 'about',
+        element: <About></About>
       }
     ]
   }

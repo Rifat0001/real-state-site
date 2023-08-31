@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaEnvelope,
   FaFacebook,
@@ -8,6 +9,8 @@ import {
 } from "react-icons/fa";
 
 const AgentList = () => {
+  const [value, setValue] = useState(40);
+
   return (
     <div className="max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
@@ -253,8 +256,15 @@ const AgentList = () => {
               placeholder="Year Built"
               className="input input-bordered w-full max-w-xs"
             />
-            <h2>Price range: € 0 to € 1,500,000</h2>
-            <input type="range" min={0} max={100} value="40" className="range" />
+            <h2>Price range: € 0 to € {value}</h2>
+            <input
+              type="range"
+              min={0}
+              max={15000}
+              value={value}
+              className="range range-primary range-xs"
+              onChange={(e) => setValue(e.target.value)}
+            />
             <p>More Search Options</p>
             <button className="btn w-full">Search</button>
           </div>

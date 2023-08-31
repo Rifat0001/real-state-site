@@ -186,9 +186,9 @@ const AgentProfile = () => {
                 <input
                   type="range"
                   min={0}
-                  max={10000}
+                  max={15000}
                   value={value}
-                  className="range range-primary"
+                  className="range range-primary range-xs"
                   onChange={(e) => setValue(e.target.value)}
                 />
                 <p>More Search Options</p>

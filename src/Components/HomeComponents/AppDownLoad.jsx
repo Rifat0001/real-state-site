@@ -10,8 +10,8 @@ const AppDownLoad = () => {
                         <h1 className="text-3xl md:text-5xl font-bold md:font-semibold text-black">Download <span className='text-primary'>Our App</span></h1>
                         <p className="text-slate-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui. Excepturi porro adipisci vitae accusamus delectus. Dolores natus accusantium at perferendis totam quidem, minima ullam cumque, nihil, quam rem dicta?</p>
                         <div className='flex gap-8'>
-                            <button><img src={play} className='md:w-48 w-40 md:h-16 h-12' alt="" /></button>
-                            <button><img src={apple} className='md:w-48 w-40 md:h-16 h-12' alt="" /></button>
+                            <img src={play} className='md:w-48 w-40 md:h-16 h-12' alt="" />
+                            <img src={apple} className='md:w-48 w-40 md:h-16 h-12' alt="" />
                         </div>
                     </div>
                     <div className='flex  md:w-1/2 w-full  justify-center'>
