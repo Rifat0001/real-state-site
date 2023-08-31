@@ -11,6 +11,7 @@ import ItemInfo from './Components/HomeComponents/ItemInfo';
 import UserLayout from './Components/Pages/Login/UserLayout';
 import Forget from './Components/Pages/Login/Forget';
 import AgentList from './Components/Pages/Agent/AgentList';
+import AgentProfile from './Components/Pages/Agent/AgentProfile';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: 'agents',
         element: <AgentList></AgentList>
+      },
+      {
+        path: 'agentprofile',
+        element: <AgentProfile></AgentProfile>
       }
     ]
   }

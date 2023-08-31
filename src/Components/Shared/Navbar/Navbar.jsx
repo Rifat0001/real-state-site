@@ -81,7 +81,7 @@ const Navbar = () => {
                   <a>Agents List</a>
                 </li></Link>
                 <li>
-                  <a>Agent Profile</a>
+                  <Link to='agentprofile'><a>Agent Profile</a></Link>
                 </li>
               </ul>
             </details>
