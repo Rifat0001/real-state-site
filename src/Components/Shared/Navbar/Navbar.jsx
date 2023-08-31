@@ -42,7 +42,9 @@ const Navbar = () => {
               <a>Service</a>
             </li>
             <li>
-              <a>Contact</a>
+              <a>
+                <Link to="/contact">Contact</Link>
+              </a>
             </li>
             <li>
               <a>Blog</a>
@@ -68,7 +70,7 @@ const Navbar = () => {
             <Link to="/property-lists">Property List</Link>
           </li>
           <li>
-            <a>Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
             <a>Blog</a>

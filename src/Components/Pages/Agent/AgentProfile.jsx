@@ -93,32 +93,32 @@ const AgentProfile = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input border-2 input-bordered w-full max-w-xs"
                 />
                 <input
                   type="text"
                   placeholder="Your Email"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input border-2 input-bordered w-full max-w-xs"
                 />
                 <input
                   type="text"
                   placeholder="Your Phone"
-                  className="input input-bordered w-full max-w-xs"
+                  className="input border-2 input-bordered w-full max-w-xs"
                 />
               </div>
               <textarea
                 name=""
                 id=""
                 cols="30"
-                rows="10"
-                className="textarea textarea-bordered w-full my-2"
+                rows="5"
+                className="textarea textarea-bordered border-2 w-full my-2"
               ></textarea>
               <div className="">
                 <label className="cursor-pointer label flex items-center justify-start gap-4">
                   <input
                     type="checkbox"
-                    checked="checked"
-                    className="checkbox checkbox-success"
+
+                    className="checkbox checkbox-primary"
                   />
                   <span className="label-text">
                     I consent to the GDPR Terms
