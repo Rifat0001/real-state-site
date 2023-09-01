@@ -23,7 +23,7 @@ const About = () => {
                         <button className='btn btn-primary'>Ream More</button>
                     </div>
                 </div>
-                {/* gallery  */}
+                {/* gallery  section*/}
                 <section className="my-8">
                     <div className="text-center">
                         <h1 className="text-5xl text-black font-bold mb-4">Our
