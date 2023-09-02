@@ -55,7 +55,7 @@ const Navbar = () => {
           Real State
         </a>
       </div>
-      <div className="navbar-start hidden text-black font-semibold  lg:flex">
+      <div className="navbar-start w-2/3 hidden text-black font-semibold  lg:flex">
         <ul className="menu ms-[-30px] main menu-horizontal px-1">
           <li>
             <a>
@@ -77,7 +77,7 @@ const Navbar = () => {
           </li>
           <li>
             <details>
-              <summary className="text-[18px] hover:text-primary">Agents</summary>
+              <summary className="text-[16px] hover:text-primary">Agents</summary>
               <ul className="p-2 bg-white">
                 <Link to='agents'><li>
                   <a>Agents List</a>
@@ -88,9 +88,12 @@ const Navbar = () => {
               </ul>
             </details>
           </li>
+          <li>
+            <Link to="/organization">Organization</Link>
+          </li>
         </ul>
       </div>
-      <div className="navbar-end md:gap-6 gap-2">
+      <div className="navbar-end  w-1/3 md:gap-6 gap-2">
         <a className="btn btn-outline btn-primary btn-xs md:btn-sm text-white">
           Add Listing
         </a>

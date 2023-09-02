@@ -15,6 +15,9 @@ import AgentProfile from './Components/Pages/Agent/AgentProfile';
 import PropertyList from './Components/Pages/PropertyList/PropertyList';
 import Contact from './Components/Pages/Contact/Contact';
 import About from './Components/Pages/About/About';
+import AgentProperty from './Components/Pages/Agent/AgentProperty';
+import Organization from './Components/Pages/Organization/Organization';
+import Checkout from './Components/Pages/Checkout/Checkout';
 
 
 const router = createBrowserRouter([
@@ -60,6 +63,18 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <About></About>
+      },
+      {
+        path: 'agentProperty',
+        element: <AgentProperty></AgentProperty>
+      },
+      {
+        path: 'organization',
+        element: <Organization></Organization>
+      },
+      {
+        path: 'checkout',
+        element: <Checkout></Checkout>
       }
     ]
   }
