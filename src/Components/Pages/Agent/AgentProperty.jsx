@@ -14,11 +14,11 @@ const AgentProperty = () => {
             });
     }, []);
     return (
-        <div className="grid grid-cols-2  ">
+        <div className="grid grid-cols-1 md:grid-cols-2  ">
             <div className='w-full h-full '>
                 <iframe width="100%" height="600px" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population mapping</a></iframe></div>
 
-            <div className='px-8'>
+            <div className='px-8 mt-8 md:mt-0'>
                 {/* for search fields  */}
                 <div className=''>
                     <div className=''>
@@ -47,7 +47,7 @@ const AgentProperty = () => {
                             </select>
                         </div>
                     </div>
-                    <div className="grid grid-cols-4 gap-2 my-2">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 my-2">
                         <div className="">
                             <select className="w-full role text-black  bg-white border-black round  rounded-md ed-lg p-2" >
                                 <option value="female">House</option>
@@ -84,13 +84,13 @@ const AgentProperty = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2 my-2">
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-2 my-2">
                         <div className="flex gap-2">
                             <div>
-                                <input className='border border-black p-2 w-[170px] rounded-md text-black' placeholder='Min. Size' type="text" />
+                                <input className='border border-black p-2 w-[152px] md:w-[170px] rounded-md text-black' placeholder='Min. Size' type="text" />
                             </div>
                             <div>
-                                <input className='border border-black p-2 rounded-md text-black w-[170px]' placeholder='Year Built' type="text" />
+                                <input className='border border-black p-2 rounded-md text-black w-[152px] md:w-[170px]' placeholder='Year Built' type="text" />
                             </div>
                         </div>
                         <div className='ms-1'>
@@ -112,7 +112,7 @@ const AgentProperty = () => {
                 <div>
                     {/* before property  */}
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-4xl text-primary font-semibold'>Agent Properties</h1>
+                        <h1 className='text-3xl md:text-4xl text-primary font-semibold'>Our Properties</h1>
                         <div className="dropdown  dropdown-end">
                             <label tabIndex={0} className="btn btn-sm btn-primary btn-outline m-1">Filters</label>
                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">

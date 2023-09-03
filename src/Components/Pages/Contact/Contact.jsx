@@ -4,10 +4,10 @@ const Contact = () => {
     return (
         <div className=" text-black bg-[#F8F8F8]">
             <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 gap-2 items-start justify-between ">
-                <h1 className="text-7xl text-center font-semibold mb-10">Get In Touch</h1>
-                <div className="grid grid-cols-1 md:grid-cols-3 my-8">
+                <h1 className="text-4xl md:text-7xl text-center font-semibold mb-10">Get In Touch</h1>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
                     {/* card one  */}
-                    <div className="card border-2 w-96 py-8 bg-base-100 flex flex-col items-center shadow-xl">
+                    <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
                         <div className="border-2   border-primary p-4 rounded-full">
                             <FaMapMarked className="text-6xl text-primary"></FaMapMarked>
                         </div>
@@ -17,7 +17,7 @@ const Contact = () => {
                         </div>
                     </div>
                     {/* card one  */}
-                    <div className="card border-2 w-96 py-8 bg-base-100 flex flex-col items-center shadow-xl">
+                    <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
                         <div className="border-2   border-primary p-4 rounded-full">
                             <FaEnvelope className="text-6xl text-primary"></FaEnvelope>
                         </div>
@@ -27,7 +27,7 @@ const Contact = () => {
                         </div>
                     </div>
                     {/* card one  */}
-                    <div className="card border-2 w-96 py-8 bg-base-100 flex flex-col items-center shadow-xl">
+                    <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
                         <div className="border-2   border-primary p-4 rounded-full">
                             <FaPhone className="text-6xl text-primary"></FaPhone>
                         </div>
@@ -38,7 +38,7 @@ const Contact = () => {
                     </div>
                 </div>
                 {/* map and contact  */}
-                <div className="grid grid-cols-2 gap-4 ">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-4 ">
                     <div className=" ">
                         <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population mapping</a></iframe>
                     </div>

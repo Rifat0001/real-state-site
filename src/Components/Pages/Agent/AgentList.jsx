@@ -16,7 +16,7 @@ const AgentList = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
         <div className=" col-span-2">
           <div className=" space-y-4">
-            <h1 className="font-bold text-3xl">Agents List</h1>
+            <h1 className="font-bold text-primary text-3xl">Agents List</h1>
             <p>
               We like to think of ourselves as a small but perfectly formed
               lettings & management agency. Working you get the exposure,
@@ -32,7 +32,7 @@ const AgentList = () => {
               around 100% client and tenant focus.
             </p>
           </div>
-          <div className="grid grid-cols-2 py-5 items-center justify-between gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 py-5 items-center justify-between gap-3">
             <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
@@ -266,7 +266,7 @@ const AgentList = () => {
               onChange={(e) => setValue(e.target.value)}
             />
             <p>More Search Options</p>
-            <button className="btn w-full">Search</button>
+            <button className="btn btn-primary  w-full">Search</button>
           </div>
         </div>
       </div>

@@ -25,11 +25,11 @@ const About = () => {
                 </div>
                 {/* gallery  section*/}
                 <section className="my-8">
-                    <div className="text-center">
+                    <div className="md:text-center text-start">
                         <h1 className="text-5xl text-black font-bold mb-4">Our
                             <span className="text-primary"> Gallery</span>
                         </h1>
-                        <p className="md:mx-48 mx-8 text-black" >A visual feast for toy enthusiasts and collectors alike! Step into a world of wonder as we showcase a stunning array of action figures, playsets, and vehicles that will ignite your imagination.</p>
+                        <p className="md:text-center text-start text-black" >A visual feast for toy enthusiasts and collectors alike! Step into a world of wonder as we showcase a stunning array of action figures, playsets, and vehicles that will ignite your imagination.</p>
                     </div>
                     <div className="grid md:grid-cols-3 grid-cols-1 gap-10 mt-10">
                         <img src="https://i.ibb.co/Cv89SP2/OIP-3.jpg" alt="" className="border  shadow-md shadow-indigo-500/50 rounded-lg w-[400px] h-[400px]" />
