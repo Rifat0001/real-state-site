@@ -5,13 +5,10 @@ const PromoteSinglePorperty = ({ singleCard }) => {
     const {
         title,
         image,
-        type,
-        status,
         price,
         description,
         beds,
         baths,
-        sizes,
         area,
         id,
     } = singleCard || null;
@@ -25,8 +22,8 @@ const PromoteSinglePorperty = ({ singleCard }) => {
                         alt="Shoes"
                     />
                 </figure>
-                <div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:bg-primary btn w-[80px] btn-sm hover:text-white"> Promote
-                </div>
+                <Link to='/promote'><div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:bg-primary btn w-[80px] btn-sm hover:text-white"> Promote
+                </div></Link>
             </div>
             <div className="card-body">
                 <h2 className="font-medium text-xl text-black">€ {price} / month</h2>
