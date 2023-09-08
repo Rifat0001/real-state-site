@@ -78,12 +78,47 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end  ms-8 md:ms-0 w-1/3 md:gap-6 gap-2">
+
         <a className="btn btn-outline btn-primary btn-xs md:btn-sm text-white">
           Add Listing
         </a>
-        <Link to="/login" className="border border-primary  p-2 rounded-full">
-          <FaUser className="text-primary"></FaUser>
-        </Link>
+        <div className="dropdown dropdown-end dropdown-hover border border-primary p-2 rounded-full">
+          <label tabIndex={0} className="">
+            <FaUser className="text-primary rounded-full"></FaUser>
+          </label>
+          <ul tabIndex={0} className="dropdown-content z-[1] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
+            <li >
+              <a > <Link to="/login" className="hover:text-primary text-black">
+                Login
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="" className="hover:text-primary text-black">
+                Setting
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="" className="hover:text-primary text-black">
+                Profile Setting
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="/myProperty" className="hover:text-primary text-black">
+                My Property
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="/login" className="hover:text-primary text-black">
+                My Agent
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="/login" className="hover:text-primary text-black">
+                Add Agent
+              </Link></a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

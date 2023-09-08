@@ -18,6 +18,7 @@ import About from './Components/Pages/About/About';
 import AgentProperty from './Components/Pages/Agent/AgentProperty';
 import Organization from './Components/Pages/Organization/Organization';
 import Checkout from './Components/Pages/Checkout/Checkout';
+import MyProperty from './Components/Pages/MyProperty/MyProperty';
 
 
 const router = createBrowserRouter([
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: 'checkout',
         element: <Checkout></Checkout>
+      },
+      {
+        path: 'myProperty',
+        element: <MyProperty></MyProperty>
       }
     ]
   }
