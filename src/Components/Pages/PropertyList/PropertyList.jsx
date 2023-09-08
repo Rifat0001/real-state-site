@@ -84,29 +84,26 @@ const PropertyList = () => {
                             </select>
                         </div>
                     </div>
-
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-2 my-2">
-                        <div className="flex gap-2">
-                            <div>
-                                <input className='border border-black p-2 w-[152px] md:w-[170px] rounded-md text-black' placeholder='Min. Size' type="text" />
-                            </div>
-                            <div>
-                                <input className='border border-black p-2 rounded-md text-black w-[152px] md:w-[170px]' placeholder='Year Built' type="text" />
-                            </div>
+                        <div>
+                            <input className='border w-full border-black p-2   rounded-md text-black' placeholder='Min. Size' type="text" />
                         </div>
-                        <div className='ms-1'>
-                            <h2 className='text-black font-semibold w-40'>Price :
-                                <span className='text-primary'>  € 0 to € {price} </span>
-                            </h2>
-                            <input
-                                type="range"
-                                min={0}
-                                max={150000}
-                                value={price}
-                                className="range range-xs range-primary"
-                                onChange={(e) => setPrice(e.target.value)}
-                            />
+                        <div>
+                            <input className='border border-black p-2 rounded-md text-black  w-full' placeholder='Year Built' type="text" />
                         </div>
+                    </div>
+                    <div className='flex items-center my-3'>
+                        <h2 className='text-black font-semibold w-60'>Price :
+                            <span className='text-primary'>  € 0 to € {price} </span>
+                        </h2>
+                        <input
+                            type="range"
+                            min={0}
+                            max={150000}
+                            value={price}
+                            className="range range-xs range-primary"
+                            onChange={(e) => setPrice(e.target.value)}
+                        />
                     </div>
                 </div>
                 {/* show properties  */}
