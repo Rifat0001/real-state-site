@@ -4,5 +4,16 @@
 }
 
 .menu li a {
-    font-size: 16px;
+    font-size: 18px;
+}
+
+.navbarx {
+    background: rgb(71, 69, 240);
+    background: linear-gradient(90deg, rgba(71, 69, 240, 1) 0%, rgba(43, 165, 255, 1) 45%, rgba(162, 234, 255, 1) 92%);
+}
+
+.text-gradient {
+    background-image: linear-gradient(to right, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    color: transparent;
 }

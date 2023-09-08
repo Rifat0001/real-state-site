@@ -6,21 +6,21 @@ const Navbar = () => {
     <li>
       <a>
 
-        <Link to="/">Home</Link>
+        <Link className="text-[16px] text-white hover:text-primary" to="/">Home</Link>
       </a>
     </li>
     <li>
-      <Link to="/about">About</Link>
+      <Link className="text-[16px] text-white hover:text-primary" to="/about">About</Link>
     </li>
     <li>
-      <Link to="/property-lists">Property List</Link>
+      <Link className="text-[16px] text-white hover:text-primary" to="/property-lists">Property List</Link>
     </li>
     <li>
-      <Link to="/contact">Contact</Link>
+      <Link className="text-[16px] text-white hover:text-primary" to="/contact">Contact</Link>
     </li>
     <li>
       <details>
-        <summary className="text-[16px] hover:text-primary">Agents</summary>
+        <summary className="text-[16px] text-white hover:text-primary">Agents</summary>
         <ul className="p-2 bg-white">
           <Link to='agents'><li>
             <a>Agents List</a>
@@ -32,11 +32,11 @@ const Navbar = () => {
       </details>
     </li>
     <li>
-      <Link to="/organization">Organization</Link>
+      <Link className="text-[16px] text-white hover:text-primary" to="/organization">Organization</Link>
     </li>
   </>
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar ">
       <div className="sm:navbar-start md:hidden ">
         <div className="dropdown">
           <label
@@ -76,7 +76,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end  ms-8 md:ms-0 w-1/3 md:gap-6 gap-2">
 
-        <a className="btn btn-outline btn-primary btn-xs md:btn-sm text-white">
+        <a className="btn srh border-none drop-shadow-md btn-sm">
           Add Listing
         </a>
         <div className="dropdown dropdown-end dropdown-hover border border-primary p-2 rounded-full">
@@ -117,7 +117,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

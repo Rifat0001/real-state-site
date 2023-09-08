@@ -38,3 +38,24 @@ textarea {
     background-color: #F5F5F5;
 
 }
+
+.srh {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(3, 71, 254, 1) 0%, rgba(84, 182, 255, 1) 51%, rgba(45, 188, 237, 1) 92%);
+    color: white;
+    font-weight: 700;
+}
+
+.srh:hover {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(45, 188, 237, 1) 0%, rgba(84, 182, 255, 1) 51%, rgba(3, 71, 254, 1) 92%);
+}
+
+
+.text-gradient {
+    background: #0029CF;
+    background: linear-gradient(to right, #0029CF 27%, #6BD8FF 79%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}

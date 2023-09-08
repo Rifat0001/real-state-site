@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 import "./HomeComponents.css";
 const FindProperty = () => {
   return (
-    <div className="bg-white pt-10 p-2 pb-10 rounded-md">
+    <div className="navbarx py-5 rounded-md">
       <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
         {/* <h3 className="text-3xl font-bold text-center text-black mb-4">
           Find Your Property
@@ -37,7 +37,7 @@ const FindProperty = () => {
                 type="text"
               />
             </div>
-            <button className="btn btn-primary ">Search</button>
+            <button className="btn srh border-none drop-shadow-md ">Search</button>
           </div>
         </div>
       </div>

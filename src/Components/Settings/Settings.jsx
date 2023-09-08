@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './Settings.css'
 const Settings = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentName, setCurrentName] = useState('Rifat Mahmud');
@@ -68,7 +68,7 @@ const Settings = () => {
         closeModal();
     };
     return (
-        <div className="py-8 md:mb-48 mb-0 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">
+        <div className="py-8 md:mb-48 mb-20 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">
             <h1 className="text-2xl pb-2 text-primary border-b-2 border-primary font-semibold">General Profile Settings</h1>
             <div className="mt-4">
                 <div className="flex items-center gap-8">
@@ -79,9 +79,9 @@ const Settings = () => {
                         Edit
                     </button>
                     {isModalOpen && (
-                        <dialog open className="modal">
+                        <dialog open className="modal mobile-modal">
                             <div className="modal-box drop-shadow-lg bg-white">
-                                <button className="btn btn-sm btn-circle btn-error absolute right-2 top-2" onClick={closeModal}>
+                                <button className="btn btn-sm btn-circle btn-error btn-outline absolute right-2 top-2" onClick={closeModal}>
                                     ✕
                                 </button>
                                 <form method="dialog">
@@ -116,9 +116,9 @@ const Settings = () => {
                         Change
                     </button>
                     {isPassModalOpen && (
-                        <dialog open className="modal">
+                        <dialog open className="modal mobile-modal">
                             <div className="modal-box bg-white">
-                                <button className="btn btn-sm btn-circle btn-error absolute right-2 top-2" onClick={closePassModal}>
+                                <button className="btn btn-sm btn-circle btn-outline btn-error absolute right-2 top-2" onClick={closePassModal}>
                                     ✕
                                 </button>
                                 <form method="dialog">
