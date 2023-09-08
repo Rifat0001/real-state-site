@@ -108,7 +108,7 @@ const Navbar = () => {
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/login" className="hover:text-primary text-black">
+              <a > <Link to="/myAgents" className="hover:text-primary text-black">
                 My Agent
               </Link></a>
             </li>

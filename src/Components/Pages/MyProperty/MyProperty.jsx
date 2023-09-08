@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import SingleProperty from "../../HomeComponents/SingleProperty";
 import PromoteSinglePorperty from "./PromoteSinglePorperty";
 
 const MyProperty = () => {
