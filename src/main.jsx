@@ -22,6 +22,7 @@ import MyProperty from './Components/Pages/MyProperty/MyProperty';
 import PromotePage from './Components/Pages/MyProperty/PromotePage';
 import MyAgents from './Components/Pages/MyAgents/MyAgents';
 import AddAgent from './Components/Pages/Agent/AddAgent';
+import Settings from './Components/Settings/Settings';
 
 
 const router = createBrowserRouter([
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: 'addAgent',
         element: <AddAgent></AddAgent>
+      },
+      {
+        path: 'setting',
+        element: <Settings></Settings>
       }
     ]
   }

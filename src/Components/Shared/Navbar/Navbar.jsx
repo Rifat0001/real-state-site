@@ -90,7 +90,7 @@ const Navbar = () => {
               </Link></a>
             </li>
             <li >
-              <a > <Link to="" className="hover:text-primary text-black">
+              <a > <Link to="/setting" className="hover:text-primary text-black">
                 Setting
               </Link></a>
             </li>
