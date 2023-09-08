@@ -22,7 +22,7 @@ const PromoteSinglePorperty = ({ singleCard }) => {
                         alt="Shoes"
                     />
                 </figure>
-                <Link to='/promote'><div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:bg-primary btn w-[80px] btn-sm hover:text-white"> Promote
+                <Link to='/promote'><div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:bg-primary hover:border-white btn w-[80px] btn-sm hover:text-white"> Promote
                 </div></Link>
             </div>
             <div className="card-body">

@@ -19,9 +19,6 @@ const Navbar = () => {
       <Link to="/contact">Contact</Link>
     </li>
     <li>
-      <a>Blog</a>
-    </li>
-    <li>
       <details>
         <summary className="text-[16px] hover:text-primary">Agents</summary>
         <ul className="p-2 bg-white">
@@ -113,7 +110,7 @@ const Navbar = () => {
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/login" className="hover:text-primary text-black">
+              <a > <Link to="/addAgent" className="hover:text-primary text-black">
                 Add Agent
               </Link></a>
             </li>

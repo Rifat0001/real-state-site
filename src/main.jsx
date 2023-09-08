@@ -21,6 +21,7 @@ import Checkout from './Components/Pages/Checkout/Checkout';
 import MyProperty from './Components/Pages/MyProperty/MyProperty';
 import PromotePage from './Components/Pages/MyProperty/PromotePage';
 import MyAgents from './Components/Pages/MyAgents/MyAgents';
+import AddAgent from './Components/Pages/Agent/AddAgent';
 
 
 const router = createBrowserRouter([
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: 'myAgents',
         element: <MyAgents></MyAgents>
+      },
+      {
+        path: 'addAgent',
+        element: <AddAgent></AddAgent>
       }
     ]
   }
