@@ -23,6 +23,7 @@ import PromotePage from './Components/Pages/MyProperty/PromotePage';
 import MyAgents from './Components/Pages/MyAgents/MyAgents';
 import AddAgent from './Components/Pages/Agent/AddAgent';
 import Settings from './Components/Settings/Settings';
+import ProfileSetting from './Components/Pages/Profile Settings/ProfileSetting';
 
 
 const router = createBrowserRouter([
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: 'setting',
         element: <Settings></Settings>
+      },
+      {
+        path: 'profile-setting',
+        element: <ProfileSetting></ProfileSetting>
       }
     ]
   }

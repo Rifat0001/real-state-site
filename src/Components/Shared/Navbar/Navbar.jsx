@@ -95,7 +95,7 @@ const Navbar = () => {
               </Link></a>
             </li>
             <li >
-              <a > <Link to="" className="hover:text-primary text-black">
+              <a > <Link to="/profile-setting" className="hover:text-primary text-black">
                 Profile Setting
               </Link></a>
             </li>
