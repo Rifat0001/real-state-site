@@ -76,9 +76,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end  ms-8 md:ms-0 w-1/3 md:gap-6 gap-2">
 
-        <a className="btn srh border-none drop-shadow-md btn-sm">
+        <Link to='/add-listing' className="btn srh border-none drop-shadow-md btn-sm">
           Add Listing
-        </a>
+        </Link>
         <div className="dropdown dropdown-end dropdown-hover border border-primary p-2 rounded-full">
           <label tabIndex={0} className="">
             <FaUser className="text-primary rounded-full"></FaUser>
