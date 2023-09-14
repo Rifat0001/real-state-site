@@ -6,21 +6,21 @@ const Navbar = () => {
     <li>
       <a>
 
-        <Link className="text-[16px] text-white hover:text-primary" to="/">Home</Link>
+        <Link className="text-[16px] text-black hover:text-primary active:text-primary" to="/">Home</Link>
       </a>
     </li>
     <li>
-      <Link className="text-[16px] text-white hover:text-primary" to="/about">About</Link>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/about">About</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-white hover:text-primary" to="/property-lists">Property List</Link>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/property-lists">Property List</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-white hover:text-primary" to="/contact">Contact</Link>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/contact">Contact</Link>
     </li>
     <li>
       <details>
-        <summary className="text-[16px] text-white hover:text-primary">Agents</summary>
+        <summary className="text-[16px] text-black text-lg  hover:text-primary active:text-primary">Agents</summary>
         <ul className="p-2 bg-white">
           <Link to='agents'><li>
             <a>Agents List</a>
@@ -32,7 +32,7 @@ const Navbar = () => {
       </details>
     </li>
     <li>
-      <Link className="text-[16px] text-white hover:text-primary" to="/organization">Organization</Link>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/organization">Organization</Link>
     </li>
   </>
   return (
@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="dropdown">
           <label
             tabIndex={0}
-            className="btn btn-primary btn-outline btn-sm lg:hidden"
+            className="btn btn-light btn-outline btn-sm border-3 lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,14 +53,14 @@ const Navbar = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="4"
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
           </label>
           <ul
             tabIndex={0}
-            className="menu bg-white text-black font-semibold menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
+            className="menu  bg-white text-black font-semibold menu-sm dropdown-content mt-3 z-[2] p-2 shadow  rounded-box w-52"
           >
             {navItems}
           </ul>
@@ -83,7 +83,7 @@ const Navbar = () => {
           <label tabIndex={0} className="">
             <FaUser className="text-primary rounded-full"></FaUser>
           </label>
-          <ul tabIndex={0} className="dropdown-content z-[1] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
+          <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
             <li >
               <a > <Link to="/login" className="hover:text-primary text-black">
                 Login

@@ -10,7 +10,7 @@ import {
 const MyAgents = () => {
     const [value, setValue] = useState(40);
     return (
-        <div className="max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+        <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
                 <div className=" col-span-2">
                     <div className=" space-y-4">

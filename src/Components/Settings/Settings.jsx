@@ -72,7 +72,7 @@ const Settings = () => {
             <h1 className="text-2xl pb-2 text-primary border-b-2 border-primary font-semibold">General Profile Settings</h1>
             <div className="mt-4">
                 <div className="flex items-center gap-8">
-                    <h2 className="text-primary text-xl font-semibold py-2">
+                    <h2 className="text-primary md:text-xl text-md font-semibold py-2">
                         Name: <span className="text-black ms-4">{currentName}</span>
                     </h2>
                     <button className="btn btn-sm btn-primary btn-outline" onClick={openModal}>
@@ -109,7 +109,7 @@ const Settings = () => {
                     )}
                 </div>
                 <div className="flex items-center gap-8">
-                    <h2 className="text-primary text-xl font-semibold py-2">
+                    <h2 className="text-primary md:text-xl text-md font-semibold py-2">
                         Password: <span className="text-black ms-4">Change Password</span>
                     </h2>
                     <button className="btn btn-sm btn-primary btn-outline" onClick={openPassModal}>
