@@ -56,14 +56,14 @@ const BlogSection = () => {
             >
                 {
                     blogs.map(blog =>
-                        <SwiperSlide className='' key={blog.id}>
+                        <SwiperSlide className='' blog={blog} key={blog.id}>
                             <div className="card bg-gradient   w-96 p-2 my-14  bg-white  rounded-md drop-shadow-lg shadow-xl">
                                 <figure><img src={blog.image_url} className='w-full h-[280px]' alt="Shoes" /></figure>
                                 <div className="card-body h-80">
                                     <h2 className="card-title text-black">{blog.blog_name}</h2>
                                     <p className='text-slate-800 font-semibold'>{blog.date}</p>
                                     <p className='text-slate-600'>{blog.details.slice(0, 200)}</p>
-                                    <div className="card-actions justify-end">
+                                    <div className="card-actions justify-center">
                                         <button className='btn btn-gradient border-none'>Read More </button>
                                     </div>
                                 </div>
