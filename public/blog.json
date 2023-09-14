@@ -1,74 +1,44 @@
 [
     {
+        "id": 1,
         "blog_name": "Innovation in Biotechnology",
         "date": "2023-06-30",
         "details": "Biotechnology is at the forefront of medical and scientific breakthroughs, from gene editing and personalized medicine to biofuels and sustainable agriculture. This blog post delves into the exciting world of biotechnology and its potential to revolutionize various industries. Learn about the ethical considerations surrounding biotech advancements and how they can positively impact society.",
         "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNy97Ha5_3BHs5c1rbZIQN5IRdMy7LIHOR4DQ-AAgHkv6nM0EP10-paGys59-zYSrbxHk"
     },
     {
+        "id": 2,
         "blog_name": "The Power of Renewable Energy",
         "date": "2023-07-18",
         "details": "Renewable energy is changing the way we generate power and helping us combat climate change. In this blog post, we'll delve into various renewable energy sources like solar, wind, hydro, and geothermal. We'll explore their advantages, challenges, and how they can be integrated into our existing energy infrastructure. Discover the potential of renewable energy to create a sustainable and cleaner future for generations to come.",
         "image_url": "https://media.istockphoto.com/id/1198931639/photo/writing-a-blog-blogger-influencer-reading-text-on-screen.jpg?b=1&s=612x612&w=0&k=20&c=_C4iNvLOzKbbfbeTMsJ4mQf8OGQwYWJ8GWKLKRglrF8="
     },
     {
+        "id": 3,
         "blog_name": "Exploring the Wonders of the Universe",
         "date": "2023-07-15",
         "details": "Journey with us through the vast expanse of the universe as we explore distant galaxies, mysterious black holes, and the birth of stars. We'll discuss the latest astronomical discoveries, space missions, and our understanding of the cosmos. Join this cosmic adventure to gain a new appreciation for the wonders of space and our place in the grand scheme of the universe.",
         "image_url": "https://i.ibb.co/HrXZgGp/OIP-4.jpg"
     },
     {
+        "id": 4,
         "blog_name": "Innovation in Biotechnology",
         "date": "2023-06-30",
         "details": "Biotechnology is at the forefront of medical and scientific breakthroughs, from gene editing and personalized medicine to biofuels and sustainable agriculture. This blog post delves into the exciting world of biotechnology and its potential to revolutionize various industries. Learn about the ethical considerations surrounding biotech advancements and how they can positively impact society.",
         "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNy97Ha5_3BHs5c1rbZIQN5IRdMy7LIHOR4DQ-AAgHkv6nM0EP10-paGys59-zYSrbxHk"
     },
     {
+        "id": 5,
         "blog_name": "The Power of Renewable Energy",
         "date": "2023-07-18",
         "details": "Renewable energy is changing the way we generate power and helping us combat climate change. In this blog post, we'll delve into various renewable energy sources like solar, wind, hydro, and geothermal. We'll explore their advantages, challenges, and how they can be integrated into our existing energy infrastructure. Discover the potential of renewable energy to create a sustainable and cleaner future for generations to come.",
         "image_url": "https://media.istockphoto.com/id/1198931639/photo/writing-a-blog-blogger-influencer-reading-text-on-screen.jpg?b=1&s=612x612&w=0&k=20&c=_C4iNvLOzKbbfbeTMsJ4mQf8OGQwYWJ8GWKLKRglrF8="
     },
     {
+        "id": 6,
         "blog_name": "Exploring the Wonders of the Universe",
         "date": "2023-07-15",
         "details": "Journey with us through the vast expanse of the universe as we explore distant galaxies, mysterious black holes, and the birth of stars. We'll discuss the latest astronomical discoveries, space missions, and our understanding of the cosmos. Join this cosmic adventure to gain a new appreciation for the wonders of space and our place in the grand scheme of the universe.",
         "image_url": "https://i.ibb.co/HrXZgGp/OIP-4.jpg"
     },
-    {
-        "blog_name": "Innovation in Biotechnology",
-        "date": "2023-06-30",
-        "details": "Biotechnology is at the forefront of medical and scientific breakthroughs, from gene editing and personalized medicine to biofuels and sustainable agriculture. This blog post delves into the exciting world of biotechnology and its potential to revolutionize various industries. Learn about the ethical considerations surrounding biotech advancements and how they can positively impact society.",
-        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNy97Ha5_3BHs5c1rbZIQN5IRdMy7LIHOR4DQ-AAgHkv6nM0EP10-paGys59-zYSrbxHk"
-    },
-    {
-        "blog_name": "The Power of Renewable Energy",
-        "date": "2023-07-18",
-        "details": "Renewable energy is changing the way we generate power and helping us combat climate change. In this blog post, we'll delve into various renewable energy sources like solar, wind, hydro, and geothermal. We'll explore their advantages, challenges, and how they can be integrated into our existing energy infrastructure. Discover the potential of renewable energy to create a sustainable and cleaner future for generations to come.",
-        "image_url": "https://media.istockphoto.com/id/1198931639/photo/writing-a-blog-blogger-influencer-reading-text-on-screen.jpg?b=1&s=612x612&w=0&k=20&c=_C4iNvLOzKbbfbeTMsJ4mQf8OGQwYWJ8GWKLKRglrF8="
-    },
-    {
-        "blog_name": "Exploring the Wonders of the Universe",
-        "date": "2023-07-15",
-        "details": "Journey with us through the vast expanse of the universe as we explore distant galaxies, mysterious black holes, and the birth of stars. We'll discuss the latest astronomical discoveries, space missions, and our understanding of the cosmos. Join this cosmic adventure to gain a new appreciation for the wonders of space and our place in the grand scheme of the universe.",
-        "image_url": "https://i.ibb.co/HrXZgGp/OIP-4.jpg"
-    },
-    {
-        "blog_name": "Innovation in Biotechnology",
-        "date": "2023-06-30",
-        "details": "Biotechnology is at the forefront of medical and scientific breakthroughs, from gene editing and personalized medicine to biofuels and sustainable agriculture. This blog post delves into the exciting world of biotechnology and its potential to revolutionize various industries. Learn about the ethical considerations surrounding biotech advancements and how they can positively impact society.",
-        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNy97Ha5_3BHs5c1rbZIQN5IRdMy7LIHOR4DQ-AAgHkv6nM0EP10-paGys59-zYSrbxHk"
-    },
-    {
-        "blog_name": "The Power of Renewable Energy",
-        "date": "2023-07-18",
-        "details": "Renewable energy is changing the way we generate power and helping us combat climate change. In this blog post, we'll delve into various renewable energy sources like solar, wind, hydro, and geothermal. We'll explore their advantages, challenges, and how they can be integrated into our existing energy infrastructure. Discover the potential of renewable energy to create a sustainable and cleaner future for generations to come.",
-        "image_url": "https://media.istockphoto.com/id/1198931639/photo/writing-a-blog-blogger-influencer-reading-text-on-screen.jpg?b=1&s=612x612&w=0&k=20&c=_C4iNvLOzKbbfbeTMsJ4mQf8OGQwYWJ8GWKLKRglrF8="
-    },
-    {
-        "blog_name": "Exploring the Wonders of the Universe",
-        "date": "2023-07-15",
-        "details": "Journey with us through the vast expanse of the universe as we explore distant galaxies, mysterious black holes, and the birth of stars. We'll discuss the latest astronomical discoveries, space missions, and our understanding of the cosmos. Join this cosmic adventure to gain a new appreciation for the wonders of space and our place in the grand scheme of the universe.",
-        "image_url": "https://i.ibb.co/HrXZgGp/OIP-4.jpg"
-    }
 ]

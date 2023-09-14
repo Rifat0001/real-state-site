@@ -16,7 +16,7 @@ const PropertyListing = () => {
             <input
               type="text"
               placeholder="Add Title"
-              className="input input-bordered border border-black border border-black"
+              className="input input-bordered border  border-black"
               color="black"
               required
             />

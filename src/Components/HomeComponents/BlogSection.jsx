@@ -56,7 +56,7 @@ const BlogSection = () => {
             >
                 {
                     blogs.map(blog =>
-                        <SwiperSlide className='' key={blog.date}>
+                        <SwiperSlide className='' key={blog.id}>
                             <div className="card bg-gradient   w-96 p-2 my-14  bg-white  rounded-md drop-shadow-lg shadow-xl">
                                 <figure><img src={blog.image_url} className='w-full h-[280px]' alt="Shoes" /></figure>
                                 <div className="card-body h-80">
