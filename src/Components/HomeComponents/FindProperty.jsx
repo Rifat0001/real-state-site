@@ -37,7 +37,7 @@ const FindProperty = () => {
                 type="text"
               />
             </div>
-            <button className="btn srh border-none drop-shadow-md ">Search</button>
+            <button className="btn btn-gradient border-none drop-shadow-md ">Search</button>
           </div>
         </div>
       </div>

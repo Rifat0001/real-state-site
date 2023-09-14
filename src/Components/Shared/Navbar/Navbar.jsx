@@ -19,17 +19,10 @@ const Navbar = () => {
       <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/contact">Contact</Link>
     </li>
     <li>
-      <details>
-        <summary className="text-[16px] text-black text-lg  hover:text-primary active:text-primary">Agents</summary>
-        <ul className="p-2 bg-white">
-          <Link to='agents'><li>
-            <a>Agents List</a>
-          </li></Link>
-          <li>
-            <Link to='agentprofile'><a>Agent Profile</a></Link>
-          </li>
-        </ul>
-      </details>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to='agents'>Agents List</Link>
+    </li>
+    <li>
+      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to='agentprofile'>Agent Profile</Link>
     </li>
     <li>
       <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/organization">Organization</Link>
@@ -76,12 +69,18 @@ const Navbar = () => {
       </div>
       <div className="navbar-end  ms-8 md:ms-0 w-1/3 md:gap-6 gap-2">
 
-        <Link to='/add-listing' className="btn srh border-none drop-shadow-md btn-sm">
+        <Link to='/add-listing' className="btn btn-gradient border-none drop-shadow-md btn-sm">
           Add Listing
         </Link>
-        <div className="dropdown dropdown-end dropdown-hover border border-primary p-2 rounded-full">
+        <div className="dropdown  ">
           <label tabIndex={0} className="">
-            <FaUser className="text-primary rounded-full"></FaUser>
+
+          </label>
+
+        </div>
+        <div className="dropdown dropdown-end ">
+          <label tabIndex={0} className="btn  btn-gradient border-none  btn-sm  m-1">
+            <FaUser className=""></FaUser>
           </label>
           <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
             <li >
