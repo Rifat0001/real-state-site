@@ -6,25 +6,25 @@ const TopBar = () => {
             <div className='flex items-center gap-4'>
                 <FaEnvelope className='text-[#0E8E94] text-sm'></FaEnvelope>
                 <div>
-                    <p className='text-white '>+123456789</p>
+                    <p className='text-white text-sm'>demo@gmail.com</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>
                 <FaPhoneAlt className='text-[#0E8E94] text-sm'></FaPhoneAlt>
                 <div>
-                    <p className='text-white  '>+123456789</p>
+                    <p className='text-white  text-sm'>+123456789</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>
                 <FaSearchLocation className='text-[#0E8E94] text-sm'></FaSearchLocation>
                 <div>
-                    <p className='text-white  '>New York</p>
+                    <p className='text-white  text-sm'>New York</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>
                 <FaRegClock className='text-[#0E8E94] text-sm'></FaRegClock>
                 <div>
-                    <p className='text-white  '>10AM - 8PM</p>
+                    <p className='text-white  text-sm'>10AM - 8PM</p>
                 </div>
             </div>
         </div>

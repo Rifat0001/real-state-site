@@ -64,7 +64,7 @@ const BlogSection = () => {
                                     <p className='text-slate-800 font-semibold'>{blog.date}</p>
                                     <p className='text-slate-600'>{blog.details.slice(0, 200)}</p>
                                     <div className="card-actions justify-end">
-                                        <button className='btn btn-gradient'>Read More </button>
+                                        <button className='btn btn-gradient border-none'>Read More </button>
                                     </div>
                                 </div>
                             </div></SwiperSlide>

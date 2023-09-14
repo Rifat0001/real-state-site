@@ -1,5 +1,5 @@
 .search {
-    outline: none;
+    border: 1px solid black;
 }
 
 .choose {
@@ -40,31 +40,22 @@ textarea {
 }
 
 .btn-gradient {
-    background: rgb(45, 188, 237);
-    background: linear-gradient(90deg, rgba(3, 71, 254, 1) 0%, rgba(84, 182, 255, 1) 51%, rgba(45, 188, 237, 1) 92%);
+    background: #0E8E94;
     color: white;
-    font-weight: 700;
-    border: none;
 }
 
 .btn-gradient:hover {
-    background: rgb(45, 188, 237);
-    background: linear-gradient(90deg, rgba(45, 188, 237, 1) 0%, rgba(84, 182, 255, 1) 51%, rgba(3, 71, 254, 1) 92%);
+    background: #1bafb7;
+    color: white;
 }
 
 
 .text-gradient {
-    background: #0029CF;
-    background: linear-gradient(to right, #0029CF 27%, #6BD8FF 79%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #0E8E94;
     font-weight: 700;
 }
 
-.bg-gradient:hover {
-    background: rgb(45, 188, 237);
-    background: linear-gradient(90deg, rgba(45, 188, 237, 0.2) 0%, rgba(84, 182, 255, 0.2) 51%, rgba(3, 71, 254, 0.2) 92%);
-}
+
 
 .bg-card {
     background: rgb(45, 188, 237);
@@ -77,8 +68,7 @@ textarea {
 }
 
 .back-gradient {
-    background: rgb(45, 188, 237);
-    background: linear-gradient(90deg, rgba(3, 71, 254, 0.5) 0%, rgba(84, 182, 255, 0.5) 51%, rgba(45, 188, 237, 0.5) 92%);
+    background: #0E8E94;
 }
 
 .primary-color {

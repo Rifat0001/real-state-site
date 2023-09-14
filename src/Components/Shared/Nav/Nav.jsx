@@ -29,7 +29,7 @@ const Nav = () => {
         </li>
     </>
     return (
-        <div className="navbar ">
+        <div className="navbar bg-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,42 +51,42 @@ const Nav = () => {
             <div className="navbar-end  ">
 
                 <div className="dropdown dropdown-end ">
-                    <label tabIndex={0} className="btn  btn-gradient border-none  btn-sm  m-1">
-                        <FaUser className=""></FaUser>
+                    <label tabIndex={0} className="btn us  hover:bg-[#0E8E94] bg-white border  btn-sm  drop-shadow-2xl m-1">
+                        <FaUser className="text-color hover:text-white"></FaUser>
                     </label>
                     <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
                         <li >
-                            <a > <Link to="/login" className="hover:text-primary text-black">
+                            <a > <Link to="/login" className="hover:text-[#0E8E94] text-black">
                                 Login
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/setting" className="hover:text-primary text-black">
+                            <a > <Link to="/setting" className="hover:text-[#0E8E94] text-black">
                                 Setting
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/profile-setting" className="hover:text-primary text-black">
+                            <a > <Link to="/profile-setting" className="hover:text-[#0E8E94] text-black">
                                 Profile Setting
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/myProperty" className="hover:text-primary text-black">
+                            <a > <Link to="/myProperty" className="hover:text-[#0E8E94] text-black">
                                 My Property
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/myAgents" className="hover:text-primary text-black">
+                            <a > <Link to="/myAgents" className="hover:text-[#0E8E94] text-black">
                                 My Agent
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/addAgent" className="hover:text-primary text-black">
+                            <a > <Link to="/addAgent" className="hover:text-[#0E8E94] text-black">
                                 Add Agent
                             </Link></a>
                         </li>
                         <li >
-                            <a > <Link to="/add-listing" className="hover:text-primary md:hidden flex text-black">
+                            <a > <Link to="/add-listing" className="hover:text-[#0E8E94] md:hidden flex text-black">
                                 Add Listing
                             </Link></a>
                         </li>
