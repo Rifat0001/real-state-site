@@ -12,7 +12,7 @@ const Forget = () => {
     };
     return (
         <div className='text-center w-full md:w-1/3 mx-auto'>
-            <h1 className='text-2xl mt-3 text-primary font-bold'>Reset your password!</h1>
+            <h1 className='text-2xl mt-3 primary-color font-bold'>Reset your password!</h1>
             <div>
                 <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">

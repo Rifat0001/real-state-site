@@ -35,7 +35,7 @@ const Organization = () => {
                                 </div>
                             </div>
                             <div className="space-y-3 w-full">
-                                <h1 className="font-bold text-primary  text-2xl">Real State Ogranisations</h1>
+                                <h1 className="font-bold primary-color text-2xl">Real State Ogranisations</h1>
                                 <p className="font-semibold">real estate broker</p>
                                 <div className="flex items-center justify-start gap-3">
                                     <FaPhoneAlt></FaPhoneAlt> <span>(305) 555-4555</span>
@@ -53,33 +53,33 @@ const Organization = () => {
                             </div>
                         </div>
                         <div className="flex flex-wrap items-center justify-normal gap-5 py-5">
-                            <button className="btn btn-primary btn-outline">Send Email</button>
-                            <button className="btn btn-primary btn-outline">
+                            <button className="btn btn-gradient btn-outline">Send Email</button>
+                            <button className="btn btn-gradient btn-outline">
                                 <FaPhoneAlt></FaPhoneAlt> Call (305)555-4555
                             </button>
-                            <button className="btn btn-primary btn-outline">
+                            <button className="btn btn-gradient btn-outline">
                                 <FaWhatsapp></FaWhatsapp> Whatsapp
                             </button>
-                            <button className="btn btn-primary btn-outline">
+                            <button className="btn btn-gradient btn-outline">
                                 <Link to='/agentProperty'>See Property</Link>
                             </button>
-                            <button className="btn btn-primary btn-outline">
+                            <button className="btn btn-gradient btn-outline">
                                 <Link to='/agents'>Agents</Link>
                             </button>
                         </div>
                         <div>
-                            <h2 className="font-bold text-primary text-2xl">
+                            <h2 className="font-bold primary-colortext-2xl">
                                 Specialties & Service Areas
                             </h2>
                             <div className="flex flex-wrap items-center justify-normal gap-5 py-5">
-                                <button className="btn rounded-full btn-primary btn-outline">New York State</button>
-                                <button className="btn rounded-full btn-primary btn-outline">New York State</button>
-                                <button className="btn rounded-full btn-primary btn-outline">New York State</button>
-                                <button className="btn rounded-full btn-primary btn-outline">New York State</button>
+                                <button className="btn rounded-full btn-gradient btn-outline">New York State</button>
+                                <button className="btn rounded-full btn-gradient btn-outline">New York State</button>
+                                <button className="btn rounded-full btn-gradient btn-outline">New York State</button>
+                                <button className="btn rounded-full btn-gradient btn-outline">New York State</button>
                             </div>
                         </div>
                         <div className=" py-8 space-y-4">
-                            <h2 className="text-2xl font-bold text-primary">About Me</h2>
+                            <h2 className="text-2xl font-bold primary-color">About Me</h2>
                             <p>
                                 Michael’s sociability, independent spirit, and incredible
                                 customer service set him apart as a top agent in the New York
@@ -94,22 +94,22 @@ const Organization = () => {
                             </p>
                         </div>
                         <div className=" space-y-4 form-control">
-                            <h2 className="text-2xl font-bold text-primary">Contact Me</h2>
+                            <h2 className="text-2xl font-bold primary-color">Contact Me</h2>
                             <div className="flex items-center justify-normal gap-4">
                                 <input
                                     type="text"
                                     placeholder="Your Name"
-                                    className="input border-2 input-bordered w-full max-w-xs"
+                                    className="input border-2 border-black w-full max-w-xs"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Your Email"
-                                    className="input border-2 input-bordered w-full max-w-xs"
+                                    className="input border-2 border-black w-full max-w-xs"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Your Phone"
-                                    className="input border-2 input-bordered w-full max-w-xs"
+                                    className="input border-2 border-black w-full max-w-xs"
                                 />
                             </div>
                             <textarea
@@ -117,61 +117,49 @@ const Organization = () => {
                                 id=""
                                 cols="30"
                                 rows="5"
-                                className="textarea textarea-bordered border-2 w-full my-2"
+                                className="textarea border-black border-2 w-full my-2"
                             ></textarea>
-                            <div className="">
-                                <label className="cursor-pointer label flex items-center justify-start gap-4">
-                                    <input
-                                        type="checkbox"
-
-                                        className="checkbox checkbox-primary"
-                                    />
-                                    <span className="label-text">
-                                        I consent to the GDPR Terms
-                                    </span>
-                                </label>
-                            </div>
-                            <button className="btn btn-primary">Send Email</button>
+                            <button className="btn btn-gradient">Send Email</button>
                         </div>
                     </div>
                     <div>
                         <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
-                            <h1 className="font-bold text-2xl text-primary">Advanced Search</h1>
+                            <h1 className="font-bold text-gradient mb-4 text-2xl">Advanced Search</h1>
                             <div className="flex flex-col items-center justify-between space-y-4">
                                 <input
                                     type="text"
                                     placeholder="Type address, city, state or area"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input border-black w-full max-w-xs"
                                 />
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select  border-black w-full max-w-xs">
                                     <option disabled selected>
                                         Types
                                     </option>
                                     <option>Han Solo</option>
                                     <option>Greedo</option>
                                 </select>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select  border-black w-full max-w-xs">
                                     <option disabled selected>
                                         Categories
                                     </option>
                                     <option>Han Solo</option>
                                     <option>Greedo</option>
                                 </select>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select  border-black w-full max-w-xs">
                                     <option disabled selected>
                                         Bedrooms
                                     </option>
                                     <option>Han Solo</option>
                                     <option>Greedo</option>
                                 </select>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select  border-black w-full max-w-xs">
                                     <option disabled selected>
                                         Min. Baths
                                     </option>
                                     <option>Han Solo</option>
                                     <option>Greedo</option>
                                 </select>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select className="select  border-black w-full max-w-xs">
                                     <option disabled selected>
                                         Stories Number
                                     </option>
@@ -181,12 +169,12 @@ const Organization = () => {
                                 <input
                                     type="text"
                                     placeholder="Min. Size"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input border-black w-full max-w-xs"
                                 />
                                 <input
                                     type="text"
                                     placeholder="Year Built"
-                                    className="input input-bordered w-full max-w-xs"
+                                    className="input border-black w-full max-w-xs"
                                 />
                                 <h2>Price range: € 0 to € {value}</h2>
                                 <input
@@ -194,15 +182,15 @@ const Organization = () => {
                                     min={0}
                                     max={15000}
                                     value={value}
-                                    className="range range-primary range-xs"
+                                    className="range range-success range-xs"
                                     onChange={(e) => setValue(e.target.value)}
                                 />
                                 <p>More Search Options</p>
-                                <button className="btn btn-primary w-full">Search</button>
+                                <button className="btn btn-gradient w-full">Search</button>
                             </div>
                         </div>
                         <div className=" bg-white text-black shadow-lg rounded py-8 px-5 mt-5">
-                            <h1 className="font-bold text-2xl text-primary">Mortgage Calculator</h1>
+                            <h1 className="font-bold text-2xl primary-color">Mortgage Calculator</h1>
                             <div className="flex flex-col items-center justify-between space-y-4">
                                 <div className="form-control w-full max-w-xs">
                                     <label className="label">
@@ -239,7 +227,7 @@ const Organization = () => {
                                     />
                                 </div>
 
-                                <button className="btn w-full btn-primary">Calculate</button>
+                                <button className="btn w-full btn-gradient">Calculate</button>
                             </div>
                         </div>
                     </div>

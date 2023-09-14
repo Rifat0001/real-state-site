@@ -32,7 +32,7 @@ const PropertyList = () => {
                             min={0}
                             max={150}
                             value={range}
-                            className="range range-xs range-primary"
+                            className="range range-xs range-success"
                             onChange={(e) => setRange(e.target.value)}
                         />
                     </div>
@@ -94,14 +94,14 @@ const PropertyList = () => {
                     </div>
                     <div className='flex items-center my-3'>
                         <h2 className='text-black font-semibold w-60'>Price :
-                            <span className='text-primary'>  € 0 to € {price} </span>
+                            <span className='primary-color'>  € 0 to € {price} </span>
                         </h2>
                         <input
                             type="range"
                             min={0}
                             max={150000}
                             value={price}
-                            className="range  range-xs range-primary"
+                            className="range  range-xs range-success"
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>

@@ -42,6 +42,7 @@ textarea {
 .btn-gradient {
     background: #0E8E94;
     color: white;
+    border: none;
 }
 
 .btn-gradient:hover {

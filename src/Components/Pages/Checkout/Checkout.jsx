@@ -13,7 +13,7 @@ const Checkout = () => {
 
     return (
         <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
-            <h1 className="text-5xl text-primary font-semibold">Check Out</h1>
+            <h1 className="text-5xl primary-color font-semibold">Check Out</h1>
             <hr className="border-2 border-black my-4" />
             <form className="card-body w-full md:w-1/2" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
@@ -82,7 +82,7 @@ const Checkout = () => {
                 <div className="form-control mt-2">
                     <input
                         type="submit"
-                        className="btn btn-primary rounded-md text-white"
+                        className="btn btn-gradient rounded-md text-white"
                         value="Check out"
                     />
                 </div>

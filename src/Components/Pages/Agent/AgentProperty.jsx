@@ -93,7 +93,7 @@ const AgentProperty = () => {
                     </div>
                     <div className='flex items-center my-3'>
                         <h2 className='text-black font-semibold w-60'>Price :
-                            <span className='text-primary'>  € 0 to € {price} </span>
+                            <span className='primary-color'>  € 0 to € {price} </span>
                         </h2>
                         <input
                             type="range"
@@ -109,9 +109,9 @@ const AgentProperty = () => {
                 <div>
                     {/* before property  */}
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-3xl md:text-4xl text-primary font-semibold'>Our Properties</h1>
+                        <h1 className='text-3xl md:text-4xl primary-color font-semibold'>Our Properties</h1>
                         <div className="dropdown  dropdown-end">
-                            <label tabIndex={0} className="btn btn-sm btn-primary btn-outline m-1">Filters</label>
+                            <label tabIndex={0} className="btn btn-sm btn-gradient btn-outline m-1">Filters</label>
                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
                                 <li><a>Price High to Low</a></li>
                                 <li><a>Price Low to High</a></li>

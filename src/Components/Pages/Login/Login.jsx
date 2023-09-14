@@ -25,7 +25,7 @@ const Login = () => {
             <div className="">
 
                 <div>
-                    <h1 className="text-2xl font-bold mt-6 text-primary">Login Here</h1>
+                    <h1 className="text-2xl font-bold mt-6 primary-color">Login Here</h1>
                     <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control">
                             <label className="label">
@@ -70,14 +70,14 @@ const Login = () => {
                                 </span>
                             )}
                         </div>
-                        <Link to='/forget' className="text-start text-black hover:text-primary underline">
+                        <Link to='/forget' className="text-start text-black hover:primary-color underline">
                             Forget Password?
                         </Link>
 
                         <div className="form-control mt-2">
                             <input
                                 type="submit"
-                                className="btn btn-primary rounded-md text-white"
+                                className="btn btn-gradient rounded-md text-white"
                                 value="Login"
                             />
                         </div>

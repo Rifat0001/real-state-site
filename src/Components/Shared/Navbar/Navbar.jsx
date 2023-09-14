@@ -6,26 +6,26 @@ const Navbar = () => {
     <li>
       <a>
 
-        <Link className="text-[16px] text-black hover:text-primary active:text-primary" to="/">Home</Link>
+        <Link className="text-[16px] text-black hover:primary-color active:primary-color" to="/">Home</Link>
       </a>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/about">About</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to="/about">About</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/property-lists">Property List</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to="/property-lists">Property List</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/contact">Contact</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to="/contact">Contact</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to='agents'>Agents List</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to='agents'>Agents List</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to='agentprofile'>Agent Profile</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to='agentprofile'>Agent Profile</Link>
     </li>
     <li>
-      <Link className="text-[16px] text-black  hover:text-primary active:text-primary" to="/organization">Organization</Link>
+      <Link className="text-[16px] text-black  hover:primary-color active:primary-color" to="/organization">Organization</Link>
     </li>
   </>
   return (
@@ -58,7 +58,7 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-primary italic font-bold text-[20px]">
+        <a className="btn btn-ghost primary-color italic font-bold text-[20px]">
           <Link to='/'>Real State</Link>
         </a>
       </div>
@@ -78,37 +78,37 @@ const Navbar = () => {
           </label>
           <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
             <li >
-              <a > <Link to="/login" className="hover:text-primary text-black">
+              <a > <Link to="/login" className="hover:primary-color text-black">
                 Login
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/setting" className="hover:text-primary text-black">
+              <a > <Link to="/setting" className="hover:primary-color text-black">
                 Setting
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/profile-setting" className="hover:text-primary text-black">
+              <a > <Link to="/profile-setting" className="hover:primary-color text-black">
                 Profile Setting
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/myProperty" className="hover:text-primary text-black">
+              <a > <Link to="/myProperty" className="hover:primary-color text-black">
                 My Property
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/myAgents" className="hover:text-primary text-black">
+              <a > <Link to="/myAgents" className="hover:primary-color text-black">
                 My Agent
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/addAgent" className="hover:text-primary text-black">
+              <a > <Link to="/addAgent" className="hover:primary-color text-black">
                 Add Agent
               </Link></a>
             </li>
             <li >
-              <a > <Link to="/add-listing" className="hover:text-primary md:hidden flex text-black">
+              <a > <Link to="/add-listing" className="hover:primary-color md:hidden flex text-black">
                 Add Listing
               </Link></a>
             </li>

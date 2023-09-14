@@ -22,7 +22,7 @@ const PromoteSinglePorperty = ({ singleCard }) => {
                         alt="Shoes"
                     />
                 </figure>
-                <Link to='/promote'><div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:bg-primary hover:border-white btn w-[80px] btn-sm hover:text-white"> Promote
+                <Link to='/promote'><div className="absolute top-4 right-4  btn btn-sm btn-gradient"> Promote
                 </div></Link>
             </div>
             <div className="card-body">
@@ -39,7 +39,7 @@ const PromoteSinglePorperty = ({ singleCard }) => {
                     <div className="flex items-center justify-start gap-2">
                         <FaUserCircle className="text-black" /> <span className="font-bold text-black">Michael Suttherland</span>
                     </div>
-                    <Link to={`../items/${id}`}><button className=" bg-primary px-2 py-1 rounded-md text-white font-bold">Details</button></Link>
+                    <Link to={`../items/${id}`}><button className=" btn-gradient px-2 py-1 rounded-md text-white font-bold">Details</button></Link>
                 </div>
             </div>
         </div>

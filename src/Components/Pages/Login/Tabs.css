@@ -1,10 +1,10 @@
 button {
 
     padding: 10px;
-    color: blue;
+    color: #0E8E94;
     font-size: 16px;
     font-weight: 600;
-    border: 2px solid blue;
+    border: 2px solid #0E8E94;
 
 }
 
@@ -12,7 +12,7 @@ button {
 
 .active-tab {
     color: white;
-    background-color: blue;
+    background-color: #0E8E94;
 }
 
 .eye {

@@ -18,7 +18,7 @@ const Register = () => {
 
     return (
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none">
-            <h1 className="text-2xl font-bold text-primary mt-6">Register Here</h1>
+            <h1 className="text-2xl font-bold primary-color mt-6">Register Here</h1>
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
                     <label className="label-text text-lg text-start mb-1 text-black font-bold">Role Selection</label>
@@ -140,7 +140,7 @@ const Register = () => {
                 <div className="form-control mt-2">
                     <input
                         type="submit"
-                        className="btn btn-primary rounded-md text-white"
+                        className="btn btn-gradient rounded-md text-white"
                         value="Register"
                     />
                 </div>

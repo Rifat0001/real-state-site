@@ -14,7 +14,7 @@ const MyAgents = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
                 <div className=" col-span-2">
                     <div className=" space-y-4">
-                        <h1 className="font-bold text-primary text-3xl">My Agents List</h1>
+                        <h1 className="font-bold primary-color text-3xl">My Agents List</h1>
                         <p>
                             We like to think of ourselves as a small but perfectly formed
                             lettings & management agency. Working you get the exposure,
@@ -226,70 +226,113 @@ const MyAgents = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
-                    <h1 className="font-bold text-2xl">Advanced Search</h1>
-                    <div className="flex flex-col items-center justify-between space-y-4">
-                        <input
-                            type="text"
-                            placeholder="Type address, city, state or area"
-                            className="input input-bordered w-full max-w-xs"
-                        />
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>
-                                Types
-                            </option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>
-                                Categories
-                            </option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>
-                                Bedrooms
-                            </option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>
-                                Min. Baths
-                            </option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>
-                                Stories Number
-                            </option>
-                            <option>Han Solo</option>
-                            <option>Greedo</option>
-                        </select>
-                        <input
-                            type="text"
-                            placeholder="Min. Size"
-                            className="input input-bordered w-full max-w-xs"
-                        />
-                        <input
-                            type="text"
-                            placeholder="Year Built"
-                            className="input input-bordered w-full max-w-xs"
-                        />
-                        <h2>Price range: € 0 to € {value}</h2>
-                        <input
-                            type="range"
-                            min={0}
-                            max={15000}
-                            value={value}
-                            className="range range-primary range-xs"
-                            onChange={(e) => setValue(e.target.value)}
-                        />
-                        <p>More Search Options</p>
-                        <button className="btn btn-primary  w-full">Search</button>
+                <div>
+                    <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
+                        <h1 className="font-bold text-gradient mb-4 text-2xl">Advanced Search</h1>
+                        <div className="flex flex-col items-center justify-between space-y-4">
+                            <input
+                                type="text"
+                                placeholder="Type address, city, state or area"
+                                className="input border-black w-full max-w-xs"
+                            />
+                            <select className="select  border-black w-full max-w-xs">
+                                <option disabled selected>
+                                    Types
+                                </option>
+                                <option>Han Solo</option>
+                                <option>Greedo</option>
+                            </select>
+                            <select className="select  border-black w-full max-w-xs">
+                                <option disabled selected>
+                                    Categories
+                                </option>
+                                <option>Han Solo</option>
+                                <option>Greedo</option>
+                            </select>
+                            <select className="select  border-black w-full max-w-xs">
+                                <option disabled selected>
+                                    Bedrooms
+                                </option>
+                                <option>Han Solo</option>
+                                <option>Greedo</option>
+                            </select>
+                            <select className="select  border-black w-full max-w-xs">
+                                <option disabled selected>
+                                    Min. Baths
+                                </option>
+                                <option>Han Solo</option>
+                                <option>Greedo</option>
+                            </select>
+                            <select className="select  border-black w-full max-w-xs">
+                                <option disabled selected>
+                                    Stories Number
+                                </option>
+                                <option>Han Solo</option>
+                                <option>Greedo</option>
+                            </select>
+                            <input
+                                type="text"
+                                placeholder="Min. Size"
+                                className="input border-black w-full max-w-xs"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Year Built"
+                                className="input border-black w-full max-w-xs"
+                            />
+                            <h2>Price range: € 0 to € {value}</h2>
+                            <input
+                                type="range"
+                                min={0}
+                                max={15000}
+                                value={value}
+                                className="range range-success range-xs"
+                                onChange={(e) => setValue(e.target.value)}
+                            />
+                            <p>More Search Options</p>
+                            <button className="btn btn-gradient w-full">Search</button>
+                        </div>
+                    </div>
+                    <div className=" bg-white text-black shadow-lg rounded py-8 px-5 mt-5">
+                        <h1 className="font-bold text-2xl primary-color">Mortgage Calculator</h1>
+                        <div className="flex flex-col items-center justify-between space-y-4">
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text text-black">Sale Price</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="100000"
+                                    className="input input-bordered w-full max-w-xs"
+                                />
+                                <label className="label">
+                                    <span className="label-text text-black">Percent Down</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="10"
+                                    className="input input-bordered w-full max-w-xs"
+                                />
+                                <label className="label">
+                                    <span className="label-text text-black">Term (Year)</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="30"
+                                    className="input input-bordered w-full max-w-xs"
+                                />
+                                <label className="label">
+                                    <span className="label-text text-black">Interest Rate in %</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="5"
+                                    className="input input-bordered w-full max-w-xs"
+                                />
+                            </div>
+
+                            <button className="btn w-full btn-gradient">Calculate</button>
+                        </div>
                     </div>
                 </div>
             </div>

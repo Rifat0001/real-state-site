@@ -3,10 +3,10 @@ import { FaEnvelope, FaFacebook, FaLinkedin, FaPhone, FaPinterest, FaTwitter } f
 const AddAgent = () => {
     return (
         <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">
-            <h1 className="text-center font-semibold text-primary text-2xl">Add Agent</h1>
+            <h1 className="text-center font-semibold primary-color text-2xl">Add Agent</h1>
             <div className="flex gap-4 py-4">
                 <input className='w-full border border-black p-2 rounded-md text-black' placeholder='Search by agent email' type="text" />
-                <button className="btn btn-primary">Search</button>
+                <button className="btn btn-gradient">Search</button>
             </div>
             {/* agent card  */}
             <div className="card w-96 card-compact text-black bg-base-100 shadow-xl rounded-md">
@@ -17,7 +17,7 @@ const AddAgent = () => {
                             src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
                             alt="Shoes"
                         />
-                    </figure><div className="absolute top-4 right-4  bg-white text-primary border border-primary hover:border-white hover:bg-primary btn w-[80px] btn-sm hover:text-white"> Add
+                    </figure><div className="absolute top-4 right-4 btn-gradient btn w-[80px] btn-sm "> Add
                     </div>
                 </div>
                 <div className="card-body">

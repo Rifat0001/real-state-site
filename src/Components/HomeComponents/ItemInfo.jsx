@@ -209,7 +209,7 @@ const ItemInfo = () => {
         </dialog>
       </div>
 
-      <button className="btn btn-primary mr-2">{item.type}</button>
+      <button className="btn btn-gradient mr-2">{item.type}</button>
       <button className="btn btn-accent">{item.status}</button>
       <div className=" py-4">
         <div className="flex md:flex-row flex-col justify-start md:justify-between items-start md:items-center space-y-2">
@@ -340,18 +340,18 @@ const ItemInfo = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaUtensils size={15} color="blue" /> Equipped Kitchen
+                      <FaUtensils className="text-[#0E8E94]" /> Equipped Kitchen
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaVolleyballBall size={15} color="blue" /> Laundry
+                      <FaVolleyballBall className="text-[#0E8E94]" /> Laundry
                     </p>
                   </div>
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaDumbbell size={15} color="blue" /> Gym
+                      <FaDumbbell className="text-[#0E8E94]" /> Gym
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaDesktop size={15} color="blue" /> Media Room
+                      <FaDesktop className="text-[#0E8E94]" /> Media Room
                     </p>
                   </div>
                 </div>
@@ -361,25 +361,25 @@ const ItemInfo = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaFan size={15} color="blue" /> Back yard
+                      <FaFan className="text-[#0E8E94]" /> Back yard
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaHouseDamage size={15} color="blue" /> Front yard
+                      <FaHouseDamage className="text-[#0E8E94]" /> Front yard
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaRegCheckCircle size={15} color="blue" /> Hot Bath
+                      <FaRegCheckCircle className="text-[#0E8E94]" /> Hot Bath
                     </p>
                   </div>
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaBasketballBall size={15} color="blue" /> Basketball
+                      <FaBasketballBall className="text-[#0E8E94]" /> Basketball
                       court
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaParking size={15} color="blue" /> Garage Attached
+                      <FaParking className="text-[#0E8E94]" /> Garage Attached
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaSwimmingPool size={15} color="blue" /> Pool
+                      <FaSwimmingPool className="text-[#0E8E94]" /> Pool
                     </p>
                   </div>
                 </div>
@@ -389,24 +389,24 @@ const ItemInfo = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaRegCheckCircle size={15} color="blue" /> Central Air
+                      <FaRegCheckCircle className="text-[#0E8E94]" /> Central Air
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaFireAlt size={15} color="blue" /> Heating
+                      <FaFireAlt className="text-[#0E8E94]" /> Heating
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaHeadSideMask size={15} color="blue" /> Ventilation
+                      <FaHeadSideMask className="text-[#0E8E94]" /> Ventilation
                     </p>
                   </div>
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaBolt size={15} color="blue" /> Electricity
+                      <FaBolt className="text-[#0E8E94]" /> Electricity
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaGasPump size={15} color="blue" /> Natural Gas
+                      <FaGasPump className="text-[#0E8E94]" /> Natural Gas
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaHandHoldingWater size={15} color="blue" /> Water
+                      <FaHandHoldingWater className="text-[#0E8E94]" /> Water
                     </p>
                   </div>
                 </div>
@@ -416,21 +416,21 @@ const ItemInfo = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-between ">
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaWheelchair size={15} color="blue" /> Chair Accessible
+                      <FaWheelchair className="text-[#0E8E94]" /> Chair Accessible
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaHotjar size={15} color="blue" /> Fireplace
+                      <FaHotjar className="text-[#0E8E94]" /> Fireplace
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaWifi size={15} color="blue" /> WiFi
+                      <FaWifi className="text-[#0E8E94]" /> WiFi
                     </p>
                   </div>
                   <div className="space-y-3">
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaSkiing size={15} color="blue" /> Elevator
+                      <FaSkiing className="text-[#0E8E94]" /> Elevator
                     </p>
                     <p className="flex items-center justify-start gap-2 font-bold">
-                      <FaDharmachakra size={15} color="blue" /> Washer and dryer
+                      <FaDharmachakra className="text-[#0E8E94]" /> Washer and dryer
                     </p>
                   </div>
                 </div>
@@ -505,32 +505,22 @@ const ItemInfo = () => {
                         ></textarea>
                       </div>
                       <div className="form-control mt-6">
-                        <label className="label flex items-center justify-start gap-3 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            defaultChecked
-                            className="checkbox"
-                          />
-                          <span className="label-text font-bold">
-                            {" "}
-                            I consent to the GDPR Terms
-                          </span>
-                        </label>
+
                         <input
                           type="submit"
                           value="Send Email"
-                          className="btn btn-primary"
+                          className="btn btn-gradient"
                         />
                         <div className="flex items-center justify-center gap-2 py-2">
                           <input
                             type="submit"
                             value="Call"
-                            className="btn btn-primary w-1/2"
+                            className="btn btn-gradient w-1/2"
                           />
                           <input
                             type="submit"
                             value="Whatsapp"
-                            className="btn btn-primary w-1/2"
+                            className="btn btn-gradient w-1/2"
                           />
                         </div>
                       </div>
@@ -585,12 +575,12 @@ const ItemInfo = () => {
                   <input
                     type="submit"
                     value="In Person"
-                    className="btn btn-primary w-1/2"
+                    className="btn btn-gradient w-1/2"
                   />
                   <input
                     type="submit"
                     value="Video Chat"
-                    className="btn btn-primary w-1/2"
+                    className="btn btn-gradient w-1/2"
                   />
                 </div>
                 <div>
@@ -640,7 +630,7 @@ const ItemInfo = () => {
                       <input
                         type="submit"
                         value="Send Email"
-                        className="btn btn-primary"
+                        className="btn btn-gradient"
                       />
                     </div>
                   </div>

@@ -4,12 +4,12 @@ const Contact = () => {
     return (
         <div className=" text-black bg-[#F8F8F8]">
             <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 gap-2 items-start justify-between ">
-                <h1 className="text-4xl md:text-7xl text-center text-gradient font-semibold mb-10">Get In Touch</h1>
+                <h1 className="md:text-5xl text-3xl text-center text-gradient font-semibold mb-10">Get In Touch</h1>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
                     {/* card one  */}
                     <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
-                        <div className="border-2   border-primary p-4 rounded-full">
-                            <FaMapMarked className="text-6xl text-primary"></FaMapMarked>
+                        <div className="border-2   circle p-4 rounded-full">
+                            <FaMapMarked className="text-6xl text-[#0E8E94]"></FaMapMarked>
                         </div>
                         <div className="mt-4 text-center">
                             <h1 className="text-xl font-semibold ">New York, City</h1>
@@ -18,8 +18,8 @@ const Contact = () => {
                     </div>
                     {/* card one  */}
                     <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
-                        <div className="border-2   border-primary p-4 rounded-full">
-                            <FaEnvelope className="text-6xl text-primary"></FaEnvelope>
+                        <div className="border-2   circle p-4 rounded-full">
+                            <FaEnvelope className="text-6xl text-[#0E8E94]"></FaEnvelope>
                         </div>
                         <div className="mt-4 text-center">
                             <h1 className="text-xl font-semibold ">Email</h1>
@@ -28,8 +28,8 @@ const Contact = () => {
                     </div>
                     {/* card one  */}
                     <div className="card border-2  py-8 bg-base-100 flex flex-col items-center shadow-xl">
-                        <div className="border-2   border-primary p-4 rounded-full">
-                            <FaPhone className="text-6xl text-primary"></FaPhone>
+                        <div className="border-2   circle p-4 rounded-full">
+                            <FaPhone className="text-6xl text-[#0E8E94]"></FaPhone>
                         </div>
                         <div className="mt-4 text-center">
                             <h1 className="text-xl font-semibold ">Phone</h1>
@@ -48,17 +48,17 @@ const Contact = () => {
                             <input
                                 type="text"
                                 placeholder="Your Name"
-                                className="input border-2 input-bordered w-full max-w-xs"
+                                className="input border  border-black w-full max-w-xs"
                             />
                             <input
                                 type="text"
                                 placeholder="Your Email"
-                                className="input border-2 input-bordered w-full max-w-xs"
+                                className="input border  border-black w-full max-w-xs"
                             />
                             <input
                                 type="text"
                                 placeholder="Your Phone"
-                                className="input border-2 input-bordered w-full max-w-xs"
+                                className="input border  border-black w-full max-w-xs"
                             />
                         </div>
                         <textarea
@@ -66,20 +66,8 @@ const Contact = () => {
                             id=""
                             cols="30"
                             rows="5"
-                            className="textarea textarea-bordered border-2 w-full my-2"
+                            className="textarea textarea-bordered border border-black w-full my-2"
                         ></textarea>
-                        <div className="">
-                            <label className="cursor-pointer label flex items-center justify-start gap-4">
-                                <input
-                                    type="checkbox"
-
-                                    className="checkbox checkbox-primary"
-                                />
-                                <span className="label-text">
-                                    I consent to the GDPR Terms
-                                </span>
-                            </label>
-                        </div>
                         <button className="btn btn-gradient">Send Email</button>
                     </div>
                 </div>

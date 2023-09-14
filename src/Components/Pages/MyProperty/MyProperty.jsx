@@ -19,9 +19,9 @@ const MyProperty = () => {
             <div className='w-full h-full '>
                 <iframe width="100%" height="600px" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">Population mapping</a></iframe></div>
 
-            <div className='px-8 mt-8 md:mt-0'>
+            <div className='px-8 md:mt-0'>
                 {/* for search fields  */}
-                <div className=''>
+                <div className='mt-8'>
                     <div className=''>
                         <input className='w-full border border-black p-2 rounded-md text-black' placeholder='Enter your location' type="text" />
                     </div>
@@ -32,7 +32,7 @@ const MyProperty = () => {
                             min={0}
                             max={150}
                             value={range}
-                            className="range range-xs range-primary"
+                            className="range range-xs range-success"
                             onChange={(e) => setRange(e.target.value)}
                         />
                     </div>
@@ -94,14 +94,14 @@ const MyProperty = () => {
                     </div>
                     <div className='flex items-center my-3'>
                         <h2 className='text-black font-semibold w-60'>Price :
-                            <span className='text-primary'>  € 0 to € {price} </span>
+                            <span className='primary-color'>  € 0 to € {price} </span>
                         </h2>
                         <input
                             type="range"
                             min={0}
                             max={150000}
                             value={price}
-                            className="range range-xs range-primary"
+                            className="range range-xs range-success"
                             onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
@@ -110,9 +110,9 @@ const MyProperty = () => {
                 <div>
                     {/* before property  */}
                     <div className='flex justify-between items-center'>
-                        <h1 className='text-3xl md:text-4xl text-primary font-semibold'>My Properties</h1>
+                        <h1 className='text-3xl md:text-4xl primary-color font-semibold'>My Properties</h1>
                         <div className="dropdown  dropdown-end">
-                            <label tabIndex={0} className="btn btn-sm btn-primary btn-outline m-1">Filters</label>
+                            <label tabIndex={0} className="btn btn-sm btn-gradient btn-outline m-1">Filters</label>
                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
                                 <li><a>Price High to Low</a></li>
                                 <li><a>Price Low to High</a></li>

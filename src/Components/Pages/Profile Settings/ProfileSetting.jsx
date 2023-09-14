@@ -69,13 +69,13 @@ const ProfileSetting = () => {
     };
     return (
         <div className="py-8 md:mb-48 mb-20 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">
-            <h1 className="text-2xl pb-2 text-primary border-b-2 border-primary font-semibold"> Profile Settings</h1>
+            <h1 className="text-2xl pb-2 primary-color border-b-2 border-primary font-semibold"> Profile Settings</h1>
             <div className="mt-4">
                 <div className="flex items-center gap-8">
-                    <h2 className="text-primary text-xl font-semibold py-2">
+                    <h2 className="primary-color text-xl font-semibold py-2">
                         Name: <span className="text-black ms-4">{currentName}</span>
                     </h2>
-                    <button className="btn btn-sm btn-primary btn-outline" onClick={openModal}>
+                    <button className="btn btn-sm btn-gradient btn-outline" onClick={openModal}>
                         Edit
                     </button>
                     {isModalOpen && (
@@ -85,7 +85,7 @@ const ProfileSetting = () => {
                                     ✕
                                 </button>
                                 <form method="dialog">
-                                    <h3 className="font-bold text-primary text-lg">Edit Name</h3>
+                                    <h3 className="font-bold primary-color text-lg">Edit Name</h3>
                                     <p className="text-black font-semibold">Current Name: {currentName}</p>
                                     <div className="flex items-center justify-center gap-4">
                                         <input
@@ -98,7 +98,7 @@ const ProfileSetting = () => {
                                         <button
                                             type="button"
                                             onClick={handleUpdateName}
-                                            className="btn btn-sm btn-primary "
+                                            className="btn btn-sm btn-gradient "
                                         >
                                             Update
                                         </button>
@@ -109,10 +109,10 @@ const ProfileSetting = () => {
                     )}
                 </div>
                 <div className="flex items-center gap-8">
-                    <h2 className="text-primary text-xl font-semibold py-2">
+                    <h2 className="primary-color text-xl font-semibold py-2">
                         Password: <span className="text-black ms-4">Change Password</span>
                     </h2>
-                    <button className="btn btn-sm btn-primary btn-outline" onClick={openPassModal}>
+                    <button className="btn btn-sm btn-gradient btn-outline" onClick={openPassModal}>
                         Change
                     </button>
                     {isPassModalOpen && (
@@ -122,7 +122,7 @@ const ProfileSetting = () => {
                                     ✕
                                 </button>
                                 <form method="dialog">
-                                    <h3 className="font-bold text-primary text-lg">Change Password</h3>
+                                    <h3 className="font-bold primary-color text-lg">Change Password</h3>
                                     <label className="text-black font-semibold">
                                         Current Password:
                                         <input
@@ -153,7 +153,7 @@ const ProfileSetting = () => {
                                     <button
                                         type="button"
                                         onClick={handleUpdatePassword}
-                                        className="btn btn-sm btn-primary mt-2"
+                                        className="btn btn-sm btn-gradient mt-2"
                                     >
                                         Update Password
                                     </button>
