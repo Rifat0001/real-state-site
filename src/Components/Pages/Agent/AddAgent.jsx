@@ -9,7 +9,7 @@ const AddAgent = () => {
                 <button className="btn btn-gradient">Search</button>
             </div>
             {/* agent card  */}
-            <div className="card card-compact text-black bg-base-100 shadow-xl rounded-md">
+            <div className="card md:w-96 w-full card-compact text-black bg-base-100 shadow-xl rounded-md">
                 <div className="relative">
                     <figure>
 
