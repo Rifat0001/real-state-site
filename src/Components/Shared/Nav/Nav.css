@@ -1,0 +1,8 @@
+.nav-link {
+    color: #1D2C34;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #0E8E94;
+}

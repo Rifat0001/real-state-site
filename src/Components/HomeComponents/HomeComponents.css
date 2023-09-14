@@ -66,7 +66,25 @@ textarea {
     background: linear-gradient(90deg, rgba(45, 188, 237, 0.2) 0%, rgba(84, 182, 255, 0.2) 51%, rgba(3, 71, 254, 0.2) 92%);
 }
 
+.bg-card {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(45, 188, 237, 0.2) 0%, rgba(84, 182, 255, 0.2) 51%, rgba(3, 71, 254, 0.2) 92%);
+}
+
+.bg-card:hover {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(3, 71, 254, 0.3) 0%, rgba(84, 182, 255, 0.3) 51%, rgba(45, 188, 237, 0.3) 92%);
+}
+
 .back-gradient {
     background: rgb(45, 188, 237);
     background: linear-gradient(90deg, rgba(3, 71, 254, 0.5) 0%, rgba(84, 182, 255, 0.5) 51%, rgba(45, 188, 237, 0.5) 92%);
+}
+
+.primary-color {
+    color: #0E8E94;
+}
+
+.text-color {
+    color: #1D2C34;
 }

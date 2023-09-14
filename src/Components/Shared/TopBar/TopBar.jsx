@@ -1,28 +1,30 @@
-import { FaPhoneAlt, FaSearchLocation, FaRegClock } from 'react-icons/fa';
+import { FaPhoneAlt, FaSearchLocation, FaRegClock, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const TopBar = () => {
     return (
-        <div className="md:flex justify-between md:px-40 py-4 hidden border-b ">
-            <div>
-                <Link to='/' className="text-primary font-bold text-4xl italic">Real State</Link>
-            </div>
-            {/* for call service  */}
+        <div className="md:flex justify-between md:px-40 py-1 bg-[#1D2C34] hidden border-b ">
             <div className='flex items-center gap-4'>
-                <FaPhoneAlt className='text-primary text-xl'></FaPhoneAlt>
+                <FaEnvelope className='text-[#0E8E94] text-sm'></FaEnvelope>
                 <div>
-                    <p className='text-black font-medium'>+123456789</p>
+                    <p className='text-white '>+123456789</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>
-                <FaSearchLocation className='text-primary text-xl'></FaSearchLocation>
+                <FaPhoneAlt className='text-[#0E8E94] text-sm'></FaPhoneAlt>
                 <div>
-                    <p className='text-black font-medium'>New York</p>
+                    <p className='text-white  '>+123456789</p>
                 </div>
             </div>
             <div className='flex items-center gap-4'>
-                <FaRegClock className='text-primary text-xl'></FaRegClock>
+                <FaSearchLocation className='text-[#0E8E94] text-sm'></FaSearchLocation>
                 <div>
-                    <p className='text-black font-medium'>10AM - 8PM</p>
+                    <p className='text-white  '>New York</p>
+                </div>
+            </div>
+            <div className='flex items-center gap-4'>
+                <FaRegClock className='text-[#0E8E94] text-sm'></FaRegClock>
+                <div>
+                    <p className='text-white  '>10AM - 8PM</p>
                 </div>
             </div>
         </div>

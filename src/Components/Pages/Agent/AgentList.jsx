@@ -16,7 +16,7 @@ const AgentList = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
         <div className=" col-span-2">
           <div className=" space-y-4">
-            <h1 className="font-bold text-primary text-3xl">Agents List</h1>
+            <h1 className="font-bold text-gradient text-3xl">Agents List</h1>
             <p>
               We like to think of ourselves as a small but perfectly formed
               lettings & management agency. Working you get the exposure,
@@ -33,7 +33,7 @@ const AgentList = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 py-5 items-center justify-between gap-3">
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card card card-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -61,7 +61,7 @@ const AgentList = () => {
                 </div>
               </div>
             </div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card card card-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -89,7 +89,7 @@ const AgentList = () => {
                 </div>
               </div>
             </div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card cardcard-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -117,7 +117,7 @@ const AgentList = () => {
                 </div>
               </div>
             </div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card cardcard-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -145,7 +145,7 @@ const AgentList = () => {
                 </div>
               </div>
             </div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card cardcard-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -173,7 +173,7 @@ const AgentList = () => {
                 </div>
               </div>
             </div>
-            <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+            <div className="bg-card cardcard-compact w-full bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
@@ -204,7 +204,7 @@ const AgentList = () => {
           </div>
         </div>
         <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
-          <h1 className="font-bold text-2xl">Advanced Search</h1>
+          <h1 className="font-bold text-gradient text-2xl">Advanced Search</h1>
           <div className="flex flex-col items-center justify-between space-y-4">
             <input
               type="text"
@@ -266,7 +266,7 @@ const AgentList = () => {
               onChange={(e) => setValue(e.target.value)}
             />
             <p>More Search Options</p>
-            <button className="btn btn-primary  w-full">Search</button>
+            <button className="btn btn-gradient w-full">Search</button>
           </div>
         </div>
       </div>
