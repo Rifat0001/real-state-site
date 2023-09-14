@@ -44,6 +44,7 @@ textarea {
     background: linear-gradient(90deg, rgba(3, 71, 254, 1) 0%, rgba(84, 182, 255, 1) 51%, rgba(45, 188, 237, 1) 92%);
     color: white;
     font-weight: 700;
+    border: none;
 }
 
 .btn-gradient:hover {
@@ -58,4 +59,14 @@ textarea {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
+}
+
+.bg-gradient:hover {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(45, 188, 237, 0.2) 0%, rgba(84, 182, 255, 0.2) 51%, rgba(3, 71, 254, 0.2) 92%);
+}
+
+.back-gradient {
+    background: rgb(45, 188, 237);
+    background: linear-gradient(90deg, rgba(3, 71, 254, 0.5) 0%, rgba(84, 182, 255, 0.5) 51%, rgba(45, 188, 237, 0.5) 92%);
 }

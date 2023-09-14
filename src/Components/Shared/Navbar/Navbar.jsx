@@ -59,7 +59,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="btn btn-ghost text-primary italic font-bold text-[20px]">
-          Real State
+          <Link to='/'>Real State</Link>
         </a>
       </div>
       <div className="navbar-start w-2/3 hidden text-black font-semibold  lg:flex">
@@ -67,17 +67,11 @@ const Navbar = () => {
           {navItems}
         </ul>
       </div>
-      <div className="navbar-end  ms-8 md:ms-0 w-1/3 md:gap-6 gap-2">
+      <div className="navbar-end  ms-10 md:ms-0 w-1/3 md:gap-6 gap-2">
 
-        <Link to='/add-listing' className="btn btn-gradient border-none drop-shadow-md btn-sm">
+        <Link to='/add-listing' className="btn hidden md:flex btn-gradient border-none drop-shadow-md btn-sm">
           Add Listing
         </Link>
-        <div className="dropdown  ">
-          <label tabIndex={0} className="">
-
-          </label>
-
-        </div>
         <div className="dropdown dropdown-end ">
           <label tabIndex={0} className="btn  btn-gradient border-none  btn-sm  m-1">
             <FaUser className=""></FaUser>
@@ -111,6 +105,11 @@ const Navbar = () => {
             <li >
               <a > <Link to="/addAgent" className="hover:text-primary text-black">
                 Add Agent
+              </Link></a>
+            </li>
+            <li >
+              <a > <Link to="/add-listing" className="hover:text-primary md:hidden flex text-black">
+                Add Listing
               </Link></a>
             </li>
           </ul>

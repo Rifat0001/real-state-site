@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaThLarge, FaThList } from "react-icons/fa";
 import SingleProperty from "./SingleProperty";
+import { Link } from "react-router-dom";
 const TabComponent = () => {
   const [propertyCard, setPropertyCard] = useState([]);
   const [selectedType, setSelectedType] = useState("All");
@@ -103,6 +104,9 @@ const TabComponent = () => {
         {filteredPropertyCards.map((singleCard, index) => (
           <SingleProperty key={index} singleCard={singleCard} />
         ))}
+      </div>
+      <div className="flex justify-center items-center my-4">
+        <Link to='/property-lists'><button className="btn border-none btn-gradient">See More</button></Link>
       </div>
     </div>
   );

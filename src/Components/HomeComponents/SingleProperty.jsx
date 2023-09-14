@@ -16,7 +16,7 @@ const SingleProperty = ({ singleCard }) => {
     id,
   } = singleCard || null;
   return (
-    <div className="card w-full h-full bg-white shadow-xl rounded-md">
+    <div className="card w-full h-full bg-gradient shadow-xl rounded-md">
       <figure>
         <img
           src={image}
@@ -37,7 +37,7 @@ const SingleProperty = ({ singleCard }) => {
           <div className="flex items-center justify-start gap-2">
             <FaUserCircle className="text-black" /> <span className="font-bold text-black">Michael Suttherland</span>
           </div>
-          <Link to={`../items/${id}`}><button className=" bg-primary px-2 py-1 rounded-md text-white font-bold">Details</button></Link>
+          <Link to={`../items/${id}`}><button className=" bg-primary btn-gradient px-2 py-1 rounded-md border-none text-white font-bold">Details</button></Link>
         </div>
       </div>
     </div>

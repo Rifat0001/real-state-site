@@ -16,7 +16,7 @@ const GetinTouch = () => {
                             <input className='border  p-2 rounded-md text-black w-full ' type="text" placeholder='Your Email' />
                             <input className='border  p-2 rounded-md text-black w-full ' type="text" placeholder='Your Phone Number' />
                             <textarea className='border  p-2 rounded-md text-black w-full ' placeholder='Type your message' name="" id="" cols="10" rows="5"></textarea>
-                            <button className='btn btn-primary btn-outline w-full bg-white'>Send Message</button>
+                            <button className='btn btn-gradient w-full border-none'>Send Message</button>
                         </form>
                     </div>
                 </div>
