@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "real-world-4b2a9"
+=======
+    "default": "simple-firebase-ab1ef"
+>>>>>>> 9f259b67cb4b361cbd6c33c3653249c20f08c938
   }
 }
