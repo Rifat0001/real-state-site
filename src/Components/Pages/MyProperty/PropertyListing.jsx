@@ -425,7 +425,7 @@ const PropertyListing = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-4 grid-cols-1">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-black font-bold">
