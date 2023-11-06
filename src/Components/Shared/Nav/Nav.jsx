@@ -55,11 +55,16 @@ const Nav = () => {
                         <FaUser className="text-color hover:text-white"></FaUser>
                     </label>
                     <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
-                        <li >
+                        {/*OLD CODE <li >
                             <a > <Link to="/login" className="hover:text-[#0E8E94] text-black">
                                 Login
-                            </Link></a>
-                        </li>
+                            </Link>
+                            </a>
+                        </li> */}
+                        
+                        <Link to="/login" >
+                            <li><p className="hover:text-[#0E8E94] text-black">Login</p></li>    
+                        </Link>
                         <li >
                             <a > <Link to="/setting" className="hover:text-[#0E8E94] text-black">
                                 Setting

@@ -2,7 +2,15 @@ import { Outlet } from "react-router-dom";
 import Header from "../Shared/Header/Header";
 import Footer from "../Shared/Footer/Footer";
 
-const HomeLayout = () => {
+import React,{ useEffect } from "react"
+import {connect} from 'react-redux';
+import {checkAuthenticated,load_user} from '../../actions/auth'
+
+const HomeLayout = ({checkAuthenticated,load_user}) => {
+    useEffect(()=>{
+        checkAuthenticated();
+        load_user();
+      },[]);
     return (
         <div>
             <Header></Header>
@@ -12,4 +20,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default connect(null,{checkAuthenticated,load_user})(HomeLayout);

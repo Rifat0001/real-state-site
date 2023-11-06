@@ -1,7 +1,12 @@
-
 import { useForm } from "react-hook-form";
-import './Tabs.css'
+import './Tabs.css';
+
+import React, { useState,useEffect } from 'react';
+import { Link,useNavigate  } from 'react-router-dom';
+import axios from 'axios';
+
 const Register = () => {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -11,9 +16,20 @@ const Register = () => {
     } = useForm();
 
     const password = watch("password");
-    const confirm_password = watch("confirm_password");
-    const onSubmit = (data) => {
-        console.log(data)
+    const re_password = watch("re_password");
+    const onSubmit = async(data) => {
+        console.log(data);
+        try{
+            const config = {
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+            };
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/`,data,config);
+            navigate('/')
+          }catch(error){
+            console.log(error);
+        }
     };
 
     return (
@@ -22,10 +38,10 @@ const Register = () => {
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control">
                     <label className="label-text text-lg text-start mb-1 text-black font-bold">Role Selection</label>
-                    <select className="w-full role text-black  bg-white border-black h-12 rounded-lg ps-4" {...register("gender")}>
-                        <option value="female">Agent</option>
-                        <option value="male">Organization</option>
-                        <option value="other">other</option>
+                    <select className="w-full role text-black  bg-white border-black h-12 rounded-lg ps-4" {...register("role")}>
+                        <option value="1">Normal User</option>
+                        <option value="2">Agent</option>
+                        <option value="3">Organization</option>
                     </select>
                 </div>
                 <div className="form-control">
@@ -37,7 +53,7 @@ const Register = () => {
                         type="text"
                         placeholder="Your Name"
                         className="input border-black text-black rounded-md    bg-white w-full"
-                        {...register("name", { required: true })}
+                        {...register("full_name", { required: true })}
                     />
                     {errors.name?.type === "required" && (
                         <span className="font-bold text-error">Name is required</span>
@@ -64,7 +80,6 @@ const Register = () => {
                     </label>
                     <input
                         name="phone"
-                        type="number"
                         placeholder="Your Number"
                         className="input border-black text-black rounded-md    bg-white w-full"
                         {...register("phone", { required: true })}
@@ -84,9 +99,9 @@ const Register = () => {
                         className="input border-black text-black rounded-md    bg-white w-full"
                         {...register("password", {
                             required: true,
-                            minLength: 6,
+                            minLength: 8,
                             maxLength: 20,
-                            pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
+                            // pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
                         })}
                     />
 
@@ -97,7 +112,7 @@ const Register = () => {
                     )}
                     {errors.password?.type === "minLength" && (
                         <span className="font-bold text-error">
-                            Password must be 6 characters.
+                            Password must be 8 characters.
                         </span>
                     )}
                     {errors.password?.type === "maxLength" && (
@@ -117,20 +132,20 @@ const Register = () => {
                     </label>
                     <input
                         type="password"
-                        name="confirm_password"
+                        name="re_password"
                         placeholder="Confirm Password"
                         className="input border-black text-black rounded-md    bg-white w-full"
-                        {...register("confirm_password", {
+                        {...register("re_password", {
                             required: true,
-                            validate: (value) => value === password,
+                            validate: (value) => value == password,
                         })}
                     />
-                    {errors.confirm_password?.type === "required" && (
+                    {errors.re_password?.type === "required" && (
                         <span className="font-bold text-error">
                             Confirm Password is required
                         </span>
                     )}
-                    {password !== confirm_password && (
+                    {password !== re_password && (
                         <span className="font-bold text-error">
                             Password and Confirm Password do not match
                         </span>

@@ -9,7 +9,9 @@ import HomeLayout from './Components/Layout/HomeLayout.jsx';
 import Home from './Components/Pages/Home/Home.jsx';
 import ItemInfo from './Components/HomeComponents/ItemInfo';
 import UserLayout from './Components/Pages/Login/UserLayout';
+import Activation from './Components/Pages/Login/activation';
 import Forget from './Components/Pages/Login/Forget';
+import ResetPassword from './Components/Pages/Login/reset_password.jsx';
 import AgentList from './Components/Pages/Agent/AgentList';
 import AgentProfile from './Components/Pages/Agent/AgentProfile';
 import PropertyList from './Components/Pages/PropertyList/PropertyList';
@@ -26,6 +28,9 @@ import Settings from './Components/Settings/Settings';
 import ProfileSetting from './Components/Pages/Profile Settings/ProfileSetting';
 import PropertyListing from './Components/Pages/MyProperty/PropertyListing';
 
+
+import { Provider } from 'react-redux';
+import store from './store.js';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <UserLayout></UserLayout>
+      },
+      {
+        path: "/activation/:uid/:token",
+        element: <Activation />,
+      },
+      {
+        path: "/password-reset/:uid/:token",
+        element: <ResetPassword />,
       },
       {
         path: 'forget',
@@ -118,8 +131,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-
-
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )

@@ -1,10 +1,15 @@
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './Tabs.css'
 
-const Login = () => {
+import { connect } from "react-redux";
+import { login,login_fail } from '../../../actions/auth';
+import axios from 'axios';
+
+const Login = ({login,isAuthenticated}) => {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const {
         register,
@@ -17,8 +22,16 @@ const Login = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = async(data) => {
+        console.log(data);
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data,{withCredentials:true});
+            login(res.data);
+            console.log(res.data);
+            navigate("/");
+        } catch (error) {
+            console.log(error.response.data.detail)
+        }
     };
     return (
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
@@ -87,5 +100,7 @@ const Login = () => {
         </div >
     );
 };
-
-export default Login;
+const mapStateToProps = state =>({
+    isAuthenticated: state.auth.isAuthenticated
+  })
+  export default connect(mapStateToProps,{login})(Login);

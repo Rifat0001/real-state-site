@@ -1,14 +1,24 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Forget = () => {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const onSubmit = async(data) => {
+        console.log(data);
+        let email = data.email.toLowerCase();
+        try {
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/reset_password/`, {"email":email});
+            navigate('/login')
+        }catch (error) {
+            console.log(error)
+        }
     };
     return (
         <div className='text-center w-full md:w-1/3 mx-auto'>
