@@ -1,4 +1,57 @@
-# TASK: For Rifat
+# Tasks
 
 1/Add loading to buttons (login/registration button).
-2/Show errors from the backend when login or registration fails.
+2/Show errors from the backend when login or registration fails
+3/More task will be added here.
+
+# Tips & Rules:
+How to authenticate?
+Ans: Here is a js code example for you.
+
+try {
+    const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data,{withCredentials:true});
+    login(res.data);
+    console.log(res.data);
+    //do something
+} catch (error) {
+    console.log(error.response.data.detail)
+    // DO something
+}
+
+# Backend URLS:
+add "/api/" in front of all paths,
+
+*/path('jwt/create/', JWTCREATE.as_view()),[POST]["email","password"] //LOGIN
+*/path('users/'),[POST]['role','full_name','email','phone','password','re_password',] //REGISTRATION
+
+*/path('change-password/', ChangePasswordView.as_view()),[POST]["old_password","new_password","re_new_password"]
+*/path('user/update_full_name/', UpdateFullName.as_view()),[POST]["new_full_name"]
+
+*/path('profile/details/', UserProfileDetailView.as_view(), name='profileDetail)[GET]
+*/path('profile/update/', UserProfileCreateUpdateView.as_view(), name='profileUpdate')[POST]
+[
+    "name",
+    "number",
+    "skype_link",
+    "facebook_link",
+    "linkedin_link",
+    "title",
+    "email",
+    "website",
+    "twitter",
+    "pinterest",
+    "description"
+]
+
+*/path('addAgent/', AddAgentToOrganizationView.as_view(), name='AddAgentToOrganizationView')[POST]["email"]
+*/path('autocomplete_agent_emails/', autocomplete_agent_emails, name='autocomplete_agent_emails')[GET]["email"]
+
+*/path('invitations/', ListInvitationsView.as_view(), name='list_invitations')[GET]
+*/path('invitation/<int:invitation_id>/accept/', AcceptInvitationView.as_view(), name='accept-invitation')[POST]
+*/path('invitation/<int:invitation_id>/reject/', RejectInvitationView.as_view(), name='reject-invitation')[POST]
+
+*/path('myAgents/', AgentListView.as_view(), name='agent_list')[GET]
+:Here is an EXAMPLE:
+url = ${import.meta.env.VITE_APP_API_URL}/api/myAgents/
+
+
