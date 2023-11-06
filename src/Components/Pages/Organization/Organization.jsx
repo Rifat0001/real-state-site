@@ -35,7 +35,7 @@ const Organization = () => {
                                 </div>
                             </div>
                             <div className="space-y-3 w-full">
-                                <h1 className="font-bold primary-color text-2xl">Real State Ogranisations</h1>
+                                <h1 className="font-bold primary-color text-2xl">Realestate Ogranisations</h1>
                                 <p className="font-semibold">real estate broker</p>
                                 <div className="flex items-center justify-start gap-3">
                                     <FaPhoneAlt></FaPhoneAlt> <span>(305) 555-4555</span>

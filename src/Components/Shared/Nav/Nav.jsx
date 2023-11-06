@@ -1,7 +1,75 @@
 import { Link } from "react-router-dom";
 import './Nav.css';
 import { FaUser } from "react-icons/fa";
-const Nav = () => {
+
+import { connect } from "react-redux";
+import { logout } from "../../../actions/auth";
+import React,{ useEffect }  from "react";
+import { useSelector } from 'react-redux';
+const Nav = ({logout,isAuthenticated,auth}) => {
+    const user = useSelector((state) => state.auth.user);
+    const guestLinks = () =>{
+        return (
+            <>
+                <Link to="/login" >
+                    <li><p className="hover:text-[#0E8E94] text-black">Login</p></li>    
+                </Link>
+            </>
+        )
+      }
+      const authLinks = () =>{
+        const organizeration = <>
+        <Link to="/myProperty" >
+            <li><p className="hover:text-[#0E8E94] text-black">My Property</p></li>    
+        </Link>
+        <Link to="/myAgents" >
+            <li><p className="hover:text-[#0E8E94] text-black">My Agent</p></li>    
+        </Link>
+        <Link to="/addAgent" >
+            <li><p className="hover:text-[#0E8E94] text-black">Add Agent</p></li>    
+        </Link>
+        <Link to="/add-listing" >
+                <li><p className="hover:text-[#0E8E94] text-black">Add Listing</p></li>    
+            </Link>
+        </>
+        const agent =<>
+            <Link to="/myProperty" >
+                <li><p className="hover:text-[#0E8E94] text-black">My Property</p></li>    
+            </Link>
+            <Link to="/add-listing" >
+                <li><p className="hover:text-[#0E8E94] text-black">Add Listing</p></li>    
+            </Link>
+        </>
+
+        return (
+            <>
+                <Link to="/setting" >
+                    <li><p className="hover:text-[#0E8E94] text-black">Settings</p></li>    
+                </Link>
+                <Link to="/profile-setting" >
+                    <li><p className="hover:text-[#0E8E94] text-black">Profile Setting</p></li>    
+                </Link>
+                { user&& user['role']=='3'?organizeration:<></>}
+                { user&& user['role']=='2'?agent:<></>}
+                {/* <Link to="/myProperty" >
+                    <li><p className="hover:text-[#0E8E94] text-black">My Property</p></li>    
+                </Link>
+                <Link to="/myAgents" >
+                    <li><p className="hover:text-[#0E8E94] text-black">My Agent</p></li>    
+                </Link>
+                <Link to="/addAgent" >
+                    <li><p className="hover:text-[#0E8E94] text-black">Add Agent</p></li>    
+                </Link> 
+                <Link to="/add-listing" >
+                    <li><p className="hover:text-[#0E8E94] text-black">Add Listing</p></li>    
+                </Link>
+                */}
+                <Link to="/" >
+                    <li><p className="hover:text-[#0E8E94] text-black" onClick={logout}>Logout</p></li>    
+                </Link>    
+            </>
+        )
+      }
     const navItems = <>
         <li>
             <Link className="text-[16px] nav-link" to="/">Home</Link>
@@ -15,7 +83,7 @@ const Nav = () => {
         <li>
             <Link className="text-[16px] nav-link" to="/contact">Contact</Link>
         </li>
-        <li>
+        {/* <li>
             <Link className="text-[16px] nav-link" to='agents'>Agents List</Link>
         </li>
         <li>
@@ -26,7 +94,7 @@ const Nav = () => {
         </li>
         <li>
             <Link className="text-[16px] nav-link" to='/add-listing'>Add Listing</Link>
-        </li>
+        </li> */}
     </>
     return (
         <div className="navbar ">
@@ -40,7 +108,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <a className="primary-color normal-case font-bold text-lg md:text-2xl">
-                    <Link to='/'>Real State</Link>
+                    <Link to='/'>Kaeskanest</Link>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -55,6 +123,7 @@ const Nav = () => {
                         <FaUser className="text-color hover:text-white"></FaUser>
                     </label>
                     <ul tabIndex={0} className="dropdown-content z-[2] mt-4 menu p-2 drop-shadow-lg bg-white text-black  font-semibold  rounded-box w-52">
+                        {isAuthenticated ? authLinks():guestLinks()}
                         {/*OLD CODE <li >
                             <a > <Link to="/login" className="hover:text-[#0E8E94] text-black">
                                 Login
@@ -62,7 +131,7 @@ const Nav = () => {
                             </a>
                         </li> */}
                         
-                        <Link to="/login" >
+                        {/* <Link to="/login" >
                             <li><p className="hover:text-[#0E8E94] text-black">Login</p></li>    
                         </Link>
                         <li >
@@ -94,7 +163,7 @@ const Nav = () => {
                             <a > <Link to="/add-listing" className="hover:text-[#0E8E94] md:hidden flex text-black">
                                 Add Listing
                             </Link></a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
@@ -102,4 +171,9 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+const mapStateToProps = state =>({
+    isAuthenticated : state.auth.isAuthenticated,
+    auth:state.auth
+  })
+
+export default connect(mapStateToProps,{logout})(Nav);
