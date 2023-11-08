@@ -27,10 +27,14 @@ import AddAgent from './Components/Pages/Agent/AddAgent';
 import Settings from './Components/Settings/Settings';
 import ProfileSetting from './Components/Pages/Profile Settings/ProfileSetting';
 import PropertyListing from './Components/Pages/MyProperty/PropertyListing';
-
+import PrivateRoute from "./private.jsx"
+import PrivateRouteOrg from './privateORG.jsx';
+import PrivateRouteOrgAg from "./privateORGAG.jsx";
 
 import { Provider } from 'react-redux';
 import store from './store.js';
+import Meet from './Components/Pages/Chat/meet.jsx';
+import Inbox from './Components/Pages/Chat/inbox.jsx';
 
 const router = createBrowserRouter([
   {
@@ -98,7 +102,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'myProperty',
-        element: <MyProperty></MyProperty>
+        element: <PrivateRouteOrgAg component={MyProperty}/>
       },
       {
         path: 'promote',
@@ -106,11 +110,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'myAgents',
-        element: <MyAgents></MyAgents>
+        element: <PrivateRouteOrg component={MyAgents} />
       },
       {
         path: 'addAgent',
-        element: <AddAgent></AddAgent>
+        element: <PrivateRouteOrg component={AddAgent}/>
       },
       {
         path: 'setting',
@@ -118,15 +122,24 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile-setting',
-        element: <ProfileSetting></ProfileSetting>
+        element: <PrivateRouteOrgAg component={ProfileSetting}/>
       }
       ,
       {
         path: 'add-listing',
-        element: <PropertyListing></PropertyListing>
-      }
+        element: <PrivateRouteOrgAg component={PropertyListing}/>
+      },
+      {
+        path: '/meet',
+        element: <PrivateRoute component={Meet} />
+      },
+      {
+        path: '/inbox/:id',
+        element: <PrivateRoute component={Inbox} />
+      },
+
     ]
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
