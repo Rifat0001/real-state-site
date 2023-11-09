@@ -30,7 +30,6 @@ import PropertyListing from './Components/Pages/MyProperty/PropertyListing';
 import PrivateRoute from "./private.jsx"
 import PrivateRouteOrg from './privateORG.jsx';
 import PrivateRouteOrgAg from "./privateORGAG.jsx";
-
 import { Provider } from 'react-redux';
 import store from './store.js';
 import Meet from './Components/Pages/Chat/meet.jsx';
@@ -102,7 +101,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'myProperty',
-        element: <PrivateRouteOrgAg component={MyProperty}/>
+        element: <PrivateRouteOrgAg component={MyProperty} />
       },
       {
         path: 'promote',
@@ -114,7 +113,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'addAgent',
-        element: <PrivateRouteOrg component={AddAgent}/>
+        element: <PrivateRouteOrg component={AddAgent} />
       },
       {
         path: 'setting',
@@ -122,12 +121,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile-setting',
-        element: <PrivateRouteOrgAg component={ProfileSetting}/>
+        element: <PrivateRouteOrgAg component={ProfileSetting} />
       }
       ,
       {
         path: 'add-listing',
-        element: <PrivateRouteOrgAg component={PropertyListing}/>
+        element: <PrivateRouteOrgAg component={PropertyListing} />
       },
       {
         path: '/meet',

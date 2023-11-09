@@ -1,14 +1,16 @@
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './Tabs.css'
 
 import { connect } from "react-redux";
-import { login,login_fail } from '../../../actions/auth';
+import { login, login_fail } from '../../../actions/auth';
 import axios from 'axios';
 
-const Login = ({login,isAuthenticated}) => {
+const Login = ({ login, isAuthenticated }) => {
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const {
@@ -22,17 +24,21 @@ const Login = ({login,isAuthenticated}) => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
-    const onSubmit = async(data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        setLoading(true);
         try {
-            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data,{withCredentials:true});
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data, { withCredentials: true });
             login(res.data);
             console.log(res.data);
             navigate("/");
         } catch (error) {
             console.log(error.response.data.detail)
+            setError(error.response.data.detail);
+        } finally {
+            setLoading(false);
         }
     };
+
     return (
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
             <div className="">
@@ -90,17 +96,19 @@ const Login = ({login,isAuthenticated}) => {
                         <div className="form-control mt-2">
                             <input
                                 type="submit"
-                                className="btn btn-gradient rounded-md text-white"
-                                value="Login"
+                                className={`btn btn-gradient rounded-md text-white`}
+                                value={loading ? 'Logging in...' : 'Login'}
+
                             />
                         </div>
+                        <p className='text-red-500 mb-2 font-bold text-start '>{error}</p>
                     </form>
                 </div>
             </div >
         </div >
     );
 };
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
-  })
-  export default connect(mapStateToProps,{login})(Login);
+})
+export default connect(mapStateToProps, { login })(Login);

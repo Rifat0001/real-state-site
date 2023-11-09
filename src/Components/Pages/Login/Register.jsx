@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import './Tabs.css';
 
-import React, { useState,useEffect } from 'react';
-import { Link,useNavigate  } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const {
         register,
@@ -17,18 +19,22 @@ const Register = () => {
 
     const password = watch("password");
     const re_password = watch("re_password");
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
+        setLoading(true);
         console.log(data);
-        try{
+        try {
             const config = {
-              headers: {
-                  'Content-Type': 'application/json'
-              }
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             };
-            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/`,data,config);
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/`, data, config);
             navigate('/')
-          }catch(error){
+        } catch (error) {
             console.log(error);
+        }
+        finally {
+            setLoading(false);
         }
     };
 
@@ -71,12 +77,12 @@ const Register = () => {
                         {...register("email", { required: true })}
                     />
                     {errors.email?.type === "required" && (
-                        <span className="font-bold text-error">Email is required</span>
+                        <span className="font-bold text-error text-start">Email is required</span>
                     )}
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-lg text-black font-bold">Phone Number</span>
+                        <span className="label-text text-lg text-black font-bold ">Phone Number</span>
                     </label>
                     <input
                         name="phone"
@@ -85,7 +91,7 @@ const Register = () => {
                         {...register("phone", { required: true })}
                     />
                     {errors.email?.type === "required" && (
-                        <span className="font-bold text-error">Phone Number is required</span>
+                        <span className="font-bold text-error text-start">Phone Number is required</span>
                     )}
                 </div>
                 <div className="form-control">
@@ -106,22 +112,22 @@ const Register = () => {
                     />
 
                     {errors.password?.type === "required" && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Password is required.
                         </span>
                     )}
                     {errors.password?.type === "minLength" && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Password must be 8 characters.
                         </span>
                     )}
                     {errors.password?.type === "maxLength" && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Password must be less than 20 characters,
                         </span>
                     )}
                     {errors.password?.type === "pattern" && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Password must have a capital letter and a special character.
                         </span>
                     )}
@@ -141,12 +147,12 @@ const Register = () => {
                         })}
                     />
                     {errors.re_password?.type === "required" && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Confirm Password is required
                         </span>
                     )}
                     {password !== re_password && (
-                        <span className="font-bold text-error">
+                        <span className="font-bold text-error text-start">
                             Password and Confirm Password do not match
                         </span>
                     )}
@@ -156,9 +162,10 @@ const Register = () => {
                     <input
                         type="submit"
                         className="btn btn-gradient rounded-md text-white"
-                        value="Register"
+                        value={loading ? 'Loading...' : 'Register'}
                     />
                 </div>
+                <p className='text-red-500 mb-2 text-start'>{error}</p>
             </form>
         </div>
     );
