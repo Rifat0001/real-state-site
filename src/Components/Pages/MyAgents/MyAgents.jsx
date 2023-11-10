@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     FaEnvelope,
     FaFacebook,
@@ -7,8 +6,29 @@ import {
     FaPinterest,
     FaTwitter,
 } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from 'axios';
 const MyAgents = () => {
-    const [value, setValue] = useState(40);
+    const [agents,setAgents] = useState([]);
+    const fetchData = async()=>{
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                }
+            };
+            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/myAgents/`, config, { withCredentials: true });
+            console.log(res.data);
+            setAgents(res.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        fetchData();
+    },[])
     return (
         <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
@@ -31,199 +51,40 @@ const MyAgents = () => {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 py-5 items-center justify-between gap-3">
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
+                        {agents&& agents.map((e,i)=>{
+                            return(
+                                <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
+                                    <div className="relative">
+                                        <figure>
+                                            <img
+                                                src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
+                                                alt="Shoes"
+                                            />
+                                        </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
+                                        </div>
                                     </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
+                                    <div className="card-body">
+                                        <h2 className="card-title">{e.name}</h2>
+                                        <h2 className=" text-[18px]">real estate broker</h2>
+                                        <p className=" py-2">
+                                            {e.description}
+                                        </p>
+                                        <div className="flex justify-between items-center">
+                                            <div className="flex items-center justify-between gap-3">
+                                                <FaFacebook size={20}>{e.facebook_link}</FaFacebook>
+                                                <FaTwitter size={20}>{e.twitter}</FaTwitter>
+                                                <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
+                                                <FaPinterest size={20}>{e.pinterest}</FaPinterest>
+                                            </div>
+                                            <div className="flex items-center justify-between gap-3">
+                                                <FaEnvelope size={20}>{e.email}</FaEnvelope>
+                                                <FaPhone size={20}>{e.number}</FaPhone>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md">
-                            <div className="relative">
-                                <figure>
-
-                                    <img
-                                        src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                        alt="Shoes"
-                                    />
-                                </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
-                                </div>
-                            </div>
-                            <div className="card-body">
-                                <h2 className="card-title">René Descartes</h2>
-                                <h2 className=" text-[18px]">real estate broker</h2>
-                                <p className=" py-2">
-                                    Michael’s sociability, independent spirit, and incredible
-                                    customer service set him apart a...
-                                </p>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaFacebook size={20}></FaFacebook>
-                                        <FaTwitter size={20}></FaTwitter>
-                                        <FaLinkedin size={20}></FaLinkedin>
-                                        <FaPinterest size={20}></FaPinterest>
-                                    </div>
-                                    <div className="flex items-center justify-between gap-3">
-                                        <FaEnvelope size={20}></FaEnvelope>
-                                        <FaPhone size={20}></FaPhone>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
                 {/* NO NEED || JUST FIX LAYOUT */}
