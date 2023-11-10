@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from 'axios';
+import { useParams } from "react-router-dom";
 import {
   FaEnvelope,
   FaEnvelopeSquare,
@@ -13,8 +15,28 @@ import {
 import { Link } from "react-router-dom";
 
 const AgentProfile = () => {
-  const [value, setValue] = useState(40);
+  const params = useParams();
+  const id = params.id;
+  const [data,setData] = useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const config = {
+              headers: {
+                  'Content-Type': 'application/json',
+              }
+          };
+          const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/getAgentProfile/${id}`, config, { withCredentials: true });
+          console.log(res.data);
+          // UPDATE THIS ! HERE IS THE DATA
+          setData(res.data);
+      } catch (error) {
+          console.log(error);
+      }
+    };
 
+    fetchData(); // Call the function when the component mounts
+  }, []);
   return (
     <div className=" text-black bg-[#F8F8F8]">
       <div>
@@ -35,13 +57,13 @@ const AgentProfile = () => {
                 </div>
               </div>
               <div className="space-y-3 w-full">
-                <h1 className="font-bold primary-color text-2xl">Michael Suttherland</h1>
+                <h1 className="font-bold primary-color text-2xl">{data && data.name}</h1>
                 <p className="font-semibold">real estate broker</p>
                 <div className="flex items-center justify-start gap-3">
-                  <FaPhoneAlt></FaPhoneAlt> <span>(305) 555-4555</span>
+                  <FaPhoneAlt></FaPhoneAlt> <span>{data &&( data.number===""?"Not Available":data.number)}</span>
                 </div>
                 <div className="flex items-center justify-start gap-3">
-                  <FaEnvelope></FaEnvelope> <span>(305) 555-4555</span>
+                  <FaEnvelope></FaEnvelope> <span>{data &&( data.email===""?"Not Available":data.email)}</span>
                 </div>
                 <div className="flex items-center justify-start gap-3">
                   <FaEnvelopeSquare></FaEnvelopeSquare>{" "}
@@ -131,7 +153,8 @@ const AgentProfile = () => {
               <button className="btn btn-gradient">Send Email</button>
             </div>
           </div>
-          <div>
+          {/* NO NEED || JUST FIX LAYOUT */}
+          {/* <div>
             <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
               <h1 className="font-bold text-gradient mb-4 text-2xl">Advanced Search</h1>
               <div className="flex flex-col items-center justify-between space-y-4">
@@ -239,7 +262,7 @@ const AgentProfile = () => {
                 <button className="btn w-full btn-gradient">Calculate</button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

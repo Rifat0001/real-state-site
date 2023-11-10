@@ -226,7 +226,8 @@ const MyAgents = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                {/* NO NEED || JUST FIX LAYOUT */}
+                {/* <div>
                     <div className=" bg-white text-black shadow-lg rounded py-8 px-5">
                         <h1 className="font-bold text-gradient mb-4 text-2xl">Advanced Search</h1>
                         <div className="flex flex-col items-center justify-between space-y-4">
@@ -334,7 +335,7 @@ const MyAgents = () => {
                             <button className="btn w-full btn-gradient">Calculate</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

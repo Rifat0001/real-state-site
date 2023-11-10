@@ -1,8 +1,6 @@
 # Tasks
-
-1/Add loading to buttons (login/registration button).
-2/Show errors from the backend when login or registration fails
-3/More task will be added here.
+1/src\Components\Pages\Organization\Organization.jsx
+2/src\Components\Pages\Agent\AgentProfile.jsx
 
 # Tips & Rules:
 How to authenticate?
@@ -27,7 +25,7 @@ add "/api/" in front of all paths,
 */path('change-password/', ChangePasswordView.as_view()),[POST]["old_password","new_password","re_new_password"]
 */path('user/update_full_name/', UpdateFullName.as_view()),[POST]["new_full_name"]
 
-*/path('profile/details/', UserProfileDetailView.as_view(), name='profileDetail)[GET]
+*/path('profile/details/', UserProfileDetailView.as_view(), name='profileDetail')[GET]
 */path('profile/update/', UserProfileCreateUpdateView.as_view(), name='profileUpdate')[POST]
 [
     "name",
@@ -49,6 +47,9 @@ add "/api/" in front of all paths,
 */path('invitations/', ListInvitationsView.as_view(), name='list_invitations')[GET]
 */path('invitation/<int:invitation_id>/accept/', AcceptInvitationView.as_view(), name='accept-invitation')[POST]
 */path('invitation/<int:invitation_id>/reject/', RejectInvitationView.as_view(), name='reject-invitation')[POST]
+
+*/path('getAgentProfile/<int:id>',getAgentProfile,name="getAgentProfile"),[GET]
+*/path('getOrganizationProfile/<int:id>',getOrganizationProfile,name="getOrganizationProfile")[GET]
 
 */path('myAgents/', AgentListView.as_view(), name='agent_list')[GET]
 :Here is an EXAMPLE:

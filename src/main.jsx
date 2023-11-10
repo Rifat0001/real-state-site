@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         element: <AgentList></AgentList>
       },
       {
-        path: 'agentprofile',
+        path: 'agentprofile/:id',
         element: <AgentProfile></AgentProfile>
       },
       {
@@ -87,18 +87,18 @@ const router = createBrowserRouter([
         path: 'about',
         element: <About></About>
       },
+      // {
+      //   path: 'agentProperty',
+      //   element: <AgentProperty></AgentProperty>
+      // },
       {
-        path: 'agentProperty',
-        element: <AgentProperty></AgentProperty>
-      },
-      {
-        path: 'organization',
+        path: 'organization/:id',
         element: <Organization></Organization>
       },
-      {
-        path: 'checkout',
-        element: <Checkout></Checkout>
-      },
+      // {
+      //   path: 'checkout',
+      //   element: <Checkout></Checkout>
+      // },
       {
         path: 'myProperty',
         element: <PrivateRouteOrgAg component={MyProperty} />
