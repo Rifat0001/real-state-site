@@ -70,20 +70,10 @@ function Inbox() {
 
     return (
         <section className='max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
-            {/* raihan vai design  */}
-            <div>
-                {messages && messages.map((e, i) => {
-                    return (
-                        <div key={i}>
-                            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg" key={i}>[{e.id}]{e.sender}:{e.message}</button>
-                        </div>
-                    )
-                })}
-            </div>
-
             {/* my design  */}
             <div>
                 {messages && messages.map((e, i) => {
+                    const class_name = (id==e.sender_id)?"btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary":"btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-secondary";
                     return (
                         <div key={i}>
                             <div className="chat chat-start" key={i}>
@@ -91,7 +81,8 @@ function Inbox() {
                                     {e.sender}
                                     {/* <time className="text-xs opacity-50">2 hour ago</time> */}
                                 </div>
-                                <div className="chat-bubble">{e.message}</div>
+                                {/* <div className="chat-bubble">{e.message}</div> */}
+                                <div className={class_name}>{e.message}</div> 
                                 {/* <div className="chat-footer opacity-50">
                                     Delivered
                                 </div> */}
