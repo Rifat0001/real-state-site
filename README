@@ -1,6 +1,6 @@
 # Tasks
-1/src\Components\Pages\Organization\Organization.jsx
-2/src\Components\Pages\Agent\AgentProfile.jsx
+1/src\Components\Pages\Organization\Organization.jsx [url:http://localhost:3000/agentprofile/1]
+2/src\Components\Pages\Agent\AgentProfile.jsx [url:http://localhost:3000/organization/1]
 
 # Tips & Rules:
 How to authenticate?
