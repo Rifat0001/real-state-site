@@ -7,6 +7,7 @@ import './Tabs.css'
 import { connect } from "react-redux";
 import { login, login_fail } from '../../../actions/auth';
 import axios from 'axios';
+import Meet from "../Chat/meet";
 
 const Login = ({ login, isAuthenticated }) => {
     const [error, setError] = useState('');
