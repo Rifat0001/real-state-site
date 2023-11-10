@@ -25,7 +25,7 @@ const PropertyList = () => {
                     <div className=''>
                         <input className='w-full border border-black p-2 rounded-md text-black' placeholder='Enter your location' type="text" />
                     </div>
-                    <div className='flex items-center my-3'>
+                    {/* <div className='flex items-center my-3'>
                         <h2 className='text-black font-semibold w-40'>Radius: {range} km</h2>
                         <input
                             type="range"
@@ -35,8 +35,8 @@ const PropertyList = () => {
                             className="range range-xs range-success"
                             onChange={(e) => setRange(e.target.value)}
                         />
-                    </div>
-                    <div className="grid grid-flow-row-dense grid-cols-3 gap-3">
+                    </div> */}
+                    {/* <div className="grid grid-flow-row-dense grid-cols-3 gap-3">
                         <div className="col-span-2">
                             <input className='w-full border border-black h-10 rounded-md text-black ps-2' placeholder='Type address,city,area' type="text" />
                         </div>
@@ -104,22 +104,14 @@ const PropertyList = () => {
                             className="range  range-xs range-success"
                             onChange={(e) => setPrice(e.target.value)}
                         />
-                    </div>
+                    </div> */}
                 </div>
                 {/* show properties  */}
                 <div>
                     {/* before property  */}
-                    <div className='flex justify-between items-center'>
+                    <div className='flex justify-between my-5 items-center'>
                         <h1 className='text-3xl md:text-4xl text-gradient font-semibold'>Our Properties</h1>
-                        <div className="dropdown  dropdown-end">
-                            <label tabIndex={0} className="btn btn-sm btn-gradient m-1">Filters</label>
-                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-black rounded-box w-52">
-                                <li><a>Price High to Low</a></li>
-                                <li><a>Price Low to High</a></li>
-                                <li><a>Newest First</a></li>
-                                <li><a>Oldest First</a></li>
-                            </ul>
-                        </div>
+
                     </div>
                     <div
                         id="SingleCard"

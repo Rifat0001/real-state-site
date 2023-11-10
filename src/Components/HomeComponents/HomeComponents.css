@@ -16,11 +16,19 @@
 
 /* from get in touch section  */
 .get-touch {
-    background-image: url('../../assets//get-in-touch.jpg');
+    background-image: url('../../assets/get-in-touch.jpg');
     background-position: center center;
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.find-property {
+    background-image: url('../../assets');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
 }
 
 .overlay {
@@ -32,6 +40,8 @@
     position: relative;
     z-index: 1;
 }
+
+.preview-image {}
 
 .forma input,
 textarea {

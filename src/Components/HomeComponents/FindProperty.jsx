@@ -2,9 +2,9 @@ import { FaSearch } from "react-icons/fa";
 import "./HomeComponents.css";
 const FindProperty = () => {
   return (
-    <div className=" ">
+    <div className="find-property flex items-center justify-center">
       <div className="max-w-[2150px] mt-8 mx-auto md:px-36 sm:px-2 px-4">
-        <div className="grid md:grid-cols-4 grid-cols-1 bg-white gap-10 drop-shadow-lg px-4 md:px-20 py-8 rounded-md">
+        <div className="grid  md:grid-cols-4 grid-cols-1 bg-white gap-10 drop-shadow-lg px-4 md:px-20 py-8 rounded-md">
           <div className="form-control w-full max-w-xs">
             <select className="select w-full border text-black border-black">
               <option selected>

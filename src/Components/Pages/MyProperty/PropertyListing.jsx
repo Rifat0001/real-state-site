@@ -1,4 +1,99 @@
+import { useEffect } from "react";
+import { Helmet } from 'react-helmet';
 const PropertyListing = () => {
+  const imgInp = document.getElementById('imgInp');
+  const imagePreviewContainer = document.getElementById('image-preview-container');
+
+  const fileInp = (e) => {
+    const files = imgInp.files;
+
+    // Clear existing previews
+    imagePreviewContainer.innerHTML = "";
+
+    // Loop through each selected file
+    for (const file of files) {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.alt = 'your image';
+      img.className = 'preview-image';
+
+      // Append the image to the container
+      imagePreviewContainer.appendChild(img);
+    }
+  };
+
+  // Add an event listener to handle file input changes
+  // imgInp.addEventListener('change', fileInp);
+  const componentDidMount = () => {
+    this.initMap();
+    this.initAutocomplete();
+  }
+
+  const initMap = () => {
+    const success = (position) => {
+      let markerOptions = {
+        position: { lat: position.coords.latitude, lng: position.coords.longitude }
+      };
+
+      let marker = new window.google.maps.Marker(markerOptions);
+
+      let mapOptions = {
+        center: { lat: position.coords.latitude, lng: position.coords.longitude },
+        zoom: 18,
+        draggable: true,
+        mapTypeId: 'satellite'
+      };
+
+      let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
+
+      map.setTilt(45);
+      marker.setMap(map);
+    };
+
+    const error = () => {
+      console.log('Error');
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+  const initAutocomplete = () => {
+    const searchInput = 'loc';
+
+    const autocomplete = new window.google.maps.places.Autocomplete(
+      document.getElementById(searchInput),
+      {
+        types: ['geocode'],
+      }
+    );
+
+    window.google.maps.event.addListener(autocomplete, 'place_changed', () => {
+      const place = autocomplete.getPlace();
+      if (!place.geometry) {
+        return;
+      } else {
+        const lat1 = place.geometry.location.lat();
+        const lng1 = place.geometry.location.lng();
+        let markerOptions = {
+          position: { lat: lat1, lng: lng1 }
+        };
+
+        let marker = new window.google.maps.Marker(markerOptions);
+
+        let mapOptions = {
+          center: { lat: lat1, lng: lng1 },
+          zoom: 18,
+          draggable: true,
+          mapTypeId: 'satellite'
+        };
+
+        let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
+
+        map.setTilt(45);
+        marker.setMap(map);
+      }
+    });
+  }
   return (
     <div className="py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       <h2 className="text-center md:text-4xl text-2xl text-gradient  font-bold">
@@ -7,8 +102,20 @@ const PropertyListing = () => {
       <form>
         <div className="card-body">
           <div className="form-control">
+            {/* <div className="">
+              <input onChange={fileInp} multiple accept="image/*" type='file' id="imgInp" />
+              <div className="blah">
+                <img id="blah" src="#" alt="your image" />
+              </div>
+            </div> */}
+
+            <Helmet>
+              <script src="./script1.js" ></script>
+              <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
+            </Helmet>
+
             <h2 className=" text-xl font-bold text-black py-3">
-              Property Description
+              Property Descript1ion
             </h2>
             <label className="label">
               <span className="label-text text-black font-bold">Title*</span>
@@ -24,15 +131,15 @@ const PropertyListing = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text text-black font-bold">
-                Description
+                Descript1ion
               </span>
             </label>
             <textarea
-              name="description"
+              name="descript1ion"
               id=""
               cols="30"
               rows="10"
-              placeholder="Add Description"
+              placeholder="Add Descript1ion"
               className="input pt-3 input-bordered border border-black"
             ></textarea>
           </div>
@@ -110,7 +217,7 @@ const PropertyListing = () => {
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text text-black font-bold">
-                    Listed In
+                    Post type
                   </span>
                 </label>
                 <select className="select border border-black">
@@ -147,19 +254,12 @@ const PropertyListing = () => {
             <h2 className=" text-xl font-bold text-black py-3">
               Listing Media
             </h2>
-            <input
-              type="file"
-              className="file-input file-input-bordered border  border-black w-full max-w-xs"
-            />
-            <p>
-              * At least 1 image is required for a valid submission.Minimum size
-              is 500/500px. <br />
-              ** Double click on the image to select featured. <br />
-              *** Change images order with Drag & Drop. <br />
-              **** PDF files upload supported as well. <br />
-              ***** Images might take longer to be processed.
-            </p>
+            <input className="file-input file-input-bordered" onChange={fileInp} multiple accept="image/*" type='file' id="imgInp" />
+            <div className="blah flex gap-4 py-4" id="image-preview-container">
+
+            </div>
           </div>
+
           <div>
             <h2 className=" text-xl font-bold text-black py-3">
               Video Option
@@ -216,6 +316,26 @@ const PropertyListing = () => {
             <h2 className=" text-xl font-bold text-black py-3">
               Listing Location
             </h2>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-black font-bold">
+                  Find Location
+                </span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your location"
+                className="input input-bordered border border-black"
+                color="black"
+                required
+                onChange={initAutocomplete}
+                name="loc" id="loc"
+              />
+            </div>
+            {/* new chat  */}
+            <div id="container">
+              <div id="map"></div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4">
               <div className="form-control">
                 <label className="label">
@@ -548,11 +668,11 @@ const PropertyListing = () => {
                   <span className="label-text text-black font-bold">Owner / Agent Notes</span>
                 </label>
                 <textarea
-                  name="description"
+                  name="descript1ion"
                   id=""
                   cols="30"
                   rows="10"
-                  placeholder="Add Description"
+                  placeholder="Add Descript1ion"
                   className="input pt-3 input-bordered border border-black"
                 ></textarea>
 

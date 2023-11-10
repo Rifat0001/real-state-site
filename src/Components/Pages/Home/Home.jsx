@@ -9,13 +9,12 @@ const Home = () => {
     return (
         <div className="bg-[#F0F2F5]">
             {/* TO DO INSERT A MAP WITH FEATURES */}
-            <GoogleMap></GoogleMap>
+
             <FindProperty></FindProperty>
             {/* TO DO MAKE A TAB USING FAKE DATA WITH FILTERS */}
             <Tab></Tab>
             <GetinTouch></GetinTouch>
             <AppDownLoad></AppDownLoad>
-            <BlogSection></BlogSection>
         </div>
     );
 };
