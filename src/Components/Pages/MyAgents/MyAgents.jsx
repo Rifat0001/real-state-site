@@ -29,6 +29,24 @@ const MyAgents = () => {
     useEffect(() => {
         fetchData();
     },[])
+    const remove = async(eID)=>{
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                }
+            };
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/removeAgent/${eID}/`,{}, config, { withCredentials: true });
+            console.log(res.data);
+            fetchData()
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const removeAgent = (eID) =>{
+        remove(eID);
+    }
     return (
         <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="grid grid-cols-1 md:grid-cols-3 items-start justify-between gap-5">
@@ -60,7 +78,9 @@ const MyAgents = () => {
                                                 src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
                                                 alt="Shoes"
                                             />
-                                        </figure><div className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"> Remove
+                                        </figure>
+                                        <div onClick={()=>removeAgent(e.id)} className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white">
+                                            Remove
                                         </div>
                                     </div>
                                     <div className="card-body">
