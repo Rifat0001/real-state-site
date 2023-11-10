@@ -1,15 +1,53 @@
 import { useState } from "react";
 import './Settings.css'
+import { useEffect } from "react";
+import { connect,useSelector } from 'react-redux';
+import axios from 'axios';
 const Settings = () => {
+    const user = useSelector((state) => state.auth.user);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [currentName, setCurrentName] = useState('Rifat Mahmud');
+    const [currentName, setCurrentName] = useState('Loading User...');
     const [newName, setNewName] = useState('');
 
     const [isPassModalOpen, setIsPassModalOpen] = useState(false);
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
-
+    const setName = async()=>{
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                }
+            };
+            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/user/update_full_name/`,{"new_full_name":newName}, config, { withCredentials: true });
+            setCurrentName(newName);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const setPass = async()=>{
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
+                }
+            };
+            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/change-password/`,{
+                "old_password":currentPassword,
+                "new_password":newPassword,
+                "re_new_password":confirmNewPassword
+              }, config, { withCredentials: true });
+            setCurrentName(newName);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        setCurrentName(user&&user.full_name);
+    },[user])
     const openPassModal = () => {
         setIsPassModalOpen(true);
     };
@@ -41,6 +79,7 @@ const Settings = () => {
             // Passwords match; perform the update
             // Replace this with your actual API call
             console.log('Password updated:', newPassword);
+            setPass();
             closePassModal();
         } else {
             // Passwords don't match; show an error or provide feedback to the user
@@ -63,8 +102,7 @@ const Settings = () => {
     };
 
     const handleUpdateName = () => {
-        // Update the name with the new name value
-        setCurrentName(newName);
+        setName();
         closeModal();
     };
     return (
