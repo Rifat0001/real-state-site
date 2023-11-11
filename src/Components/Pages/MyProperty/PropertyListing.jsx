@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import { useEffect } from "react";
 
 import { logout } from "../../../actions/auth";
-const PropertyListing = ({logout,isAuthenticated,auth}) => {
+const PropertyListing = ({ logout, isAuthenticated, auth }) => {
   const [uid, setUid] = useState();
   useEffect(() => {
     setUid(auth.user.id)
@@ -180,9 +180,18 @@ const PropertyListing = ({logout,isAuthenticated,auth}) => {
       'thumbnail': thumbnail[0],
       'title': title,
       'property_status': postStatus,
-      'user': user
+      'user': uid,
+      'address': 'Rifat'
+      // 'address': {
+      //   'house': house,
+      //   'street': streetAddress,
+      //   'city': city,
+      //   'state': state,
+      //   'country': country,
+      //   'zip': zip,
+      // },
     }
-    console.log(thumbnail[0], user)
+    console.log(data)
     postSubmit(data);
   };
 
@@ -753,8 +762,8 @@ const PropertyListing = ({logout,isAuthenticated,auth}) => {
   );
 };
 
-const mapStateToProps = state =>({
-  isAuthenticated : state.auth.isAuthenticated,
-  auth:state.auth
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth
 })
-export default connect(mapStateToProps,{logout})(PropertyListing);
+export default connect(mapStateToProps, { logout })(PropertyListing);
