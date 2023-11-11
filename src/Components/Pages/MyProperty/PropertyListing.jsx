@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { useEffect } from "react";
-const PropertyListing = () => {
-  const user = useSelector((state) => {
-    state.auth.user
-  })
+
+import { logout } from "../../../actions/auth";
+const PropertyListing = ({logout,isAuthenticated,auth}) => {
   const [uid, setUid] = useState();
   useEffect(() => {
-    console.log(user)
-  }, [user])
+    setUid(auth.user.id)
+    console.log(uid)
+  }, [uid])
   const imgInp = document.getElementById('imgInp');
   const imagePreviewContainer = document.getElementById('image-preview-container');
   const imgInp2 = document.getElementById('imgInp2');
@@ -753,4 +753,8 @@ const PropertyListing = () => {
   );
 };
 
-export default PropertyListing;
+const mapStateToProps = state =>({
+  isAuthenticated : state.auth.isAuthenticated,
+  auth:state.auth
+})
+export default connect(mapStateToProps,{logout})(PropertyListing);
