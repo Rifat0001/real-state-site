@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 import { Helmet } from 'react-helmet';
 const PropertyListing = () => {
   const imgInp = document.getElementById('imgInp');
@@ -130,7 +131,7 @@ const PropertyListing = () => {
     const category = e.target.category.value;
     const postType = e.target.postType.value;
     const thumbnail = e.target.thumbnail.value;
-    const multiple = e.target.multipleImage.value;
+    const multiple = e.target.multipleImage.files;
     const video = e.target.video.value;
     const loc = e.target.loc.value;
     const lat = e.target.lat.value;
@@ -154,10 +155,34 @@ const PropertyListing = () => {
     const garageSize = e.target.garageSize.value;
     const floorNo = e.target.floorNo.value;
     const check = e.target.check.value;
-    // e.target.reset();
-    console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
+    // // e.target.reset();
+    // console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
+    console.log(multiple)
+    postSubmit();
   };
 
+  const postSubmit = async () => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${localStorage.getItem('access')}`,
+      }
+    };
+    const data = {
+
+    }
+    try {
+
+      const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, data, config, { withCredentials: true });
+
+      console.log(res);
+
+
+    } catch (error) {
+      console.log(error.response.data.detail)
+
+    }
+  }
 
   return (
     <div className="py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
@@ -168,7 +193,8 @@ const PropertyListing = () => {
         <script src="./script1.js" ></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
       </Helmet>
-      <form onSubmit={handleSubmit}>
+      <form encType="multipart/form-data"
+        onSubmit={handleSubmit}>
         <div className="form-control">
           <label className="label">
             <span className="label-text text-black font-bold">Title*</span>
