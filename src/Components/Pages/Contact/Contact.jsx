@@ -68,7 +68,7 @@ const Contact = () => {
                         </div>
                         <div className="mt-4 text-center">
                             <h1 className="text-xl font-semibold ">Email</h1>
-                            <p>abc@gmail.com</p>
+                            <a href="mailto:info@example.com">info@example.com</a>
                         </div>
                     </div>
                     {/* card one  */}
@@ -78,7 +78,7 @@ const Contact = () => {
                         </div>
                         <div className="mt-4 text-center">
                             <h1 className="text-xl font-semibold ">Phone</h1>
-                            <p>800 2541365</p>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
                         </div>
                     </div>
                 </div>

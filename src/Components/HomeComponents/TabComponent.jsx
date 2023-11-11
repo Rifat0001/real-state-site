@@ -58,7 +58,7 @@ const TabComponent = () => {
       </div>
       {/* Tabs */}
 
-      <div className="bg-white my-10 flex   items-center justify-between px-4 rounded">
+      {/* <div className="bg-white my-10 flex   items-center justify-between px-4 rounded">
         <div className="flex flex-wrap items-center justify-start gap-2">
           <select
             className="select hover:outline-none hover:border-none focus:ring-0"
@@ -95,11 +95,11 @@ const TabComponent = () => {
           </select>
         </div>
 
-      </div>
+      </div> */}
       {/* show card */}
       <div
         id="SingleCard"
-        className="grid md:grid-cols-2 xl:grid-cols-3 items-center justify-between gap-x-6 gap-y-6"
+        className="grid md:grid-cols-2 xl:grid-cols-3 items-center justify-between mt-10 gap-x-6 gap-y-6"
       >
         {filteredPropertyCards.map((singleCard, index) => (
           <SingleProperty key={index} singleCard={singleCard} />

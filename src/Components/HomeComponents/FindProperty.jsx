@@ -6,8 +6,8 @@ const FindProperty = () => {
       <div className="max-w-[2150px] mt-8 mx-auto md:px-36 sm:px-2 px-4">
 
         <div className=" bg-[#0E8E94]  drop-shadow-lg px-4 md:px-20 py-4 rounded-md">
-          <p className="text-center text-2xl text-white font-semibold mb-4">Find your property in Portugal</p>
-          <div className="grid  md:grid-cols-4 gap-10 grid-cols-1">
+          <p className="text-center text-2xl text-white font-semibold mb-4 capitalize">Find your property</p>
+          <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
             <div className="form-control bg-white rounded-lg w-full max-w-xs">
               <select className="select w-full border text-black border-black">
                 <option selected>

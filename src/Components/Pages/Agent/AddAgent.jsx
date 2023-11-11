@@ -29,14 +29,29 @@ const AddAgent = () => {
                     </p>
                     <div className="flex justify-between items-center">
                         <div className="flex items-center justify-between gap-3">
-                            <FaFacebook size={20}></FaFacebook>
-                            <FaTwitter size={20}></FaTwitter>
-                            <FaLinkedin size={20}></FaLinkedin>
-                            <FaPinterest size={20}></FaPinterest>
+                            <a className="" href="https://www.facebook.com/" target="blank">
+                                <FaFacebook className="" size={20}>
+                                </FaFacebook>
+                            </a>
+                            <a className="" href="https://www.twitter.com/" target="blank">
+                                <FaTwitter size={20}></FaTwitter>
+                            </a>
+                            <a className="" href="https://www.linkedin.com/" target="blank">
+                                <FaLinkedin size={20}></FaLinkedin>
+                            </a>
+                            <a className="" href="https://www.pinterest.com/" target="blank">
+
+                                <FaPinterest size={20}></FaPinterest>
+                            </a>
+
+
+
+
                         </div>
                         <div className="flex items-center justify-between gap-3">
-                            <FaEnvelope size={20}></FaEnvelope>
-                            <FaPhone size={20}></FaPhone>
+                            <a href="mailto:info@example.com"> <FaEnvelope size={20}></FaEnvelope></a>
+                            <a href="tel:+1234567890"><FaPhone size={20}></FaPhone></a>
+
                         </div>
                     </div>
                 </div>

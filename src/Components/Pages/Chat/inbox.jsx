@@ -72,28 +72,33 @@ function Inbox() {
         <section className='max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
             {/* my design  */}
             <div>
-                {messages && messages.map((e, i) => {
-                    const class_name = (id==e.sender_id)?"btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-primary":"btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-secondary";
-                    return (
-                        <div key={i}>
-                            <div className="chat chat-start" key={i}>
-                                <div className="chat-header">
-                                    {e.sender}
-                                    {/* <time className="text-xs opacity-50">2 hour ago</time> */}
-                                </div>
-                                {/* <div className="chat-bubble">{e.message}</div> */}
-                                <div className={class_name}>{e.message}</div> 
-                                {/* <div className="chat-footer opacity-50">
-                                    Delivered
-                                </div> */}
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
-            {/* chat design started  */}
+                {messages &&
+                    messages.map((e, i) => {
+                        const isCurrentUser = String(id) === String(e.sender_id);
+                        const chatClass = isCurrentUser ? "chat-start" : "chat-end";
+                        const headerClass = isCurrentUser ? "" : "";
+                        const bubbleStyle = !isCurrentUser ? { backgroundColor: '#0e8e94', color: 'white' } : {}; // Add this line
 
-            {/* chat design end  */}
+                        return (
+                            <div key={i} className={`chat ${chatClass}`}>
+                                <div className={`chat-header ${headerClass}`}>
+                                    {e.sender}
+                                    {/* <time className="text-xs opacity-50">2 hours ago</time> */}
+                                </div>
+                                <div className="chat-bubble" style={bubbleStyle}> {/* Add style attribute */}
+                                    {e.message}
+                                </div>
+                                {/* <div className="chat-footer opacity-50">
+              Delivered
+          </div> */}
+                            </div>
+                        );
+                    })}
+            </div>
+
+
+
+
             <div className="flex gap-4 my-6">
                 <textarea onChange={e => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
                 <button className="btn btn-gradient" onClick={sendMessage}>

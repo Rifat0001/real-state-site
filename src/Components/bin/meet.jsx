@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 function Meet() {
     const [list, setlist] = useState([]);
     // Function to fetch initial conversation and messages
-    const fetchInitial = async() => {
+    const fetchInitial = async () => {
         try {
-            const config ={
-                headers:{
-                    'Content-Type':'application/json',
-                    'Authorization':`JWT ${localStorage.getItem('access')}`,
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${localStorage.getItem('access')}`,
                 }
             };
-            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/meet/`,config,{withCredentials:true});
+            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/meet/`, config, { withCredentials: true });
             setlist(res.data.users);
-            list.map((e,i)=>{
+            list.map((e, i) => {
                 console.log(e)
             })
             // console.log(list);
@@ -33,9 +33,9 @@ function Meet() {
 
     return (
         <div>
-            {list.map((e, i)=>{
+            {list.map((e, i) => {
                 return (
-                    <div>
+                    <div key={i}>
                         <Link to={`/inbox/${e.id}`} key={i}>
                             <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">{e.full_name}:{e.email}</button>
                         </Link>

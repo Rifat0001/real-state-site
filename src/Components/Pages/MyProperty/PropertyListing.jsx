@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet';
 const PropertyListing = () => {
   const imgInp = document.getElementById('imgInp');
   const imagePreviewContainer = document.getElementById('image-preview-container');
+  const imgInp2 = document.getElementById('imgInp2');
+  const imagePreviewContainer2 = document.getElementById('image-preview-container2');
 
   const fileInp = (e) => {
     const files = imgInp.files;
@@ -19,6 +21,24 @@ const PropertyListing = () => {
 
       // Append the image to the container
       imagePreviewContainer.appendChild(img);
+    }
+  };
+
+  const fileInp2 = (e) => {
+    const files = imgInp2.files;
+
+    // Clear existing previews
+    imagePreviewContainer2.innerHTML = "";
+
+    // Loop through each selected file
+    for (const file of files) {
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.alt = 'your image';
+      img.className = 'preview-image';
+
+      // Append the image to the container
+      imagePreviewContainer2.appendChild(img);
     }
   };
 
@@ -74,6 +94,10 @@ const PropertyListing = () => {
       } else {
         const lat1 = place.geometry.location.lat();
         const lng1 = place.geometry.location.lng();
+        const lt = document.getElementById('lat');
+        const lg = document.getElementById('long');
+        lt.value = lat1;
+        lg.value = lng1;
         let markerOptions = {
           position: { lat: lat1, lng: lng1 }
         };
@@ -131,17 +155,11 @@ const PropertyListing = () => {
           <div className="form-control">
             <label className="label">
               <span className="label-text text-black font-bold">
-                Descript1ion
+                Description
               </span>
             </label>
-            <textarea
-              name="descript1ion"
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Add Descript1ion"
-              className="input pt-3 input-bordered border border-black"
-            ></textarea>
+            <textarea name="description" id="" cols="30" className="textarea text-lg textarea-border border-black" placeholder="Enter Description" rows="10"></textarea>
+
           </div>
           <div>
             <h2 className=" text-xl font-bold text-black py-3">
@@ -151,7 +169,7 @@ const PropertyListing = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
-                    Price in € (only numbers)
+                    Price
                   </span>
                 </label>
                 <input
@@ -165,12 +183,12 @@ const PropertyListing = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
-                    {'After Price Label (ex: "/month")'}
+                    {'Currency  (ex: "$")'}
                   </span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Give label"
+                  placeholder="Enter Currency"
                   className="input input-bordered border border-black"
                   color="black"
                   required
@@ -179,12 +197,12 @@ const PropertyListing = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
-                    {'Before Price Label (ex: "from ")'}
+                    {'Price For Duration (ex: "/month")'}
                   </span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Give label"
+                  placeholder="Enter Duration"
                   className="input input-bordered border border-black"
                   color="black"
                   required
@@ -196,8 +214,8 @@ const PropertyListing = () => {
             <h2 className=" text-xl font-bold text-black py-3">
               Select Categories
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4">
-              <div className="form-control w-full max-w-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
+              <div className="form-control w-full ">
                 <label className="label">
                   <span className="label-text text-black font-bold">
                     Category
@@ -205,7 +223,7 @@ const PropertyListing = () => {
                 </label>
                 <select className="select border border-black">
                   <option disabled selected>
-                    Pick one
+                    Select Category
                   </option>
                   <option>Star Wars</option>
                   <option>Harry Potter</option>
@@ -214,7 +232,7 @@ const PropertyListing = () => {
                   <option>Star Trek</option>
                 </select>
               </div>
-              <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full ">
                 <label className="label">
                   <span className="label-text text-black font-bold">
                     Post type
@@ -222,7 +240,7 @@ const PropertyListing = () => {
                 </label>
                 <select className="select border border-black">
                   <option disabled selected>
-                    Pick one
+                    Post Type
                   </option>
                   <option>Star Wars</option>
                   <option>Harry Potter</option>
@@ -231,7 +249,7 @@ const PropertyListing = () => {
                   <option>Star Trek</option>
                 </select>
               </div>
-              <div className="form-control w-full max-w-xs">
+              {/* <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text text-black font-bold">
                     Property Status
@@ -247,15 +265,24 @@ const PropertyListing = () => {
                   <option>Planet of the Apes</option>
                   <option>Star Trek</option>
                 </select>
-              </div>
+              </div> */}
             </div>
           </div>
           <div>
-            <h2 className=" text-xl font-bold text-black py-3">
-              Listing Media
+            <h2 className=" text-xl font-bold capitalize text-black py-3">
+              Thumbnail
+            </h2>
+            <input className="file-input file-input-bordered" onChange={fileInp2} accept="image/*" type='file' id="imgInp2" />
+            <div className="blah flex max-w-md flex-wrap gap-4 py-4" id="image-preview-container2">
+
+            </div>
+          </div>
+          <div>
+            <h2 className=" text-xl font-bold capitalize text-black py-3">
+              Add property images (multiple)
             </h2>
             <input className="file-input file-input-bordered" onChange={fileInp} multiple accept="image/*" type='file' id="imgInp" />
-            <div className="blah flex gap-4 py-4" id="image-preview-container">
+            <div className="blah flex h-1/4 flex-wrap gap-4 py-4" id="image-preview-container">
 
             </div>
           </div>
@@ -271,44 +298,7 @@ const PropertyListing = () => {
                     Video From
                   </span>
                 </label>
-                <select className="select border border-black border border-black">
-                  <option disabled selected>
-                    Pick one
-                  </option>
-                  <option>Star Wars</option>
-                  <option>Harry Potter</option>
-                  <option>Lord of the Rings</option>
-                  <option>Planet of the Apes</option>
-                  <option>Star Trek</option>
-                </select>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Embed Video id:
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Add Title"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Virtual Tour
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Add Title"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                />
+                <input type="file" className="file-input file-input-bordered" />
               </div>
             </div>
           </div>
@@ -336,7 +326,41 @@ const PropertyListing = () => {
             <div id="container">
               <div id="map"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-bold">
+                    Latitude
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Latitude"
+                  className="input input-bordered border border-black"
+                  color="black"
+                  required
+                  id="lat"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-bold">
+                    Longitude
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  id="long"
+                  placeholder="Enter Longitude"
+                  className="input input-bordered border border-black"
+                  color="black"
+                  required
+                />
+              </div>
+
+
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
@@ -345,21 +369,7 @@ const PropertyListing = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter Price"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Country
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Give label"
+                  placeholder="Enter Address"
                   className="input input-bordered border border-black"
                   color="black"
                   required
@@ -373,35 +383,7 @@ const PropertyListing = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Give label"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Neighborhood
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Give label"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Zip
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Give label"
+                  placeholder="Enter City"
                   className="input input-bordered border border-black"
                   color="black"
                   required
@@ -415,12 +397,42 @@ const PropertyListing = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="Give label"
+                  placeholder="Enter State"
                   className="input input-bordered border border-black"
                   color="black"
                   required
                 />
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-bold">
+                    Country
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Country"
+                  className="input input-bordered border border-black"
+                  color="black"
+                  required
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-bold">
+                    Zip
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Zip"
+                  className="input input-bordered border border-black"
+                  color="black"
+                  required
+                />
+              </div>
+
             </div>
           </div>
           <div>
@@ -429,29 +441,32 @@ const PropertyListing = () => {
             </h2>
             <div className="">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="form-control">
+
+
+                <div className="form-control w-full ">
                   <label className="label">
                     <span className="label-text text-black font-bold">
-                      Size in m2
+                      Size Unit
                     </span>
                   </label>
-                  <input
-                    type="number"
-                    placeholder="Enter Price"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
+                  <select className="select border border-black">
+                    <option disabled selected>
+                      Select Unit
+                    </option>
+                    <option>m<sup>2</sup></option>
+                    <option>ft<sup>2</sup></option>
+                  </select>
                 </div>
+
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-black font-bold">
-                      Lot Size in m2
+                      Property Size
                     </span>
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Size"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -465,7 +480,7 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Rooms"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -479,7 +494,7 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Bathrooms"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -495,7 +510,7 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Bedrooms"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -504,12 +519,12 @@ const PropertyListing = () => {
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-black font-bold">
-                      Customer Id
+                      Custom Id
                     </span>
                   </label>
                   <input
                     type="text"
-                    placeholder="Give label"
+                    placeholder="Custom Id"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -523,7 +538,7 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Year Built"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -537,7 +552,7 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Garages"
                     className="input input-bordered border border-black"
                     color="black"
                     required
@@ -546,34 +561,7 @@ const PropertyListing = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="form-control ">
-                  <label className="label">
-                    <span className="label-text text-black font-bold">
-                      External Construction
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Give label"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-black font-bold">
-                      Basement
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Give label"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
-                </div>
+
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-black font-bold">
@@ -596,87 +584,36 @@ const PropertyListing = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="Give label"
+                    placeholder="Enter Garage Size"
                     className="input input-bordered border border-black"
                     color="black"
                     required
                   />
                 </div>
-              </div>
-              <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
+
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-black font-bold">
-                      Exterior Material
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Give label"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-black font-bold">
-                      Roofing
-                    </span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Give label"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-black font-bold">
-                      Structure Type
-                    </span>
-                  </label>
-                  <input
-                    type="date"
-                    placeholder="Give label"
-                    className="input input-bordered border border-black"
-                    color="black"
-                    required
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-black font-bold">
-                      GFloors No
+                      Floor No
                     </span>
                   </label>
                   <input
                     type="number"
-                    placeholder="Give label"
+                    placeholder="Enter Floor No"
                     className="input input-bordered border border-black"
                     color="black"
                     required
                   />
                 </div>
               </div>
+              <div className="form-control ">
 
-              <div className="form-control col-span-4">
-
-                <label className="label">
-                  <span className="label-text text-black font-bold">Owner / Agent Notes</span>
-                </label>
-                <textarea
-                  name="descript1ion"
-                  id=""
-                  cols="30"
-                  rows="10"
-                  placeholder="Add Descript1ion"
-                  className="input pt-3 input-bordered border border-black"
-                ></textarea>
-
+                <div className="flex gap-3 mt-6">
+                  <input type="checkbox" className="checkbox checkbox-success" />
+                  <p>Hide Contact</p>
+                </div>
               </div>
+
             </div>
             <div>
               <button className="btn btn-gradient border-none my-6 w-full">Submit</button>

@@ -68,10 +68,10 @@ const MyAgents = () => {
                             around 100% client and tenant focus.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 py-5 items-center justify-between gap-3">
+                    <div className="grid grid-cols-1 md:grid-cols-3 py-5 items-center justify-between gap-3">
                         {agents && agents.map((e, i) => {
                             return (
-                                <div className="card card-compact w-full bg-base-100 shadow-xl rounded-md" key={i} >
+                                <div className="card card-compact w-96 bg-base-100 shadow-xl rounded-md" key={i} >
                                     <div className="relative">
                                         <figure>
                                             <img
@@ -91,14 +91,30 @@ const MyAgents = () => {
                                         </p>
                                         <div className="flex justify-between items-center">
                                             <div className="flex items-center justify-between gap-3">
-                                                <FaFacebook size={20}>{e.facebook_link}</FaFacebook>
-                                                <FaTwitter size={20}>{e.twitter}</FaTwitter>
-                                                <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
-                                                <FaPinterest size={20}>{e.pinterest}</FaPinterest>
+                                                <a className="" href="https://www.facebook.com/" target="blank">
+                                                    <FaFacebook className="" size={20}>
+                                                        {e.facebook_link}
+                                                    </FaFacebook>
+                                                </a>
+                                                <a className="" href="https://www.twitter.com/" target="blank">
+                                                    <FaTwitter size={20}>{e.twitter}</FaTwitter>
+                                                </a>
+                                                <a className="" href="https://www.linkedin.com/" target="blank">
+                                                    <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
+                                                </a>
+                                                <a className="" href="https://www.pinterest.com/" target="blank">
+
+                                                    <FaPinterest size={20}>{e.pinterest}</FaPinterest>
+                                                </a>
+
+
+
+
                                             </div>
                                             <div className="flex items-center justify-between gap-3">
-                                                <FaEnvelope size={20}>{e.email}</FaEnvelope>
-                                                <FaPhone size={20}>{e.number}</FaPhone>
+                                                <a href="mailto:info@example.com"> <FaEnvelope size={20}>{e.email}</FaEnvelope></a>
+                                                <a href="tel:+1234567890"><FaPhone size={20}>{e.number}</FaPhone></a>
+
                                             </div>
                                         </div>
                                     </div>
