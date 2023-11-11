@@ -1,7 +1,16 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
+import { useEffect } from "react";
 const PropertyListing = () => {
+  const user = useSelector((state) => {
+    state.auth.user
+  })
+  const [uid, setUid] = useState();
+  useEffect(() => {
+    console.log(user)
+  }, [user])
   const imgInp = document.getElementById('imgInp');
   const imagePreviewContainer = document.getElementById('image-preview-container');
   const imgInp2 = document.getElementById('imgInp2');
@@ -170,9 +179,10 @@ const PropertyListing = () => {
       'property_category': category,
       'thumbnail': thumbnail[0],
       'title': title,
-      'property_status': postStatus
+      'property_status': postStatus,
+      'user': user
     }
-    console.log(thumbnail[0])
+    console.log(thumbnail[0], user)
     postSubmit(data);
   };
 
