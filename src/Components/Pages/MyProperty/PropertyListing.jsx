@@ -179,7 +179,7 @@ const PropertyListing = () => {
   const postSubmit = async (data) => {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
         'Authorization': `JWT ${localStorage.getItem('access')}`,
       }
     };
@@ -430,10 +430,6 @@ const PropertyListing = () => {
                 name="long"
               />
             </div>
-
-
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black font-bold">
@@ -449,6 +445,10 @@ const PropertyListing = () => {
                 required
               />
             </div>
+
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-x-4">
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black font-bold">
