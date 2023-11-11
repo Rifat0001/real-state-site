@@ -7,7 +7,7 @@ const AppDownLoad = () => {
             <div className="pb-8 rounded-md">
                 <div className="flex md:flex-row  flex-col items-center ">
                     <div className="w-full md:w-1/2 md:mb-6 mb-14 space-y-4">
-                        <h1 className="text-3xl md:text-5xl font-bold md:font-semibold text-primary">Download Our App</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold md:font-semibold text-[#0E8E94]">Download Our App</h1>
                         <p className="text-black my-5  space-y-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium, qui. Excepturi porro adipisci vitae accusamus delectus. Dolores natus accusantium at perferendis totam quidem, minima ullam cumque, nihil, quam rem dicta?</p>
                         <div className='flex gap-8'>
                             <img src={play} className='md:w-48 w-40 md:h-16 h-12' alt="" />

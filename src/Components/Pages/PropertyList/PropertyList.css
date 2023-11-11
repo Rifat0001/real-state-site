@@ -1,0 +1,6 @@
+.map-position {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    /* required */
+}
