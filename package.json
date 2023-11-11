@@ -12,6 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "axios": "^1.6.1",
+    "emailjs": "^4.0.3",
     "firebase": "^10.3.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -35,6 +36,7 @@
     "redux-thunk": "^2.4.2",
     "slick-carousel": "^1.8.1",
     "sort-by": "^0.0.2",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^11.9.0",
     "swiper": "^10.0.4"
   },
