@@ -130,7 +130,8 @@ const PropertyListing = () => {
     const duration = e.target.propertyDuration.value;
     const category = e.target.category.value;
     const postType = e.target.postType.value;
-    const thumbnail = e.target.thumbnail.value;
+    const postStatus = e.target.postStatus.value;
+    const thumbnail = e.target.thumbnail.files;
     const multiple = e.target.multipleImage.files;
     const video = e.target.video.value;
     const loc = e.target.loc.value;
@@ -157,29 +158,40 @@ const PropertyListing = () => {
     const check = e.target.check.value;
     // // e.target.reset();
     // console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
-    console.log(multiple)
-    postSubmit();
+    const data = {
+      'desc': description,
+      'lat': lat,
+      'loc': loc,
+      'long': long,
+      'post_type': postType,
+      'price': price,
+      'price_unit': currency,
+      'price_type': duration,
+      'property_category': category,
+      'thumbnail': thumbnail[0],
+      'title': title,
+      'property_status': postStatus
+    }
+    console.log(thumbnail[0])
+    postSubmit(data);
   };
 
-  const postSubmit = async () => {
+  const postSubmit = async (data) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `JWT ${localStorage.getItem('access')}`,
       }
     };
-    const data = {
-
-    }
     try {
 
       const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, data, config, { withCredentials: true });
 
-      console.log(res);
+      console.log(res.data);
 
 
     } catch (error) {
-      console.log(error.response.data.detail)
+      console.log(error.response.data)
 
     }
   }
@@ -272,7 +284,7 @@ const PropertyListing = () => {
           <h2 className=" text-xl font-bold text-black py-3">
             Select Categories
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4">
             <div className="form-control w-full ">
               <label className="label">
                 <span className="label-text text-black font-bold">
@@ -299,6 +311,23 @@ const PropertyListing = () => {
               <select name="postType" className="select border border-black">
                 <option disabled selected>
                   Post Type
+                </option>
+                <option>Star Wars</option>
+                <option>Harry Potter</option>
+                <option>Lord of the Rings</option>
+                <option>Planet of the Apes</option>
+                <option>Star Trek</option>
+              </select>
+            </div>
+            <div className="form-control w-full ">
+              <label className="label">
+                <span className="label-text text-black font-bold">
+                  Post Status
+                </span>
+              </label>
+              <select name="postStatus" className="select border border-black">
+                <option disabled selected>
+                  Post Status
                 </option>
                 <option>Star Wars</option>
                 <option>Harry Potter</option>
@@ -368,7 +397,7 @@ const PropertyListing = () => {
           <div id="container">
             <div id="map"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-center justify-between gap-4">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black font-bold">
