@@ -1,9 +1,6 @@
 # Tasks
 
 
-X/src\Components\Pages\Organization\Organization.jsx [url:http://localhost:3000/agentprofile/1]
-X/src\Components\Pages\Agent\AgentProfile.jsx [url:http://localhost:3000/organization/1]
-
 # Tips & Rules:
 How to authenticate?
 Ans: Here is a js code example for you.
@@ -58,5 +55,9 @@ add "/api/" in front of all paths,
 url = ${import.meta.env.VITE_APP_API_URL}/api/myAgents/
 
 */path('add-property/', PropertyCreateView.as_view(), name='all_properties'),
+
+
+X/src\Components\Pages\Organization\Organization.jsx [url:http://localhost:3000/agentprofile/1]
+X/src\Components\Pages\Agent\AgentProfile.jsx [url:http://localhost:3000/organization/1]
 
 
