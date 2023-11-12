@@ -129,6 +129,51 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     });
   }
 
+  // new 
+  const postSubmit = async (propertyData) => {
+    try {
+      const formData = new FormData();
+
+      // Append text and file fields to formData
+      for (const key in propertyData) {
+
+
+        if (Object.prototype.hasOwnProperty.call(propertyData, key)) {
+          if (key === 'address' || key === 'details') {
+            formData.append(key, JSON.stringify(propertyData[key]));
+          } else if (propertyData[key] instanceof File) {
+            formData.append(key, propertyData[key]);
+          } else {
+            formData.append(key, propertyData[key].toString());
+          }
+        }
+      }
+
+      // Obtain the JWT token
+      const jwtToken = `JWT ${localStorage.getItem('access')}`; // Replace 'JWT_TOKEN' with your token's key in local storage
+      console.log(jwtToken)
+
+      const response = await fetch(`https://realestate.nbytetech.com/api/add-property/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `${jwtToken}`, // Include the JWT token in the Authorization header
+        },
+        body: propertyData, // FormData for file and text fields
+      });
+      console.log(response)
+      // if (!response.ok) {
+      //   throw new Error(`HTTP error! status: ${response.status}`);
+      // }
+
+      const data = await response.json();
+      console.log(data)
+      console.log('Property created:', data);
+    } catch (error) {
+      console.error('Error creating property:', error);
+    }
+  };
+
   // for handle 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -168,6 +213,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     // // e.target.reset();
     // console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
     const data = {
+
       'desc': description,
       'lat': lat,
       'loc': loc,
@@ -181,39 +227,61 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'title': title,
       'property_status': postStatus,
       'user': uid,
-      'address': 'Rifat'
-      // 'address': {
-      //   'house': house,
-      //   'street': streetAddress,
-      //   'city': city,
-      //   'state': state,
-      //   'country': country,
-      //   'zip': zip,
-      // },
+      'address': {
+        'house': house,
+        'street': streetAddress,
+        'city': city,
+        'state': state,
+        'country': country,
+        'zip': zip,
+      },
+
+      'details': {
+        'cid': customId,
+        'size_unit': unit,
+        'size': propertySize,
+        'rooms': rooms,
+        'bed': bedrooms,
+        'bath': bathrooms,
+        'floor': floorNo,
+        'built': yearBuilt,
+        'structure': 'rifat',
+        'garage': garages,
+        'garage_size': garageSize,
+        'available_from': date
+      }
     }
-    console.log(data)
+
     postSubmit(data);
+
   };
 
-  const postSubmit = async (data) => {
-    const config = {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': `JWT ${localStorage.getItem('access')}`,
-      }
-    };
-    try {
-
-      const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, data, config, { withCredentials: true });
-
-      console.log(res.data);
 
 
-    } catch (error) {
-      console.log(error.response.data)
 
-    }
-  }
+
+
+  // const postSubmit = async (data) => {
+  //   const config = {
+
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data',
+
+  //       'Authorization': `JWT ${localStorage.getItem('access')}`,
+  //     }
+  //   };
+  //   try {
+
+  //     const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, data, config, { withCredentials: true });
+
+  //     console.log(res.data);
+
+
+  //   } catch (error) {
+  //     console.log(error.response.data)
+
+  //   }
+  // }
 
   return (
     <div className="py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
