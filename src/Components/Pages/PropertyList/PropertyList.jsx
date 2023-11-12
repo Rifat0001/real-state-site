@@ -2,6 +2,7 @@ import { } from 'react-icons/fa';
 import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 const PropertyList = () => {
     const [range, setRange] = useState(40);
     const [price, setPrice] = useState(40);

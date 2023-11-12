@@ -4,12 +4,6 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 const FindProperty = () => {
 
-  // imgInp.addEventListener('change', fileInp);
-  const componentDidMount = () => {
-    this.initMap();
-    this.initAutocomplete();
-  }
-
   const initMap = () => {
     const success = (position) => {
       let markerOptions = {
@@ -104,8 +98,9 @@ const FindProperty = () => {
         }
       };
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
-        params:data
+        params: data
       }, config, { withCredentials: true });
+      console.log(res)
     } catch (error) {
       console.log(error.response.data);
     }
@@ -115,7 +110,6 @@ const FindProperty = () => {
     <div className="find-property pt-40">
       <div className="max-w-[2150px] mt-8 mx-auto md:px-36 sm:px-2 px-4">
         <Helmet>
-          <script src="./script1.js" ></script>
           <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
         </Helmet>
         <div className=" bg-[#0E8E94]  drop-shadow-lg px-4 md:px-20 py-4 rounded-md">

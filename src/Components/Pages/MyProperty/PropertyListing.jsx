@@ -155,7 +155,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     const zip = e.target.zip.value;
     const unit = e.target.unit.value;
     const propertySize = e.target.propertySize.value;
-    const rooms = e.target.rooms.value;
     const bathrooms = e.target.bathrooms.value;
     const bedrooms = e.target.bedrooms.value;
     const customId = e.target.customId.value;
@@ -201,12 +200,10 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'cid': customId,
       'size_unit': unit,
       'size': propertySize,
-      'rooms': rooms,
       'bed': bedrooms,
       'bath': bathrooms,
       'floor': floorNo,
       'built': yearBuilt,
-      'structure': 'rifat',
       'garage': garages,
       'garage_size': garageSize,
       'available_from': date
@@ -645,21 +642,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                   required
                 />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Rooms
-                  </span>
-                </label>
-                <input
-                  type="number"
-                  placeholder="Enter Rooms"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                  name="rooms"
-                />
-              </div>
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
