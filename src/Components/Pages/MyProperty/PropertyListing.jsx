@@ -172,7 +172,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
         type: "application/json",
       });
     }
-    
+
     const data = {
       'desc': description,
       'lat': lat,
@@ -210,14 +210,14 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'garage_size': garageSize,
       'available_from': date
     };
-    postSubmit(data,ADDRESS,DETAILS);
+    postSubmit(data, ADDRESS, DETAILS);
   };
   function jsonBlob(obj) {
     return new Blob([JSON.stringify(obj)], {
       type: "application/json",
     });
   }
-  const postSubmit = async (data,ADDRESS,DETAILS) => {
+  const postSubmit = async (data, ADDRESS, DETAILS) => {
     const formData = new FormData();
     Object.keys(data).forEach(key => {
       if (Array.isArray(data[key])) {
@@ -229,12 +229,12 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
         formData.append(key, data[key]);
       }
     });
-    
+
     formData.append("address", JSON.stringify(ADDRESS))
     formData.append("details", JSON.stringify(DETAILS))
     for (let pair of formData.entries()) {
-      console.log(pair[0]+ ', '+ pair[1]);
-    }  
+      console.log(pair[0] + ', ' + pair[1]);
+    }
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data',
