@@ -2,7 +2,7 @@ import { } from 'react-icons/fa';
 import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import Map from "../map";
 const PropertyList = () => {
     const [range, setRange] = useState(40);
     const [price, setPrice] = useState(40);
@@ -19,9 +19,7 @@ const PropertyList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  ">
             <div className='w-full h-full map-position'>
                 <div className='sticky top-24'>
-                    <iframe width="100%" height="600px" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=newyork+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                        <a href="https://www.maps.ie/population/">Population mapping</a>
-                    </iframe>
+                    <Map></Map>
                 </div>
             </div>
             <div className='px-8 py-4 md:mt-0'>
