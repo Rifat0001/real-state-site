@@ -142,7 +142,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     const postStatus = e.target.postStatus.value;
     const thumbnail = e.target.thumbnail.files;
     const multiple = e.target.multipleImage.files;
-    const video = e.target.video.value;
+    const video = e.target.video.files;
     const loc = e.target.loc.value;
     const lat = e.target.lat.value;
     const long = e.target.long.value;
@@ -187,6 +187,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'title': title,
       'property_status': postStatus,
       'user': uid,
+      'video':video[0],
     }
     const ADDRESS = {
       house: house,
@@ -210,14 +211,23 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'garage_size': garageSize,
       'available_from': date
     };
+<<<<<<< HEAD
     postSubmit(data, ADDRESS, DETAILS);
+=======
+    postSubmit(data,ADDRESS,DETAILS,multiple);
+>>>>>>> 2a7523e9442f5515bfc8bcd1e285a6e86c658d55
   };
   function jsonBlob(obj) {
     return new Blob([JSON.stringify(obj)], {
       type: "application/json",
     });
   }
+<<<<<<< HEAD
   const postSubmit = async (data, ADDRESS, DETAILS) => {
+=======
+  const postSubmit = async (data,ADDRESS,DETAILS,multiple) => {
+    
+>>>>>>> 2a7523e9442f5515bfc8bcd1e285a6e86c658d55
     const formData = new FormData();
     Object.keys(data).forEach(key => {
       if (Array.isArray(data[key])) {
@@ -232,6 +242,10 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
 
     formData.append("address", JSON.stringify(ADDRESS))
     formData.append("details", JSON.stringify(DETAILS))
+
+    for (let i = 0; i < multiple.length; i++) {
+      formData.append('images', multiple[i]);
+    }
     for (let pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
     }
@@ -249,7 +263,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
 
 
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data)
 
     }
   }

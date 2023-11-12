@@ -91,19 +91,18 @@ const MyAgents = () => {
                                         </p>
                                         <div className="flex justify-between items-center">
                                             <div className="flex items-center justify-between gap-3">
-                                                <a className="" href="https://www.facebook.com/" target="blank">
+                                                <a className="" href={e.facebook_link} target="blank">
                                                     <FaFacebook className="" size={20}>
                                                         {e.facebook_link}
                                                     </FaFacebook>
                                                 </a>
-                                                <a className="" href="https://www.twitter.com/" target="blank">
+                                                <a className="" href={e.twitter} target="blank">
                                                     <FaTwitter size={20}>{e.twitter}</FaTwitter>
                                                 </a>
-                                                <a className="" href="https://www.linkedin.com/" target="blank">
+                                                <a className="" href={e.linkedin_link} target="blank">
                                                     <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
                                                 </a>
-                                                <a className="" href="https://www.pinterest.com/" target="blank">
-
+                                                <a className="" href={e.pinterest} target="blank">
                                                     <FaPinterest size={20}>{e.pinterest}</FaPinterest>
                                                 </a>
 
@@ -112,9 +111,8 @@ const MyAgents = () => {
 
                                             </div>
                                             <div className="flex items-center justify-between gap-3">
-                                                <a href="mailto:info@example.com"> <FaEnvelope size={20}>{e.email}</FaEnvelope></a>
-                                                <a href="tel:+1234567890"><FaPhone size={20}>{e.number}</FaPhone></a>
-
+                                                <a href={`mailto:${e.email}`}> <FaEnvelope size={20}>{e.email}</FaEnvelope></a>
+                                                <a href={`tel::${e.number}`}><FaPhone size={20}>{e.number}</FaPhone></a>
                                             </div>
                                         </div>
                                     </div>
