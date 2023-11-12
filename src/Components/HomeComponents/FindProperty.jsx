@@ -95,6 +95,7 @@ const FindProperty = () => {
       lat: lat,
       long: long
     }
+    console.log(data)
     try {
       const config = {
         headers: {
@@ -104,7 +105,7 @@ const FindProperty = () => {
       };
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, data, config, { withCredentials: true });
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   }
 
