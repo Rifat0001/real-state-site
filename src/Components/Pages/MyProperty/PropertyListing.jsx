@@ -167,6 +167,12 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     const check = e.target.check.value;
     // // e.target.reset();
     // console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
+    function jsonBlob(obj) {
+      return new Blob([JSON.stringify(obj)], {
+        type: "application/json",
+      });
+    }
+    
     const data = {
       'desc': description,
       'lat': lat,
@@ -181,21 +187,54 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'title': title,
       'property_status': postStatus,
       'user': uid,
-      'address': 'Rifat'
-      // 'address': {
-      //   'house': house,
-      //   'street': streetAddress,
-      //   'city': city,
-      //   'state': state,
-      //   'country': country,
-      //   'zip': zip,
-      // },
     }
-    console.log(data)
-    postSubmit(data);
+    const ADDRESS = {
+      house: house,
+      street: streetAddress,
+      city: city,
+      state: state,
+      country: country,
+      zip: zip,
+    };
+    const DETAILS = {
+      'cid': customId,
+      'size_unit': unit,
+      'size': propertySize,
+      'rooms': rooms,
+      'bed': bedrooms,
+      'bath': bathrooms,
+      'floor': floorNo,
+      'built': yearBuilt,
+      'structure': 'rifat',
+      'garage': garages,
+      'garage_size': garageSize,
+      'available_from': date
+    };
+    postSubmit(data,ADDRESS,DETAILS);
   };
-
-  const postSubmit = async (data) => {
+  function jsonBlob(obj) {
+    return new Blob([JSON.stringify(obj)], {
+      type: "application/json",
+    });
+  }
+  const postSubmit = async (data,ADDRESS,DETAILS) => {
+    const formData = new FormData();
+    Object.keys(data).forEach(key => {
+      if (Array.isArray(data[key])) {
+        // If the value is an array (like 'thumbnail'), append each element separately
+        data[key].forEach((item, index) => {
+          formData.append(`${key}[${index}]`, item);
+        });
+      } else {
+        formData.append(key, data[key]);
+      }
+    });
+    
+    formData.append("address", JSON.stringify(ADDRESS))
+    formData.append("details", JSON.stringify(DETAILS))
+    for (let pair of formData.entries()) {
+      console.log(pair[0]+ ', '+ pair[1]);
+    }  
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -204,13 +243,13 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     };
     try {
 
-      const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, data, config, { withCredentials: true });
+      const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, formData, config, { withCredentials: true });
 
       console.log(res.data);
 
 
     } catch (error) {
-      console.log(error.response.data)
+      console.log(error)
 
     }
   }
