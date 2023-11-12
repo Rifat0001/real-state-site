@@ -3,7 +3,6 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Map = () => {
   const [currentPosition, setCurrentPosition] = useState(null);
-  const [key, setKey] = useState(0); // New key state for Marker
 
   // Get current position using browser's geolocation API
   useEffect(() => {
@@ -13,7 +12,6 @@ const Map = () => {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         });
-        setKey(prevKey => prevKey + 1); // Update key to trigger Marker update
       });
     } else {
       console.log('Geolocation is not supported by this browser.');
@@ -24,26 +22,138 @@ const Map = () => {
     height: '400px',
     width: '100%',
   };
-
+  
   return (
     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI">
       <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={18}
-        center={currentPosition || { lat: 0, lng: 0 }} // Center at 0,0 until position is available
-      >
-        {currentPosition&& (
-          <Marker
-            key={key}
-            position={currentPosition}
-          />
-        )}
-      </GoogleMap>
+            mapContainerStyle={mapStyles}
+            zoom={18}
+            center={currentPosition&& currentPosition}
+        >
+        </GoogleMap>
     </LoadScript>
   );
 };
 
 export default Map;
+
+// import React, { useState, useEffect } from 'react';
+// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+// const Map = () => {
+//   const [currentPosition, setCurrentPosition] = useState(null);
+//   const [key, setKey] = useState(0); // New key state for Marker
+//   const [isLoaded,setIsLoaded] = useState(null)
+
+//   // Get current position using browser's geolocation API
+//   useEffect(() => {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition((position) => {
+//         setCurrentPosition({
+//           lat: position.coords.latitude,
+//           lng: position.coords.longitude,
+//         });
+//         setKey(prevKey => prevKey + 1); // Update key to trigger Marker update
+//       });
+//     } else {
+//       console.log('Geolocation is not supported by this browser.');
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     if(currentPosition==null){
+//         console.log("Initializing!...")
+//     }else{
+//         console.log(currentPosition)
+//         console.log("INITIALIZED")
+//         setIsLoaded(
+//             <GoogleMap
+//             mapContainerStyle={mapStyles}
+//             zoom={18}
+//             center={currentPosition || { lat: 0, lng: 0 }} // Center at 0,0 until position is available
+//         >
+//             {currentPosition&& (
+//             <Marker
+//                 key={key}
+//                 position={currentPosition}
+//             />
+//             )}
+//         </GoogleMap>
+//         )
+//     }
+//   }, [currentPosition]);
+
+//   const mapStyles = {
+//     height: '400px',
+//     width: '100%',
+//   };
+
+//   const Smap = <GoogleMap
+//         mapContainerStyle={mapStyles}
+//         zoom={18}
+//         center={currentPosition || { lat: 0, lng: 0 }} // Center at 0,0 until position is available
+//     >
+//         {currentPosition&& (
+//         <Marker
+//             key={key}
+//             position={currentPosition}
+//         />
+//         )}
+//     </GoogleMap>
+//   return (
+//     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI">
+//       {isLoaded&& isLoaded}
+//     </LoadScript>
+//   );
+// };
+
+// export default Map;
+// import React, { useState, useEffect } from 'react';
+// import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+// const Map = () => {
+//   const [currentPosition, setCurrentPosition] = useState(null);
+//   const [key, setKey] = useState(0); // New key state for Marker
+
+//   // Get current position using browser's geolocation API
+//   useEffect(() => {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition((position) => {
+//         setCurrentPosition({
+//           lat: position.coords.latitude,
+//           lng: position.coords.longitude,
+//         });
+//         setKey(prevKey => prevKey + 1); // Update key to trigger Marker update
+//       });
+//     } else {
+//       console.log('Geolocation is not supported by this browser.');
+//     }
+//   }, []);
+
+//   const mapStyles = {
+//     height: '400px',
+//     width: '100%',
+//   };
+
+//   return (
+//     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI">
+//       <GoogleMap
+//         mapContainerStyle={mapStyles}
+//         zoom={18}
+//         center={currentPosition || { lat: 0, lng: 0 }} // Center at 0,0 until position is available
+//       >
+//         {currentPosition&& (
+//           <Marker
+//             key={key}
+//             position={currentPosition}
+//           />
+//         )}
+//       </GoogleMap>
+//     </LoadScript>
+//   );
+// };
+
+// export default Map;
 
 // import React, { useState, useEffect } from 'react';
 // import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
