@@ -187,7 +187,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'title': title,
       'property_status': postStatus,
       'user': uid,
-      'video':video[0],
+      'video': video[0],
     }
     const ADDRESS = {
       house: house,
@@ -211,23 +211,15 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       'garage_size': garageSize,
       'available_from': date
     };
-<<<<<<< HEAD
-    postSubmit(data, ADDRESS, DETAILS);
-=======
-    postSubmit(data,ADDRESS,DETAILS,multiple);
->>>>>>> 2a7523e9442f5515bfc8bcd1e285a6e86c658d55
+    postSubmit(data, ADDRESS, DETAILS, multiple);
   };
   function jsonBlob(obj) {
     return new Blob([JSON.stringify(obj)], {
       type: "application/json",
     });
   }
-<<<<<<< HEAD
-  const postSubmit = async (data, ADDRESS, DETAILS) => {
-=======
-  const postSubmit = async (data,ADDRESS,DETAILS,multiple) => {
-    
->>>>>>> 2a7523e9442f5515bfc8bcd1e285a6e86c658d55
+  const postSubmit = async (data, ADDRESS, DETAILS, multiple) => {
+
     const formData = new FormData();
     Object.keys(data).forEach(key => {
       if (Array.isArray(data[key])) {
