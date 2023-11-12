@@ -29,7 +29,7 @@ const Map = () => {
   }, [currentPosition]);
 
   const mapStyles = {
-    height: '400px',
+    height: '75%',
     width: '100%',
   };
 
