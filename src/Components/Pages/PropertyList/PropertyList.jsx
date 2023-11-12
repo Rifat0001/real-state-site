@@ -2,7 +2,7 @@ import { } from 'react-icons/fa';
 import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
-import Map from "../map";
+import MapComponent from "../map";
 const PropertyList = () => {
     const [range, setRange] = useState(40);
     const [price, setPrice] = useState(40);
@@ -19,7 +19,7 @@ const PropertyList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  ">
             <div className='w-full h-full map-position'>
                 <div className='sticky top-24'>
-                    <Map></Map>
+                    <MapComponent></MapComponent>
                 </div>
             </div>
             <div className='px-8 py-4 md:mt-0'>
@@ -131,3 +131,4 @@ const PropertyList = () => {
 };
 
 export default PropertyList;
+
