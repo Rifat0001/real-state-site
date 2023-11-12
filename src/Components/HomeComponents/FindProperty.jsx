@@ -103,7 +103,9 @@ const FindProperty = () => {
           'Authorization': `JWT ${localStorage.getItem('access')}`,
         }
       };
-      const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, data, config, { withCredentials: true });
+      const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
+        params:data
+      }, config, { withCredentials: true });
     } catch (error) {
       console.log(error.response.data);
     }
