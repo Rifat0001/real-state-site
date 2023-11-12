@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useEffect } from "react";
 const FindProperty = () => {
+
   const initMap = () => {
     const success = (position) => {
       let markerOptions = {
@@ -98,8 +99,9 @@ const FindProperty = () => {
         }
       };
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
-        params:data
+        params: data
       }, config, { withCredentials: true });
+      console.log(res)
     } catch (error) {
       console.log(error.response.data);
     }
