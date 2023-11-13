@@ -3,6 +3,7 @@ import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
 import MapComponent from "../map";
+import {Helmet} from "react-helmet";
 const PropertyList = () => {
     const [range, setRange] = useState(40);
     const [price, setPrice] = useState(40);
@@ -17,6 +18,7 @@ const PropertyList = () => {
     }, []);
     return (
         <div className="grid grid-cols-1 md:grid-cols-2  ">
+          
             <div className='w-full h-full map-position'>
                 <div className='sticky top-24'>
                     <MapComponent></MapComponent>
