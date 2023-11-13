@@ -11,19 +11,12 @@ const TabComponent = () => {
   const [selectedCity, setSelectedCity] = useState("Cities");
   const [selectedArea, setSelectedArea] = useState("Areas");
   const [numColumns, setNumColumns] = useState(3);
-  useEffect(() => {
-    fetch("property.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setPropertyCard(data);
-      });
-  }, []);
 
   const loadDAta = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/hprop`, { withCredentials: true });
-      console.log(res);
+      console.log(res.data);
+      setPropertyCard(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -32,34 +25,6 @@ const TabComponent = () => {
   useEffect(() => {
     loadDAta();
   }, [])
-
-  const filteredPropertyCards = propertyCard.filter((card) => {
-    const typeMatch =
-      selectedType === "All" ||
-      card.type.toLowerCase() === selectedType.toLowerCase();
-    const categoryMatch =
-      selectedCategory === "Categories" ||
-      card.category === selectedCategory;
-    const stateMatch =
-      selectedState === "States" ||
-      card.state === selectedState;
-    const cityMatch =
-      selectedCity === "Cities" ||
-      card.city === selectedCity;
-    const areaMatch =
-      selectedArea === "Areas" ||
-      card.area === selectedArea;
-
-    return typeMatch && categoryMatch && stateMatch && cityMatch && areaMatch;
-  });
-
-  const handleList = () => {
-    setNumColumns(1);
-  };
-
-  const handleGrid = () => {
-    setNumColumns(2);
-  };
   return (
     <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       {/* Section Title */}
@@ -108,15 +73,16 @@ const TabComponent = () => {
             <option value="Saint Germain">Saint Germain</option>
           </select>
         </div>
-
+ 
       </div> */}
       {/* show card */}
       <div
         id="SingleCard"
         className="grid md:grid-cols-2 xl:grid-cols-3 items-center justify-between mt-10 gap-x-6 gap-y-6"
       >
-        {filteredPropertyCards.map((singleCard, index) => (
-          <SingleProperty key={index} singleCard={singleCard} />
+        {propertyCard.map((e, index) => (
+          <SingleProperty key={index} singleCard={{ title: e.fields.title }} />
+          // console.log(e.fields)
         ))}
       </div>
       <div className="flex justify-center items-center my-4">

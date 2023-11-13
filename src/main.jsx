@@ -104,6 +104,11 @@ const router = createBrowserRouter([
         element: <PrivateRouteOrgAg component={MyProperty} />
       },
       {
+        path: 'notification',
+        element: <Notification></Notification>
+      }
+      ,
+      {
         path: 'promote',
         element: <PromotePage></PromotePage>
       },
