@@ -1,9 +1,11 @@
 import { useState } from "react";
 import './Settings.css'
 import { useEffect } from "react";
-import { connect,useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import axios from 'axios';
+import Swal from "sweetalert2";
 const Settings = () => {
+    const [error, setError] = useState('');
     const user = useSelector((state) => state.auth.user);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentName, setCurrentName] = useState('Loading User...');
@@ -13,7 +15,7 @@ const Settings = () => {
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
-    const setName = async()=>{
+    const setName = async () => {
         try {
             const config = {
                 headers: {
@@ -21,13 +23,13 @@ const Settings = () => {
                     'Authorization': `JWT ${localStorage.getItem('access')}`,
                 }
             };
-            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/user/update_full_name/`,{"new_full_name":newName}, config, { withCredentials: true });
+            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/user/update_full_name/`, { "new_full_name": newName }, config, { withCredentials: true });
             setCurrentName(newName);
         } catch (error) {
             console.log(error);
         }
     }
-    const setPass = async()=>{
+    const setPass = async () => {
         try {
             const config = {
                 headers: {
@@ -35,19 +37,34 @@ const Settings = () => {
                     'Authorization': `JWT ${localStorage.getItem('access')}`,
                 }
             };
-            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/change-password/`,{
-                "old_password":currentPassword,
-                "new_password":newPassword,
-                "re_new_password":confirmNewPassword
-              }, config, { withCredentials: true });
+            await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/change-password/`, {
+                "old_password": currentPassword,
+                "new_password": newPassword,
+                "re_new_password": confirmNewPassword
+            }, config, { withCredentials: true });
             setCurrentName(newName);
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Password Updated",
+                showConfirmButton: false,
+                timer: 1500
+            });
         } catch (error) {
             console.log(error);
+            setError(error.response.data.detail)
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: error.response.data.detail,
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }
     useEffect(() => {
-        setCurrentName(user&&user.full_name);
-    },[user])
+        setCurrentName(user && user.full_name);
+    }, [user])
     const openPassModal = () => {
         setIsPassModalOpen(true);
     };
@@ -73,6 +90,7 @@ const Settings = () => {
     };
 
     const handleUpdatePassword = () => {
+        setError(' ');
         // Implement password change logic here
         // You can add validation and an API call to update the password
         if (newPassword === confirmNewPassword) {
@@ -81,9 +99,13 @@ const Settings = () => {
             console.log('Password updated:', newPassword);
             setPass();
             closePassModal();
+
+
         } else {
             // Passwords don't match; show an error or provide feedback to the user
             console.error('Passwords do not match');
+            // setError(`Confirm password doesn't match`);
+            setError('Password do not match !');
         }
     };
 
@@ -104,6 +126,13 @@ const Settings = () => {
     const handleUpdateName = () => {
         setName();
         closeModal();
+        Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Username Updated",
+            showConfirmButton: false,
+            timer: 1500
+        });
     };
     return (
         <div className="py-8 md:mb-48 mb-20 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">
@@ -153,6 +182,7 @@ const Settings = () => {
                     <button className="btn btn-sm btn-gradient btn-outline" onClick={openPassModal}>
                         Change
                     </button>
+
                     {isPassModalOpen && (
                         <dialog open className="modal mobile-modal">
                             <div className="modal-box bg-white">
@@ -188,6 +218,7 @@ const Settings = () => {
                                             className="border border-black p-2 w-full rounded-md text-black"
                                         />
                                     </label> <br />
+                                    <p className='text-red-500 mb-2 font-bold text-start '>{error}</p>
                                     <button
                                         type="button"
                                         onClick={handleUpdatePassword}

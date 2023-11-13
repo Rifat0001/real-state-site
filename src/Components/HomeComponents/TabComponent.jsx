@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaThLarge, FaThList } from "react-icons/fa";
 import SingleProperty from "./SingleProperty";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const TabComponent = () => {
   const [propertyCard, setPropertyCard] = useState([]);
   const [selectedType, setSelectedType] = useState("All");
@@ -18,6 +19,19 @@ const TabComponent = () => {
         setPropertyCard(data);
       });
   }, []);
+
+  const loadDAta = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/hprop`, { withCredentials: true });
+      console.log(res);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    loadDAta();
+  }, [])
 
   const filteredPropertyCards = propertyCard.filter((card) => {
     const typeMatch =
