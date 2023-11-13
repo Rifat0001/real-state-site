@@ -658,8 +658,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                   name="bathrooms"
                 />
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
@@ -675,6 +673,9 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                   name="bedrooms"
                 />
               </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black font-bold">
@@ -720,6 +721,21 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                   name="garages"
                 />
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-black font-bold">
+                    Garage Size
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Garage Size"
+                  className="input input-bordered border border-black"
+                  color="black"
+                  required
+                  name="garageSize"
+                />
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -739,21 +755,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                   name="date"
                 />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black font-bold">
-                    Garage Size
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Garage Size"
-                  className="input input-bordered border border-black"
-                  color="black"
-                  required
-                  name="garageSize"
-                />
-              </div>
+
 
               <div className="form-control">
                 <label className="label">

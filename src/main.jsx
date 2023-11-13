@@ -34,6 +34,7 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 import Meet from './Components/Pages/Chat/meet.jsx';
 import Inbox from './Components/Pages/Chat/inbox.jsx';
+import Notification from './Components/Settings/Notification.jsx';
 
 const router = createBrowserRouter([
   {

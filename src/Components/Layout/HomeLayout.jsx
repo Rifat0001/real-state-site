@@ -12,7 +12,7 @@ const HomeLayout = ({ checkAuthenticated, load_user }) => {
         load_user();
     }, []);
     return (
-        <div>
+        <div className="">
             <Header ></Header>
             <Outlet></Outlet>
             <Footer></Footer>
