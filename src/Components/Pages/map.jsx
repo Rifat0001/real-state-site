@@ -13,6 +13,7 @@ const center = {
 
 const Map = () => {
   const [map, setMap] = useState(null);
+  const [center, setCenter] = useState(null); // Initialize center as null
   const [autocomplete, setAutocomplete] = useState(null);
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
@@ -67,12 +68,35 @@ const Map = () => {
       },
     });
   };
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCenter({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting user's location: ", error);
+          // Set a fallback center if location access is denied
+          setCenter({ lat: -3.745, lng: -38.523 });
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      // Set a fallback center if geolocation is not supported
+      setCenter({ lat: -3.745, lng: -38.523 });
+    }
+  };
 
   useEffect(() => {
+    getUserLocation();
     if (map) {
       // Set drawing manager options once map is loaded
       onDrawingManagerLoad();
     }
+    
   }, [map]);
 
   return (
@@ -101,6 +125,12 @@ const Map = () => {
           options={drawingManagerOptions}
         />
       )}
+      <Marker
+          position={center}
+          icon={{
+            url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker// Width and height of the marker icon
+          }}
+        />
     </GoogleMap>
     <button onClick={deleteSelectedShape} style={{ marginTop: '10px' }}>
         Delete Selected Polygon
