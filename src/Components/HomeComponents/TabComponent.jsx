@@ -80,8 +80,8 @@ const TabComponent = () => {
         id="SingleCard"
         className="grid md:grid-cols-2 xl:grid-cols-3 items-center justify-between mt-10 gap-x-6 gap-y-6"
       >
-        {propertyCard.map((e, index) => (
-          <SingleProperty key={index} singleCard={{ title: e.fields.title }} />
+        {propertyCard&& propertyCard.map((e, index) => (
+          <SingleProperty key={index} singleCard={{title:e.title,image:import.meta.env.VITE_APP_API_URL+e.thumbnail}} />
           // console.log(e.fields)
         ))}
       </div>
