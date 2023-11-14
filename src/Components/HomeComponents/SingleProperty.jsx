@@ -27,19 +27,18 @@ const SingleProperty = ({ singleCard }) => {
       <div className="ps-8 pe-12 pb-4 pt-4">
         <h2 className="font-semibold text-2xl text-black">{currency} {price} {price_type}</h2>
         <h2 className="font-bold text-3xl text-gradient  ">{title}</h2>
-        <p className="text-xl my-1"><span className="font-bold">Country:</span> {country}</p>
-        <p className="text-xl my-1"><span className="font-bold">State:</span> {state}</p>
         <div className="flex justify-between">
-          <div className=" text-black ">
 
-            <p className="text-xl"><span className="font-bold">Beds:</span> {bed}</p>
-            <p className="text-xl"><span className="font-bold">Size:</span> {size}</p>
-          </div>
-          <div className=" text-black ">
+        <p className="text-md my-1"><span className="font-bold">Country:</span> {country}</p>
+        <p className="text-md my-1"><span className="font-bold">State:</span> {state}</p>
+        </div>
+        <div className="flex justify-between">
+          
 
-            <p className="text-xl"><span className="font-bold">Baths:</span> {bath}</p>
-            <p className="text-xl"><span className="font-bold">Unit:</span> {size_unit}</p>
-          </div>
+            <p className="text-sm"><span className="font-bold">Beds:</span> {bed}</p>
+            <p className="text-sm"><span className="font-bold">Baths:</span> {bath}</p>
+            <p className="text-sm"><span className="font-bold">Size:</span> {size} {size_unit}</p>
+         
         </div>
       </div>
       <div className="flex justify-end px-6 py-4">
