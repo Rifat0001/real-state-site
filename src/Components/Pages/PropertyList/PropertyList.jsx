@@ -122,7 +122,7 @@ const PropertyList = () => {
                         id="SingleCard"
                         className="grid my-4 md:grid-cols-2 xl:grid-cols-2 items-center justify-between gap-x-6 gap-y-6"
                     >
-                        {propertyCard.map((singleCard, index) => (
+                        {propertyCard&& propertyCard.map((singleCard, index) => (
                             <SingleProperty key={index} singleCard={singleCard} />
                         ))}
                     </div>
