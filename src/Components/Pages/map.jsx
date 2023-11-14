@@ -128,7 +128,8 @@ const Map = () => {
       <Marker
           position={center}
           icon={{
-            url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker// Width and height of the marker icon
+            url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
+// Width and height of the marker icon
           }}
         />
     </GoogleMap>
