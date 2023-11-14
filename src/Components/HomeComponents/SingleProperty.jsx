@@ -15,6 +15,7 @@ const SingleProperty = ({ singleCard }) => {
     size,
     size_unit,
     id,
+    area
   } = singleCard || null;
   return (
     <div className="w-96 h-full bg-gradient shadow-xl card rounded-md">
@@ -25,8 +26,9 @@ const SingleProperty = ({ singleCard }) => {
         />
       </figure>
       <div className="ps-8 pe-12 pb-4 pt-4">
-        <h2 className="font-semibold text-2xl text-black">{currency} {price} {price_type}</h2>
+        <h2 className="font-semibold text-xl text-black">{currency} {price} {price_type}</h2>
         <h2 className="font-bold text-3xl text-gradient  ">{title}</h2>
+        <p className="text-md my-1"><span className="font-bold">Area:</span> {area}</p>
         <div className="flex justify-between">
 
         <p className="text-md my-1"><span className="font-bold">Country:</span> {country}</p>
@@ -35,9 +37,9 @@ const SingleProperty = ({ singleCard }) => {
         <div className="flex justify-between">
           
 
-            <p className="text-sm"><span className="font-bold">Beds:</span> {bed}</p>
-            <p className="text-sm"><span className="font-bold">Baths:</span> {bath}</p>
-            <p className="text-sm"><span className="font-bold">Size:</span> {size} {size_unit}</p>
+            <p className="text-sm my-1"><span className="font-bold">Beds:</span> {bed}</p>
+            <p className="text-sm my-1"><span className="font-bold">Baths:</span> {bath}</p>
+            <p className="text-sm my-1"><span className="font-bold">Size:</span> {size} {size_unit}</p>
          
         </div>
       </div>
