@@ -11,13 +11,15 @@ const center = {
   lng: -38.523,
 }
 
-const Map = () => {
+const Map = (location) => {
   const [map, setMap] = useState(null);
   const [center, setCenter] = useState(null); // Initialize center as null
   const [autocomplete, setAutocomplete] = useState(null);
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
   const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
+  console.log(location)
+  // const searchBox = document.getElementById('search').setValue(location);
   const getUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -101,14 +103,62 @@ const Map = () => {
 
   }, [map]);
 
+  // for filters under the search fields 
+  const [range, setRange] = useState(10);
+  const [type, setType] = useState('');
+  const [cat, setCat] = useState('');
+  console.log(type);
+  console.log(cat);
+  console.log(range);
   return (
     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
       <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
-        <input
-          type="text"
-          placeholder="Enter a location"
-          style={{ width: '100%' }}
-        />
+        <div className=" px-4 py-4 rounded-md">
+          <form >
+            <input
+              type="text" id='search' value={location.location}
+              className="input w-full my-4 text-black border-black input-bordered"
+              placeholder="Search your location"
+              style={{ width: '100%' }}
+            />
+            <div className="grid pb-4  md:grid-cols-3 gap-10 grid-cols-1">
+
+              <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
+                <select onChange={(e) => setType(e.target.value)} name="type" className="select w-full border text-black border-black">
+                  <option selected>
+                    Rent
+                  </option>
+                  <option>Sales</option>
+                </select>
+              </div>
+              <div className="form-control bg-white rounded-lg w-full max-w-xs">
+                <select name="cat" onChange={(e) => setCat(e.target.value)} className="select w-full border text-black border-black">
+                  <option selected>
+                    Home
+                  </option>
+                  <option>Office</option>
+                  <option>Appartment</option>
+                </select>
+              </div>
+              <div className="dv">
+                <input
+                  type="range"
+                  id="rangeInput"
+                  min={0}
+                  max={150}
+                  value={range}
+                  className="range range-xs range-success appearance-none w-full mt-1"
+                  onChange={(e) => setRange(e.target.value)}
+                />
+                <p className="mt-2 text-sm text-gray-500">{`Selected value: ${range} Km`}</p>
+              </div>
+            </div>
+            <div className="hidden">
+              <input type="text" name="lat" id="lat" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+              <input type="text" name="long" id="long" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+            </div>
+          </form>
+        </div>
       </Autocomplete>
       <GoogleMap
         mapContainerStyle={containerStyle}

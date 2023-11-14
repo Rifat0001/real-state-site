@@ -3,34 +3,66 @@ import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
 import MapComponent from "../map";
-import { Helmet } from "react-helmet";
-const PropertyList = ({ list }) => {
-    console.log(list)
-    // const [range, setRange] = useState(40);
-    // const [price, setPrice] = useState(40);
-    const [propertyCard, setPropertyCard] = useState([]);
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+const PropertyList = () => {
+    const params = useParams();
+    const id = params.id;
+    const currentUrl = window.location.href;
+    const url = new URL(currentUrl);
+    const lat = url.searchParams.get('lat');
+    const long = url.searchParams.get('long');
+    const property_category = url.searchParams.get('property_category');
+    const post_type = url.searchParams.get('post_type');
+    const location = url.searchParams.get('location');
+    const [propertyCard, setPropertyCard] = useState();
 
+    // const [price, setPrice] = useState(40);
+    const preLoad = async (data) => {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
+                params: data
+            }, config, { withCredentials: true });
+            console.log(res.data)
+            setPropertyCard(res.data)
+            console.log(propertyCard)
+        }
+        catch (error) {
+            console.log(error.response.data);
+        }
+    }
     useEffect(() => {
-        fetch("property.json")
-            .then((res) => res.json())
-            .then((data) => {
-                // console.log(data);
-                setPropertyCard(data);
-            });
-    }, []);
+        if (id === undefined) {
+            console.log('Normal')
+        }
+        else {
+            console.log(id, lat, long, property_category, post_type)
+            const data = {
+                type: post_type,
+                category: property_category,
+                location: location,
+                lat: lat,
+                long: long
+            }
+            preLoad(data);
+        }
+
+    }, [])
     return (
         <div className="grid grid-cols-1 md:grid-cols-2  ">
-            <div className='w-full h-full '>
+            <div className='md:w-11/12 mx-6 w-full h-full '>
                 <div className='md:sticky md:top-24'>
-                    <MapComponent></MapComponent>
+                    <MapComponent location={location} ></MapComponent>
                 </div>
             </div>
-            <div className='px-4 md:px-2 py-4 md:mt-0'>
+            <div className='w-full md:px-2 py-4 md:mt-0'>
                 {/* for search fields  */}
                 <div className=''>
-                    <div className=''>
-                        <input className='w-full border border-black p-2 rounded-md text-black' placeholder='Enter your location' type="text" />
-                    </div>
                     {/* <div className='flex items-center my-3'>
                         <h2 className='text-black font-semibold w-40'>Radius: {range} km</h2>
                         <input
@@ -113,7 +145,7 @@ const PropertyList = ({ list }) => {
                     </div> */}
                 </div>
                 {/* show properties  */}
-                <div>
+                <div className=''>
                     {/* before property  */}
                     <div className='flex justify-between my-5 items-center'>
                         <h1 className='text-3xl md:text-4xl text-gradient font-semibold'>Our Properties</h1>
@@ -123,8 +155,8 @@ const PropertyList = ({ list }) => {
                         id="SingleCard"
                         className="grid my-4 md:grid-cols-2 xl:grid-cols-2 items-center justify-between gap-x-6 gap-y-6"
                     >
-                        {propertyCard && propertyCard.map((singleCard, index) => (
-                            <SingleProperty key={index} singleCard={singleCard} />
+                        {propertyCard && propertyCard.map((e, index) => (
+                            <SingleProperty key={index} singleCard={{ area: e.loc, title: e.title, price: e.price, currency: e.price_unit, image: e.thumbnail, country: e.address.country, state: e.address.state, bed: e.details.bed, bath: e.details.bath, size: e.details.size, size_unit: e.details.size_unit, price_type: e.price_type, sku: e.sku }} />
                         ))}
                     </div>
                 </div>

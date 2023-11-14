@@ -11,13 +11,14 @@ const SingleProperty = ({ singleCard }) => {
     bath,
     country,
     state,
+    sku,
     size,
     size_unit,
     id,
     area
   } = singleCard || null;
   return (
-    <div className="md:w-96 w-92 h-full bg-gradient shadow-xl card rounded-md">
+    <div className=" h-full bg-gradient shadow-xl card rounded-md text-black ">
       <figure>
         <img
           src={`${import.meta.env.VITE_APP_API_URL}/${image}`}
@@ -25,7 +26,7 @@ const SingleProperty = ({ singleCard }) => {
         />
       </figure>
       <div className="ps-8 pe-12 pb-4 pt-4">
-        <h2 className="font-semibold text-xl text-black">{currency} {price} {price_type}</h2>
+        <h2 className="font-semibold text-xl text-black">{currency}{price} {price_type}</h2>
         <h2 className="font-bold text-3xl text-gradient  mb-3">{title}</h2>
         <p className="text-md my-1"><span className="font-bold">Area:</span> {area}</p>
         <div className="flex justify-between">
@@ -43,8 +44,7 @@ const SingleProperty = ({ singleCard }) => {
         </div>
       </div>
       <div className="flex justify-end px-6 py-4">
-        <button className="w-full bg-primary btn-gradient px-2 py-3  rounded-md border-none text-white font-bold"> <Link to={`../items/${id}`}>Details</Link></button>
-
+        <button className="w-full bg-primary btn-gradient px-2 py-3  rounded-md border-none text-white font-bold"> <Link to={`../items/${sku}`}>Details</Link></button>
       </div>
 
     </div>

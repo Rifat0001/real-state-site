@@ -49,9 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "items/:id",
-        element: <ItemInfo />,
-        loader: ({ params }) => fetch(`/property.json`),
-
+        element: <ItemInfo />
       },
       {
         path: 'login',
@@ -79,6 +77,10 @@ const router = createBrowserRouter([
       },
       {
         path: 'property-lists',
+        element: <PropertyList></PropertyList>
+      },
+      {
+        path: 'property-lists/:id',
         element: <PropertyList></PropertyList>
       },
       {

@@ -3,8 +3,9 @@ import "./HomeComponents.css";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useState } from "react";
-import PropertyList from "../Pages/PropertyList/PropertyList";
+import { useNavigate } from "react-router-dom";
 const FindProperty = () => {
+  const navigate = useNavigate();
   const initMap = () => {
     const success = (position) => {
       let markerOptions = {
@@ -82,29 +83,8 @@ const FindProperty = () => {
     const location = e.target.loc.value;
     const lat = e.target.lat.value;
     const long = e.target.long.value;
-    const data = {
-      type: type,
-      category: category,
-      location: location,
-      lat: lat,
-      long: long
-    }
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `JWT ${localStorage.getItem('access')}`,
-        }
-      };
-      const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
-        params: data
-      }, config, { withCredentials: true });
-      console.log(res)
-      setList(res.data)
+    navigate(`/property-lists/1/?lat=${lat}&long=${long}&post_type=${type}&property_category=${category}&location=${location}`)
 
-    } catch (error) {
-      console.log(error.response.data);
-    }
   }
 
   return (
@@ -113,6 +93,7 @@ const FindProperty = () => {
         <Helmet>
           <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
         </Helmet>
+
         <div className=" bg-[#0E8E94]  drop-shadow-lg px-4 md:px-20 py-4 rounded-md">
           <p className="text-center text-2xl text-white font-semibold mb-4 capitalize">Find your property</p>
           <form onSubmit={handleSubmit}>
@@ -133,7 +114,6 @@ const FindProperty = () => {
                   </option>
                   <option>Office</option>
                   <option>Appartment</option>
-
                 </select>
               </div>
 
