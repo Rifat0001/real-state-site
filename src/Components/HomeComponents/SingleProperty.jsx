@@ -5,41 +5,48 @@ const SingleProperty = ({ singleCard }) => {
   const {
     title,
     image,
-    type,
-    status,
     price,
-    description,
-    beds,
-    baths,
-    sizes,
-    area,
+    price_type,
+    currency,
+    bed,
+    bath,
+    country,
+    state,
+    size,
+    size_unit,
     id,
   } = singleCard || null;
   return (
-    <div className="card w-full h-full bg-gradient shadow-xl rounded-md">
+    <div className="w-96 h-full bg-gradient shadow-xl card rounded-md">
       <figure>
         <img
-          src={image}
-          alt="Shoes"
+          src={`${import.meta.env.VITE_APP_API_URL}/${image}`}
+          alt="Shoes" className="prop-img"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="font-medium text-xl text-black">€ {price} / month</h2>
-        <h2 className="font-bold text-xl text-black ">{title}</h2>
-        <p className="text-black">{description}</p>
-        <div className="flex text-black items-center justify-between pb-3">
-          <p>Beds: {beds}</p>
-          <p>Baths: {baths}</p>
-          <p>Area: {area}</p>
-        </div>
-        <hr />
-        <div className="flex items-center justify-between">
-          <div className="flex items-center justify-start gap-2">
-            <FaUserCircle className="text-black" /> <span className="font-bold text-black">Michael Suttherland</span>
+      <div className="ps-8 pe-12 pb-4 pt-4">
+        <h2 className="font-semibold text-2xl text-black">{currency} {price} {price_type}</h2>
+        <h2 className="font-bold text-3xl text-gradient  ">{title}</h2>
+        <p className="text-xl my-1"><span className="font-bold">Country:</span> {country}</p>
+        <p className="text-xl my-1"><span className="font-bold">State:</span> {state}</p>
+        <div className="flex justify-between">
+          <div className=" text-black ">
+
+            <p className="text-xl"><span className="font-bold">Beds:</span> {bed}</p>
+            <p className="text-xl"><span className="font-bold">Size:</span> {size}</p>
           </div>
-          <Link to={`../items/${id}`}><button className=" bg-primary btn-gradient px-2 py-1 rounded-md border-none text-white font-bold">Details</button></Link>
+          <div className=" text-black ">
+
+            <p className="text-xl"><span className="font-bold">Baths:</span> {bath}</p>
+            <p className="text-xl"><span className="font-bold">Unit:</span> {size_unit}</p>
+          </div>
         </div>
       </div>
+      <div className="flex justify-end px-6 py-4">
+        <button className="w-full bg-primary btn-gradient px-2 py-3  rounded-md border-none text-white font-bold"> <Link to={`../items/${id}`}>Details</Link></button>
+
+      </div>
+
     </div>
   );
 };

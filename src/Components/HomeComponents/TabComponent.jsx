@@ -5,12 +5,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 const TabComponent = () => {
   const [propertyCard, setPropertyCard] = useState([]);
-  const [selectedType, setSelectedType] = useState("All");
-  const [selectedCategory, setSelectedCategory] = useState("Categories");
-  const [selectedState, setSelectedState] = useState("States");
-  const [selectedCity, setSelectedCity] = useState("Cities");
-  const [selectedArea, setSelectedArea] = useState("Areas");
-  const [numColumns, setNumColumns] = useState(3);
 
   const loadDAta = async () => {
     try {
@@ -25,6 +19,8 @@ const TabComponent = () => {
   useEffect(() => {
     loadDAta();
   }, [])
+
+
   return (
     <div className=" bg-[#F0F2F5] py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       {/* Section Title */}
@@ -80,8 +76,8 @@ const TabComponent = () => {
         id="SingleCard"
         className="grid md:grid-cols-2 xl:grid-cols-3 items-center justify-between mt-10 gap-x-6 gap-y-6"
       >
-        {propertyCard&& propertyCard.map((e, index) => (
-          <SingleProperty key={index} singleCard={{title:e.title,image:import.meta.env.VITE_APP_API_URL+e.thumbnail}} />
+        {propertyCard.map((e, index) => (
+          <SingleProperty key={index} singleCard={{ title: e.title, price: e.price, currency: e.price_unit, image: e.thumbnail, country: e.address.country, state: e.address.state, bed: e.details.bed, bath: e.details.bath, size: e.details.size, size_unit: e.details.size_unit, price_type: e.price_type }} />
           // console.log(e.fields)
         ))}
       </div>
