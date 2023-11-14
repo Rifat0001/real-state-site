@@ -30,6 +30,7 @@ import PropertyListing from './Components/Pages/MyProperty/PropertyListing';
 import PrivateRoute from "./private.jsx"
 import PrivateRouteOrg from './privateORG.jsx';
 import PrivateRouteOrgAg from "./privateORGAG.jsx";
+import PrivateRouteAgent from "./privateAGENT.jsx";
 import { Provider } from 'react-redux';
 import store from './store.js';
 import Meet from './Components/Pages/Chat/meet.jsx';
