@@ -1,4 +1,3 @@
-import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const SingleProperty = ({ singleCard }) => {
@@ -18,7 +17,7 @@ const SingleProperty = ({ singleCard }) => {
     area
   } = singleCard || null;
   return (
-    <div className="w-96 h-full bg-gradient shadow-xl card rounded-md">
+    <div className="md:w-96 w-92 h-full bg-gradient shadow-xl card rounded-md">
       <figure>
         <img
           src={`${import.meta.env.VITE_APP_API_URL}/${image}`}
@@ -31,16 +30,16 @@ const SingleProperty = ({ singleCard }) => {
         <p className="text-md my-1"><span className="font-bold">Area:</span> {area}</p>
         <div className="flex justify-between">
 
-        <p className="text-md my-1"><span className="font-bold">Country:</span> {country}</p>
-        <p className="text-md my-1"><span className="font-bold">State:</span> {state}</p>
+          <p className="text-md my-1"><span className="font-bold">Country:</span> {country}</p>
+          <p className="text-md my-1"><span className="font-bold">State:</span> {state}</p>
         </div>
         <div className="flex justify-between">
-          
 
-            <p className="text-md my-1"><span className="font-bold">Beds:</span> {bed}</p>
-            <p className="text-md my-1"><span className="font-bold">Baths:</span> {bath}</p>
-            <p className="text-md my-1"><span className="font-bold">Size:</span> {size} {size_unit}</p>
-         
+
+          <p className="text-md my-1"><span className="font-bold">Beds:</span> {bed}</p>
+          <p className="text-md my-1"><span className="font-bold">Baths:</span> {bath}</p>
+          <p className="text-md my-1"><span className="font-bold">Size:</span> {size} {size_unit}</p>
+
         </div>
       </div>
       <div className="flex justify-end px-6 py-4">

@@ -3,28 +3,29 @@ import './PropertyList.css'
 import { useEffect, useState } from 'react';
 import SingleProperty from '../../HomeComponents/SingleProperty';
 import MapComponent from "../map";
-import {Helmet} from "react-helmet";
-const PropertyList = () => {
-    const [range, setRange] = useState(40);
-    const [price, setPrice] = useState(40);
+import { Helmet } from "react-helmet";
+const PropertyList = ({ list }) => {
+    console.log(list)
+    // const [range, setRange] = useState(40);
+    // const [price, setPrice] = useState(40);
     const [propertyCard, setPropertyCard] = useState([]);
+
     useEffect(() => {
         fetch("property.json")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setPropertyCard(data);
             });
     }, []);
     return (
         <div className="grid grid-cols-1 md:grid-cols-2  ">
-          
-            <div className='w-full h-full map-position'>
-                <div className='sticky top-24'>
+            <div className='w-full h-full '>
+                <div className='md:sticky md:top-24'>
                     <MapComponent></MapComponent>
                 </div>
             </div>
-            <div className='px-8 py-4 md:mt-0'>
+            <div className='px-4 md:px-2 py-4 md:mt-0'>
                 {/* for search fields  */}
                 <div className=''>
                     <div className=''>
@@ -122,7 +123,7 @@ const PropertyList = () => {
                         id="SingleCard"
                         className="grid my-4 md:grid-cols-2 xl:grid-cols-2 items-center justify-between gap-x-6 gap-y-6"
                     >
-                        {propertyCard&& propertyCard.map((singleCard, index) => (
+                        {propertyCard && propertyCard.map((singleCard, index) => (
                             <SingleProperty key={index} singleCard={singleCard} />
                         ))}
                     </div>

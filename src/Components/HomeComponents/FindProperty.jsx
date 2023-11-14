@@ -2,9 +2,9 @@ import { FaSearch } from "react-icons/fa";
 import "./HomeComponents.css";
 import { Helmet } from "react-helmet";
 import axios from "axios";
-import { useEffect } from "react";
+import { useState } from "react";
+import PropertyList from "../Pages/PropertyList/PropertyList";
 const FindProperty = () => {
-
   const initMap = () => {
     const success = (position) => {
       let markerOptions = {
@@ -74,7 +74,7 @@ const FindProperty = () => {
       }
     });
   }
-
+  const [list, setList] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const type = e.target.type.value;
@@ -82,7 +82,6 @@ const FindProperty = () => {
     const location = e.target.loc.value;
     const lat = e.target.lat.value;
     const long = e.target.long.value;
-    console.log(type, category, location, lat, long)
     const data = {
       type: type,
       category: category,
@@ -90,7 +89,6 @@ const FindProperty = () => {
       lat: lat,
       long: long
     }
-    console.log(data)
     try {
       const config = {
         headers: {
@@ -102,6 +100,8 @@ const FindProperty = () => {
         params: data
       }, config, { withCredentials: true });
       console.log(res)
+      setList(res.data)
+
     } catch (error) {
       console.log(error.response.data);
     }

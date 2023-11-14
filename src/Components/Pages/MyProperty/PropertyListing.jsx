@@ -356,11 +356,9 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                 <option disabled selected>
                   Select Category
                 </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-                <option>Lord of the Rings</option>
-                <option>Planet of the Apes</option>
-                <option>Star Trek</option>
+                <option>Home</option>
+                <option>Office</option>
+                <option>Appartment</option>
               </select>
             </div>
             <div className="form-control w-full ">
@@ -373,11 +371,8 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                 <option disabled selected>
                   Post Type
                 </option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-                <option>Lord of the Rings</option>
-                <option>Planet of the Apes</option>
-                <option>Star Trek</option>
+                <option>Rent</option>
+                <option>Sales</option>
               </select>
             </div>
             <div className="form-control w-full ">

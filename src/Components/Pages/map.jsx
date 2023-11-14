@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -9,7 +9,7 @@ const containerStyle = {
 const center = {
   lat: -3.745,
   lng: -38.523,
-};
+}
 
 const Map = () => {
   const [map, setMap] = useState(null);
@@ -50,7 +50,7 @@ const Map = () => {
     }
   };
 
-  
+
   const onPolygonComplete = useCallback((polygon) => {
     if (selectedShape) {
       selectedShape.setMap(null);
@@ -90,7 +90,7 @@ const Map = () => {
       },
     });
   };
-  
+
 
   useEffect(() => {
     getUserLocation();
@@ -98,46 +98,46 @@ const Map = () => {
       // Set drawing manager options once map is loaded
       onDrawingManagerLoad();
     }
-    
+
   }, [map]);
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
-    <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
-      <input
-        type="text"
-        placeholder="Enter a location"
-        style={{ width: '100%' }}
-      />
-    </Autocomplete>
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={place ? place.geometry.location : center}
-      zoom={18}
-      onLoad={onLoad}
-    >
-      {place && (
-        <Marker
-        position={place.geometry.location}
-        icon={{
-          url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
-// Width and height of the marker icon
-        }}
+      <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
+        <input
+          type="text"
+          placeholder="Enter a location"
+          style={{ width: '100%' }}
         />
-      )}
-      {drawingManagerOptions && (
-        <DrawingManager
-          onPolygonComplete={onPolygonComplete}
-          options={drawingManagerOptions}
-        />
-      )}
-      
-    </GoogleMap>
-    <button onClick={deleteSelectedShape} style={{ marginTop: '10px' }}>
+      </Autocomplete>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={place ? place.geometry.location : center}
+        zoom={18}
+        onLoad={onLoad}
+      >
+        {place && (
+          <Marker
+            position={place.geometry.location}
+            icon={{
+              url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
+              // Width and height of the marker icon
+            }}
+          />
+        )}
+        {drawingManagerOptions && (
+          <DrawingManager
+            onPolygonComplete={onPolygonComplete}
+            options={drawingManagerOptions}
+          />
+        )}
+
+      </GoogleMap>
+      <button onClick={deleteSelectedShape} style={{ marginTop: '10px' }}>
         Delete Selected Polygon
       </button>
-  </LoadScript>
-);
+    </LoadScript>
+  );
 };
 
 export default Map;
