@@ -18,6 +18,27 @@ const Map = () => {
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
   const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCenter({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting user's location: ", error);
+          // Set a fallback center if location access is denied
+          setCenter({ lat: -3.745, lng: -38.523 });
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      // Set a fallback center if geolocation is not supported
+      setCenter({ lat: -3.745, lng: -38.523 });
+    }
+  };
 
   const onLoad = useCallback((map) => {
     setMap(map);
@@ -68,27 +89,7 @@ const Map = () => {
       },
     });
   };
-  const getUserLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setCenter({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error("Error getting user's location: ", error);
-          // Set a fallback center if location access is denied
-          setCenter({ lat: -3.745, lng: -38.523 });
-        }
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-      // Set a fallback center if geolocation is not supported
-      setCenter({ lat: -3.745, lng: -38.523 });
-    }
-  };
+  
 
   useEffect(() => {
     getUserLocation();
