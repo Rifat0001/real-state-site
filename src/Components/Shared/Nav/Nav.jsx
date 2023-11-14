@@ -33,6 +33,9 @@ const Nav = ({ logout, isAuthenticated, auth }) => {
             </Link>
         </>
         const agent = <>
+            <Link to="/notification" >
+                <li><p className="hover:text-[#0E8E94] text-black">Notification</p></li>
+            </Link>
             <Link to="/myProperty" >
                 <li><p className="hover:text-[#0E8E94] text-black">My Property</p></li>
             </Link>
@@ -45,9 +48,6 @@ const Nav = ({ logout, isAuthenticated, auth }) => {
             <>
                 <Link to="/setting" >
                     <li><p className="hover:text-[#0E8E94] text-black">Settings</p></li>
-                </Link>
-                <Link to="/notification" >
-                    <li><p className="hover:text-[#0E8E94] text-black">Notification</p></li>
                 </Link>
 
                 <Link to="/profile-setting" >

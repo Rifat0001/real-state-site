@@ -106,7 +106,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'notification',
-        element: <Notification></Notification>
+        element: <PrivateRouteAgent component={Notification} />
       }
       ,
       {

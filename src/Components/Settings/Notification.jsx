@@ -1,5 +1,6 @@
 
 const Notification = () => {
+    
     return (
         <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 h-[400px] ">
             {/* notifications */}
