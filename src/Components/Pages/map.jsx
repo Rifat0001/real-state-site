@@ -76,7 +76,8 @@ const Map = () => {
       drawingControlOptions: {
         position: window.google.maps.ControlPosition.TOP_CENTER,
         drawingModes: [
-          window.google.maps.drawing.OverlayType.POLYGON,
+          window.google.maps.drawing.OverlayType.CIRCLE,
+          window.google.maps.drawing.OverlayType.POLYGON
         ],
       },
       polygonOptions: {
@@ -117,7 +118,11 @@ const Map = () => {
     >
       {place && (
         <Marker
-          position={place.geometry.location}
+        position={place.geometry.location}
+        icon={{
+          url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
+// Width and height of the marker icon
+        }}
         />
       )}
       {drawingManagerOptions && (
@@ -126,13 +131,7 @@ const Map = () => {
           options={drawingManagerOptions}
         />
       )}
-      <Marker
-          position={center}
-          icon={{
-            url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
-// Width and height of the marker icon
-          }}
-        />
+      
     </GoogleMap>
     <button onClick={deleteSelectedShape} style={{ marginTop: '10px' }}>
         Delete Selected Polygon
