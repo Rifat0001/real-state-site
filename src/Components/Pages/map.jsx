@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
+import axios from 'axios';
 
 const containerStyle = {
   width: '100%',
@@ -50,6 +51,7 @@ const Map = (location) => {
     if (autocomplete !== null) {
       setPlace(autocomplete.getPlace());
     }
+
   };
 
 
@@ -103,6 +105,41 @@ const Map = (location) => {
 
   }, [map]);
 
+  const preLoad = async (data) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
+        params: data
+      }, config, { withCredentials: true });
+      console.log(res.data)
+      setPropertyCard(res.data)
+      console.log(propertyCard)
+    }
+    catch (error) {
+      console.log(error.response.data);
+    }
+  }
+  const handleFilter = (e) => {
+    e.preventDefault();
+    const location = e.target.location.value;
+    const type = e.target.type.value;
+    const cat = e.target.cat.value;
+    const radius = e.target.range.value;
+    console.log(location, type, cat, radius)
+    const data = {
+      type: post_type,
+      category: property_category,
+      location: location,
+      lat: lat,
+      long: long
+    }
+    preLoad(data);
+  }
+
   // for filters under the search fields 
   const [range, setRange] = useState(10);
   const [type, setType] = useState('');
@@ -114,9 +151,9 @@ const Map = (location) => {
     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
       <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
         <div className=" px-4 py-4 rounded-md">
-          <form >
+          <form onSubmit={handleFilter} >
             <input
-              type="text" id='search' value={location.location}
+              type="text" name='location' id='search' value={location.location}
               className="input w-full my-4 text-black border-black input-bordered"
               placeholder="Search your location"
               style={{ width: '100%' }}
@@ -145,7 +182,8 @@ const Map = (location) => {
                   type="range"
                   id="rangeInput"
                   min={0}
-                  max={150}
+                  name='range'
+                  max={20}
                   value={range}
                   className="range range-xs range-success appearance-none w-full mt-1"
                   onChange={(e) => setRange(e.target.value)}
@@ -157,6 +195,7 @@ const Map = (location) => {
               <input type="text" name="lat" id="lat" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
               <input type="text" name="long" id="long" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
             </div>
+            <button type='submit' >Filter</button>
           </form>
         </div>
       </Autocomplete>

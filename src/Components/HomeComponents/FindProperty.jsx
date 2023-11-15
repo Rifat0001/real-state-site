@@ -130,6 +130,7 @@ const FindProperty = () => {
             <div className="hidden">
               <input type="text" name="lat" id="lat" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
               <input type="text" name="long" id="long" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+
             </div>
           </form>
         </div>
