@@ -16,7 +16,7 @@ const MobileImg = ({ images }) => {
         <Slider {...sliderSettings}>
             {images.map((image, index) => (
                 <div key={index}>
-                    <img src={image} alt={`item Slide ${index}`} className="w-full" />
+                    <img src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`} alt={`item Slide ${index}`} className="w-full" />
                 </div>
             ))}
         </Slider>

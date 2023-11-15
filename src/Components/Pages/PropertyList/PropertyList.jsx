@@ -134,7 +134,7 @@ const PropertyList = () => {
                     'Content-Type': 'application/json'
                 }
             };
-            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
+            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/polygon/`, {
                 params: data
             }, config, { withCredentials: true });
             console.log(res.data)
