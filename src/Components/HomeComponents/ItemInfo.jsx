@@ -222,7 +222,7 @@ const ItemInfo = () => {
                   key={index}
                   src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                   alt={`item images ${index}`}
-                  className="w-full h-auto rounded-md shadow mb-2"
+                  className="w-full h-[300px] rounded-md shadow mb-2"
                   onClick={() => openImageModal(image)}
                 />
               ))}

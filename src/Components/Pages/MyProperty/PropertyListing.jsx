@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { useEffect } from "react";
 
 import { logout } from "../../../actions/auth";
+import Swal from "sweetalert2";
 const PropertyListing = ({ logout, isAuthenticated, auth }) => {
   const [uid, setUid] = useState();
   useEffect(() => {
@@ -249,7 +250,13 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, formData, config, { withCredentials: true });
 
       console.log(res.data);
-
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Property Added Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
 
     } catch (error) {
       console.log(error.response.data)
