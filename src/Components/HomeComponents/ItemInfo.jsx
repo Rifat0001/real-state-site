@@ -64,7 +64,7 @@ const ItemInfo = () => {
       };
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/property/${id}`, config, { withCredentials: true });
 
-      console.log(res.data)
+      console.log(res.data.images[0].image)
       setItem(res.data)
     }
     catch (error) {
@@ -118,7 +118,7 @@ const ItemInfo = () => {
                 key={index}
                 src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                 alt={`item  ${index}`}
-                onClick={() => openImageModal(image)}
+                onClick={() => openImageModal(image.image)}
                 className="w-full h-[600px] rounded-md shadow"
               />
             ))}
@@ -137,7 +137,7 @@ const ItemInfo = () => {
                   key={index}
                   src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                   alt={`item images ${index}`}
-                  onClick={() => openImageModal(image)}
+                  onClick={() => openImageModal(image.image)}
                   className="w-full h-[600px] rounded-md shadow"
                 />
               ))}
@@ -148,26 +148,27 @@ const ItemInfo = () => {
           isMobile ? (
             // Render the imagesr for mobile screens
             <MobileImg images={item.images} />
+
           ) : (
             // Render the grid for larger screens
             <div className="flex  items-center md:items-start justify-center gap-2 h-full">
               <img
-                src={item.images[0]}
+                src={`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`}
                 alt=""
                 onClick={() => openImageModal(item.images[0])}
                 className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
               />
               <div className="flex flex-col items-center justify-center gap-2">
                 <img
-                  src={item.images[1]}
+                  src={`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`}
                   alt=""
-                  className=" h-auto md:h-[250px]"
+                  className=" h-auto w-full md:h-[250px]"
                   onClick={() => openImageModal(item.images[1])}
                 />
                 <img
-                  src={item.images[2]}
+                  src={`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`}
                   alt=""
-                  className="h-auto md:h-[250px]"
+                  className="h-auto w-full md:h-[250px]"
                   onClick={() => openImageModal(item.images[2])}
                 />
               </div>
@@ -182,27 +183,27 @@ const ItemInfo = () => {
             // Render the grid for larger screens
             <div className="flex  items-center md:items-start justify-center gap-2 h-full">
               <img
-                src={item.images[0]}
+                src={`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`}
                 alt=""
                 className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
                 onClick={() => openImageModal(item.images[0])}
               />
               <div className="flex flex-col items-center justify-center gap-2">
-                <img src={item.images[1]}
-                  onClick={() => openImageModal(item.images[1])} alt="" className="h-auto md:h-[200px] " />
-                <img src={item.images[2]} alt="" onClick={() => openImageModal(item.images[2])}
-                  className="h-auto md:h-[200px] " />
-                <img src={item.images[3]} alt="" className="h-auto md:h-[200px] "
+                <img src={`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`}
+                  onClick={() => openImageModal(item.images[1])} alt="" className="h-auto w-full md:h-[200px] " />
+                <img
+                  src={`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`}
+                  alt="" onClick={() => openImageModal(item.images[2])}
+                  className="h-auto w-full md:h-[200px] " />
+                <img
+                  src={`${import.meta.env.VITE_APP_API_URL}/${item.images[3].image}`}
+                  alt="" className="h-auto w-full md:h-[200px] "
                   onClick={() => openImageModal(item.images[3])}
                 />
               </div>
             </div>
           )
         )}
-
-
-
-
         {item.images?.length > 4 && (
           <button
             className="btn bg-gray-100 text-black hover:text-white my-5"
@@ -216,13 +217,13 @@ const ItemInfo = () => {
             <h3 className="font-bold text-lg">Photos</h3>
             {/* <p className="py-4">Click the button below to close</p> */}
             <div className="py-4 grid grid-cols-1 md:grid-cols-2 items-start justify-between gap-5">
-              {item.images?.map((imageNumber, index) => (
+              {item.images?.map((image, index) => (
                 <img
                   key={index}
-                  src={imageNumber}
+                  src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                   alt={`item images ${index}`}
                   className="w-full h-auto rounded-md shadow mb-2"
-                  onClick={() => openImageModal(imageNumber)}
+                  onClick={() => openImageModal(image)}
                 />
               ))}
             </div>
