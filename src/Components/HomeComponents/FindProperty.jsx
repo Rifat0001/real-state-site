@@ -7,75 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
 const FindProperty = () => {
   const navigate = useNavigate();
-  const initMap = () => {
-    const success = (position) => {
-      let markerOptions = {
-        position: { lat: position.coords.latitude, lng: position.coords.longitude }
-      };
-
-      let marker = new window.google.maps.Marker(markerOptions);
-
-      let mapOptions = {
-        center: { lat: position.coords.latitude, lng: position.coords.longitude },
-        zoom: 18,
-        draggable: true,
-        mapTypeId: 'satellite'
-      };
-
-      let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
-
-      map.setTilt(45);
-      marker.setMap(map);
-    };
-
-    const error = () => {
-      console.log('Error');
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-
-  const initAutocomplete = () => {
-    const searchInput = 'loc';
-
-    const autocomplete = new window.google.maps.places.Autocomplete(
-      document.getElementById(searchInput),
-      {
-        types: ['geocode'],
-      }
-    );
-
-    window.google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place = autocomplete.getPlace();
-      if (!place.geometry) {
-        return;
-      } else {
-        const lat1 = place.geometry.location.lat();
-        const lng1 = place.geometry.location.lng();
-        const lt = document.getElementById('lat');
-        const lg = document.getElementById('long');
-        lt.value = lat1;
-        lg.value = lng1;
-        let markerOptions = {
-          position: { lat: lat1, lng: lng1 }
-        };
-
-        let marker = new window.google.maps.Marker(markerOptions);
-
-        let mapOptions = {
-          center: { lat: lat1, lng: lng1 },
-          zoom: 18,
-          draggable: true,
-          mapTypeId: 'satellite'
-        };
-
-        let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
-
-        map.setTilt(45);
-        marker.setMap(map);
-      }
-    });
-  }
   const [list, setList] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,6 +15,7 @@ const FindProperty = () => {
     const location = e.target.loc.value;
     const lat = e.target.lat.value;
     const long = e.target.long.value;
+    console.log(type, category, location, lat, long);
     navigate(`/property-lists/1/?lat=${lat}&long=${long}&post_type=${type}&property_category=${category}&location=${location}`)
 
   }
@@ -100,6 +32,7 @@ const FindProperty = () => {
         lat: autocomplete.getPlace().geometry.location.lat(),
         long: autocomplete.getPlace().geometry.location.lng()
       };
+      document.getElementById('loc').value = data.location;
       document.getElementById('lat').value = data.lat;
       document.getElementById('long').value = data.long;
 
@@ -109,9 +42,7 @@ const FindProperty = () => {
   return (
     <div className="find-property pt-40">
       <div className="max-w-[2150px] mt-8 mx-auto md:px-36 sm:px-2 px-4">
-        <Helmet>
-          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
-        </Helmet>
+       
 
         <div className=" bg-[#0E8E94]  drop-shadow-lg px-4 md:px-20 py-4 rounded-md">
           <p className="text-center text-2xl text-white font-semibold mb-4 capitalize">Find your property</p>
@@ -139,15 +70,17 @@ const FindProperty = () => {
               <div className="form-control bg-white rounded-lg col-span-2">
                 <div className="input-group">
                   {/* <input name="loc" id="loc" type="text" onChange={initAutocomplete} placeholder="Search your location" className="input w-full text-black border-black input-bordered" /> */}
+                  <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
                   <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
                     <div className="">
                       <input
-                        type="text" name='location' id='search'
+                        type="text" name='location' id='loc'
                         className="input  text-black border-black input-bordered"
                         placeholder="Search your location"
                       />
                     </div>
                   </Autocomplete>
+                  </LoadScript>
 
                   <button type="submit" className="btn  bg-[#1bafb7] border-none">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
