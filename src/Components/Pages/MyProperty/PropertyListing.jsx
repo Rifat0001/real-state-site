@@ -190,7 +190,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
 
     }
   }
-  
+
 
   // auto complete start here 
   const [autocomplete, setAutocomplete] = useState(null);
@@ -217,7 +217,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       <h2 className="text-center md:text-4xl text-2xl text-gradient  font-bold">
         Add Your Property Details
       </h2>
-      
+
       <form encType="multipart/form-data"
         onSubmit={handleSubmit}>
         <div className="form-control">
@@ -392,16 +392,16 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
               </span>
             </label>
             <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
-                  <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
-                   
-                      <input
-                        type="text" name='location' id='loc'
-                        className="input  text-black border-black input-bordered"
-                        placeholder="Search your location"
-                      />
-              
-                  </Autocomplete>
-                  </LoadScript>
+              <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
+
+                <input
+                  type="text" name='location' id='loc'
+                  className="input w-full text-black border-black input-bordered"
+                  placeholder="Search your location"
+                />
+
+              </Autocomplete>
+            </LoadScript>
           </div>
           {/* new chat  */}
           <div id="container">
