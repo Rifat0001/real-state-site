@@ -25,8 +25,22 @@ const Settings = () => {
             };
             await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/user/update_full_name/`, { "new_full_name": newName }, config, { withCredentials: true });
             setCurrentName(newName);
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Username Updated",
+                showConfirmButton: false,
+                timer: 1500
+            });
         } catch (error) {
             console.log(error);
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: error.response.data.error,
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     }
     const setPass = async () => {
@@ -126,13 +140,13 @@ const Settings = () => {
     const handleUpdateName = () => {
         setName();
         closeModal();
-        Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "Username Updated",
-            showConfirmButton: false,
-            timer: 1500
-        });
+        // Swal.fire({
+        //     position: "top-center",
+        //     icon: "success",
+        //     title: "Username Updated",
+        //     showConfirmButton: false,
+        //     timer: 1500
+        // });
     };
     return (
         <div className="py-8 md:mb-48 mb-20 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">

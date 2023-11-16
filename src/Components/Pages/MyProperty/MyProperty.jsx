@@ -14,6 +14,24 @@ const MyProperty = () => {
                 setPropertyCard(data);
             });
     }, []);
+    useEffect(() => {
+        const loadProperty = async () => {
+            const config = {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `JWT ${localStorage.getItem('access')}`,
+              }
+            };
+            try {
+              const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/myProperty/`, config, { withCredentials: true });
+              console.log(res.data);
+            } catch (error) {
+              console.log(error.response.data)
+        
+            }
+          }
+        loadProperty();
+    }, []);
     return (
         <div className=" max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4">
             <div className='px-8 md:mt-0'>
