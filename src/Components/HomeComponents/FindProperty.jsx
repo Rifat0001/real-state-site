@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
 const FindProperty = () => {
   const navigate = useNavigate();
   const initMap = () => {
@@ -87,6 +88,24 @@ const FindProperty = () => {
 
   }
 
+  // auto complete start here 
+  const [autocomplete, setAutocomplete] = useState(null);
+
+  const [place, setPlace] = useState(null);
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      setPlace(autocomplete.getPlace());
+      const data = {
+        location: autocomplete.getPlace().formatted_address,
+        lat: autocomplete.getPlace().geometry.location.lat(),
+        long: autocomplete.getPlace().geometry.location.lng()
+      };
+      document.getElementById('lat').value = data.lat;
+      document.getElementById('long').value = data.long;
+
+      // preLoad(data);
+    }
+  };
   return (
     <div className="find-property pt-40">
       <div className="max-w-[2150px] mt-8 mx-auto md:px-36 sm:px-2 px-4">
@@ -118,8 +137,18 @@ const FindProperty = () => {
               </div>
 
               <div className="form-control bg-white rounded-lg col-span-2">
-                <div className="input-group w-full">
-                  <input name="loc" id="loc" type="text" onChange={initAutocomplete} placeholder="Search your location" className="input w-full text-black border-black input-bordered" />
+                <div className="input-group">
+                  {/* <input name="loc" id="loc" type="text" onChange={initAutocomplete} placeholder="Search your location" className="input w-full text-black border-black input-bordered" /> */}
+                  <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
+                    <div className="">
+                      <input
+                        type="text" name='location' id='search'
+                        className="input  text-black border-black input-bordered"
+                        placeholder="Search your location"
+                      />
+                    </div>
+                  </Autocomplete>
+
                   <button type="submit" className="btn  bg-[#1bafb7] border-none">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                   </button>
