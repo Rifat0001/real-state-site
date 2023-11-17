@@ -52,7 +52,7 @@ const MyAgents = () => {
             <div className="">
                 <div className=" col-span-2">
                     <div className=" space-y-4">
-                        <h1 className="font-bold primary-color text-3xl">My Agents List</h1>
+                        <h1 className="font-bold primary-color text-center text-5xl">My Agents List</h1>
                         <p>
                             We like to think of ourselves as a small but perfectly formed
                             lettings & management agency. Working you get the exposure,

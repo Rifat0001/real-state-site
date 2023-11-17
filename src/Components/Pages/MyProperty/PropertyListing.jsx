@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import { useEffect } from "react";
-
+import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
 import { logout } from "../../../actions/auth";
+import Swal from "sweetalert2";
 const PropertyListing = ({ logout, isAuthenticated, auth }) => {
   const [uid, setUid] = useState();
   useEffect(() => {
@@ -54,80 +55,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
 
   // Add an event listener to handle file input changes
   // imgInp.addEventListener('change', fileInp);
-  const componentDidMount = () => {
-    this.initMap();
-    this.initAutocomplete();
-  }
 
-  const initMap = () => {
-    const success = (position) => {
-      let markerOptions = {
-        position: { lat: position.coords.latitude, lng: position.coords.longitude }
-      };
-
-      let marker = new window.google.maps.Marker(markerOptions);
-
-      let mapOptions = {
-        center: { lat: position.coords.latitude, lng: position.coords.longitude },
-        zoom: 18,
-        draggable: true,
-        mapTypeId: 'satellite'
-      };
-
-      let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
-
-      map.setTilt(45);
-      marker.setMap(map);
-    };
-
-    const error = () => {
-      console.log('Error');
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-
-  const initAutocomplete = () => {
-    const searchInput = 'loc';
-
-    const autocomplete = new window.google.maps.places.Autocomplete(
-      document.getElementById(searchInput),
-      {
-        types: ['geocode'],
-      }
-    );
-
-    window.google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place = autocomplete.getPlace();
-      if (!place.geometry) {
-        return;
-      } else {
-        const lat1 = place.geometry.location.lat();
-        const lng1 = place.geometry.location.lng();
-        const lt = document.getElementById('lat');
-        const lg = document.getElementById('long');
-        lt.value = lat1;
-        lg.value = lng1;
-        let markerOptions = {
-          position: { lat: lat1, lng: lng1 }
-        };
-
-        let marker = new window.google.maps.Marker(markerOptions);
-
-        let mapOptions = {
-          center: { lat: lat1, lng: lng1 },
-          zoom: 18,
-          draggable: true,
-          mapTypeId: 'satellite'
-        };
-
-        let map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
-
-        map.setTilt(45);
-        marker.setMap(map);
-      }
-    });
-  }
 
   // for handle 
   const handleSubmit = (e) => {
@@ -249,7 +177,13 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, formData, config, { withCredentials: true });
 
       console.log(res.data);
-
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Property Added Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
 
     } catch (error) {
       console.log(error.response.data)
@@ -257,15 +191,33 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     }
   }
 
+
+  // auto complete start here 
+  const [autocomplete, setAutocomplete] = useState(null);
+
+  const [place, setPlace] = useState(null);
+  const onPlaceChanged = () => {
+    if (autocomplete !== null) {
+      setPlace(autocomplete.getPlace());
+      const data = {
+        location: autocomplete.getPlace().formatted_address,
+        lat: autocomplete.getPlace().geometry.location.lat(),
+        long: autocomplete.getPlace().geometry.location.lng()
+      };
+      document.getElementById('loc').value = data.location;
+      document.getElementById('lat').value = data.lat;
+      document.getElementById('long').value = data.long;
+
+      // preLoad(data);
+    }
+  };
+
   return (
     <div className="py-20 max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
       <h2 className="text-center md:text-4xl text-2xl text-gradient  font-bold">
         Add Your Property Details
       </h2>
-      <Helmet>
-        <script src="./script1.js" ></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI&callback=initMap" type="text/javascript" />
-      </Helmet>
+
       <form encType="multipart/form-data"
         onSubmit={handleSubmit}>
         <div className="form-control">
@@ -439,15 +391,17 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
                 Find Location
               </span>
             </label>
-            <input
-              type="text"
-              placeholder="Enter your location"
-              className="input input-bordered border border-black"
-              color="black"
-              required
-              onChange={initAutocomplete}
-              name="loc" id="loc"
-            />
+            <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
+              <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
+
+                <input
+                  type="text" name='location' id='loc'
+                  className="input w-full text-black border-black input-bordered"
+                  placeholder="Search your location"
+                />
+
+              </Autocomplete>
+            </LoadScript>
           </div>
           {/* new chat  */}
           <div id="container">

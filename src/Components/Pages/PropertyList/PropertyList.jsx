@@ -7,7 +7,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useCallback } from 'react';
 import { GoogleMap, LoadScript, Autocomplete, Marker, DrawingManager } from '@react-google-maps/api';
-
+import { FaMarker } from 'react-icons/fa';
+import marker from '../../../assets/marker.png'
 const containerStyle = {
     width: '100%',
     height: '75vh',
@@ -27,26 +28,20 @@ const PropertyList = () => {
     const post_type = url.searchParams.get('post_type');
     var location = url.searchParams.get('location');
     const [propertyCard, setPropertyCard] = useState();
+
     const handleFilter = (e) => {
         e.preventDefault();
-        location = e.target.location.value;
-        const post_type = e.target.type.value;
-        const property_category = e.target.cat.value;
-        const radius = e.target.range.value;
-        const lat = url.searchParams.get('lat');
-        const long = url.searchParams.get('long');
-        console.log(location, type, cat, radius, lat, long)
         const data = {
-            type: post_type,
-            category: property_category,
-            location: location,
-            lat: lat,
-            long: long,
-            radius: radius
-        }
-        console.log('my data', data)
+            type: e.target.type.value,
+            category: e.target.cat.value,
+            location: e.target.location.value,
+            lat: place ? place.geometry.location.lat() : lat,
+            long: place ? place.geometry.location.lng() : long,
+            radius: e.target.range.value
+        };
         preLoad(data);
-    }
+    };
+
 
     // const [price, setPrice] = useState(40);
     const preLoad = async (data) => {
@@ -83,8 +78,14 @@ const PropertyList = () => {
             preLoad(data);
         }
 
+<<<<<<< HEAD
     },[])
     // test me 
+=======
+    }, [])
+
+
+>>>>>>> 6ed9957ee82b8dab4da9d6d5e6df65e88e4ec98c
 
     const [map, setMap] = useState(null);
     const [center, setCenter] = useState(null); // Initialize center as null
@@ -116,16 +117,23 @@ const PropertyList = () => {
         }
     };
 
-    const onLoad = useCallback((map) => {
-        setMap(map);
-    }, []);
+
 
     const onPlaceChanged = () => {
         if (autocomplete !== null) {
             setPlace(autocomplete.getPlace());
+            const data = {
+                type: type,
+                category: cat,
+                location: autocomplete.getPlace().formatted_address,
+                lat: autocomplete.getPlace().geometry.location.lat(),
+                long: autocomplete.getPlace().geometry.location.lng(),
+                radius: range
+            };
+            preLoad(data);
         }
-
     };
+
     const polyLoad = async (data) => {
         try {
             const config = {
@@ -177,22 +185,24 @@ const PropertyList = () => {
         long1.value = minLng;
         long2.value = maxLng;
 
+        // ... (existing code)
+
         const data = {
             minlat: minLat,
             maxlat: maxLat,
             minlong: minLng,
             maxlong: maxLng,
             type: type,
-            category: category
-        }
+            category: cat
+        };
         polyLoad(data);
+
+        // ... (existing code)
         console.log("Min Latitude:", minLat, "Max Latitude:", maxLat);
         console.log("Min Longitude:", minLng, "Max Longitude:", maxLng);
 
-        // Handle the min and max values as needed
-        // e.g., set them in the state, or pass them to another function
-
     }, [selectedShape]);
+
 
 
     const deleteSelectedShape = () => {
@@ -235,6 +245,10 @@ const PropertyList = () => {
     }, [map]);
 
 
+    const onLoad = useCallback((map) => {
+        setMap(map);
+    }, []);
+
 
     // for filters under the search fields 
     const [range, setRange] = useState(10);
@@ -245,12 +259,17 @@ const PropertyList = () => {
     console.log(range);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2  ">
-            <div className='md:w-11/12 mx-6 w-full h-full '>
+        <div className="grid grid-cols-1 md:grid-cols-2 ">
+            <div className='mx-6 md:h-full h-full '>
 
                 <div className='md:sticky md:top-24'>
+<<<<<<< HEAD
                     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}>
                         <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
+=======
+                    <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
+                        <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged} on >
+>>>>>>> 6ed9957ee82b8dab4da9d6d5e6df65e88e4ec98c
                             <div className=" px-4 py-4 rounded-md">
                                 <form onSubmit={handleFilter} >
                                     <input
@@ -259,7 +278,7 @@ const PropertyList = () => {
                                         placeholder="Search your location"
                                         style={{ width: '100%' }}
                                     />
-                                    <div className="grid pb-4  md:grid-cols-3 gap-10 grid-cols-1">
+                                    <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
 
                                         <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
                                             <select onChange={(e) => setType(e.target.value)} name="type" className="select w-full border text-black border-black">
@@ -269,7 +288,10 @@ const PropertyList = () => {
                                                 <option>Sales</option>
                                             </select>
                                         </div>
+
                                         <div className="form-control bg-white rounded-lg w-full max-w-xs">
+
+
                                             <select name="cat" onChange={(e) => setCat(e.target.value)} className="select w-full border text-black border-black">
                                                 <option selected>
                                                     Home
@@ -291,8 +313,9 @@ const PropertyList = () => {
                                             />
                                             <p className="mt-2 text-sm text-gray-500">{`Selected value: ${range} Km`}</p>
                                         </div>
+                                        <button type='submit' className='btn btn-gradient' >Filter</button>
                                     </div>
-                                    <div className="">
+                                    <div className="hidden">
                                         <div className="polygone">
                                             <input type="text" name="lat1" id="lat1" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                             <input type="text" name="lat2" id="lat2" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
@@ -300,7 +323,7 @@ const PropertyList = () => {
                                             <input type="text" name="long2" id="long2" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                         </div>
                                     </div>
-                                    <button type='submit' >Filter</button>
+
                                 </form>
                             </div>
                         </Autocomplete>
@@ -314,9 +337,10 @@ const PropertyList = () => {
                                 <Marker
                                     position={place.geometry.location}
                                     icon={{
-                                        url: 'https://cdn-icons-png.flaticon.com/512/0/619.png', // URL for the blue marker
-                                        // Width and height of the marker icon
+                                        url: marker
                                     }}
+
+
                                 />
                             )}
                             {drawingManagerOptions && (
@@ -420,13 +444,12 @@ const PropertyList = () => {
                 {/* show properties  */}
                 <div className=''>
                     {/* before property  */}
-                    <div className='flex justify-between my-5 items-center'>
-                        <h1 className='text-3xl md:text-4xl text-gradient font-semibold'>Our Properties</h1>
-
+                    <div className=' my-5  '>
+                        <h1 className='text-3xl md:text-4xl text-center  text-gradient font-semibold'>Our Properties</h1>
                     </div>
                     <div
                         id="SingleCard"
-                        className="grid my-4 md:grid-cols-2 xl:grid-cols-2 items-center justify-between gap-x-6 gap-y-6"
+                        className="grid my-4 md:grid-cols-2 xl:grid-cols-2 items-center justify-between gap-x-6 gap-y-6 mt-8 md:mx-0 mx-6 "
                     >
                         {propertyCard && propertyCard.map((e, index) => (
                             <SingleProperty key={index} singleCard={{ area: e.loc, title: e.title, price: e.price, currency: e.price_unit, image: e.thumbnail, country: e.address.country, state: e.address.state, bed: e.details.bed, bath: e.details.bath, size: e.details.size, size_unit: e.details.size_unit, price_type: e.price_type, sku: e.sku }} />
