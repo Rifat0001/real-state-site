@@ -19,7 +19,6 @@ const center = {
 }
 const PropertyList = () => {
     const params = useParams();
-    const id = params.id;
     const currentUrl = window.location.href;
     const url = new URL(currentUrl);
     const lat = url.searchParams.get('lat');
@@ -69,11 +68,11 @@ const PropertyList = () => {
         }
     }
     useEffect(() => {
-        if (id === undefined) {
+        if (post_type === undefined) {
             console.log('Normal')
         }
         else {
-            console.log(id, lat, long, property_category, post_type)
+            console.log(lat, long, property_category, post_type)
             const data = {
                 type: post_type,
                 category: property_category,
@@ -84,7 +83,7 @@ const PropertyList = () => {
             preLoad(data);
         }
 
-    }, [])
+    },[])
     // test me 
 
     const [map, setMap] = useState(null);
@@ -250,7 +249,7 @@ const PropertyList = () => {
             <div className='md:w-11/12 mx-6 w-full h-full '>
 
                 <div className='md:sticky md:top-24'>
-                    <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
+                    <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}>
                         <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
                             <div className=" px-4 py-4 rounded-md">
                                 <form onSubmit={handleFilter} >

@@ -79,10 +79,10 @@ const router = createBrowserRouter([
         path: 'property-lists',
         element: <PropertyList></PropertyList>
       },
-      {
-        path: 'property-lists/:id',
-        element: <PropertyList></PropertyList>
-      },
+      // {
+      //   path: 'property-lists/:id',
+      //   element: <PropertyList></PropertyList>
+      // },
       {
         path: 'contact',
         element: <Contact></Contact>
