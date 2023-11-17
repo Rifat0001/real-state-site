@@ -78,14 +78,9 @@ const PropertyList = () => {
             preLoad(data);
         }
 
-<<<<<<< HEAD
-    },[])
-    // test me 
-=======
     }, [])
 
 
->>>>>>> 6ed9957ee82b8dab4da9d6d5e6df65e88e4ec98c
 
     const [map, setMap] = useState(null);
     const [center, setCenter] = useState(null); // Initialize center as null
@@ -263,13 +258,8 @@ const PropertyList = () => {
             <div className='mx-6 md:h-full h-full '>
 
                 <div className='md:sticky md:top-24'>
-<<<<<<< HEAD
-                    <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}>
-                        <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>
-=======
                     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
                         <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged} on >
->>>>>>> 6ed9957ee82b8dab4da9d6d5e6df65e88e4ec98c
                             <div className=" px-4 py-4 rounded-md">
                                 <form onSubmit={handleFilter} >
                                     <input
