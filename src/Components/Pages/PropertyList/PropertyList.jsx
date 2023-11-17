@@ -19,15 +19,18 @@ const center = {
     lng: -38.523,
 }
 const PropertyList = () => {
-    const params = useParams();
     const currentUrl = window.location.href;
     const url = new URL(currentUrl);
     const lat = url.searchParams.get('lat');
     const long = url.searchParams.get('long');
     const property_category = url.searchParams.get('property_category');
     const post_type = url.searchParams.get('post_type');
+    const fromHome = url.searchParams.get('fromHome');
     var location = url.searchParams.get('location');
     const [propertyCard, setPropertyCard] = useState();
+
+    const [type, setType] = useState('Rent');
+    const [cat, setCat] = useState('Home');
 
     const handleFilter = (e) => {
         e.preventDefault();
@@ -63,10 +66,11 @@ const PropertyList = () => {
         }
     }
     useEffect(() => {
-        if (post_type === undefined) {
+        if (fromHome == undefined) {
             console.log('Normal')
         }
         else {
+            console.log("PreLoaded............................");
             console.log(lat, long, property_category, post_type)
             const data = {
                 type: post_type,
@@ -76,6 +80,8 @@ const PropertyList = () => {
                 long: long
             }
             preLoad(data);
+            setCat(property_category);
+            setType(post_type);
         }
 
     }, [])
@@ -172,8 +178,7 @@ const PropertyList = () => {
 
         const long1 = document.getElementById('long1');
         const long2 = document.getElementById('long2');
-        const type = document.getElementById('type').value;
-        const category = document.getElementById('cat').value;
+
         lat1.value = minLat;
         lat2.value = maxLat;
 
@@ -195,6 +200,8 @@ const PropertyList = () => {
         // ... (existing code)
         console.log("Min Latitude:", minLat, "Max Latitude:", maxLat);
         console.log("Min Longitude:", minLng, "Max Longitude:", maxLng);
+        console.log("RAIHAN:DEBUGGER+>");
+        console.log(data);
 
     }, [selectedShape]);
 
@@ -206,6 +213,10 @@ const PropertyList = () => {
             setSelectedShape(null);
         }
     };
+
+    useEffect(() => {
+        
+    }, [cat,type])
 
     const onDrawingManagerLoad = drawingManager => {
         // Set options here to ensure google object is available
@@ -247,11 +258,13 @@ const PropertyList = () => {
 
     // for filters under the search fields 
     const [range, setRange] = useState(10);
-    const [type, setType] = useState('');
-    const [cat, setCat] = useState('');
-    console.log(type);
-    console.log(cat);
-    console.log(range);
+    
+    const handleCategoryChange = (event) => {
+        setCat(event.target.value);
+    }
+    const handleTypeChange = (event) => {
+        setType(event.target.value);
+    }
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 ">
@@ -271,7 +284,7 @@ const PropertyList = () => {
                                     <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
 
                                         <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
-                                            <select onChange={(e) => setType(e.target.value)} name="type" className="select w-full border text-black border-black">
+                                            <select value={type} onChange={handleTypeChange} name="type" className="select w-full border text-black border-black">
                                                 <option selected>
                                                     Rent
                                                 </option>
@@ -282,7 +295,7 @@ const PropertyList = () => {
                                         <div className="form-control bg-white rounded-lg w-full max-w-xs">
 
 
-                                            <select name="cat" onChange={(e) => setCat(e.target.value)} className="select w-full border text-black border-black">
+                                            <select name="cat" value={cat} onChange={handleCategoryChange} className="select w-full border text-black border-black">
                                                 <option selected>
                                                     Home
                                                 </option>

@@ -15,7 +15,7 @@ const FindProperty = () => {
     const location = e.target.loc.value;
     const lat = e.target.lat.value;
     const long = e.target.long.value;
-    navigate(`/property-lists/?lat=${lat}&long=${long}&post_type=${type}&property_category=${category}&location=${location}`)
+    navigate(`/property-lists/?lat=${lat}&long=${long}&post_type=${type}&property_category=${category}&location=${location}&fromHome=true`)
   }
 
   // auto complete start here 
