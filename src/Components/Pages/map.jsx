@@ -80,7 +80,6 @@ const Map = (location) => {
       drawingControlOptions: {
         position: window.google.maps.ControlPosition.TOP_CENTER,
         drawingModes: [
-          window.google.maps.drawing.OverlayType.CIRCLE,
           window.google.maps.drawing.OverlayType.POLYGON
         ],
       },

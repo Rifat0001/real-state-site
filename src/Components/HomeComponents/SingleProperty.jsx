@@ -28,7 +28,7 @@ const SingleProperty = ({ singleCard }) => {
       </figure>
       <div className="ps-8 pe-12 pb-4 pt-4">
         <h2 className="font-semibold text-xl text-black">{currency}{price} {price_type}</h2>
-        <h2 className="font-bold md:text-3xl text-2xl text-gradient  mb-3">{title}</h2>
+        <h2 className="font-bold md:text-xl text-xl text-gradient  mb-3">{title}</h2>
         <p className="text-md my-1"><span className="font-bold">Area:</span> {area}</p>
         <div className="flex justify-between">
 
