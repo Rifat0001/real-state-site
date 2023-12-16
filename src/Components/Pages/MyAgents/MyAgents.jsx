@@ -83,20 +83,7 @@ const MyAgents = () => {
                         <h1 className="font-bold primary-color text-center text-5xl">
                             My Agents List
                         </h1>
-                        <p>
-                            We like to think of ourselves as a small but perfectly formed
-                            lettings & management agency. Working you get the exposure,
-                            knowledge and expertise you would expect from a large agent, but
-                            the service you will only receive from a smaller business built
-                            around 100% client and tenant focus.
-                        </p>
-                        <p>
-                            We like to think of ourselves as a small but perfectly formed
-                            lettings & management agency. Working you get the exposure,
-                            knowledge and expertise you would expect from a large agent, but
-                            the service you will only receive from a smaller business built
-                            around 100% client and tenant focus.
-                        </p>
+                        
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 py-5 items-center justify-between gap-3">
                         {agents &&
