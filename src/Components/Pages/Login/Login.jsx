@@ -20,12 +20,6 @@ const Login = ({ login, isAuthenticated }) => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/");
-        }
-    }, [isAuthenticated, navigate]);
 
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -46,7 +40,7 @@ const Login = ({ login, isAuthenticated }) => {
         }
     };
 
-    return (isAuthenticated && isAuthenticated ? <Home/> :
+    return (
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
             <div className="">
 
