@@ -30,7 +30,7 @@ function Meet() {
     return (
         <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 md:h-[400px] h-auto">
             <p className='text-black font-semibold  mb-5 text-2xl'>Available Chats : <span className='my-color font-bold'>{list.length}</span></p>
-            {list.map((e, i) => {
+            {/* {list.map((e, i) => {
                 console.log(e)
                 return (
                     <div key={i}>
@@ -39,7 +39,41 @@ function Meet() {
                         </Link>
                     </div>
                 )
-            })}
+            })} */}
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr className='flex justify-between'>
+                            <th className='text-xl text-gradient '>Name</th>
+                            <th className='text-xl text-gradient hidden md:inline-flex'>Email</th>
+                            <th className='text-xl text-gradient hidden md:inline-flex'>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {list.map((e, i) => {
+                            return (
+                                <tr className='flex justify-between' key={i}>
+                                    <td className='md:hidden block'>
+                                        <Link to={`/inbox/${e.id}`} key={i}>
+                                            <p className='text-black font-bold text-xl'> {e.full_name}</p>
+                                        </Link>
+                                    </td>
+                                    <td className='text-black font-bold hidden md:inline-flex'>{e.full_name}</td>
+                                    <td className='text-black  font-bold hidden md:inline-flex'>{e.email}</td>
+                                    <td className='hidden md:inline-flex'>
+                                        <Link to={`/inbox/${e.id}`} key={i}>
+                                            <button className="btn-gradient rounded-md">
+                                                Message</button>
+                                        </Link>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

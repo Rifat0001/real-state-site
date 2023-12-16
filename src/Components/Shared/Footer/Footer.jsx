@@ -1,4 +1,5 @@
 import './Footer.css'
+import { FaRegUserCircle } from "react-icons/fa";
 const Footer = () => {
   const newYear = new Date().getFullYear();
   return (

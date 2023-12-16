@@ -98,7 +98,7 @@ function Inbox() {
 
 
 
-
+            {/* Text area part  */}
             <div className="flex gap-4 my-6">
                 <textarea onChange={e => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
                 <button className="btn btn-gradient" onClick={sendMessage}>
