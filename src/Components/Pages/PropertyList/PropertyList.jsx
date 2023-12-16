@@ -32,13 +32,13 @@ const PropertyList = () => {
   const property_category = url.searchParams.get("property_category");
   const post_type = url.searchParams.get("post_type");
   const fromHome = url.searchParams.get("fromHome");
-  var location = url.searchParams.get("location");
+  // var location = ;
   const [propertyCard, setPropertyCard] = useState();
 
   const [type, setType] = useState("Rent");
   const [cat, setCat] = useState("Home");
 
-  const [locationValue, setLocationValue] = useState(location);
+  const [location, setLocation] = useState(url.searchParams.get("location"));
 
   const handleFilter = (e) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ const PropertyList = () => {
         { withCredentials: true }
       );
       setPropertyCard(res.data);
-      setLocationValue(location);
+      setLocation(location);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -135,6 +135,9 @@ const PropertyList = () => {
         radius: range,
       };
       preLoad(data);
+      setLocation(autocomplete.getPlace().formatted_address);
+    } else {
+      console.log("Autocomplete is not loaded yet!");
     }
   };
 
@@ -289,8 +292,7 @@ const PropertyList = () => {
                     className="input w-full my-4 text-black border-black input-bordered"
                     placeholder="Search your location"
                     style={{ width: "100%" }}
-                    value={locationValue}
-                    onChange={(e) => setLocationValue(e.target.value)}
+                    defaultValue={location}
                   />
                   <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
                     <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
