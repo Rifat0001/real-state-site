@@ -45,7 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
         }
     };
 
-    return (isAuthenticated ? redirect('/') :
+    return (isAuthenticated ? <>{redirect('/')}</> :
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
             <div className="">
 
