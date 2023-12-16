@@ -67,8 +67,8 @@ const MyAgents = () => {
             if (result.isConfirmed) {
                 remove(eID);
                 Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    title: "Removed!",
+                    text: "Your Agent has been removed.",
                     icon: "success"
                 });
             }
@@ -76,7 +76,7 @@ const MyAgents = () => {
 
     };
     return (
-        <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+        <div className="max-w-[2150px]  py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="">
                 <div className=" col-span-2">
                     <div className=" space-y-4">

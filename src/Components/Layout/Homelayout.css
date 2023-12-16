@@ -1,0 +1,18 @@
+/* Assuming you have a CSS file for your HomeLayout component */
+.HomeLayout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Make sure the container takes at least the full viewport height */
+}
+
+.Content {
+    flex: 1;
+    /* Allow the main content to grow and take up remaining space */
+}
+
+/* Assuming you have a CSS file for your Footer component */
+.Footer {
+    margin-top: auto;
+    /* Push the Footer to the bottom */
+}
