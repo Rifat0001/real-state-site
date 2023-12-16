@@ -74,6 +74,7 @@ const PropertyList = () => {
       console.log(error.response.data);
     }
   };
+  const [center, setCenter] = useState(null); 
   useEffect(() => {
     if (fromHome == undefined) {
       console.log("Normal");
@@ -87,6 +88,10 @@ const PropertyList = () => {
         lat: lat,
         long: long,
       };
+      setCenter({
+        lat: lat,
+        lng: long,
+      });
       preLoad(data);
       setCat(property_category);
       setType(post_type);
@@ -94,15 +99,22 @@ const PropertyList = () => {
   }, []);
 
   const [map, setMap] = useState(null);
-  const [center, setCenter] = useState(null); // Initialize center as null
+  // Initialize center as null
   const [autocomplete, setAutocomplete] = useState(null);
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
   const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
   console.log("this is location", location);
   // const searchBox = document.getElementById('search').setValue(location);
+  console.log(url.searchParams.get("long"), url.searchParams.get("lat"))
   const getUserLocation = () => {
-    if (navigator.geolocation) {
+    if (url.searchParams.get("lat") && url.searchParams.get("long")) {
+      setCenter({
+        lat: parseFloat(url.searchParams.get("lat")),
+        lng: parseFloat(url.searchParams.get("long")),
+      });
+    }
+    else {if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setCenter({
@@ -120,7 +132,7 @@ const PropertyList = () => {
       console.error("Geolocation is not supported by this browser.");
       // Set a fallback center if geolocation is not supported
       setCenter({ lat: -3.745, lng: -38.523 });
-    }
+    }}
   };
 
   const onPlaceChanged = () => {
