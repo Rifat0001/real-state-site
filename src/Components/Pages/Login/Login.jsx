@@ -1,7 +1,7 @@
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Tabs.css'
 
 import { connect } from "react-redux";
@@ -19,7 +19,12 @@ const Login = ({ login, isAuthenticated }) => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-
+    
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
+    }, [isAuthenticated, navigate]);
 
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);

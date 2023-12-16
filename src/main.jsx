@@ -126,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'setting',
-        element: <Settings></Settings>
+        element: <PrivateRoute component={Settings}/>
       },
       {
         path: 'profile-setting',
