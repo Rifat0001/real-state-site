@@ -53,6 +53,7 @@ const PropertyList = () => {
     preLoad(data);
   };
 
+  // const [price, setPrice] = useState(40);
   const preLoad = async (data) => {
     try {
       const config = {
@@ -80,7 +81,7 @@ const PropertyList = () => {
       console.log("Normal");
     } else {
       console.log("PreLoaded............................");
-      console.log(lat, long, property_category, post_type);
+      console.log(location,lat, long, property_category, post_type);
       const data = {
         type: post_type,
         category: property_category,
@@ -95,6 +96,8 @@ const PropertyList = () => {
       preLoad(data);
       setCat(property_category);
       setType(post_type);
+      setLocation(location);
+      console.log("LOADED TO-------location :", location);
     }
   }, []);
 
@@ -147,7 +150,7 @@ const PropertyList = () => {
         radius: range,
       };
       preLoad(data);
-      setLocation(autocomplete.getPlace().formatted_address);
+setLocation(autocomplete.getPlace().formatted_address);
     } else {
       console.log("Autocomplete is not loaded yet!");
     }
