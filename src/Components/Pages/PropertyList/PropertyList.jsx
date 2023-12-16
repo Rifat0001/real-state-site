@@ -53,6 +53,7 @@ const PropertyList = () => {
     preLoad(data);
   };
 
+  // const [price, setPrice] = useState(40);
   const preLoad = async (data) => {
     try {
       const config = {
@@ -135,7 +136,7 @@ const PropertyList = () => {
         radius: range,
       };
       preLoad(data);
-      setLocation(autocomplete.getPlace().formatted_address);
+setLocation(autocomplete.getPlace().formatted_address);
     } else {
       console.log("Autocomplete is not loaded yet!");
     }
@@ -292,7 +293,6 @@ const PropertyList = () => {
                     className="input w-full my-4 text-black border-black input-bordered"
                     placeholder="Search your location"
                     style={{ width: "100%" }}
-                    defaultValue={location}
                   />
                   <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
                     <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
