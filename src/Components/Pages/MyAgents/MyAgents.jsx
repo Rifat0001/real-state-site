@@ -67,8 +67,8 @@ const MyAgents = () => {
             if (result.isConfirmed) {
                 remove(eID);
                 Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    title: "Removed!",
+                    text: "Your Agent has been removed.",
                     icon: "success"
                 });
             }
