@@ -37,6 +37,8 @@ import Meet from './Components/Pages/Chat/meet.jsx';
 import Inbox from './Components/Pages/Chat/inbox.jsx';
 import Notification from './Components/Settings/Notification.jsx';
 
+import NormalUserOnlyRoute from "./NormalUserOnly.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +55,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element: <UserLayout></UserLayout>
+        // element: <UserLayout></UserLayout>
+        element: <NormalUserOnlyRoute component={UserLayout} />
       },
       {
         path: "/activation/:uid/:token",
