@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from 'axios';
+import Swal from "sweetalert2";
 const MyAgents = () => {
     const [agents, setAgents] = useState([]);
     const fetchData = async () => {
@@ -45,7 +46,25 @@ const MyAgents = () => {
         }
     }
     const removeAgent = (eID) => {
-        remove(eID);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                remove(eID);
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+
     }
     return (
         <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">

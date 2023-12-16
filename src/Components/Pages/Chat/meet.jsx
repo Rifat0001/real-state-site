@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 function Meet() {
     const [list, setlist] = useState([]);
     // Function to fetch initial conversation and messages
+    console.log(list)
     const fetchInitial = async () => {
         try {
             const config = {
@@ -30,6 +31,7 @@ function Meet() {
         <div className="max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4 md:h-[400px] h-auto">
             <p className='text-black font-semibold  mb-5 text-2xl'>Available Chats : <span className='my-color font-bold'>{list.length}</span></p>
             {list.map((e, i) => {
+                console.log(e)
                 return (
                     <div key={i}>
                         <Link to={`/inbox/${e.id}`} key={i}>
