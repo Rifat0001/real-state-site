@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './Tabs.css'
-
+import { redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, login_fail } from '../../../actions/auth';
 import axios from 'axios';
@@ -45,7 +45,7 @@ const Login = ({ login, isAuthenticated }) => {
         }
     };
 
-    return (
+    return (isAuthenticated ? redirect('/') :
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
             <div className="">
 
