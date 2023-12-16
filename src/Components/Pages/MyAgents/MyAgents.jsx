@@ -76,7 +76,7 @@ const MyAgents = () => {
 
     };
     return (
-        <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
+        <div className="max-w-[2150px]  py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="">
                 <div className=" col-span-2">
                     <div className=" space-y-4">
