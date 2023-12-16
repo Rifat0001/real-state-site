@@ -16,35 +16,44 @@ const MyAgents = () => {
         try {
             const config = {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `JWT ${localStorage.getItem('access')}`,
-                }
+                    "Content-Type": "application/json",
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
+                },
             };
-            const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/myAgents/`, config, { withCredentials: true });
+            const res = await axios.get(
+                `${import.meta.env.VITE_APP_API_URL}/api/myAgents/`,
+                config,
+                { withCredentials: true }
+            );
             console.log(res.data);
             setAgents(res.data);
         } catch (error) {
             console.log(error);
         }
-    }
+    };
     useEffect(() => {
         fetchData();
-    }, [])
+    }, []);
     const remove = async (eID) => {
         try {
             const config = {
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `JWT ${localStorage.getItem('access')}`,
-                }
+                    "Content-Type": "application/json",
+                    Authorization: `JWT ${localStorage.getItem("access")}`,
+                },
             };
-            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/removeAgent/${eID}/`, {}, config, { withCredentials: true });
+            const res = await axios.post(
+                `${import.meta.env.VITE_APP_API_URL}/api/removeAgent/${eID}/`,
+                {},
+                config,
+                { withCredentials: true }
+            );
             console.log(res.data);
-            fetchData()
+            fetchData();
         } catch (error) {
             console.log(error);
         }
-    }
+    };
     const removeAgent = (eID) => {
         Swal.fire({
             title: "Are you sure?",
@@ -65,13 +74,15 @@ const MyAgents = () => {
             }
         });
 
-    }
+    };
     return (
         <div className="max-w-[2150px] py-4 pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 text-black">
             <div className="">
                 <div className=" col-span-2">
                     <div className=" space-y-4">
-                        <h1 className="font-bold primary-color text-center text-5xl">My Agents List</h1>
+                        <h1 className="font-bold primary-color text-center text-5xl">
+                            My Agents List
+                        </h1>
                         <p>
                             We like to think of ourselves as a small but perfectly formed
                             lettings & management agency. Working you get the exposure,
@@ -88,56 +99,63 @@ const MyAgents = () => {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 py-5 items-center justify-between gap-3">
-                        {agents && agents.map((e, i) => {
-                            return (
-                                <div className="card card-compact w-96 bg-base-100 shadow-xl rounded-md" key={i} >
-                                    <div className="relative">
-                                        <figure>
-                                            <img
-                                                src="https://pariswpresidence.b-cdn.net/wp-content/uploads/2018/06/person3-500x328.jpg"
-                                                alt="Shoes"
-                                            />
-                                        </figure>
-                                        <div onClick={() => removeAgent(e.id)} className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white">
-                                            Remove
-                                        </div>
-                                    </div>
-                                    <div className="card-body">
-                                        <h2 className="card-title">{e.name}</h2>
-                                        <h2 className=" text-[18px]">real estate broker</h2>
-                                        <p className=" py-2">
-                                            {e.description}
-                                        </p>
-                                        <div className="flex justify-between items-center">
-                                            <div className="flex items-center justify-between gap-3">
-                                                <a className="" href={e.facebook_link} target="blank">
-                                                    <FaFacebook className="" size={20}>
-                                                        {e.facebook_link}
-                                                    </FaFacebook>
-                                                </a>
-                                                <a className="" href={e.twitter} target="blank">
-                                                    <FaTwitter size={20}>{e.twitter}</FaTwitter>
-                                                </a>
-                                                <a className="" href={e.linkedin_link} target="blank">
-                                                    <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
-                                                </a>
-                                                <a className="" href={e.pinterest} target="blank">
-                                                    <FaPinterest size={20}>{e.pinterest}</FaPinterest>
-                                                </a>
-
-
-
-
-                                            </div>
-                                            <div className="flex items-center justify-between gap-3">
-                                                <a href={`mailto:${e.email}`}> <FaEnvelope size={20}>{e.email}</FaEnvelope></a>
-                                                <a href={`tel::${e.number}`}><FaPhone size={20}>{e.number}</FaPhone></a>
+                        {agents &&
+                            agents.map((e, i) => {
+                                return (
+                                    <div
+                                        className="card card-compact w-96 bg-base-100 shadow-xl rounded-md"
+                                        key={i}
+                                    >
+                                        <div className="relative">
+                                            {/* <figure>
+                        {console.log(e)}
+                        <img
+                          src={`${import.meta.env.VITE_APP_API_URL}/${e.image}`}
+                          alt="Shoes"
+                        />
+                      </figure> */}
+                                            <div
+                                                onClick={() => removeAgent(e.id)}
+                                                className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"
+                                            >
+                                                Remove
                                             </div>
                                         </div>
+                                        <div className="card-body">
+                                            <h2 className="card-title">{e.name}</h2>
+                                            <h2 className=" text-[18px]">real estate broker</h2>
+                                            <p className=" py-2">{e.description}</p>
+                                            <div className="flex justify-between items-center">
+                                                <div className="flex items-center justify-between gap-3">
+                                                    <a className="" href={e.facebook_link} target="blank">
+                                                        <FaFacebook className="" size={20}>
+                                                            {e.facebook_link}
+                                                        </FaFacebook>
+                                                    </a>
+                                                    <a className="" href={e.twitter} target="blank">
+                                                        <FaTwitter size={20}>{e.twitter}</FaTwitter>
+                                                    </a>
+                                                    <a className="" href={e.linkedin_link} target="blank">
+                                                        <FaLinkedin size={20}>{e.linkedin_link}</FaLinkedin>
+                                                    </a>
+                                                    <a className="" href={e.pinterest} target="blank">
+                                                        <FaPinterest size={20}>{e.pinterest}</FaPinterest>
+                                                    </a>
+                                                </div>
+                                                <div className="flex items-center justify-between gap-3">
+                                                    <a href={`mailto:${e.email}`}>
+                                                        {" "}
+                                                        <FaEnvelope size={20}>{e.email}</FaEnvelope>
+                                                    </a>
+                                                    <a href={`tel::${e.number}`}>
+                                                        <FaPhone size={20}>{e.number}</FaPhone>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
                     </div>
                 </div>
                 {/* NO NEED || JUST FIX LAYOUT */}

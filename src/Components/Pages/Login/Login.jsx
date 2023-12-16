@@ -7,8 +7,6 @@ import { redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, login_fail } from '../../../actions/auth';
 import axios from 'axios';
-import Home from "../Home/Home";
-import Meet from "../Chat/meet";
 
 const Login = ({ login, isAuthenticated }) => {
     const [error, setError] = useState('');
@@ -30,7 +28,6 @@ const Login = ({ login, isAuthenticated }) => {
         try {
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data, { withCredentials: true });
             login(res.data);
-            console.log(res.data);
             navigate("/");
         } catch (error) {
             console.log(error.response.data.detail)
