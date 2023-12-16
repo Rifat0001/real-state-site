@@ -1,19 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import PromoteSinglePorperty from "./PromoteSinglePorperty";
-
+import SingleProperty from "../../HomeComponents/SingleProperty";
+import axios from "axios";
 const MyProperty = () => {
     const [range, setRange] = useState(40);
     const [price, setPrice] = useState(40);
     const [propertyCard, setPropertyCard] = useState([]);
-    useEffect(() => {
-        fetch("property.json")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                setPropertyCard(data);
-            });
-    }, []);
     useEffect(() => {
         const loadProperty = async () => {
             const config = {
@@ -24,9 +17,9 @@ const MyProperty = () => {
             };
             try {
               const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/myProperty/`, config, { withCredentials: true });
-              console.log(res.data);
+              setPropertyCard(res.data);
             } catch (error) {
-              console.log(error.response.data)
+              console.log(error)
         
             }
           }
@@ -140,10 +133,11 @@ const MyProperty = () => {
                         id="SingleCard"
                         className="grid my-4 md:grid-cols-3 xl:grid-cols-3 items-center justify-between gap-x-6 gap-y-6"
                     >
-                        {propertyCard.map((singleCard, index) => (
-                            <PromoteSinglePorperty key={index} singleCard={singleCard} ></PromoteSinglePorperty>
-
-                        ))}
+                        {propertyCard.map((e, index) => {
+                            return (
+                                <SingleProperty key={index} singleCard={{ area: e.loc, title: e.title, price: e.price, currency: e.price_unit, image: e.thumbnail, country: e.address.country, state: e.address.state, bed: e.details.bed, bath: e.details.bath, size: e.details.size, size_unit: e.details.size_unit, price_type: e.price_type, sku: e.sku }} />
+                            )
+                        })}
                     </div>
                 </div>
             </div>
