@@ -38,6 +38,8 @@ const PropertyList = () => {
   const [type, setType] = useState("Rent");
   const [cat, setCat] = useState("Home");
 
+  const [locationValue, setLocationValue] = useState(location);
+
   const handleFilter = (e) => {
     e.preventDefault();
     const data = {
@@ -51,7 +53,6 @@ const PropertyList = () => {
     preLoad(data);
   };
 
-  // const [price, setPrice] = useState(40);
   const preLoad = async (data) => {
     try {
       const config = {
@@ -67,9 +68,8 @@ const PropertyList = () => {
         config,
         { withCredentials: true }
       );
-      console.log(res.data);
       setPropertyCard(res.data);
-      console.log(propertyCard);
+      setLocationValue(location);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -289,6 +289,8 @@ const PropertyList = () => {
                     className="input w-full my-4 text-black border-black input-bordered"
                     placeholder="Search your location"
                     style={{ width: "100%" }}
+                    value={locationValue}
+                    onChange={(e) => setLocationValue(e.target.value)}
                   />
                   <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
                     <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">

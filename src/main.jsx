@@ -55,7 +55,6 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
-        // element: <UserLayout></UserLayout>
         element: <NormalUserOnlyRoute component={UserLayout} />
       },
       {
