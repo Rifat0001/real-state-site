@@ -66,15 +66,15 @@ const FindProperty = () => {
               <div className="form-control col-span-2 ">
                 <div className="input-group w-full">
                   {/* <input name="loc" id="loc" type="text" placeholder="Search your location" className="input w-full text-black border-black input-bordered" /> */}
-                  <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]} className='w-full'>
-                    <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}  >
+                  {/* <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]} className='w-full'> */}
+                    <Autocomplete onLoad={(autocomplete) => setAutocomplete(autocomplete)} onPlaceChanged={onPlaceChanged}  >
                       <input
                         type="text" name='location' id='loc'
                         className="input w-[15rem] md:w-[450px] bg-white text-black border-black input-bordered"
                         placeholder="Search your location"
                       />
                     </Autocomplete>
-                  </LoadScript>
+                  {/* </LoadScript> */}
                   <button type="submit" className="btn md:ms-2  bg-[#1bafb7] border-none">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                   </button>

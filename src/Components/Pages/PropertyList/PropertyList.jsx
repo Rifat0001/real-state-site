@@ -81,7 +81,7 @@ const PropertyList = () => {
       console.log("Normal");
     } else {
       console.log("PreLoaded............................");
-      console.log(lat, long, property_category, post_type);
+      console.log(location,lat, long, property_category, post_type);
       const data = {
         type: post_type,
         category: property_category,
@@ -96,6 +96,8 @@ const PropertyList = () => {
       preLoad(data);
       setCat(property_category);
       setType(post_type);
+      setLocation(location);
+      console.log("LOADED TO-------location :", location);
     }
   }, []);
 
@@ -305,6 +307,7 @@ setLocation(autocomplete.getPlace().formatted_address);
                     className="input w-full my-4 text-black border-black input-bordered"
                     placeholder="Search your location"
                     style={{ width: "100%" }}
+                    defaultValue={location}
                   />
                   <div className="grid pb-4  md:grid-cols-4 gap-10 grid-cols-1">
                     <div className="form-control md:mt-0 mt-4 bg-white rounded-lg w-full max-w-xs">
