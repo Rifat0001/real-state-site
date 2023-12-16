@@ -7,6 +7,7 @@ import { redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, login_fail } from '../../../actions/auth';
 import axios from 'axios';
+import Home from "../Home/Home";
 import Meet from "../Chat/meet";
 
 const Login = ({ login, isAuthenticated }) => {
@@ -45,7 +46,7 @@ const Login = ({ login, isAuthenticated }) => {
         }
     };
 
-    return (isAuthenticated ? redirect('/') :
+    return (isAuthenticated && isAuthenticated ? <Home/> :
         <div className="card pb-5 flex mx-auto md:w-1/3 w-full border rounded-none ">
             <div className="">
 
