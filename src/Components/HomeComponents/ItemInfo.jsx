@@ -507,7 +507,7 @@ const ItemInfo = () => {
           <div className="mt-3 ">
             <div className="space-y-2 mb-3">
               {item.hide_contact == 1 ? (
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3">
 
                   <h2 className=""><span className="font-bold">Name:</span> Maria Barlow</h2>
                   <h2 className=""><span className="font-bold">Email:</span> agent@info.com</h2>
@@ -518,18 +518,18 @@ const ItemInfo = () => {
               )}
             </div>
             {/* contact agent part  */}
-            <div className="flex justify-between">
-              <Link className="btn-gradient btn btn-sm w-28 rounded-md" to={`/inbox/${item.user}`} >
+            <div className="flex gap-3 ">
+              <Link className="btn-gradient btn btn-sm md:w-28 w-18 rounded-md" to={`/inbox/${item.user}`} >
                 Message
               </Link>
               <div>
                 {item.hide_contact == 1 ? (
                   <div className="flex gap-3">
                     <a href="mailto:example@example.com">
-                      <button className="btn-gradient btn btn-sm w-28 rounded-md">Mail</button>
+                      <button className="btn-gradient btn btn-sm md:w-28 w-18 rounded-md">Mail</button>
                     </a>
                     <a href="tel:+1234567890">
-                      <button className="btn-gradient btn btn-sm w-28 rounded-md">Call</button>
+                      <button className="btn-gradient btn btn-sm md:w-28 w-18 rounded-md">Call</button>
                     </a>
                   </div>
                 ) : (
