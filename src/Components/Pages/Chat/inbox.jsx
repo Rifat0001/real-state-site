@@ -44,11 +44,17 @@ function Inbox() {
     }, [messages]);
 
     const handleValue = (e) => {
+        setMi('')
         setMi(e.target.value)
+        e.target.reset();
+
+
     }
+
     const sendMessage = async () => {
+
         try {
-            setIsSending(true); // Set sending status to true
+            setIsSending(true);
 
             const config = {
                 headers: {
@@ -56,22 +62,27 @@ function Inbox() {
                     'Authorization': `JWT ${localStorage.getItem('access')}`,
                 }
             };
+
             await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}/`, {
                 "message": mi
             }, config, { withCredentials: true });
+
+            setMi('')
+
         } catch (error) {
             console.log(error);
         } finally {
-            setIsSending(false); // Reset sending status to false regardless of success or failure
+            setIsSending(false);
         }
     }
+
 
     console.log(messages)
 
     return (
-        <section className='max-w-[2150px] inbox-container mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
+        <section className='max-w-[2150px] inbox-container mx-auto xl:px-40 md:px-10 sm:px-2 px-4 md:h-[80vh]  h-[85vh] '>
             {/* my design  */}
-            <div className='messages'>
+            <div className='messages md:pb-[60px] pb-[30px] '>
                 {messages &&
                     messages.map((e, i) => {
                         const isCurrentUser = String(id) === String(e.sender_id);

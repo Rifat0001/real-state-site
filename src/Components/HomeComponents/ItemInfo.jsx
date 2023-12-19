@@ -51,6 +51,7 @@ const ItemInfo = () => {
 
   const [startDate, setStartDate] = useState(new Date());
   const [item, setItem] = useState(null);
+  console.log(item)
   // const item = false;
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -228,7 +229,7 @@ const ItemInfo = () => {
             More Image
           </button>
         )}
-        <dialog id="my_modal_4" className="modal blicky">
+        <dialog id="my_modal_4" className="modal z-30">
           <form method="dialog" className="modal-box bg-white w-11/12 max-w-5xl">
             <h3 className="font-bold text-lg">Photos</h3>
             {/* <p className="py-4">Click the button below to close</p> */}
@@ -239,12 +240,11 @@ const ItemInfo = () => {
                   src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                   alt={`item images ${index}`}
                   className="w-full h-[300px] rounded-md shadow mb-2"
-                  onClick={() => openImageModal(image)}
+                // onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[3].image}`)}
                 />
               ))}
             </div>
             <div className="modal-action">
-              {/* if there is a button, it will close the modal */}
               <button className="btn">Close</button>
             </div>
           </form>
@@ -259,17 +259,6 @@ const ItemInfo = () => {
           <p className="font-semibold pt-2 md:mb-0 mb-4">
 
           </p>
-          <div className="flex items-center justify-end gap-4">
-            <button className="btn bg-white border-none hover:bg-white text-black">
-              <FaShareAlt /> Share
-            </button>
-            <button className="btn bg-white border-none hover:bg-white text-black">
-              <FaHeart /> Favorite
-            </button>
-            <button className="btn bg-white border-none hover:bg-white text-black">
-              <FaPrint /> Print
-            </button>
-          </div>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start justify-center">
@@ -496,12 +485,20 @@ const ItemInfo = () => {
               <iframe
                 className="w-full"
                 height={315}
-                src="https://www.youtube.com/embed/rzsdHX4xAc4"
-                title="YouTube video player"
+                src={`${import.meta.env.VITE_APP_API_URL}/${item.video.video}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </div>
+            {/* <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                className="w-full"
+                height={315}
+                src="https://www.youtube.com/embed/rzsdHX4xAc4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div> */}
           </div>
         </div>
         {/* agent message  */}
@@ -512,9 +509,27 @@ const ItemInfo = () => {
               <h2 className=""><span className="font-bold">Name:</span> Maria Barlow</h2>
               <h2 className=""><span className="font-bold">Email:</span> agent@info.com</h2>
             </div>
-            <Link className="btn-gradient  w-full rounded-md" to={`/inbox/${item.user}`} >
-              Message
-            </Link>
+            {/* contact agent part  */}
+            <div className="flex justify-between">
+              <Link className="btn-gradient btn btn-sm w-28 rounded-md" to={`/inbox/${item.user}`} >
+                Message
+              </Link>
+              <div>
+                {item.hide_contact == 1 ? (
+                  <div className="flex gap-3">
+                    <a href="mailto:example@example.com">
+                      <button className="btn-gradient btn btn-sm w-28 rounded-md">Mail</button>
+                    </a>
+                    <a href="tel:+1234567890">
+                      <button className="btn-gradient btn btn-sm w-28 rounded-md">Call</button>
+                    </a>
+                  </div>
+                ) : (
+                  <p>Contact information is hidden.</p>
+                )}
+              </div>
+
+            </div>
           </div>
         </div>
 

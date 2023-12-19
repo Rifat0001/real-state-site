@@ -46,7 +46,6 @@ function Meet() {
                     <thead>
                         <tr className='flex justify-between'>
                             <th className='text-xl text-gradient '>Name</th>
-                            <th className='text-xl text-gradient hidden md:inline-flex'>Email</th>
                             <th className='text-xl text-gradient hidden md:inline-flex'>Action</th>
                         </tr>
                     </thead>
@@ -59,8 +58,8 @@ function Meet() {
                                             <p className='text-black font-bold text-xl'> {e.full_name}</p>
                                         </Link>
                                     </td>
-                                    <td className='text-black font-bold hidden md:inline-flex'>{e.full_name}</td>
-                                    <td className='text-black  font-bold hidden md:inline-flex'>{e.email}</td>
+                                    <td className='text-black font-bold text-2xl hidden md:inline-flex'>{e.full_name}</td>
+                                    {/* <td className='text-black  font-bold hidden md:inline-flex'>{e.email}</td> */}
                                     <td className='hidden md:inline-flex'>
                                         <Link to={`/inbox/${e.id}`} key={i}>
                                             <button className="btn-gradient rounded-md">

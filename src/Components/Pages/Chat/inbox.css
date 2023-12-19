@@ -1,13 +1,11 @@
 .inbox-container {
     display: flex;
     flex-direction: column;
-    height: 80vh;
 }
 
 .messages {
     flex-grow: 1;
     overflow-y: auto;
-    padding-bottom: 60px;
 }
 
 .text-area-container {
