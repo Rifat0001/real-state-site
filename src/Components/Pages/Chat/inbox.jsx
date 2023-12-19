@@ -20,17 +20,18 @@ function Inbox() {
                 };
                 const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}`, config, { withCredentials: true });
                 const newMessages = res.data.messages;
+                console.log(res.data.messages)
 
                 const newMessagesToAdd = newMessages.filter((newMessage) => !messages.some((message) => message.id == newMessage.id));
 
                 if (newMessagesToAdd.length > 0) {
                     setMessages([...messages, ...newMessagesToAdd]);
-                    console.log("Added new messages:", newMessagesToAdd);
+                    // console.log("Added new messages:", newMessagesToAdd);
                 } else {
-                    console.log("No new messages to add.");
+                    // console.log("No new messages to add.");
                 }
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
 
@@ -66,7 +67,7 @@ function Inbox() {
         }
     }
 
-    console.log(messages)
+    // console.log(messages)
 
     return (
         <section className='max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
