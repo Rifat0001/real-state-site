@@ -475,7 +475,7 @@ const ItemInfo = () => {
 </div> */}
           <div className="bg-white py-6 px-7 space-y-3 my-5">
             <h2 className="font-bold text-xl">Video</h2>
-            <div className="aspect-w-16 aspect-h-9">
+            {/* <div className="aspect-w-16 aspect-h-9">
               <iframe
                 className="w-full"
                 height={315}
@@ -483,6 +483,12 @@ const ItemInfo = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
+            </div> */}
+            <div className="aspect-w-16 aspect-h-9">
+              <video width="700" height="320" controls>
+                <source src={`${import.meta.env.VITE_APP_API_URL}${item.video.video}`} type="video/mp4" />
+              </video>
+
             </div>
             {/* <div className="aspect-w-16 aspect-h-9">
               <iframe
@@ -500,8 +506,16 @@ const ItemInfo = () => {
           <h1 className=" text-xl font-bold">Agent information </h1>
           <div className="mt-3 ">
             <div className="space-y-2 mb-3">
-              <h2 className=""><span className="font-bold">Name:</span> Maria Barlow</h2>
-              <h2 className=""><span className="font-bold">Email:</span> agent@info.com</h2>
+              {item.hide_contact == 1 ? (
+                <div className="flex gap-3">
+
+                  <h2 className=""><span className="font-bold">Name:</span> Maria Barlow</h2>
+                  <h2 className=""><span className="font-bold">Email:</span> agent@info.com</h2>
+                  <h2 className=""><span className="font-bold">Phone:</span> 0282882828</h2>
+                </div>
+              ) : (
+                <p className="text-error my-4 text-center">Agent information is hidden</p>
+              )}
             </div>
             {/* contact agent part  */}
             <div className="flex justify-between">
@@ -519,7 +533,7 @@ const ItemInfo = () => {
                     </a>
                   </div>
                 ) : (
-                  <p>Contact information is hidden.</p>
+                  ''
                 )}
               </div>
 

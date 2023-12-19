@@ -3,10 +3,20 @@
     flex-direction: column;
 }
 
+/* 
 .messages {
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: 700px;
+} */
+
+#messageBox {
+    height: 900px;
+    
+    /* Set the desired height for your message box */
+    overflow-y: scroll;
 }
+
 
 .text-area-container {
     margin-top: auto;
