@@ -45,7 +45,7 @@ const SingleProperty = ({ singleCard }) => {
         </div>
       </div>
       <div className="flex justify-end px-6 py-4">
-        <button className="w-full bg-primary btn-gradient px-2 py-3  rounded-md border-none text-white font-bold"> <Link to={`../items/${sku}`}>Details</Link></button>
+        <Link to={`../items/${sku}`} className="w-full bg-primary btn-gradient px-2 py-3  rounded-md border-none text-white text-center font-bold">Details</Link>
       </div>
 
     </div>

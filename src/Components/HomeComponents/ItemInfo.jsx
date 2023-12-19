@@ -6,6 +6,7 @@ import 'react-google-flight-datepicker/dist/main.css';
 import "react-tabs/style/react-tabs.css";
 import './HomeComponents.css'
 import { useMediaQuery } from "react-responsive";
+import { Link } from 'react-router-dom';
 import {
   FaBasketballBall,
   FaBath,
@@ -99,17 +100,32 @@ const ItemInfo = () => {
           isOpen={isModalOpen}
           onRequestClose={closeImageModal}
           contentLabel="Image Modal"
+          className=""
           ariaHideApp={false}
+          style={{
+            overlay: {
+              backgroundColor: 'rgba(0, 0, 0, 0.5)', // semi-transparent background
+              zIndex: 1000, // Adjust the z-index as needed
+            },
+            content: {
+              width: '80%', // adjust the width to your needs
+              height: '90%', // adjust the height to your needs
+              margin: 'auto', // center the modal
+              top: '50px', // add space from the top
+              border: 'none', // remove border
+              zIndex: 1001, // Adjust the z-index to be higher than the overlay
+            },
+          }}
         >
           {selectedImage && (
             <img
               src={selectedImage}
               alt="Selected images"
-              className="w-full h-full  z-80"
+              className="w-full h-full z-80"
             />
           )}
-
         </Modal>
+
         {item.images?.length === 1 && (
           // Render the grid for larger screens
           <div className="grid grid-cols-1  gap-2">
@@ -118,7 +134,7 @@ const ItemInfo = () => {
                 key={index}
                 src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                 alt={`item  ${index}`}
-                onClick={() => openImageModal(image.image)}
+                onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${image.image}`)}
                 className="w-full h-[600px] rounded-md shadow"
               />
             ))}
@@ -137,7 +153,7 @@ const ItemInfo = () => {
                   key={index}
                   src={`${import.meta.env.VITE_APP_API_URL}/${image.image}`}
                   alt={`item images ${index}`}
-                  onClick={() => openImageModal(image.image)}
+                  onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${image.image}`)}
                   className="w-full h-[600px] rounded-md shadow"
                 />
               ))}
@@ -155,7 +171,7 @@ const ItemInfo = () => {
               <img
                 src={`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`}
                 alt=""
-                onClick={() => openImageModal(item.images[0])}
+                onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`)}
                 className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
               />
               <div className="flex flex-col items-center justify-center gap-2">
@@ -163,13 +179,13 @@ const ItemInfo = () => {
                   src={`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`}
                   alt=""
                   className=" h-auto w-full md:h-[250px]"
-                  onClick={() => openImageModal(item.images[1])}
+                  onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`)}
                 />
                 <img
                   src={`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`}
                   alt=""
                   className="h-auto w-full md:h-[250px]"
-                  onClick={() => openImageModal(item.images[2])}
+                  onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`)}
                 />
               </div>
             </div>
@@ -186,19 +202,19 @@ const ItemInfo = () => {
                 src={`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`}
                 alt=""
                 className="col-span-2 w-full md:w-[70%] h-auto md:h-[615px] "
-                onClick={() => openImageModal(item.images[0])}
+                onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[0].image}`)}
               />
               <div className="flex flex-col items-center justify-center gap-2">
                 <img src={`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`}
-                  onClick={() => openImageModal(item.images[1])} alt="" className="h-auto w-full md:h-[200px] " />
+                  onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[1].image}`)} alt="" className="h-auto w-full md:h-[200px] " />
                 <img
                   src={`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`}
-                  alt="" onClick={() => openImageModal(item.images[2])}
+                  alt="" onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[2].image}`)}
                   className="h-auto w-full md:h-[200px] " />
                 <img
                   src={`${import.meta.env.VITE_APP_API_URL}/${item.images[3].image}`}
                   alt="" className="h-auto w-full md:h-[200px] "
-                  onClick={() => openImageModal(item.images[3])}
+                  onClick={() => openImageModal(`${import.meta.env.VITE_APP_API_URL}/${item.images[3].image}`)}
                 />
               </div>
             </div>
@@ -488,194 +504,20 @@ const ItemInfo = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white w-full sticky">
-          <Tabs>
-            <TabList className="text-center py-2">
-              <Tab>Request Info</Tab>
-              <Tab>Schedule A Tour</Tab>
-            </TabList>
-
-            <TabPanel>
-              <div>
-                <div className="flex items-center justify-center gap-7 py-3">
-                  <img
-                    className=" w-[130px] rounded-md"
-                    src="https://images.pexels.com/photos/839633/pexels-photo-839633.jpeg"
-                    alt=""
-                  />
-                  <div>
-                    <h2 className="font-bold">Maria Barlow</h2>
-                    <p>Sales Executive</p>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <div className="card-body">
-                      <div className="form-control">
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          className="input input-bordered shadow"
-                        />
-                      </div>
-                      <div className="form-control">
-                        <input
-                          type="text"
-                          placeholder="Your Email"
-                          className="input input-bordered shadow"
-                        />
-                      </div>
-                      <div className="form-control">
-                        <input
-                          type="phone"
-                          placeholder="Your Phone"
-                          className="input input-bordered shadow"
-                        />
-                      </div>
-                      <div className="form-control">
-                        <textarea
-                          name="message"
-                          cols="10"
-                          rows="20"
-                          className="input input-bordered shadow pt-2"
-                          placeholder="I'm interested in [ Villa On Washington Ave ]"
-                        ></textarea>
-                      </div>
-                      <div className="form-control mt-6">
-
-                        <input
-                          type="submit"
-                          value="Send Email"
-                          className="btn btn-gradient"
-                        />
-                        <div className="flex items-center justify-center gap-2 py-2">
-                          <input
-                            type="submit"
-                            value="Call"
-                            className="btn btn-gradient w-1/2"
-                          />
-                          <input
-                            type="submit"
-                            value="Whatsapp"
-                            className="btn btn-gradient w-1/2"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div>
-                <div className="px-[10%] py-4">
-                  <h2 className="text-xl font-bold">Schedule a tour</h2>
-                  <DatePicker
-                    className="w-full z-10"
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                  />
-                </div>
-                {/* npm install react-google-flight-datepicker */}
-
-
-                <SingleDatePicker
-
-                  startDate={new Date()}
-                  onChange={(startDate) => onDateChange(startDate)}
-                  minDate={new Date(1900, 0, 1)}
-                  maxDate={new Date(2100, 0, 1)}
-                  dateFormat="D"
-                  monthFormat="MMM YYYY"
-                  startDatePlaceholder="Date"
-                  disabled={false}
-                  className="my-own-class-name "
-                  startWeekDay="monday"
-                />
-
-
-                {/* end npm install react-google-flight-datepicker */}
-                <select className="select select-secondary w-full max-w-xs text-center mx-[10%]">
-                  <option disabled selected>
-                    Please Select The Time
-                  </option>
-                  <option>Java</option>
-                  <option>Go</option>
-                  <option>C</option>
-                  <option>C#</option>
-                  <option>C++</option>
-                  <option>Rust</option>
-                  <option>JavaScript</option>
-                  <option>Python</option>
-                </select>
-                <div className="flex items-center justify-center gap-2 py-2 px-[10%]">
-                  <input
-                    type="submit"
-                    value="In Person"
-                    className="btn btn-gradient w-1/2"
-                  />
-                  <input
-                    type="submit"
-                    value="Video Chat"
-                    className="btn btn-gradient w-1/2"
-                  />
-                </div>
-                <div>
-                  <div className="card-body">
-                    <div className="form-control">
-                      <input
-                        type="text"
-                        placeholder="Your Name"
-                        className="input input-bordered shadow"
-                      />
-                    </div>
-                    <div className="form-control">
-                      <input
-                        type="text"
-                        placeholder="Your Email"
-                        className="input input-bordered shadow"
-                      />
-                    </div>
-                    <div className="form-control">
-                      <input
-                        type="phone"
-                        placeholder="Your Phone"
-                        className="input input-bordered shadow"
-                      />
-                    </div>
-                    <div className="form-control">
-                      <textarea
-                        name="message"
-                        cols="10"
-                        rows="20"
-                        className="input input-bordered shadow pt-2"
-                        placeholder="I'm interested in [ Villa On Washington Ave ]"
-                      ></textarea>
-                    </div>
-                    <div className="form-control mt-6">
-                      <label className="label flex items-center justify-start gap-3 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked="checked"
-                          className="checkbox"
-                        />
-                        <span className="label-text font-bold">
-                          {" "}
-                          I consent to the GDPR Terms
-                        </span>
-                      </label>
-                      <input
-                        type="submit"
-                        value="Send Email"
-                        className="btn btn-gradient"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabPanel>
-          </Tabs>
+        {/* agent message  */}
+        <div className="bg-white w-full sticky rounded-md p-4">
+          <h1 className=" text-xl font-bold">Agent information </h1>
+          <div className="mt-3 ">
+            <div className="space-y-2 mb-3">
+              <h2 className=""><span className="font-bold">Name:</span> Maria Barlow</h2>
+              <h2 className=""><span className="font-bold">Email:</span> agent@info.com</h2>
+            </div>
+            <Link className="btn-gradient  w-full rounded-md" to={`/inbox/${item.user}`} >
+              Message
+            </Link>
+          </div>
         </div>
+
       </div>
     </div>
 

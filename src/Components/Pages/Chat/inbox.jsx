@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-
+import './inbox.css'
 function Inbox() {
     const params = useParams();
     const id = params.id;
@@ -70,9 +70,9 @@ function Inbox() {
     // console.log(messages)
 
     return (
-        <section className='max-w-[2150px] mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
+        <section className='max-w-[2150px] inbox-container mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>
             {/* my design  */}
-            <div>
+            <div className='messages'>
                 {messages &&
                     messages.map((e, i) => {
                         const isCurrentUser = String(id) === String(e.sender_id);
@@ -99,8 +99,8 @@ function Inbox() {
 
 
 
-
-            <div className="flex gap-4 my-6">
+            {/* Text area part  */}
+            <div className="flex text-area-container gap-4 my-6">
                 <textarea onChange={e => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
                 <button className="btn btn-gradient" onClick={sendMessage}>
                     {isSending ? (
