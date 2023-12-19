@@ -19,9 +19,7 @@ function ChatApp() {
             };
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/conversation/?q=${param}`,config,{withCredentials:true});
             setMessages(res.data.msg);
-            console.log(messages);
         } catch (error) {
-            console.log(error.response.data)
         }
     };
 
@@ -53,10 +51,8 @@ function ChatApp() {
             if (dmsg.length > messages.length) {
                 setMessages(res.data.msg);
                 setNewMessageFlag(true);
-                console.log(messages);
             }
         } catch (error) {
-            console.log(error)
         }
         }, 2000); // Check every 5 seconds
 

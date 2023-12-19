@@ -11,7 +11,6 @@ const MobileImg = ({ images }) => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
-    console.log(images)
     return (
         <Slider {...sliderSettings}>
             {images.map((image, index) => (

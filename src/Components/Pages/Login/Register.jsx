@@ -21,7 +21,7 @@ const Register = () => {
     const re_password = watch("re_password");
     const onSubmit = async (data) => {
         setLoading(true);
-        console.log(data);
+        
         try {
             const config = {
                 headers: {
@@ -31,7 +31,7 @@ const Register = () => {
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/`, data, config);
             navigate('/')
         } catch (error) {
-            console.log(error);
+            
         }
         finally {
             setLoading(false);

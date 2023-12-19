@@ -30,7 +30,6 @@ const Login = ({ login, isAuthenticated }) => {
             login(res.data);
             navigate("/");
         } catch (error) {
-            console.log(error.response.data.detail)
             setError(error.response.data.detail);
         } finally {
             setLoading(false);

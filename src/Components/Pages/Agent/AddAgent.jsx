@@ -14,11 +14,8 @@ const AddAgent = () => {
                 }
             };
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/autocomplete_agent_emails/?q=${e}`, config, { withCredentials: true });
-            // console.log(res.data);
             setAgents(res.data);
-            console.log(agents)
         } catch (error) {
-            console.log(error.response.data);
         }
     }
     const addAgent = async (email) => {
@@ -30,7 +27,6 @@ const AddAgent = () => {
                 }
             };
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/addAgent/`, { "email": email }, config, { withCredentials: true });
-            console.log(res)
             Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -39,7 +35,6 @@ const AddAgent = () => {
                 timer: 1500
             });
         } catch (error) {
-            console.log(error.response.data);
             Swal.fire({
                 position: "top-center",
                 icon: "info",

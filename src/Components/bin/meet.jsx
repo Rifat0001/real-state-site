@@ -16,11 +16,8 @@ function Meet() {
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/meet/`, config, { withCredentials: true });
             setlist(res.data.users);
             list.map((e, i) => {
-                console.log(e)
             })
-            // console.log(list);
         } catch (error) {
-            console.log(error)
         }
     };
 

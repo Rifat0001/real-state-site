@@ -33,7 +33,7 @@ const Settings = () => {
                 timer: 1500
             });
         } catch (error) {
-            console.log(error);
+            
             Swal.fire({
                 position: "top-center",
                 icon: "error",
@@ -65,7 +65,7 @@ const Settings = () => {
                 timer: 1500
             });
         } catch (error) {
-            console.log(error);
+            
             setError(error.response.data.detail)
             Swal.fire({
                 position: "top-center",
@@ -110,7 +110,6 @@ const Settings = () => {
         if (newPassword === confirmNewPassword) {
             // Passwords match; perform the update
             // Replace this with your actual API call
-            console.log('Password updated:', newPassword);
             setPass();
             closePassModal();
 

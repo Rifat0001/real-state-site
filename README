@@ -8,10 +8,8 @@ Ans: Here is a js code example for you.
 try {
     const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/jwt/create/`, data,{withCredentials:true});
     login(res.data);
-    console.log(res.data);
     //do something
 } catch (error) {
-    console.log(error.response.data.detail)
     // DO something
 }
 

@@ -20,11 +20,8 @@ function Inbox() {
     //       };
     //       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}`, config, { withCredentials: true });
     //       const newMessages = res.data.messages;
-    //       console.log("Received messages from API:", newMessages);
     //       setMessages(newMessages);
-    //       console.log("Messages length after setting:", newMessages.length);
     //     } catch (error) {
-    //       console.log(error);
     //     }
     //   };
     useEffect(() => {
@@ -44,24 +41,18 @@ function Inbox() {
                 if (newMessagesToAdd.length > 0) {
                     // Update the state by concatenating the new messages
                     setMessages([...messages, ...newMessagesToAdd]);
-                    console.log("Added new messages:", newMessagesToAdd);
                 } else {
-                    console.log("No new messages to add.");
                 }
             } catch (error) {
-                console.log(error);
             }
 
 
             //     // Check if the new messages list is longer than the old one
             //     if (newMessages.length > messages.length) {
-            //       console.log("Updating messages:", newMessages);
             //       setMessages(newMessages);
             //     } else {
-            //       console.log("No need to update messages.");
             //     }
             //   } catch (error) {
-            //     console.log(error);
             //   }
         };
 
@@ -92,7 +83,6 @@ function Inbox() {
             setMi("")
             // setMessages((prevList) => [...prevList, res.data.message]);
         } catch (error) {
-            console.log(error)
         }
     }
     return (
@@ -128,17 +118,11 @@ export default Inbox;
 //             };
 //             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}`,config,{withCredentials:true});
 //             const dmsg = res.data.messages;
-//             // console.log(dmsg.length)
-//             // console.log(messages)
-//             console.log(dmsg.length,messages.length)
 //             // if (dmsg.length > messages.length) {
-//             //     console.log("Update")
 //             //     setMessages(res.data.messages);
 //             // }else{
-//             //     console.log("No Need to update")
 //             // }
 //         } catch (error) {
-//             console.log(error)
 //         }
 //         }, 2000); // Check every 5 seconds
 

@@ -8,11 +8,9 @@ const TabComponent = () => {
   const loadDAta = async () => {
     try {
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/hprop`, { withCredentials: true });
-      console.log(res.data);
       setPropertyCard(res.data)
 
     } catch (error) {
-      console.log(error)
     }
   }
 
@@ -40,7 +38,6 @@ const TabComponent = () => {
         {propertyCard.map((e, index) => (
           <SingleProperty key={index} singleCard={{ area: e.loc, title: e.title, price: e.price, currency: e.price_unit, image: e.thumbnail, country: e.address.country, state: e.address.state, bed: e.details.bed, bath: e.details.bath, size: e.details.size, size_unit: e.details.size_unit, price_type: e.price_type, sku: e.sku }} />
 
-          // console.log(e.fields)
         ))}
 
       </div>

@@ -16,13 +16,10 @@ function Activation() {
         const uid = params.uid;
         const token = params.token;
         const body = JSON.stringify({ uid, token });
-        console.log(body)
         try {
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/users/activation/`, body,config);
-            console.log(res)
             setInfo("Congratulations! Your email has been successfully activated.")
         }catch (error) {
-            console.log(error)
             setInfo(
                 Object.keys(error.response.data).map((key) => (
                     error.response.data[key]

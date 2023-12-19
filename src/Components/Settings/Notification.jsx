@@ -14,7 +14,6 @@ const Notification = () => {
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/invitations/`, config, { withCredentials: true });
             setNotifications(res.data)
         } catch (error) {
-            console.log(error.response.data);
         }
     }
     useEffect(()=>{
@@ -29,7 +28,6 @@ const Notification = () => {
                 }
             };
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/invitation/${id}/accept/`,{}, config, { withCredentials: true });
-            console.log(res.data)
             Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -38,7 +36,6 @@ const Notification = () => {
                 timer: 1500
             });
         } catch (error) {
-            console.log(error.response.data);
             Swal.fire({
                 position: "top-center",
                 icon: "info",
@@ -59,7 +56,6 @@ const Notification = () => {
                 }
             };
             const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/invitation/${id}/reject/`,{}, config, { withCredentials: true });
-            console.log(res.data.message)
             Swal.fire({
                 position: "top-center",
                 icon: "success",
@@ -68,7 +64,6 @@ const Notification = () => {
                 timer: 1500
             });
         } catch (error) {
-            console.log(error.response.data);
             Swal.fire({
                 position: "top-center",
                 icon: "info",

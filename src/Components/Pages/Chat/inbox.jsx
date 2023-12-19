@@ -5,7 +5,6 @@ import './inbox.css'
 function Inbox() {
     const params = useParams();
     const id = params.id;
-    console.log(id)
     const [messages, setMessages] = useState([]);
     const [mi, setMi] = useState("")
     const [isSending, setIsSending] = useState(false);
@@ -25,12 +24,9 @@ function Inbox() {
 
                 if (newMessagesToAdd.length > 0) {
                     setMessages([...messages, ...newMessagesToAdd]);
-                    console.log("Added new messages:", newMessagesToAdd);
                 } else {
-                    console.log("No new messages to add.");
                 }
             } catch (error) {
-                console.log(error);
             }
         };
 
@@ -54,8 +50,12 @@ function Inbox() {
     const sendMessage = async () => {
 
         try {
+<<<<<<< HEAD
             setIsSending(true);
 
+=======
+            setIsSending(true); // Set sending status to true
+>>>>>>> f32d9822401500fabe72e36a26a8c005aa253cdb
             const config = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,18 +66,24 @@ function Inbox() {
             await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}/`, {
                 "message": mi
             }, config, { withCredentials: true });
+<<<<<<< HEAD
 
             setMi('')
 
+=======
+            setMi("");
+>>>>>>> f32d9822401500fabe72e36a26a8c005aa253cdb
         } catch (error) {
-            console.log(error);
         } finally {
             setIsSending(false);
         }
     }
 
+<<<<<<< HEAD
 
     console.log(messages)
+=======
+>>>>>>> f32d9822401500fabe72e36a26a8c005aa253cdb
 
     return (
         <section className='max-w-[2150px] inbox-container mx-auto xl:px-40 md:px-10 sm:px-2 px-4 md:h-[80vh]  h-[85vh] '>
@@ -111,7 +117,7 @@ function Inbox() {
 
             {/* Text area part  */}
             <div className="flex text-area-container gap-4 my-6">
-                <textarea onChange={e => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
+                <textarea value={mi} onChange={(e) => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
                 <button className="btn btn-gradient" onClick={sendMessage}>
                     {isSending ? (
                         <span className="loading loading-spinner loading-xl text-white"></span>

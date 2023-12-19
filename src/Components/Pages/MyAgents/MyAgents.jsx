@@ -25,10 +25,10 @@ const MyAgents = () => {
                 config,
                 { withCredentials: true }
             );
-            console.log(res.data);
+            
             setAgents(res.data);
         } catch (error) {
-            console.log(error);
+            
         }
     };
     useEffect(() => {
@@ -48,10 +48,10 @@ const MyAgents = () => {
                 config,
                 { withCredentials: true }
             );
-            console.log(res.data);
+            
             fetchData();
         } catch (error) {
-            console.log(error);
+            
         }
     };
     const removeAgent = (eID) => {
@@ -94,13 +94,6 @@ const MyAgents = () => {
                                         key={i}
                                     >
                                         <div className="relative">
-                                            {/* <figure>
-                        {console.log(e)}
-                        <img
-                          src={`${import.meta.env.VITE_APP_API_URL}/${e.image}`}
-                          alt="Shoes"
-                        />
-                      </figure> */}
                                             <div
                                                 onClick={() => removeAgent(e.id)}
                                                 className="absolute top-4 right-4  bg-white text-error border border-error hover:border-white hover:bg-error btn w-[80px] btn-sm hover:text-white"

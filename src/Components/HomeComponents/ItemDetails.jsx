@@ -41,12 +41,9 @@
 // import { setItem } from "localforage";
 // const ItemInfo = () => {
 //     // const items = useLoaderData();
-//     // // console.log(items);
 //     // const { id } = useParams();
-//     // console.log(id);
 //     const params = useParams();
 //     const id = params.id;
-//     console.log(id)
 
 //     const [startDate, setStartDate] = useState(new Date());
 //     const [item, setItem] = useState({});
@@ -55,7 +52,6 @@
 
 //     // axios 
 //     const loadAxios = async (id) => {
-//         console.log('my id is', id)
 //         try {
 //             const config = {
 //                 headers: {
@@ -64,11 +60,9 @@
 //             };
 //             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/property/${id}`, config, { withCredentials: true });
 
-//             console.log(res.data)
 //             setItem(res.data)
 //         }
 //         catch (error) {
-//             console.log(error.response.data);
 //         }
 //     }
 

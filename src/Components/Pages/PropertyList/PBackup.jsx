@@ -36,7 +36,6 @@ const PropertyList = () => {
         const radius = e.target.range.value;
         const lat = url.searchParams.get('lat');
         const long = url.searchParams.get('long');
-        console.log(location, type, cat, radius, lat, long)
         const data = {
             type: post_type,
             category: property_category,
@@ -45,7 +44,6 @@ const PropertyList = () => {
             long: long,
             radius: radius
         }
-        console.log('my data', data)
         preLoad(data);
     }
 
@@ -60,20 +58,15 @@ const PropertyList = () => {
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
                 params: data
             }, config, { withCredentials: true });
-            console.log(res.data)
             setPropertyCard(res.data)
-            console.log(propertyCard)
         }
         catch (error) {
-            console.log(error.response.data);
         }
     }
     useEffect(() => {
         if (id === undefined) {
-            console.log('Normal')
         }
         else {
-            console.log(id, lat, long, property_category, post_type)
             const data = {
                 type: post_type,
                 category: property_category,
@@ -93,7 +86,6 @@ const PropertyList = () => {
     const [place, setPlace] = useState(null);
     const [selectedShape, setSelectedShape] = useState(null);
     const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
-    console.log('this is location', location)
     // const searchBox = document.getElementById('search').setValue(location);
     const getUserLocation = () => {
         if (navigator.geolocation) {
@@ -135,12 +127,9 @@ const PropertyList = () => {
             const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/polygon/`, {
                 params: data
             }, config, { withCredentials: true });
-            console.log(res.data)
             setPropertyCard(res.data)
-            console.log(propertyCard)
         }
         catch (error) {
-            console.log(error.response.data);
         }
     }
 
@@ -185,8 +174,6 @@ const PropertyList = () => {
             category: category
         }
         polyLoad(data);
-        console.log("Min Latitude:", minLat, "Max Latitude:", maxLat);
-        console.log("Min Longitude:", minLng, "Max Longitude:", maxLng);
 
         // Handle the min and max values as needed
         // e.g., set them in the state, or pass them to another function
@@ -242,9 +229,6 @@ const PropertyList = () => {
     const [range, setRange] = useState(10);
     const [type, setType] = useState('');
     const [cat, setCat] = useState('');
-    console.log(type);
-    console.log(cat);
-    console.log(range);
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 ">
