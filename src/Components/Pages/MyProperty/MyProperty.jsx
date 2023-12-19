@@ -19,8 +19,6 @@ const MyProperty = () => {
               const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/myProperty/`, config, { withCredentials: true });
               setPropertyCard(res.data);
             } catch (error) {
-              console.log(error)
-        
             }
           }
         loadProperty();

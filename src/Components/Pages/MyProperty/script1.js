@@ -22,7 +22,7 @@ function initMap() {
     }
 
     const error = () => {
-        console.log("Error");
+        
     }
 
     navigator.geolocation.getCurrentPosition(success, error)

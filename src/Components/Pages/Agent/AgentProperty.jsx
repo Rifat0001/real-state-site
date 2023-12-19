@@ -9,7 +9,6 @@ const AgentProperty = () => {
         fetch("property.json")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setPropertyCard(data);
             });
     }, []);

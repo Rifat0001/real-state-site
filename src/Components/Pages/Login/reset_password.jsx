@@ -28,7 +28,7 @@ const ResetPassword = () => {
         const token = params.token;
         const new_password = data.password;
         const re_new_password = data.re_password
-        console.log(data);
+        
         try{
             const config = {
               headers: {
@@ -40,7 +40,7 @@ const ResetPassword = () => {
             // Add a page/dialog to show "your password has been reset successfully"
             navigate("/login")
           }catch(error){
-            console.log(error);
+            
             setInfo({
                 'display':'flex',
                 'msg':Object.keys(error.response.data).map((key) => (

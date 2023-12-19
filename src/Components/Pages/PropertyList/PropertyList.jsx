@@ -72,16 +72,12 @@ const PropertyList = () => {
       setPropertyCard(res.data);
       setLocation(location);
     } catch (error) {
-      console.log(error.response.data);
     }
   };
   const [center, setCenter] = useState(null); 
   useEffect(() => {
     if (fromHome == undefined) {
-      console.log("Normal");
     } else {
-      console.log("PreLoaded............................");
-      console.log(location,lat, long, property_category, post_type);
       const data = {
         type: post_type,
         category: property_category,
@@ -97,7 +93,6 @@ const PropertyList = () => {
       setCat(property_category);
       setType(post_type);
       setLocation(location);
-      console.log("LOADED TO-------location :", location);
     }
   }, []);
 
@@ -107,9 +102,7 @@ const PropertyList = () => {
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
   const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
-  console.log("this is location", location);
   // const searchBox = document.getElementById('search').setValue(location);
-  console.log(url.searchParams.get("long"), url.searchParams.get("lat"))
   const getUserLocation = () => {
     if (url.searchParams.get("lat") && url.searchParams.get("long")) {
       setCenter({
@@ -152,7 +145,6 @@ const PropertyList = () => {
       preLoad(data);
 setLocation(autocomplete.getPlace().formatted_address);
     } else {
-      console.log("Autocomplete is not loaded yet!");
     }
   };
 
@@ -171,11 +163,9 @@ setLocation(autocomplete.getPlace().formatted_address);
         config,
         { withCredentials: true }
       );
-      console.log(res.data);
+      
       setPropertyCard(res.data);
-      console.log(propertyCard);
     } catch (error) {
-      console.log(error.response.data);
     }
   };
 
@@ -227,10 +217,7 @@ setLocation(autocomplete.getPlace().formatted_address);
       polyLoad(data);
 
       // ... (existing code)
-      console.log("Min Latitude:", minLat, "Max Latitude:", maxLat);
-      console.log("Min Longitude:", minLng, "Max Longitude:", maxLng);
-      console.log("RAIHAN:DEBUGGER+>");
-      console.log(data);
+      
     },
     [selectedShape]
   );
@@ -395,7 +382,6 @@ setLocation(autocomplete.getPlace().formatted_address);
             
               {propertyCard &&
                 propertyCard.map((e, index) => {
-                    console.log("Bommmm");
                   <Marker key={index}
                     position={{ lat: e.lat, lng: e.long }}
                     icon={{

@@ -28,7 +28,6 @@ const Contact = () => {
         // Send the email using EmailJS
         emailjs.send(serviceId, templateId, templateParams, publicKey)
             .then((response) => {
-                console.log('Email sent successfully!', response);
                 // sweet alert 
                 Swal.fire({
                     position: "top-center",

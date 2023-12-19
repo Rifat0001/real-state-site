@@ -19,7 +19,6 @@ const Map = (location) => {
   const [place, setPlace] = useState(null);
   const [selectedShape, setSelectedShape] = useState(null);
   const [drawingManagerOptions, setDrawingManagerOptions] = useState(null);
-  console.log(location)
   // const searchBox = document.getElementById('search').setValue(location);
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -114,12 +113,9 @@ const Map = (location) => {
       const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/search/`, {
         params: data
       }, config, { withCredentials: true });
-      console.log(res.data)
       setPropertyCard(res.data)
-      console.log(propertyCard)
     }
     catch (error) {
-      console.log(error.response.data);
     }
   }
   const handleFilter = (e) => {
@@ -128,7 +124,6 @@ const Map = (location) => {
     const type = e.target.type.value;
     const cat = e.target.cat.value;
     const radius = e.target.range.value;
-    console.log(location, type, cat, radius)
     const data = {
       type: post_type,
       category: property_category,
@@ -143,9 +138,6 @@ const Map = (location) => {
   const [range, setRange] = useState(10);
   const [type, setType] = useState('');
   const [cat, setCat] = useState('');
-  console.log(type);
-  console.log(cat);
-  console.log(range);
   return (
     <LoadScript googleMapsApiKey="AIzaSyDE1Y0JpqJE6v4vuRpsmpZCoL5ZmTfrHmI" libraries={["places", "drawing"]}    >
       <Autocomplete onLoad={setAutocomplete} onPlaceChanged={onPlaceChanged}>

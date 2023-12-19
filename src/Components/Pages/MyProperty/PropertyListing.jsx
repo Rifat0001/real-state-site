@@ -10,7 +10,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
   const [uid, setUid] = useState();
   useEffect(() => {
     setUid(auth.user.id)
-    console.log(uid)
   }, [uid])
   const imgInp = document.getElementById('imgInp');
   const imagePreviewContainer = document.getElementById('image-preview-container');
@@ -93,7 +92,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
     const floorNo = e.target.floorNo.value;
     const check = e.target.check.value;
     // // e.target.reset();
-    // console.log(title, description, price, currency, duration, category, postType, thumbnail, multiple, video, loc, lat, long, house, streetAddress, address, city, state, country, zip, unit, propertySize, rooms, bathrooms, bedrooms, customId, yearBuilt, garages, date, garageSize, floorNo, check);
     function jsonBlob(obj) {
       return new Blob([JSON.stringify(obj)], {
         type: "application/json",
@@ -164,7 +162,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       formData.append('images', multiple[i]);
     }
     for (let pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
     }
     const config = {
       headers: {
@@ -176,7 +173,7 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
 
       const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/add-property/`, formData, config, { withCredentials: true });
 
-      console.log(res.data);
+      
       Swal.fire({
         position: "top-center",
         icon: "success",
@@ -186,7 +183,6 @@ const PropertyListing = ({ logout, isAuthenticated, auth }) => {
       });
 
     } catch (error) {
-      console.log(error.response.data)
 
     }
   }

@@ -5,7 +5,6 @@ import './inbox.css'
 function Inbox() {
     const params = useParams();
     const id = params.id;
-    console.log(id)
     const [messages, setMessages] = useState([]);
     const [mi, setMi] = useState("")
     const [isSending, setIsSending] = useState(false);
@@ -20,18 +19,14 @@ function Inbox() {
                 };
                 const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}`, config, { withCredentials: true });
                 const newMessages = res.data.messages;
-                console.log(res.data.messages)
 
                 const newMessagesToAdd = newMessages.filter((newMessage) => !messages.some((message) => message.id == newMessage.id));
 
                 if (newMessagesToAdd.length > 0) {
                     setMessages([...messages, ...newMessagesToAdd]);
-                    // console.log("Added new messages:", newMessagesToAdd);
                 } else {
-                    // console.log("No new messages to add.");
                 }
             } catch (error) {
-                // console.log(error);
             }
         };
 
@@ -61,13 +56,11 @@ function Inbox() {
             }, config, { withCredentials: true });
             setMi("");
         } catch (error) {
-            console.log(error);
         } finally {
             setIsSending(false); // Reset sending status to false regardless of success or failure
         }
     }
 
-    // console.log(messages)
 
     return (
         <section className='max-w-[2150px] inbox-container mx-auto xl:px-40 md:px-10 sm:px-2 px-4  h-auto'>

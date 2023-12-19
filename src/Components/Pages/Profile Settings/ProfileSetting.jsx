@@ -24,9 +24,8 @@ const ProfileSetting = () => {
             setLinkedin(res.data.linkedin_link);
             setPinterest(res.data.pinterest);
             setDescription(res.data.description);
-            // console.log(res.data.name);
         } catch (error) {
-            console.log(error);
+            
         }
     }
     useEffect(() => {
@@ -108,13 +107,12 @@ const ProfileSetting = () => {
                 "description": description 
             }, config, { withCredentials: true });
         } catch (error) {
-            console.log(error);
+            
         }
     }
     const handleSubmit = () => {
         // You can use the state values (name, title, number, email, etc.) as needed, for instance, send them to an API or perform any action upon form submission.
         updateProfile();
-        console.log("Submitted:", { name, title, number, email /* ... other fields */ });
     };
     return (
         <div className="py-8 max-w-[2150px] pb-8 mx-auto xl:px-40 md:px-10 sm:px-2 px-4 ">

@@ -27,11 +27,9 @@ const AgentProfile = () => {
               }
           };
           const res = await axios.get(`${import.meta.env.VITE_APP_API_URL}/api/getAgentProfile/${id}`, config, { withCredentials: true });
-          console.log(res.data);
           // UPDATE THIS ! HERE IS THE DATA
           setData(res.data);
       } catch (error) {
-          console.log(error);
       }
     };
 
