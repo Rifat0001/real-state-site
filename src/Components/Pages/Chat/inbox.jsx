@@ -50,7 +50,6 @@ function Inbox() {
     const sendMessage = async () => {
         try {
             setIsSending(true); // Set sending status to true
-
             const config = {
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,6 +59,7 @@ function Inbox() {
             await axios.post(`${import.meta.env.VITE_APP_API_URL}/api/inbox/${id}/`, {
                 "message": mi
             }, config, { withCredentials: true });
+            setMi("");
         } catch (error) {
             console.log(error);
         } finally {
@@ -101,7 +101,7 @@ function Inbox() {
 
             {/* Text area part  */}
             <div className="flex text-area-container gap-4 my-6">
-                <textarea onChange={e => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
+                <textarea value={mi} onChange={(e) => handleValue(e)} className="textarea textarea-success text-black h-8 w-full" placeholder="message"></textarea>
                 <button className="btn btn-gradient" onClick={sendMessage}>
                     {isSending ? (
                         <span className="loading loading-spinner loading-xl text-white"></span>
